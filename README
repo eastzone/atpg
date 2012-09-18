@@ -1,0 +1,8 @@
+Automatic Test Packet Generation 
+
+Author: James Hongyi Zeng (hyzeng_at_stanford.edu) and Peyman Kazemian (kazemian_at_stanford.edu)
+
+Automatic Test Packet Generation (ATPG) is a tool that formally generates test packets with to achieve maximum rule coverage. 
+
+ATPG is uses Hassel (https://bitbucket.org/peymank/hassel-public) for packet header analysis.
+
