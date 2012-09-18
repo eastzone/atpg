@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Mahak
+Bundle-SymbolicName: net.beaconcontroller.mahak
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: net.beaconcontroller.core,
+ net.beaconcontroller.core.io,
+ org.openflow.protocol;version="1.0.1",
+ org.openflow.protocol.action;version="1.0.1",
+ org.openflow.util;version="1.0.1",
+ org.slf4j
+Require-Bundle: jackson-core-asl;bundle-version="1.6.1",
+ jackson-mapper-asl;bundle-version="1.6.1"
