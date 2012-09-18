@@ -1,7 +1,7 @@
 #!/usr/bin/python
 import sqlite3, time, random
 
-DATABASE_FILE = "../atpg/work/i2-100-edge.sqlite"
+DATABASE_FILE = "work/internet2.sqlite"
 
 rule_lists = []
 query = "SELECT rules FROM test_packets_globally_compressed"
