@@ -1,0 +1,1039 @@
+access-list 3 permit 171.64.0.0 0.3.255.255
+access-list 3 permit 172.27.16.32 0.0.0.31
+access-list 4 permit 171.64.0.0 0.3.255.255
+access-list 4 permit 128.12.0.0 0.0.255.255
+access-list 8 permit 171.64.2.192
+access-list 8 permit 192.168.8.0
+access-list 16 permit 66.250.3.76
+access-list 17 permit 171.64.17.224
+access-list 20 permit 10.252.0.0
+access-list 21 permit 172.20.0.208 0.0.0.7
+access-list 21 permit 172.20.0.216 0.0.0.3
+access-list 21 permit 172.20.0.160 0.0.0.31
+access-list 22 permit 171.67.249.0 0.0.0.127
+access-list 23 permit 171.67.248.0 0.0.3.255
+access-list 23 permit 172.27.248.0 0.0.3.255
+access-list 23 permit 172.20.1.224 0.0.0.7
+access-list 24 permit 172.24.0.0
+access-list 28 permit 128.12.0.0
+access-list 29 permit 128.12.0.0 0.0.255.255
+access-list 29 permit 172.19.0.0 0.0.255.255
+access-list 32 permit 128.12.0.0
+access-list 32 permit 171.64.0.0
+access-list 39 permit 204.152.100.0 0.0.3.255
+access-list 48 permit 10.248.0.0
+access-list 49 permit 209.11.184.0
+access-list 50 permit 10.250.0.0
+access-list 51 permit 10.50.0.0
+access-list 52 permit 10.50.0.0
+access-list 52 permit 10.248.0.0
+access-list 52 permit 10.252.0.0
+access-list 64 permit 171.64.0.0
+access-list 65 permit 171.65.0.0
+access-list 66 permit 171.66.96.0
+access-list 70 permit 171.67.248.0
+access-list 70 permit 171.67.250.0
+access-list 70 permit 172.27.250.0
+access-list 70 permit 172.27.248.0
+access-list 70 permit 171.64.0.87
+access-list 71 permit 171.64.0.0 0.3.255.255
+access-list 72 permit 137.164.28.0 0.0.0.255
+access-list 88 permit any
+access-list 89 permit 0.0.0.0
+access-list 90 permit 0.0.0.0
+access-list 91 permit any
+access-list 97 deny   172.16.0.0 0.0.255.255
+access-list 97 permit any
+access-list 99 deny   any
+access-list 1411 permit 171.67.9.0
+access-list 1412 permit 171.67.11.32
+access-list 1412 permit 171.67.11.0
+access-list 1413 permit 171.67.9.160
+access-list 1413 permit 171.67.9.128
+access-list 1413 permit 192.169.249.13
+access-list 1414 permit 171.67.32.0
+access-list 1415 permit 171.67.9.192
+access-list 1428 permit 192.168.249.28
+access-list 1428 permit 172.28.0.0
+access-list 110 permit ip host 172.20.4.195 host 172.20.4.1
+access-list 110 permit ip host 172.20.4.1 host 172.20.4.195
+access-list 135 deny   tcp any any eq 445
+access-list 135 permit tcp any any gt 139
+access-list 135 deny   tcp any any gt 134
+access-list 135 permit tcp any any
+access-list 135 permit udp any any gt netbios-ss
+access-list 135 deny   udp any any gt 134
+access-list 135 permit ip any any
+access-list 137 permit ip 128.12.184.0 0.0.7.255 any
+access-list 137 deny   tcp any any eq 445
+access-list 137 permit tcp any any gt 139
+access-list 137 deny   tcp any any gt 134
+access-list 137 permit tcp any any
+access-list 137 permit udp any any gt netbios-ss
+access-list 137 deny   udp any any gt 134
+access-list 137 permit ip any any
+access-list 139 deny   tcp any any eq 445
+access-list 139 permit tcp any any gt 139
+access-list 139 deny   tcp any any gt 134
+access-list 139 permit tcp any any
+access-list 139 permit udp any any gt netbios-ss
+access-list 139 deny   udp any any gt 134
+access-list 139 permit ip any any
+access-list 140 deny   tcp any any eq 445
+access-list 140 permit ip any any
+!
+redundancy
+ main-cpu
+  auto-sync running-config
+ mode sso
+!
+vlan internal allocation policy ascending
+vlan access-log ratelimit 2000
+!
+vlan 2
+ name coreBB-A
+!
+vlan 5
+ name voip-dmz-test
+!
+vlan 9
+ name I2-net
+!
+vlan 10
+ name forsythemr-net
+!
+vlan 11
+ name bbr-spine
+!
+vlan 12
+ name bbr2-ospf
+!
+vlan 19
+ name ACD-server-net
+!
+vlan 22
+ name resbb-a
+!
+vlan 42
+ name natbb-a
+!
+vlan 64
+ name BBR-BND-DMZA
+!
+vlan 81
+ name stures-bnda1
+!
+vlan 82
+ name stures-bnda2
+!
+vlan 91
+ name wrlsb-NATA
+!
+vlan 92
+ name wrlsb-noNATA
+!
+vlan 249
+ name fmr-guest-net
+!
+vlan 267
+ name 171.64.7.128/27
+!
+vlan 268
+ name 171.64.7.160/27
+!
+vlan 272
+ name mgmt
+!
+vlan 275
+ name 171.64.7.96/27
+!
+vlan 277
+ name 171.64.7.0/27
+!
+vlan 278
+ name 171.64.7.64/27
+!
+vlan 281
+ name backbone1-net
+!
+vlan 283
+ name services-backbone1
+!
+vlan 285
+ name fwlnk1-net
+!
+vlan 290
+ name vpn2few-net
+!
+vlan 292
+ name vpnfew-net
+!
+vlan 293
+ name pinfew-net
+!
+vlan 294
+ name forfew-net
+!
+vlan 295
+ name voipfew-net
+!
+vlan 296
+ name harpfew-net
+!
+vlan 297
+ name hatsfew-net
+!
+vlan 320
+ name east-ech-net
+!
+vlan 322
+ name west-ech-net
+!
+vlan 555
+ name wireless-oc-net
+!
+vlan 557
+ name tstbb1
+!
+vlan 564
+ name res-east-isp
+!
+vlan 566
+ name res-west-isp
+!
+vlan 580
+ name res-campus-I2
+!
+vlan 585
+ name med-center
+!
+vlan 590
+ name border-net
+!
+vlan 599
+ name bars
+!
+vlan 861
+ name security-span1-net
+!
+vlan 864
+ name perftest-net
+!
+vlan 866
+ name securityscan-net
+!
+vlan 881
+ name cnsfw-lnk1
+!
+vlan 882
+ name fw-bgp2-net
+!
+vlan 895
+ name off-campus-dmz
+!
+vlan 902
+ name voip-shc-test
+!
+! 
+!
+no crypto ipsec nat-transparency udp-encaps
+!
+!
+interface Loopback0
+ ip address 171.64.0.124 255.255.255.255
+ ipv6 address 2607:F6D0:0:B00::AB40:7C/128
+ ipv6 ospf 65064 area 0
+!
+interface Loopback1
+ ip address 171.64.1.1 255.255.255.255
+!
+interface Loopback2
+ ip address 171.66.1.1 255.255.255.255
+!
+interface Loopback3
+ ip address 171.67.1.1 255.255.255.255
+!
+interface Loopback7
+ ip address 171.67.255.124 255.255.255.255
+!
+interface TenGigabitEthernet1/1
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 2,64
+ switchport mode trunk
+ mtu 9216
+!
+interface TenGigabitEthernet1/2
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 2,864
+ switchport mode trunk
+ mtu 9216
+!
+interface TenGigabitEthernet1/3
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 2
+ switchport mode trunk
+ mtu 9216
+!
+interface TenGigabitEthernet1/4
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 2
+ switchport mode trunk
+ mtu 9216
+!
+interface GigabitEthernet3/1
+ switchport
+ switchport access vlan 9
+ switchport mode access
+!
+interface GigabitEthernet3/2
+ no ip address
+!
+interface GigabitEthernet3/3
+ no ip address
+!
+interface GigabitEthernet3/4
+ switchport
+ switchport access vlan 281
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet3/5
+ no ip address
+ no ip redirects
+ no ip unreachables
+ ip ospf cost 50
+!
+interface GigabitEthernet3/6
+ switchport
+ switchport access vlan 283
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet3/7
+ switchport
+ switchport access vlan 281
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet3/8
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan none
+ switchport mode trunk
+!
+interface GigabitEthernet3/9
+ switchport
+ switchport access vlan 864
+ switchport mode access
+!
+interface GigabitEthernet3/10
+ switchport
+ switchport mode access
+!
+interface GigabitEthernet3/11
+ switchport
+ switchport access vlan 585
+ switchport mode access
+!
+interface GigabitEthernet3/12
+ switchport
+ switchport mode access
+!
+interface GigabitEthernet3/13
+ switchport
+ switchport access vlan 281
+ switchport mode access
+!
+interface GigabitEthernet3/14
+ switchport
+ switchport access vlan 281
+ switchport mode access
+!
+interface GigabitEthernet3/15
+ switchport
+!
+interface GigabitEthernet3/16
+ mtu 9216
+ no ip address
+!
+interface GigabitEthernet3/16.13
+ encapsulation dot1Q 13
+ ip address 68.65.168.35 255.255.255.224
+ no ip redirects
+ no ip unreachables
+ no cdp enable
+!
+interface GigabitEthernet4/1
+ ip address 204.63.231.234 255.255.255.240
+!
+interface GigabitEthernet4/2
+ switchport
+ switchport access vlan 322
+ switchport mode access
+!
+interface GigabitEthernet4/3
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 19,267,268,272,275,277,278,320
+ switchport mode trunk
+!
+interface GigabitEthernet4/4
+ switchport
+ switchport access vlan 10
+ switchport mode access
+!
+interface GigabitEthernet4/5
+ switchport
+ switchport access vlan 19
+ switchport mode access
+!
+interface GigabitEthernet4/6
+ ip address 171.64.1.21 255.255.255.252
+ no ip redirects
+ no ip unreachables
+ ip ospf cost 50
+!
+interface GigabitEthernet4/6.17
+ encapsulation dot1Q 17
+ ip address 171.64.1.17 255.255.255.252
+ no ip redirects
+ no ip unreachables
+ no cdp enable
+!
+interface GigabitEthernet4/7
+ switchport
+ switchport access vlan 902
+ switchport mode access
+!
+interface GigabitEthernet4/8
+ switchport
+ switchport access vlan 2
+ switchport mode access
+!
+interface GigabitEthernet4/9
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 22,42,64,91,92,590
+ switchport mode trunk
+!
+interface GigabitEthernet4/10
+ mtu 9216
+ no ip address
+!
+interface GigabitEthernet4/10.123
+ encapsulation dot1Q 123
+ ip address 68.65.168.97 255.255.255.240
+ no ip redirects
+ no ip unreachables
+ ipv6 address 2607:F6D0:0:BCA::4441:A861/64
+ no cdp enable
+!
+interface GigabitEthernet4/11
+ switchport
+ switchport access vlan 590
+ switchport mode access
+!
+interface GigabitEthernet4/12
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 82
+ switchport mode trunk
+!
+interface GigabitEthernet4/13
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 2,9
+ switchport mode trunk
+!
+interface GigabitEthernet4/14
+ switchport
+ switchport access vlan 22
+ switchport mode access
+!
+interface GigabitEthernet4/15
+ switchport
+ switchport access vlan 22
+!
+interface GigabitEthernet4/16
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 2,11,12,19,249,272,281,285,290-297,555-566,580
+ switchport trunk allowed vlan add 581,585,881,882
+ switchport mode trunk
+!
+interface GigabitEthernet5/1
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 2,5,19,557,861,866,902
+ switchport mode trunk
+!
+interface GigabitEthernet5/2
+ no ip address
+ media-type rj45
+!
+interface TenGigabitEthernet6/1
+ switchport
+ switchport access vlan 22
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 2,22,42,81,82,564,566
+ switchport mode trunk
+ mtu 9216
+!
+interface TenGigabitEthernet6/2
+ switchport
+ switchport access vlan 2
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 2
+ switchport mode trunk
+ mtu 9216
+!
+interface TenGigabitEthernet6/3
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 2
+ switchport mode trunk
+ mtu 9216
+ no cdp enable
+!
+interface TenGigabitEthernet6/4
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 2
+ switchport mode trunk
+ mtu 9216
+!
+interface TenGigabitEthernet7/1
+ switchport
+ switchport access vlan 11
+ switchport mode access
+ mtu 9216
+!
+interface TenGigabitEthernet7/2
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 2,22,42,81,82,564,566
+ switchport mode trunk
+ mtu 9216
+!
+interface TenGigabitEthernet7/3
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 2
+ switchport mode trunk
+ mtu 9216
+!
+interface TenGigabitEthernet7/4
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 2,64
+ switchport mode trunk
+ mtu 9216
+!
+interface FastEthernet9/1
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/2
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/3
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/4
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/5
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/6
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/7
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/8
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/9
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/10
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/11
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/12
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/13
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/14
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/15
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/16
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/17
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/18
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/19
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/20
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/21
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/22
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/23
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/24
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/25
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/26
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/27
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/28
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/29
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/30
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/31
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/32
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/33
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/34
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/35
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/36
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/37
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/38
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/39
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/40
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/41
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/42
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/43
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/44
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/45
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/46
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/47
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/48
+ switchport
+ switchport access vlan 322
+ switchport mode access
+ shutdown
+!
+interface Vlan1
+ no ip address
+ no ip redirects
+ no ip unreachables
+ shutdown
+!
+interface Vlan2
+ ip address 172.20.4.1 255.255.254.0 secondary
+ ip address 171.64.255.129 255.255.255.192
+ no ip redirects
+ no ip unreachables
+ ipv6 address 2607:F6D0:0:BBA::AB40:FF81/64
+!
+interface Vlan9
+ description to HPR/DC/Highwire/ISP-backup
+ ip address 172.24.1.134 255.255.255.240 secondary
+ ip address 171.64.1.198 255.255.255.224 secondary
+ ip address 171.64.1.134 255.255.255.240
+ no ip redirects
+ no ip unreachables
+ ip ospf cost 11
+ standby 7 ip 172.24.1.129
+ standby 7 timers 2 7
+ standby 7 priority 120
+ standby 7 preempt
+ standby 7 authentication Cenic
+!
+interface Vlan11
+ description bbr-spine
+ ip address 172.20.10.2 255.255.255.224
+ no ip redirects
+ no ip unreachables
+ ip ospf cost 4
+ ipv6 address 2607:F6D0:0:BB0::AC14:A02/64
+ ipv6 ospf 65064 area 0
+!
+interface Vlan12
+ description bbra<->bbr2 ospf
+ ip address 171.64.1.5 255.255.255.252
+ no ip redirects
+ no ip unreachables
+ ip ospf cost 9
+!
+interface Vlan22
+ ip address 172.20.2.1 255.255.255.0
+ no ip redirects
+ no ip unreachables
+!
+interface Vlan42
+ description natbb-a
+ ip address 172.20.8.1 255.255.255.0
+ no ip redirects
+ no ip unreachables
+!
+interface Vlan64
+ description BBR-BND-DMZA
+ ip address 171.64.1.33 255.255.255.240
+ no ip redirects
+ no ip unreachables
+!
+interface Vlan91
+ description wirelessb NAT
+ ip address 171.64.1.97 255.255.255.252
+ no ip redirects
+ no ip unreachables
+!
+interface Vlan92
+ description wirelessb no NAT
+ ip address 171.64.1.101 255.255.255.252
+ no ip redirects
+ no ip unreachables
+!
+interface Vlan249
+ description fmr-guest-net
+ ip address 172.24.249.5 255.255.255.0 secondary
+ ip address 171.64.249.5 255.255.255.0
+ no ip redirects
+ no ip unreachables
+ standby 249 ip 171.64.249.1
+ standby 249 ip 172.24.249.1 secondary
+ standby 249 timers 2 7
+ standby 249 priority 110
+ standby 249 preempt
+ standby 249 authentication fgsn
+!
+interface Vlan280
+ no ip address
+ shutdown
+!
+interface Vlan281
+ description from user routers
+ ip address 171.64.1.52 255.255.255.240
+ no ip redirects
+ no ip unreachables
+ ip ospf cost 7
+ ip ospf priority 5
+!
+interface Vlan283
+ description services-backbone1 (yen/lira/ap/dsl)
+ ip address 171.64.1.81 255.255.255.240
+ no ip redirects
+ no ip unreachables
+ ip ospf cost 7
+!
+interface Vlan285
+ description more firewalls
+ ip address 171.67.2.3 255.255.255.128
+ no ip redirects
+ no ip unreachables
+ standby 249 ip 171.67.2.1
+ standby 249 timers 2 7
+ standby 249 priority 90
+ standby 249 preempt
+ standby 249 authentication 285few
+!
+interface Vlan290
+ description vpn2few-net
+ ip address 171.64.250.149 255.255.255.248 secondary
+ ip address 192.168.249.149 255.255.255.248
+ no ip redirects
+ no ip unreachables
+ standby 249 ip 171.64.250.145
+ standby 249 timers 2 7
+ standby 249 priority 90
+ standby 249 authentication 290few
+!
+interface Vlan292
+ description vpnfew-net
+ ip address 171.64.250.181 255.255.255.248 secondary
+ ip address 192.168.249.181 255.255.255.248
+ no ip redirects
+ no ip unreachables
+ standby 249 ip 171.64.250.177
+ standby 249 timers 2 7
+ standby 249 priority 90
+ standby 249 authentication 292few
+!
+interface Vlan293
+ description pinfew-net
+ ip address 171.64.250.189 255.255.255.248 secondary
+ ip address 192.168.249.189 255.255.255.248
+ no ip redirects
+ no ip unreachables
+ standby 249 ip 171.64.250.185
+ standby 249 timers 2 7
+ standby 249 priority 90
+ standby 249 authentication 293few
+!
+interface Vlan294
+ description forfew-net
+ ip address 171.64.250.197 255.255.255.248 secondary
+ ip address 192.168.249.133 255.255.255.248
+ no ip redirects
+ no ip unreachables
+ standby 249 ip 171.64.250.193
+ standby 249 timers 2 7
+ standby 249 priority 90
+ standby 249 authentication 294few
+!
+interface Vlan295
+ description voipfew eth 1
+ ip address 192.168.249.157 255.255.255.248
+ no ip redirects
+ no ip unreachables
+!
+interface Vlan296
+ description harpfew-net
+ ip address 171.64.250.213 255.255.255.248 secondary
+ ip address 192.168.249.165 255.255.255.248
+ no ip redirects
+ no ip unreachables
+ standby 249 ip 171.64.250.209
+ standby 249 timers 2 7
+ standby 249 priority 90
+ standby 249 authentication 296few
+!
+interface Vlan297
+ description hatsfew-net
+ ip address 171.64.250.221 255.255.255.248 secondary
+ ip address 192.168.249.173 255.255.255.248
+ no ip redirects
+ no ip unreachables
+ standby 249 ip 171.64.250.217
+ standby 249 timers 2 7
+ standby 249 priority 90
+ standby 249 authentication 297few
+!
+interface Vlan555
+ description some pktshapers
+ ip address 172.24.1.241 255.255.255.240 secondary
+ ip address 171.64.1.241 255.255.255.240
+ no ip redirects
+ no ip unreachables
+ ip ospf cost 250
+!
+interface Vlan557
+ description tstbb1 - backbone for Pine Network Testbed (pntb)
+ ip address 172.20.251.1 255.255.255.0
+ no ip redirects
+ no ip unreachables
+!
+interface Vlan564
+ description res-east-rtr
+ ip address 128.12.1.81 255.255.255.248
+ no ip redirects
+ no ip unreachables
+!
+interface Vlan566
+ description res-west-rtr
+ ip address 128.12.1.91 255.255.255.248
+ no ip redirects
+ no ip unreachables
+!
+interface Vlan585
+ description med-center
+ ip address 172.27.1.129 255.255.255.248 secondary
+ ip address 171.67.1.129 255.255.255.248
+ no ip redirects
+ no ip unreachables
+ ip ospf cost 7
+ ip ospf priority 5
+!
+interface Vlan590
+ description to border-rtr
+ ip address 171.66.1.73 255.255.255.240 secondary
+ ip address 171.64.1.151 255.255.255.240
+ no ip redirects
+ no ip unreachables
+!
+interface Vlan861
+ description security-span1-net
+ ip address 171.66.1.129 255.255.255.248
+ no ip redirects
+ no ip unreachables
+!
+interface Vlan864
+ description netspeed
+ ip address 171.66.6.33 255.255.255.240
+ no ip redirects
+ no ip unreachables
+!
+interface Vlan866
+ description security-scan-net
+ ip address 171.66.6.97 255.255.255.224 secondary
+ ip address 172.26.6.97 255.255.255.224 secondary
+ ip address 172.26.6.65 255.255.255.240
+ no ip redirects
+ no ip unreachables
+!
+interface Vlan881
+ description fw-bgp1-net (trunk 4/16 to Forsythe)
+ ip address 192.168.249.65 255.255.255.192
+ no ip redirects
+ no ip unreachables
+!
+interface Vlan882
+ description fw-bgp2-net (trunk 4/16 to Forsythe)
+ ip address 192.168.249.254 255.255.255.192
+ no ip redirects
+ no ip unreachables
+!
+
+end

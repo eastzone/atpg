@@ -1,0 +1,903 @@
+!
+access-list 3 permit 172.16.1.75
+access-list 24 permit 172.24.0.0
+access-list 27 permit 172.24.0.0 0.3.255.255
+access-list 29 permit 128.12.0.0 0.0.255.255
+access-list 29 permit 172.19.0.0 0.0.255.255
+access-list 64 permit 171.64.0.0
+access-list 67 permit 171.64.0.0 0.3.255.255
+access-list 88 permit any
+access-list 89 permit 0.0.0.0
+access-list 90 permit 0.0.0.0
+access-list 98 deny   any
+access-list 99 deny   172.16.0.0 0.0.255.255
+access-list 99 permit any
+access-list 101 deny   tcp any any eq 445
+access-list 101 permit ip any any
+access-list 119 permit ip 172.19.96.0 0.0.3.255 172.27.143.160 0.0.0.31
+access-list 119 permit ip 172.19.96.0 0.0.3.255 171.64.10.0 0.0.1.255
+access-list 119 permit ip 172.19.96.0 0.0.3.255 host 10.64.10.100
+access-list 119 deny   ip 172.19.96.0 0.0.3.255 any
+access-list 119 deny   udp any 128.12.0.1 0.0.255.0 eq snmp
+access-list 119 deny   udp any 172.19.0.1 0.0.255.0 eq snmp
+access-list 119 permit ip any any
+access-list 120 permit ip 172.19.96.0 0.0.3.255 172.27.143.160 0.0.0.31
+access-list 120 permit ip 172.19.96.0 0.0.3.255 171.64.10.0 0.0.1.255
+access-list 120 permit ip 172.19.96.0 0.0.3.255 host 10.64.10.100
+access-list 120 permit ip 172.19.96.0 0.0.3.255 host 171.67.43.194
+access-list 120 deny   ip 172.19.96.0 0.0.3.255 any
+access-list 120 deny   udp any 128.12.0.1 0.0.255.0 eq snmp
+access-list 120 deny   udp any 172.19.0.1 0.0.255.0 eq snmp
+access-list 120 permit ip any any
+access-list 140 permit ip 172.19.60.0 0.0.3.255 172.24.136.192 0.0.0.31
+access-list 140 permit ip 172.19.60.0 0.0.3.255 171.64.10.0 0.0.1.255
+access-list 140 deny   ip 172.19.60.0 0.0.3.255 any
+access-list 140 permit ip any host 172.26.6.66
+access-list 140 permit ip any 171.64.7.128 0.0.0.63
+access-list 140 deny   tcp any any eq 445
+access-list 140 permit tcp any any gt 139
+access-list 140 deny   tcp any any gt 134
+access-list 140 permit tcp any any
+access-list 140 deny   udp any any eq 445
+access-list 140 permit udp any any gt netbios-ss
+access-list 140 deny   udp any any gt 134
+access-list 140 permit ip any any
+!
+redundancy
+ main-cpu
+  auto-sync running-config
+ mode sso
+!
+ip access-list standard ctrCOZ
+ permit 10.30.0.0 0.0.255.255
+!
+ip access-list extended block-smtp
+ deny   tcp any any eq smtp
+ permit ip any any
+ip access-list extended inACL
+ permit ip 128.12.1.0 0.0.0.255 128.12.1.0 0.0.0.255
+ deny   ip 128.12.0.0 0.0.255.255 any
+ deny   ip 171.64.0.0 0.3.255.255 any
+ deny   ip 10.0.0.0 0.255.255.255 any
+ deny   ip 172.16.0.0 0.15.255.255 any
+ deny   ip 192.168.0.0 0.0.255.255 any
+ deny   ip host 218.75.221.29 any
+ deny   ip host 24.116.12.59 any
+ deny   ip host 64.225.154.135 any
+ deny   ip host 66.36.231.141 any
+ deny   ip host 66.98.150.159 any
+ deny   ip host 67.15.28.12 any
+ deny   ip host 69.31.93.220 any
+ deny   ip host 70.85.141.91 any
+ deny   ip host 70.86.48.242 any
+ deny   ip host 70.136.88.76 any
+ deny   ip host 72.34.44.37 any
+ deny   ip host 82.137.161.100 any
+ deny   ip host 82.179.162.35 any
+ deny   ip host 82.179.166.2 any
+ deny   ip host 86.135.149.130 any
+ deny   ip host 129.93.51.80 any
+ deny   ip host 140.198.35.85 any
+ deny   ip host 140.198.165.185 any
+ deny   ip host 193.151.69.170 any
+ deny   ip host 195.161.113.90 any
+ deny   ip host 195.225.176.38 any
+ deny   ip host 204.127.198.24 any
+ deny   tcp any any eq sunrpc
+ deny   tcp any any eq 6651
+ deny   tcp any any eq 48522
+ deny   tcp any any eq 33571
+ deny   tcp any any eq 135
+ deny   tcp any any eq 137
+ deny   tcp any any eq 138
+ deny   tcp any any eq 139
+ deny   tcp any any eq 445
+ deny   tcp any any eq lpd
+ deny   tcp any any eq 1434
+ deny   tcp any any eq 27374
+ permit tcp any any
+ deny   udp any any eq snmp
+ deny   udp any any eq tftp
+ deny   udp any any eq sunrpc
+ deny   udp any any eq 135
+ deny   udp any any eq netbios-ns
+ deny   udp any any eq netbios-dgm
+ deny   udp any any eq netbios-ss
+ deny   udp any any eq 445
+ deny   udp any any eq 1434
+ permit udp any any
+ deny   icmp any 128.12.0.0 0.0.255.0
+ deny   icmp any 128.12.0.255 0.0.255.0
+ permit icmp any any
+ permit ip any any
+ip access-list extended outACL
+ deny   udp any any eq 8998
+ deny   tcp any any eq smtp
+ deny   tcp any any eq 135
+ deny   tcp any any range 137 139
+ deny   tcp any any eq 445
+ deny   udp any any eq 135
+ deny   udp any any range netbios-ns netbios-ss
+ deny   udp any any eq 445
+ permit ip 128.12.0.0 0.0.255.255 any
+ deny   ip 10.0.0.0 0.255.255.255 any
+ deny   ip 172.16.0.0 0.15.255.255 any
+ deny   ip 192.168.0.0 0.0.255.255 any
+ deny   ip any any
+!
+vlan internal allocation policy ascending
+vlan access-log ratelimit 2000
+!
+vlan 10
+ name ospf_net
+!
+vlan 16
+ name Management-Net
+!
+vlan 201
+ name (171.66.4.32/29)
+!
+vlan 202
+ name (172.26.4.32/29)
+!
+vlan 203
+ name (171.66.4.40/29)
+!
+vlan 204
+ name (172.26.4.40/29)
+!
+vlan 205
+ name (171.66.4.48/29)
+!
+vlan 206
+ name (172.26.4.48/29)
+!
+vlan 207
+ name (171.66.4.56/29)
+!
+vlan 208
+ name coz-diag-servers
+!
+vlan 209
+ name dhcp-relay-net
+!
+vlan 316
+ name mirrielees
+!
+vlan 320
+ name castano-lantana
+!
+vlan 322
+ name kimball
+!
+vlan 430
+ name studio1
+!
+vlan 432
+ name upper-ev
+!
+vlan 436
+ name blackwelder
+!
+vlan 440
+ name studio2
+!
+vlan 444
+ name quillen
+!
+vlan 448
+ name mcfarland
+!
+vlan 452
+ name hoskins
+!
+vlan 456
+ name hulme
+!
+vlan 466
+ name barnes
+!
+vlan 468
+ name abrams
+!
+vlan 472
+ name studio6
+!
+vlan 473
+ name studio5
+!
+vlan 474
+ name studio4
+!
+vlan 475
+ name studio3
+!
+vlan 476
+ name ev1-54
+!
+vlan 484
+ name rains-upper
+!
+vlan 488
+ name rains-lower
+!
+vlan 499
+ name prv-172.19
+!
+vlan 549
+ name Res-Wireless-Mgmt
+!
+vlan 550
+ name Rains-WL
+!
+vlan 552
+ name EV-West-WL
+!
+vlan 554
+ name EV-East-WL
+!
+vlan 556
+ name EV-North-WL
+!
+vlan 558
+ name Ev-West-WL
+!
+! 
+!
+!
+!
+interface Loopback0
+ ip address 172.20.0.34 255.255.255.255
+!
+interface Loopback1
+ ip address 172.20.0.3 255.255.255.255
+!
+interface Loopback2
+ ip address 128.12.0.3 255.255.255.255
+!
+interface GigabitEthernet1/1
+ switchport
+ switchport access vlan 16
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 1,4-9,11-4094
+ switchport mode access
+!
+interface GigabitEthernet1/2
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 1,4-9,11-15,17-4094
+ switchport mode trunk
+!
+interface TenGigabitEthernet2/1
+ mtu 9216
+ no ip address
+!
+interface TenGigabitEthernet2/1.3
+ encapsulation dot1Q 3
+ ip address 172.20.6.34 255.255.254.0
+ no ip redirects
+ no ip unreachables
+ no cdp enable
+!
+interface TenGigabitEthernet2/1.23
+ encapsulation dot1Q 23
+ ip address 172.20.3.18 255.255.255.0
+ no ip redirects
+ no ip unreachables
+ no cdp enable
+!
+interface TenGigabitEthernet2/1.83
+ encapsulation dot1Q 83
+ ip address 128.12.1.44 255.255.255.240
+ no ip redirects
+ no ip unreachables
+ no cdp enable
+!
+interface TenGigabitEthernet2/1.580
+ encapsulation dot1Q 580
+ ip address 128.12.1.54 255.255.255.240
+ no ip redirects
+ no ip unreachables
+ no cdp enable
+!
+interface TenGigabitEthernet2/2
+ no ip address
+ shutdown
+!
+interface TenGigabitEthernet2/3
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 10,208,316,320,322,430,432,436,440,444,448,452
+ switchport trunk allowed vlan add 456,466,468,472-476,484,488,550,552,554,556
+ switchport trunk allowed vlan add 558
+ switchport mode trunk
+!
+interface TenGigabitEthernet2/4
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 10,22,23
+ switchport mode trunk
+!
+interface TenGigabitEthernet3/1
+ no ip address
+!
+interface TenGigabitEthernet3/1.2
+ encapsulation dot1Q 2
+ ip address 172.20.4.34 255.255.254.0
+ no ip redirects
+ no ip unreachables
+ no cdp enable
+!
+interface TenGigabitEthernet3/1.22
+ encapsulation dot1Q 22
+ ip address 172.20.2.18 255.255.255.0
+ no ip redirects
+ no ip unreachables
+ no cdp enable
+!
+interface TenGigabitEthernet3/1.82
+ encapsulation dot1Q 82
+ ip address 128.12.1.108 255.255.255.240
+ no ip redirects
+ no ip unreachables
+ no cdp enable
+!
+interface TenGigabitEthernet3/1.564
+ encapsulation dot1Q 564
+ ip address 128.12.1.74 255.255.255.240
+ ip access-group inACL in
+ ip access-group outACL out
+ no ip redirects
+ no ip unreachables
+ no cdp enable
+!
+interface TenGigabitEthernet3/2
+ no ip address
+ shutdown
+!
+interface TenGigabitEthernet3/3
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 10,23,100-208,210-4094
+ switchport mode trunk
+!
+interface TenGigabitEthernet3/4
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 316,320,322,430,432,436,440,444,448,452,456,466
+ switchport trunk allowed vlan add 468,472-476,484,488,550,552,554,556,558
+ switchport mode trunk
+!
+interface Vlan1
+ no ip address
+ no ip redirects
+ no ip unreachables
+ shutdown
+!
+interface Vlan10
+ ip address 172.20.10.34 255.255.255.224
+ no ip redirects
+ no ip unreachables
+ ip policy route-map trCOZ
+ ip ospf cost 20
+ ip ospf mtu-ignore
+!
+interface Vlan16
+ ip address 172.16.74.3 255.255.192.0
+!
+interface Vlan208
+ ip address 172.26.4.59 255.255.255.248
+ no ip redirects
+ no ip unreachables
+ standby 10 ip 172.26.4.57
+ standby 10 timers 2 7
+ standby 10 priority 90
+ standby 10 preempt
+ standby 10 authentication Vlan208
+!
+interface Vlan209
+ ip address 192.168.209.13 255.255.255.252
+ no ip redirects
+ no ip unreachables
+!
+interface Vlan316
+ ip address 172.19.96.35 255.255.255.224 secondary
+ ip address 172.19.42.3 255.255.255.0
+ ip access-group 120 in
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ ip helper-address 171.64.7.53
+ no ip redirects
+ no ip unreachables
+ ip pim sparse-dense-mode
+ standby 10 ip 172.19.42.1
+ standby 10 ip 172.19.96.33 secondary
+ standby 10 timers 2 7
+ standby 10 priority 90
+ standby 10 preempt
+ standby 10 authentication Vlan316
+!
+interface Vlan320
+ ip address 172.19.96.3 255.255.255.224 secondary
+ ip address 172.19.41.3 255.255.255.0
+ ip access-group 120 in
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ ip helper-address 171.64.7.53
+ no ip redirects
+ no ip unreachables
+ ip pim sparse-dense-mode
+ standby 10 ip 172.19.41.1
+ standby 10 ip 172.19.96.1 secondary
+ standby 10 timers 2 7
+ standby 10 priority 90
+ standby 10 preempt
+ standby 10 authentication Vlan320
+!
+interface Vlan322
+ description Kimball-net
+ ip address 172.19.98.195 255.255.255.224 secondary
+ ip address 172.19.40.3 255.255.255.0
+ ip access-group 120 in
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ ip helper-address 171.64.7.53
+ no ip redirects
+ no ip unreachables
+ ip pim sparse-dense-mode
+ standby 10 ip 172.19.40.1
+ standby 10 ip 172.19.98.193 secondary
+ standby 10 timers 2 7
+ standby 10 priority 90
+ standby 10 preempt
+ standby 10 authentication Vlan322
+!
+interface Vlan430
+ ip address 172.19.98.3 255.255.255.224 secondary
+ ip address 172.19.81.3 255.255.255.0
+ ip access-group 120 in
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.111
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.53
+ no ip redirects
+ no ip unreachables
+ ip pim sparse-dense-mode
+ standby 10 ip 172.19.81.1
+ standby 10 ip 172.19.98.1 secondary
+ standby 10 timers 2 7
+ standby 10 priority 90
+ standby 10 preempt
+ standby 10 authentication Vlan430
+!
+interface Vlan432
+ ip address 172.19.97.163 255.255.255.224 secondary
+ ip address 172.19.75.3 255.255.255.0
+ ip access-group 120 in
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ ip helper-address 171.64.7.53
+ no ip redirects
+ no ip unreachables
+ ip pim sparse-dense-mode
+ standby 10 ip 172.19.75.1
+ standby 10 ip 172.19.97.161 secondary
+ standby 10 timers 2 7
+ standby 10 priority 90
+ standby 10 preempt
+ standby 10 authentication Vlan432
+!
+interface Vlan436
+ ip address 172.19.96.195 255.255.255.224 secondary
+ ip address 172.19.68.3 255.255.255.0
+ ip access-group 120 in
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ ip helper-address 171.64.7.53
+ no ip redirects
+ no ip unreachables
+ ip pim sparse-dense-mode
+ standby 10 ip 172.19.68.1
+ standby 10 ip 172.19.96.193 secondary
+ standby 10 timers 2 7
+ standby 10 priority 90
+ standby 10 preempt
+ standby 10 authentication Vlan436
+!
+interface Vlan440
+ ip address 172.19.98.35 255.255.255.224 secondary
+ ip address 172.19.82.3 255.255.255.0
+ ip access-group 120 in
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.111
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.53
+ no ip redirects
+ no ip unreachables
+ ip pim sparse-dense-mode
+ standby 10 ip 172.19.82.1
+ standby 10 ip 172.19.98.33 secondary
+ standby 10 timers 2 7
+ standby 10 priority 90
+ standby 10 preempt
+ standby 10 authentication Vlan440
+!
+interface Vlan444
+ ip address 172.19.96.227 255.255.255.224 secondary
+ ip address 172.19.69.3 255.255.255.0
+ ip access-group 120 in
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.111
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.53
+ no ip redirects
+ no ip unreachables
+ ip pim sparse-dense-mode
+ standby 10 ip 172.19.69.1
+ standby 10 ip 172.19.96.225 secondary
+ standby 10 timers 2 7
+ standby 10 priority 90
+ standby 10 preempt
+ standby 10 authentication Vlan444
+!
+interface Vlan448
+ ip address 172.19.96.163 255.255.255.224 secondary
+ ip address 172.19.67.3 255.255.255.0
+ ip access-group 120 in
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ ip helper-address 171.64.7.53
+ no ip redirects
+ no ip unreachables
+ ip pim sparse-dense-mode
+ standby 10 ip 172.19.67.1
+ standby 10 ip 172.19.96.161 secondary
+ standby 10 timers 2 7
+ standby 10 priority 90
+ standby 10 preempt
+ standby 10 authentication Vlan448
+!
+interface Vlan452
+ ip address 172.19.96.131 255.255.255.224 secondary
+ ip address 172.19.66.3 255.255.255.0
+ ip access-group 120 in
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ ip helper-address 171.64.7.53
+ no ip redirects
+ no ip unreachables
+ ip pim sparse-dense-mode
+ standby 10 ip 172.19.66.1
+ standby 10 ip 172.19.96.129 secondary
+ standby 10 timers 2 7
+ standby 10 priority 90
+ standby 10 preempt
+ standby 10 authentication Vlan452
+!
+interface Vlan456
+ ip address 172.19.71.3 255.255.255.0 secondary
+ ip address 172.19.72.3 255.255.255.0 secondary
+ ip address 172.19.97.3 255.255.255.224 secondary
+ ip address 172.19.97.35 255.255.255.224 secondary
+ ip address 172.19.97.67 255.255.255.224 secondary
+ ip address 172.19.70.3 255.255.255.0
+ ip access-group 120 in
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.111
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.53
+ no ip redirects
+ no ip unreachables
+ ip pim sparse-dense-mode
+ standby 10 ip 172.19.70.1
+ standby 10 ip 172.19.71.1 secondary
+ standby 10 ip 172.19.72.1 secondary
+ standby 10 ip 172.19.97.1 secondary
+ standby 10 ip 172.19.97.33 secondary
+ standby 10 ip 172.19.97.65 secondary
+ standby 10 timers 2 7
+ standby 10 priority 90
+ standby 10 preempt
+ standby 10 authentication Vlan456
+!
+interface Vlan466
+ ip address 172.19.96.99 255.255.255.224 secondary
+ ip address 172.19.65.3 255.255.255.0
+ ip access-group 120 in
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.111
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.53
+ no ip redirects
+ no ip unreachables
+ ip pim sparse-dense-mode
+ standby 10 ip 172.19.65.1
+ standby 10 ip 172.19.96.97 secondary
+ standby 10 timers 2 7
+ standby 10 priority 90
+ standby 10 preempt
+ standby 10 authentication Vlan466
+!
+interface Vlan468
+ ip address 172.19.96.67 255.255.255.224 secondary
+ ip address 172.19.64.3 255.255.255.0
+ ip access-group 120 in
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.111
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.53
+ no ip redirects
+ no ip unreachables
+ ip pim sparse-dense-mode
+ standby 10 ip 172.19.64.1
+ standby 10 ip 172.19.96.65 secondary
+ standby 10 timers 2 7
+ standby 10 priority 90
+ standby 10 preempt
+ standby 10 authentication Vlan468
+!
+interface Vlan472
+ ip address 172.19.98.163 255.255.255.224 secondary
+ ip address 172.19.86.3 255.255.255.0
+ ip access-group 120 in
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.111
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.53
+ no ip redirects
+ no ip unreachables
+ ip pim sparse-dense-mode
+ ip igmp query-interval 100
+ standby 10 ip 172.19.86.1
+ standby 10 ip 172.19.98.161 secondary
+ standby 10 timers 2 7
+ standby 10 priority 90
+ standby 10 preempt
+ standby 10 authentication Vlan472
+!
+interface Vlan473
+ ip address 172.19.98.131 255.255.255.224 secondary
+ ip address 172.19.85.3 255.255.255.0
+ ip access-group 120 in
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ ip helper-address 171.64.7.53
+ no ip redirects
+ no ip unreachables
+ ip pim sparse-dense-mode
+ standby 10 ip 172.19.85.1
+ standby 10 ip 172.19.98.129 secondary
+ standby 10 timers 2 7
+ standby 10 priority 90
+ standby 10 preempt
+ standby 10 authentication Vlan473
+!
+interface Vlan474
+ ip address 172.19.98.99 255.255.255.224 secondary
+ ip address 172.19.84.3 255.255.255.0
+ ip access-group 120 in
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ ip helper-address 171.64.7.53
+ no ip redirects
+ no ip unreachables
+ ip pim sparse-dense-mode
+ standby 10 ip 172.19.84.1
+ standby 10 ip 172.19.98.97 secondary
+ standby 10 timers 2 7
+ standby 10 priority 90
+ standby 10 preempt
+ standby 10 authentication Vlan474
+!
+interface Vlan475
+ ip address 172.19.98.67 255.255.255.224 secondary
+ ip address 172.19.83.3 255.255.255.0
+ ip access-group 120 in
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ ip helper-address 171.64.7.53
+ no ip redirects
+ no ip unreachables
+ ip pim sparse-dense-mode
+ standby 10 ip 172.19.83.1
+ standby 10 ip 172.19.98.65 secondary
+ standby 10 timers 2 7
+ standby 10 priority 90
+ standby 10 preempt
+ standby 10 authentication Vlan475
+!
+interface Vlan476
+ ip address 172.19.74.3 255.255.255.0 secondary
+ ip address 172.19.97.99 255.255.255.224 secondary
+ ip address 172.19.97.131 255.255.255.224 secondary
+ ip address 172.19.73.3 255.255.255.0
+ ip access-group 120 in
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.111
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.53
+ no ip redirects
+ no ip unreachables
+ ip pim sparse-dense-mode
+ ip igmp query-interval 100
+ standby 10 ip 172.19.73.1
+ standby 10 ip 172.19.74.1 secondary
+ standby 10 ip 172.19.97.97 secondary
+ standby 10 ip 172.19.97.129 secondary
+ standby 10 timers 2 7
+ standby 10 priority 90
+ standby 10 preempt
+ standby 10 authentication Vlan476
+!
+interface Vlan484
+ ip address 172.19.97.227 255.255.255.224 secondary
+ ip address 172.19.77.3 255.255.255.0
+ ip access-group 120 in
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ ip helper-address 171.64.7.53
+ no ip redirects
+ no ip unreachables
+ ip pim sparse-dense-mode
+ standby 10 ip 172.19.77.1
+ standby 10 ip 172.19.97.225 secondary
+ standby 10 timers 2 7
+ standby 10 priority 90
+ standby 10 preempt
+ standby 10 authentication Vlan484
+!
+interface Vlan488
+ ip address 172.19.97.195 255.255.255.224 secondary
+ ip address 172.19.76.3 255.255.255.0
+ ip access-group 120 in
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.111
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.53
+ no ip redirects
+ no ip unreachables
+ ip pim sparse-dense-mode
+ standby 10 ip 172.19.76.1
+ standby 10 ip 172.19.97.193 secondary
+ standby 10 timers 2 7
+ standby 10 priority 90
+ standby 10 preempt
+ standby 10 authentication Vlan488
+!
+interface Vlan522
+ no ip address
+ shutdown
+!
+interface Vlan549
+ ip address 172.19.248.131 255.255.255.128
+ ip access-group 120 in
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ ip helper-address 171.64.7.53
+ no ip redirects
+ no ip unreachables
+ ip pim sparse-dense-mode
+ shutdown
+ standby 10 ip 172.19.248.129
+ standby 10 timers 2 7
+ standby 10 priority 90
+ standby 10 preempt
+ standby 10 authentication Vlan549
+!
+interface Vlan550
+ ip address 10.30.0.3 255.255.240.0 secondary
+ ip address 10.30.16.3 255.255.240.0 secondary
+ ip address 172.19.154.3 255.255.254.0
+ ip access-group 120 in
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ ip helper-address 171.64.7.53
+ no ip redirects
+ no ip unreachables
+ ip pim sparse-dense-mode
+ ip policy route-map trCOZ
+ standby 10 ip 172.19.154.1
+ standby 10 ip 10.30.0.1 secondary
+ standby 10 ip 10.30.16.1 secondary
+ standby 10 timers 2 7
+ standby 10 priority 90
+ standby 10 preempt
+ standby 10 authentication Vlan550
+!
+interface Vlan552
+ ip address 10.30.32.3 255.255.240.0 secondary
+ ip address 10.30.48.3 255.255.240.0 secondary
+ ip address 172.19.156.3 255.255.254.0
+ ip access-group 120 in
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ ip helper-address 171.64.7.53
+ no ip redirects
+ no ip unreachables
+ ip pim sparse-dense-mode
+ ip policy route-map trCOZ
+ standby 10 ip 172.19.156.1
+ standby 10 ip 10.30.32.1 secondary
+ standby 10 ip 10.30.48.1 secondary
+ standby 10 timers 2 7
+ standby 10 priority 90
+ standby 10 preempt
+ standby 10 authentication Vlan552
+!
+interface Vlan554
+ ip address 10.30.64.3 255.255.240.0 secondary
+ ip address 10.30.80.3 255.255.240.0 secondary
+ ip address 172.19.158.3 255.255.254.0
+ ip access-group 120 in
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ ip helper-address 171.64.7.53
+ no ip redirects
+ no ip unreachables
+ ip pim sparse-dense-mode
+ ip policy route-map trCOZ
+ standby 10 ip 172.19.158.1
+ standby 10 ip 10.30.64.1 secondary
+ standby 10 ip 10.30.80.1 secondary
+ standby 10 timers 2 7
+ standby 10 priority 90
+ standby 10 preempt
+ standby 10 authentication Vlan554
+!
+interface Vlan556
+ ip address 10.30.96.3 255.255.240.0 secondary
+ ip address 10.30.112.3 255.255.240.0 secondary
+ ip address 172.19.160.3 255.255.254.0
+ ip access-group 120 in
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ ip helper-address 171.64.7.53
+ no ip redirects
+ no ip unreachables
+ ip pim sparse-dense-mode
+ ip policy route-map trCOZ
+ standby 10 ip 172.19.160.1
+ standby 10 ip 10.30.96.1 secondary
+ standby 10 ip 10.30.112.1 secondary
+ standby 10 timers 2 7
+ standby 10 priority 90
+ standby 10 preempt
+ standby 10 authentication Vlan556
+!
+interface Vlan558
+ ip address 10.30.128.3 255.255.240.0 secondary
+ ip address 10.30.144.3 255.255.240.0 secondary
+ ip address 172.19.162.3 255.255.254.0
+ ip access-group 120 in
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ ip helper-address 171.64.7.53
+ no ip redirects
+ no ip unreachables
+ ip pim sparse-dense-mode
+ ip policy route-map trCOZ
+ standby 10 ip 172.19.162.1
+ standby 10 ip 10.30.128.1 secondary
+ standby 10 ip 10.30.144.1 secondary
+ standby 10 timers 2 7
+ standby 10 priority 90
+ standby 10 preempt
+ standby 10 authentication Vlan558
+!
+!
+end

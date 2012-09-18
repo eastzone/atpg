@@ -1,0 +1,277 @@
+body {
+	background: url(../images/glossymetal.jpg) repeat;	
+}
+
+.router-report {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.report-name{
+    font-size: 2em;
+}
+
+.report-passing{
+    opacity: 0.4;
+}
+
+.report-failing{
+    border:2px solid;
+    border-color: red;
+    font-size: 1.7em;
+}
+
+
+.label {
+    font-family: sans-serif;
+	font-weight: bold;
+	font-size: 2em;
+	text-align:center;
+	background: url(../images/glossymetal.jpg) repeat;	
+	padding: 20px;
+}
+
+.paper {
+    position:relative;
+	margin-top:20px;
+    margin-bottom:20px;
+    border-style:inset;
+    border-width:10px;
+    border-radius: 10px;
+    float:left;
+    margin-right:10px;
+    margin-left:10px;
+    background-size: 100%;
+}
+
+.button {
+    margin-right:10px;
+    margin-left:10px;
+    float:left;
+}
+
+.graphs{
+    width: 1680px;
+    margin: auto auto;
+    overflow: hidden;
+}
+
+.panel{
+    width:880px;
+    margin: auto auto;
+    overflow: hidden;
+}
+
+button {
+    border: none;
+}
+
+/* Metal ------------------------- */
+
+.metal {
+	position: relative;
+	margin: 40px auto;
+	font-family: sans-serif;
+	font-weight: bold;
+	text-align: center;
+	color: hsla(0,0%,20%,1);
+	text-shadow: hsla(0,0%,40%,.5) 0 -1px 0, hsla(0,0%,100%,.6) 0 2px 1px;
+	
+	background-color: hsl(0,0%,90%);
+	box-shadow: inset hsla(0,0%,15%,  1) 0  0px 0px 4px, 	/* border */
+						inset hsla(0,0%,15%, .8) 0 -1px 5px 4px, 	/* soft SD */
+						inset hsla(0,0%,0%, .25) 0 -1px 0px 7px,	/* bottom SD */
+						inset hsla(0,0%,100%,.7) 0  2px 1px 7px, 	/* top HL */
+						
+							  hsla(0,0%, 0%,.15) 0 -5px 6px 4px, 	/* outer SD */
+							  hsla(0,0%,100%,.5) 0  5px 6px 4px;	/* outer HL */	
+	
+	transition: color .2s;
+}
+
+
+
+/* Radial ------------------------- */
+
+.radial.metal {
+	width: 160px;
+	height: 160px;
+	line-height: 160px;
+	border-radius: 80px;
+	background-image:	-webkit-radial-gradient(  50%   0%,  8% 50%, hsla(0,0%,100%,.5) 0%, hsla(0,0%,100%,0) 100%),
+						-webkit-radial-gradient(  50% 100%, 12% 50%, hsla(0,0%,100%,.6) 0%, hsla(0,0%,100%,0) 100%),
+						-webkit-radial-gradient(   0%  50%, 50%  7%, hsla(0,0%,100%,.5) 0%, hsla(0,0%,100%,0) 100%),
+						-webkit-radial-gradient( 100%  50%, 50%  5%, hsla(0,0%,100%,.5) 0%, hsla(0,0%,100%,0) 100%),
+						
+						-webkit-repeating-radial-gradient(	50% 50%, 100% 100%, hsla(0,0%,  0%,0) 0%, hsla(0,0%,  0%,0)   3%, hsla(0,0%,  0%,.1) 3.5%),
+						-webkit-repeating-radial-gradient(	50% 50%, 100% 100%, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0)   6%, hsla(0,0%,100%,.1) 7.5%),
+						-webkit-repeating-radial-gradient(	50% 50%, 100% 100%, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0) 1.2%, hsla(0,0%,100%,.2) 2.2%),
+						
+						-webkit-radial-gradient(	50% 50%, 200% 50%, hsla(0,0%,90%,1) 5%, hsla(0,0%,85%,1) 30%, hsla(0,0%,60%,1) 100%);					
+}
+
+
+.metal.radial:before, .metal.radial:after {
+	content: "";
+	top: 0;
+	left: 0;
+	position: absolute;
+	width: inherit;
+	height: inherit;
+	border-radius: inherit;
+	
+	/* fake conical gradients */
+	background-image: 	-webkit-radial-gradient(  50%   0%, 10% 50%, hsla(0,0%,0%,.1) 0%, hsla(0,0%,0%,0) 100%),
+						-webkit-radial-gradient(  50% 100%, 10% 50%, hsla(0,0%,0%,.1) 0%, hsla(0,0%,0%,0) 100%),
+						-webkit-radial-gradient(   0%  50%, 50% 10%, hsla(0,0%,0%,.1) 0%, hsla(0,0%,0%,0) 100%),
+						-webkit-radial-gradient( 100%  50%, 50% 06%, hsla(0,0%,0%,.1) 0%, hsla(0,0%,0%,0) 100%);
+}
+.metal.radial:before { 	-webkit-transform: rotate( 65deg); }
+.metal.radial:after {	-webkit-transform: rotate(-65deg); }
+
+
+
+
+/* Linear ------------------------- */
+
+.metal.linear {
+	width: 200px;
+	font-size: 2em;
+	height: 80px;
+	border-radius: .5em;
+	background-image: 	-webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0)   6%, hsla(0,0%,100%, .1) 7.5%),					
+						-webkit-repeating-linear-gradient(left, hsla(0,0%,  0%,0) 0%, hsla(0,0%,  0%,0)   4%, hsla(0,0%,  0%,.03) 4.5%),					
+						-webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0) 1.2%, hsla(0,0%,100%,.15) 2.2%),
+						
+						-webkit-linear-gradient(-90deg, hsl(0,0%,78%)  0%, 
+														hsl(0,0%,90%) 47%, 
+														hsl(0,0%,78%) 53%,
+														hsl(0,0%,70%)100%);						
+}
+
+
+/* Oval ------------------------- */
+
+.metal.linear.oval {
+	margin-top: 100px;
+	width: 70px;
+	height: 60px;
+	line-height: 60px !important;
+	border-radius: 50%;
+	font: italic bold 3em/50px Georgia, "Times New Roman", Times, serif;
+}
+
+
+
+
+/* active ------------------------- */
+
+.metal:active {
+	color: hsl(210, 100%, 40%);
+	text-shadow: hsla(210,100%,20%,.3) 0 -1px 0, hsl(210,100%,85%) 0 2px 1px, hsla(200,100%,80%,1) 0 0 5px, hsla(210,100%,50%,.6) 0 0 20px;
+	box-shadow: 
+					inset hsla(210,100%,30%,  1) 0  0px 0px 4px, 	/* border */
+					inset hsla(210,100%,15%, .4) 0 -1px 5px 4px, 	/* soft SD */
+					inset hsla(210,100%,20%,.25) 0 -1px 0px 7px,	/* bottom SD */
+					inset hsla(210,100%,100%,.7) 0  2px 1px 7px, 	/* top HL */
+							
+						  hsla(210,100%,75%, .8) 0  0px 3px 2px, 	/* outer SD */			
+						  hsla(210,50%,40%, .25) 0 -5px 6px 4px, 	/* outer SD */
+						  hsla(210,80%,95%,   1) 0  5px 6px 4px;	/* outer HL */
+}
+
+
+    /* start basic spinner styles*/
+    
+    div.spinner {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      margin: auto auto;
+    }
+    
+    div.spinner div {
+      width: 12%;
+      height: 26%;
+      background: #000;
+      position: absolute;
+      left: 44.5%;
+      top: 37%;
+      opacity: 0;
+      -webkit-animation: fade 1s linear infinite;
+      -webkit-border-radius: 50px;
+      -webkit-box-shadow: 0 0 3px rgba(0,0,0,0.2);
+    }
+    
+    div.spinner div.bar1 {-webkit-transform:rotate(0deg) translate(0, -142%); -webkit-animation-delay: 0s;}    
+    div.spinner div.bar2 {-webkit-transform:rotate(30deg) translate(0, -142%); -webkit-animation-delay: -0.9167s;}
+    div.spinner div.bar3 {-webkit-transform:rotate(60deg) translate(0, -142%); -webkit-animation-delay: -0.833s;}
+    div.spinner div.bar4 {-webkit-transform:rotate(90deg) translate(0, -142%); -webkit-animation-delay: -0.75s;}
+    div.spinner div.bar5 {-webkit-transform:rotate(120deg) translate(0, -142%); -webkit-animation-delay: -0.667s;}
+    div.spinner div.bar6 {-webkit-transform:rotate(150deg) translate(0, -142%); -webkit-animation-delay: -0.5833s;}
+    div.spinner div.bar7 {-webkit-transform:rotate(180deg) translate(0, -142%); -webkit-animation-delay: -0.5s;}
+    div.spinner div.bar8 {-webkit-transform:rotate(210deg) translate(0, -142%); -webkit-animation-delay: -0.41667s;}
+    div.spinner div.bar9 {-webkit-transform:rotate(240deg) translate(0, -142%); -webkit-animation-delay: -0.333s;}
+    div.spinner div.bar10 {-webkit-transform:rotate(270deg) translate(0, -142%); -webkit-animation-delay: -0.25s;}
+    div.spinner div.bar11 {-webkit-transform:rotate(300deg) translate(0, -142%); -webkit-animation-delay: -0.1667s;}
+    div.spinner div.bar12 {-webkit-transform:rotate(330deg) translate(0, -142%); -webkit-animation-delay: -0.0833s;}
+
+     @-webkit-keyframes fade {
+      from {opacity: 1;}
+      to {opacity: 0.25;}
+    }
+    
+    /* end basic spinner styles*/
+    
+    div.container {
+      display: inline-block;
+      padding: 1.5em 1.5em 1.25em;
+      background: rgba(0,0,0,0.8);
+      -webkit-box-shadow: 1px 1px 1px #fff;
+      -webkit-border-radius: 1em;
+      margin: 1em;
+    }
+    
+    div.container.grey {background: rgba(0,0,0,0.2);}    
+    div.container.grey.blue {background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #0a2744), color-stop(1, #064483));}
+    
+    div.container div.spinner {
+      width: 28px;
+      height: 28px;
+    }
+    
+    div.container.grey div.spinner {
+      width: 60px;
+      height: 60px;
+    }
+    
+    div.container div.spinner div {background: #fff;}
+    
+    div.labeled {
+      font-family: sans-serif;
+      font-size: 14px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 0.5em 0.75em 0.5em 0.5em;
+      display: inline-block;
+      color: #c00;
+      line-height: 25px;
+      -webkit-box-shadow: 0 0 3px rgba(0,0,0,0.4);
+      -webkit-border-radius: 1em;
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(1, #ccc));
+    }
+    
+    div.labeled div.spinner {
+      float: left;
+      vertical-align: middle;
+      width: 25px;
+      height: 25px;
+      margin-right: 0.5em;
+    }
+    
+    div.labeled div.spinner div {background: #c00;}
+

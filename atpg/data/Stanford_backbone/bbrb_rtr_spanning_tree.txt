@@ -1,0 +1,246 @@
+VLAN0003
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    24579
+             Address     0015.c726.8680
+             This bridge is the root
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    24579  (priority 24576 sys-id-ext 3)
+             Address     0015.c726.8680
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time 300
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Te1/1               Desg FWD 2         128.1    P2p 
+Te1/2               Desg FWD 2         128.2    P2p 
+Te1/3               Desg FWD 2         128.3    P2p 
+Te1/4               Desg FWD 2         128.4    P2p 
+Gi4/3               Desg FWD 4         128.387  P2p 
+Gi4/8               Desg FWD 4         128.392  P2p 
+Gi5/1               Desg FWD 4         128.513  P2p 
+Te6/1               Desg FWD 2         128.641  P2p 
+Te6/2               Desg FWD 2         128.642  P2p 
+Te6/3               Desg FWD 2         128.643  P2p 
+Te6/4               Desg FWD 2         128.644  P2p 
+Te7/2               Desg FWD 2         128.770  P2p 
+Te7/3               Desg FWD 2         128.771  P2p 
+Te7/4               Desg FWD 2         128.772  P2p 
+
+
+VLAN0009
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    32777
+             Address     0015.c726.8680
+             This bridge is the root
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32777  (priority 32768 sys-id-ext 9)
+             Address     0015.c726.8680
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time 300
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Gi5/1               Desg FWD 4         128.513  P2p 
+
+
+VLAN0011
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    32768
+             Address     000a.4271.298a
+             Cost        14
+             Port        769 (TenGigabitEthernet7/1)
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32779  (priority 32768 sys-id-ext 11)
+             Address     0015.c726.8680
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time 300
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Te7/1               Root FWD 2         128.769  P2p 
+
+
+VLAN0023
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    32791
+             Address     0015.c726.8680
+             This bridge is the root
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32791  (priority 32768 sys-id-ext 23)
+             Address     0015.c726.8680
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time 300
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Gi5/1               Desg FWD 4         128.513  P2p 
+Te6/1               Desg FWD 2         128.641  P2p 
+Te7/2               Desg FWD 2         128.770  P2p 
+
+
+VLAN0043
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    32811
+             Address     0015.c726.8680
+             This bridge is the root
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32811  (priority 32768 sys-id-ext 43)
+             Address     0015.c726.8680
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time 300
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Gi4/15              Desg FWD 4         128.399  P2p 
+Gi5/1               Desg FWD 4         128.513  P2p 
+Te6/1               Desg FWD 2         128.641  P2p 
+Te7/2               Desg FWD 2         128.770  P2p 
+
+
+VLAN0066
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    32834
+             Address     0015.c726.8680
+             This bridge is the root
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32834  (priority 32768 sys-id-ext 66)
+             Address     0015.c726.8680
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time 300
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Te1/4               Desg FWD 2         128.4    P2p 
+Gi5/1               Desg FWD 4         128.513  P2p 
+Te7/3               Desg FWD 2         128.771  P2p 
+
+
+VLAN0083
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    32851
+             Address     0015.c726.8680
+             This bridge is the root
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32851  (priority 32768 sys-id-ext 83)
+             Address     0015.c726.8680
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time 300
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Gi4/2               Desg FWD 4         128.386  P2p 
+Te6/1               Desg FWD 2         128.641  P2p 
+Te7/2               Desg FWD 2         128.770  P2p 
+
+
+VLAN0084
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    32852
+             Address     0015.c726.8680
+             This bridge is the root
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32852  (priority 32768 sys-id-ext 84)
+             Address     0015.c726.8680
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time 300
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Te6/1               Desg FWD 2         128.641  P2p 
+Te7/2               Desg FWD 2         128.770  P2p 
+
+
+VLAN0093
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    32861
+             Address     0015.c726.8680
+             This bridge is the root
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32861  (priority 32768 sys-id-ext 93)
+             Address     0015.c726.8680
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time 300
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Gi5/1               Desg FWD 4         128.513  P2p 
+
+
+VLAN0094
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    32862
+             Address     0015.c726.8680
+             This bridge is the root
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32862  (priority 32768 sys-id-ext 94)
+             Address     0015.c726.8680
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time 300
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Gi5/1               Desg FWD 4         128.513  P2p 
+
+
+VLAN0580
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    32768
+             Address     000b.6059.e448
+             Cost        16
+             Port        399 (GigabitEthernet4/15)
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    33348  (priority 32768 sys-id-ext 580)
+             Address     0015.c726.8680
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time 300
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Gi4/15              Root FWD 4         128.399  P2p 
+Te6/1               Desg FWD 2         128.641  P2p 
+Te7/2               Desg FWD 2         128.770  P2p 
+
+
+VLAN0590
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    33358
+             Address     0015.c726.8680
+             This bridge is the root
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    33358  (priority 32768 sys-id-ext 590)
+             Address     0015.c726.8680
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time 300
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Gi5/1               Desg FWD 4         128.513  P2p 
+
+
+VLAN0592
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    33360
+             Address     0015.c726.8680
+             This bridge is the root
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    33360  (priority 32768 sys-id-ext 592)
+             Address     0015.c726.8680
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time 300
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Gi5/1               Desg FWD 4         128.513  P2p 

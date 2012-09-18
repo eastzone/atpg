@@ -1,0 +1,2669 @@
+!
+access-list 3 permit 172.16.1.75
+access-list 4 deny   any
+access-list 5 permit 64.61.61.206
+access-list 5 permit 171.64.64.13
+access-list 79 permit 171.64.79.160
+access-list 79 permit 171.64.79.176
+access-list 79 permit 171.64.79.144
+access-list 79 permit 171.64.79.224
+access-list 79 permit 171.64.79.192
+access-list 79 permit 171.64.79.208
+access-list 79 permit 171.64.79.0
+access-list 79 permit 171.67.71.0
+access-list 79 permit 192.168.128.0
+access-list 79 permit 192.168.132.0
+access-list 79 permit 171.64.69.64
+access-list 79 permit 192.168.134.0
+access-list 88 permit any
+access-list 1301 remark CSD-CF: Don't match on highwire IPs, they need NAT
+access-list 1301 deny   171.64.249.0 0.0.0.255
+access-list 1301 deny   171.66.120.0 0.0.7.255
+access-list 1301 permit 171.64.0.0 0.3.255.255
+access-list 1301 permit 192.168.128.0 0.0.7.255
+access-list 1301 permit 38.114.142.0 0.0.0.255
+access-list 1301 permit 38.114.143.0 0.0.0.127
+access-list 100 deny   tcp any any eq 445
+access-list 100 permit ip any any
+access-list 100 permit tcp 171.64.20.0 0.0.0.255 eq 22 any
+access-list 100 permit tcp 171.64.64.0 0.0.0.255 eq 22 any
+access-list 100 permit tcp 171.64.64.0 0.0.0.255 eq 161 any
+access-list 100 permit tcp 171.64.65.0 0.0.0.255 eq 22 any
+access-list 100 permit tcp 171.64.66.0 0.0.0.255 eq 22 any
+access-list 100 permit tcp 171.64.67.0 0.0.0.255 eq 22 any
+access-list 100 permit tcp 171.64.68.0 0.0.0.255 eq 22 any
+access-list 100 permit tcp 171.64.69.0 0.0.0.255 eq 22 any
+access-list 100 permit tcp 171.64.70.0 0.0.0.255 eq 22 any
+access-list 100 permit tcp 171.64.71.0 0.0.0.255 eq 22 any
+access-list 100 permit tcp 171.64.72.0 0.0.0.255 eq 22 any
+access-list 100 permit tcp 171.64.73.0 0.0.0.255 eq 22 any
+access-list 100 permit tcp 171.64.74.0 0.0.0.255 eq 22 any
+access-list 100 permit tcp 171.64.75.0 0.0.0.255 eq 22 any
+access-list 100 permit tcp 171.64.76.0 0.0.0.255 eq 22 any
+access-list 100 permit tcp 171.64.77.0 0.0.0.255 eq 22 any
+access-list 100 permit tcp 171.64.78.0 0.0.0.255 eq 22 any
+access-list 100 permit tcp 171.64.88.0 0.0.0.255 eq 22 any
+access-list 100 permit tcp 171.64.89.0 0.0.0.255 eq 22 any
+access-list 100 permit tcp 171.64.90.0 0.0.0.255 eq 22 any
+access-list 100 permit tcp 171.64.91.0 0.0.0.255 eq 22 any
+access-list 100 permit tcp 171.64.92.0 0.0.0.255 eq 22 any
+access-list 100 permit tcp 171.64.93.0 0.0.0.255 eq 22 any
+access-list 100 permit tcp 171.64.94.0 0.0.0.255 eq 22 any
+access-list 100 permit tcp 171.67.64.0 0.0.16.255 eq 22 any
+access-list 100 permit tcp 172.24.70.0 0.0.0.255 eq 22 any
+access-list 100 permit tcp 172.24.70.0 0.0.0.255 eq 161 any
+access-list 100 permit tcp 172.27.64.0 0.0.16.255 eq 22 any
+access-list 101 remark for host-registration and scrubbing
+access-list 101 permit ip 172.17.0.0 0.0.255.255 172.27.16.32 0.0.0.31
+access-list 101 deny   ip 172.17.0.0 0.0.255.255 any
+access-list 101 permit ip any any
+access-list 103 permit ip any host 171.64.64.47
+access-list 103 permit ip any host 171.64.64.70
+access-list 103 permit tcp host 171.64.66.201 any established
+access-list 103 permit tcp host 171.64.66.201 any eq ftp-data
+access-list 103 permit tcp host 171.64.66.201 171.64.0.0 0.3.255.255 eq 22
+access-list 103 permit tcp host 171.64.66.201 171.64.0.0 0.3.255.255 eq www
+access-list 103 permit tcp host 171.64.66.201 171.64.0.0 0.3.255.255 eq ftp
+access-list 103 permit tcp host 171.64.66.201 171.64.0.0 0.3.255.255 eq 88
+access-list 103 permit tcp host 171.64.66.201 171.64.0.0 0.3.255.255 eq 749
+access-list 103 permit tcp host 171.64.66.201 171.64.0.0 0.3.255.255 eq 750
+access-list 103 permit tcp host 171.64.66.201 any eq 37
+access-list 103 permit tcp host 171.64.66.201 any eq smtp
+access-list 103 permit tcp host 171.64.66.201 any eq whois
+access-list 103 permit tcp host 171.64.66.201 any eq 63
+access-list 103 permit tcp host 171.64.66.201 any eq 45
+access-list 103 permit tcp host 171.64.66.201 any eq domain
+access-list 103 permit tcp host 171.64.66.201 any eq finger
+access-list 103 permit tcp host 171.64.66.201 any eq 102
+access-list 103 permit tcp host 171.64.66.201 any eq ident
+access-list 103 permit tcp host 171.64.66.201 any eq nntp
+access-list 103 permit tcp host 171.64.66.201 any eq 123
+access-list 103 permit tcp host 171.64.66.201 host 171.64.67.150 eq cmd
+access-list 103 permit tcp host 171.64.66.201 host 171.64.67.178 eq cmd
+access-list 103 permit tcp host 171.64.66.201 any range 631 636
+access-list 103 permit tcp host 171.64.66.201 any eq 713
+access-list 103 permit tcp host 171.64.66.201 any eq 750
+access-list 103 permit tcp host 171.64.66.201 host 171.64.67.150 range 901 1024
+access-list 103 permit tcp host 171.64.66.201 host 171.64.67.178 range 901 1024
+access-list 103 permit tcp host 171.64.66.201 any eq 2702
+access-list 103 permit tcp host 171.64.66.201 any eq 3306
+access-list 103 permit tcp host 171.64.66.201 any range 5556 5558
+access-list 103 permit tcp host 171.64.66.201 any range 7000 7010
+access-list 103 permit tcp host 171.64.66.201 any eq 6000
+access-list 103 permit tcp host 171.64.66.201 any gt 30000
+access-list 103 permit tcp host 171.64.66.201 host 171.64.67.178 eq 6004
+access-list 103 deny   tcp host 171.64.66.201 any
+access-list 103 permit tcp any any
+access-list 103 permit udp host 171.64.66.201 171.64.0.0 0.3.255.255 eq 22
+access-list 103 permit udp host 171.64.66.201 171.64.0.0 0.3.255.255 eq 88
+access-list 103 permit udp host 171.64.66.201 171.64.0.0 0.3.255.255 eq 749
+access-list 103 permit udp host 171.64.66.201 171.64.0.0 0.3.255.255 eq 750
+access-list 103 permit udp host 171.64.66.201 any eq time
+access-list 103 permit udp host 171.64.66.201 any eq domain
+access-list 103 permit udp host 171.64.66.201 any eq 750
+access-list 103 permit udp host 171.64.66.201 any eq 2049
+access-list 103 permit udp host 171.64.66.201 any eq 4045
+access-list 103 permit udp host 171.64.66.201 any range 7000 7009
+access-list 103 deny   udp host 171.64.66.201 any
+access-list 103 permit udp any any
+access-list 103 permit ip any any
+access-list 104 permit ip host 172.27.64.50 any
+access-list 168 remark CSDCF: ACL for AI/Robotics, vlan 68
+access-list 168 remark $Id: access-list-168,v 1.18 2010/08/23 20:42:44 miles Exp $
+access-list 168 remark ###################################################
+access-list 168 permit tcp any any established
+access-list 168 remark CSDCF: private to public and back
+access-list 168 permit ip 171.64.68.0 0.0.1.255 172.24.68.0 0.0.1.255
+access-list 168 permit ip 172.24.68.0 0.0.1.255 171.64.68.0 0.0.1.255
+access-list 168 remark CSDCF: HOXA cluster
+access-list 168 permit ip 192.168.136.0 0.0.1.255 172.24.68.0 0.0.1.255
+access-list 168 permit ip 192.168.136.0 0.0.1.255 171.64.68.0 0.0.1.255
+access-list 168 remark CSDCF: SCAIL cluster
+access-list 168 permit ip 10.79.12.0 0.0.0.255 172.24.68.0 0.0.1.255
+access-list 168 permit ip 10.79.12.0 0.0.0.255 171.64.68.0 0.0.1.255
+access-list 168 remark CSDCF: printing from AI/KSL
+access-list 168 permit tcp 172.24.71.0 0.0.0.255 172.24.68.0 0.0.1.255 eq lpd
+access-list 168 permit tcp 172.24.71.0 0.0.0.255 172.24.68.0 0.0.1.255 eq 631
+access-list 168 permit tcp 172.24.71.0 0.0.0.255 172.24.68.0 0.0.1.255 eq 9100
+access-list 168 permit tcp 171.64.71.0 0.0.0.255 172.24.68.0 0.0.1.255 eq lpd
+access-list 168 permit tcp 171.64.71.0 0.0.0.255 172.24.68.0 0.0.1.255 eq 631
+access-list 168 permit tcp 171.64.71.0 0.0.0.255 172.24.68.0 0.0.1.255 eq 9100
+access-list 168 remark CSDCF: printing from Gates admin net
+access-list 168 permit tcp 172.27.64.0 0.0.0.255 172.24.68.0 0.0.1.255 eq lpd
+access-list 168 permit tcp 172.27.64.0 0.0.0.255 172.24.68.0 0.0.1.255 eq 631
+access-list 168 permit tcp 172.27.64.0 0.0.0.255 172.24.68.0 0.0.1.255 eq 9100
+access-list 168 remark CSDCF: temporarily allow all for TBX
+access-list 168 permit ip any host 172.24.68.89
+access-list 168 remark CSDCF: Allow in CS nets
+access-list 168 permit ip 171.64.64.0 0.0.0.255 any
+access-list 168 permit ip 172.24.64.0 0.0.0.255 any
+access-list 168 remark deny ip any host 172.24.69.186
+access-list 168 remark ###################################################
+access-list 168 remark CSDCF: Bejerano host dev
+access-list 168 permit tcp any host 171.64.68.36 eq www
+access-list 168 permit tcp any host 171.64.68.36 eq 443
+access-list 168 permit tcp any host 171.64.68.36 eq 22
+access-list 168 remark CSDCF: Bejerano host hoxa
+access-list 168 permit tcp any host 171.64.68.40 eq 22
+access-list 168 remark CSDCF: Bejerano host great
+access-list 168 permit tcp any host 171.64.68.77 eq www
+access-list 168 permit tcp any host 171.64.68.77 eq 443
+access-list 168 remark CSDCF: Bejerano host polc
+access-list 168 permit tcp any host 171.64.68.210 eq www
+access-list 168 permit tcp any host 171.64.68.210 eq 443
+access-list 168 remark CSDCF: allow ai, hoxa ssh
+access-list 168 permit tcp any host 171.64.68.10 eq 22
+access-list 168 remark CSDCF: allow ai mysql for Spring 2010 CS422
+access-list 168 permit tcp any host 171.64.68.10 eq 3306
+access-list 168 remark CSDCF: web server for Juan Carlos Niebles
+access-list 168 permit tcp any host 171.64.68.145 eq www
+access-list 168 remark CSDCF: robo
+access-list 168 permit tcp any host 171.64.68.18
+access-list 168 remark CSDCF: allow all ftp, ident, https, misc
+access-list 168 permit tcp any any range ftp-data ftp
+access-list 168 permit tcp any any eq ident
+access-list 168 remark permit tcp any any eq 80
+access-list 168 permit tcp any any eq 443
+access-list 168 remark CSDCF: allow wordgames
+access-list 168 permit tcp any host 171.64.68.25 eq www
+access-list 168 permit tcp any host 171.64.68.25 range 8070 8080
+access-list 168 remark CSDCF: unknown 
+access-list 168 permit tcp any any gt 27000
+access-list 168 remark CSDCF: ai / robotics itself, pop www imap etc.
+access-list 168 permit ip any 171.64.68.8 0.0.0.3
+access-list 168 remark CSDCF: grahamnum, for apml and thrun
+access-list 168 permit tcp any host 171.64.68.32 eq www
+access-list 168 permit tcp any host 171.64.68.32 eq 222
+access-list 168 remark CSDCF: radiant,nicu  mstsc, for ssaria
+access-list 168 permit tcp any host 172.24.68.96 eq 3389
+access-list 168 permit tcp any host 171.64.68.21 eq 3389
+access-list 168 remark CSDCF: biorobotics4 for jschlosser
+access-list 168 permit tcp any host 171.64.68.33 eq 3389
+access-list 168 remark CSDCF: wells, for Roland Philips
+access-list 168 permit tcp any host 171.64.68.207 eq 443
+access-list 168 remark CSDCF: gullu, for ssaria
+access-list 168 permit tcp any host 171.64.68.14 eq www
+access-list 168 remark CSDCF: aishwarya for rahul
+access-list 168 permit tcp any host 172.24.69.103 eq www
+access-list 168 remark CSDCF: nudelman port 80
+access-list 168 remark permit tcp any host 171.64.68.244 eq www
+access-list 168 remark CSDCF: robots, for sebastian thrun
+access-list 168 permit tcp any host 171.64.68.174 eq 22
+access-list 168 permit tcp any host 171.64.68.174 eq www
+access-list 168 remark CSDCF: gadfly001 for Fei-Fei Li, 22-May-2011
+access-list 168 permit tcp any host 171.64.69.102 eq 22
+access-list 168 permit tcp any host 171.64.69.102 eq www
+access-list 168 remark CSDCF: cs210-5, for Arda Kara, Spring 2011
+access-list 168 permit tcp any host 171.64.69.29 eq 22
+access-list 168 permit tcp any host 171.64.69.29 eq www
+access-list 168 remark CSDCF: for twisted access to host robots Feb 2011
+access-list 168 permit tcp any host 171.64.68.174 range 7226 7246
+access-list 168 remark CSDCF: vectormagic for diebel (thrun)
+access-list 168 permit tcp any host 171.64.68.226 eq www
+access-list 168 permit tcp any host 171.64.68.226 eq 443
+access-list 168 remark CSDCF: dynovader for Rufung Forrest Lin (forrestl)
+access-list 168 permit tcp any host 171.64.69.28 eq ftp
+access-list 168 permit tcp any host 171.64.69.28 eq ftp-data
+access-list 168 permit tcp any host 171.64.69.28 eq www
+access-list 168 permit tcp any host 171.64.69.28 eq 3389
+access-list 168 permit tcp any host 171.64.69.28 eq 5900
+access-list 168 remark CSDCF: altman RT #43201
+access-list 168 permit tcp any host 172.24.68.169 eq 9000
+access-list 168 remark CSDCF: altman RT #57898
+access-list 168 permit tcp any host 171.64.68.121 eq www
+access-list 168 remark CSDCF: CS 225b hosts, wide open
+access-list 168 permit tcp any host 171.64.68.157
+access-list 168 permit tcp any host 171.64.68.189
+access-list 168 permit tcp any host 171.64.68.215
+access-list 168 remark CSDCF: CS 225b robots erratic*
+access-list 168 permit tcp any host 172.24.68.32
+access-list 168 permit tcp any host 172.24.69.237
+access-list 168 remark CSDCF: ssh/sftp on lysander (Samir Menon)
+access-list 168 permit tcp any host 172.24.68.46 eq 22
+access-list 168 permit tcp any host 172.24.68.46 eq 115
+access-list 168 remark CSDCF: Allow mime to uber for backups
+access-list 168 permit tcp host 171.65.102.109 host 171.64.68.72 eq 22
+access-list 168 remark CSDCF: Allow hox to uber
+access-list 168 permit tcp host 171.65.103.17 host 171.64.68.72 eq 22
+access-list 168 remark CSDCF: allow junior-car to access capek and driving
+access-list 168 permit tcp host 171.66.67.201 host 171.64.68.164 eq 22
+access-list 168 permit tcp host 171.66.67.201 host 171.64.68.164 eq www
+access-list 168 permit tcp host 171.66.67.201 host 171.64.68.164 eq 443
+access-list 168 permit tcp host 171.66.67.201 host 172.24.69.172 eq 22
+access-list 168 permit tcp host 171.66.67.201 host 172.24.69.172 eq www
+access-list 168 permit tcp host 171.66.67.201 host 172.24.69.172 eq 443
+access-list 168 remark CSDCF: ==================================================
+access-list 168 deny   tcp any any
+access-list 168 permit ip any any
+access-list 174 deny   ip host 171.64.74.80 any
+access-list 174 permit ip any any
+access-list 175 deny   ip host 171.64.75.149 129.198.0.0 0.0.255.255
+access-list 175 permit ip any any
+access-list 176 permit ip any any
+access-list 178 remark $Id: access-list-178,v 1.18 2010/03/26 22:15:17 miles Exp $
+access-list 178 remark CSDCF: ACL for Theory Lab, vlan 78
+access-list 178 remark ###################################################
+access-list 178 permit tcp any any established
+access-list 178 remark CSDCF: private to public and back
+access-list 178 permit ip 171.64.78.0 0.0.0.255 172.24.78.0 0.0.0.255
+access-list 178 permit ip 172.24.78.0 0.0.0.255 171.64.78.0 0.0.0.255
+access-list 178 remark CSDCF: Allow in CS nets
+access-list 178 remark CSDCF: All of campus
+access-list 178 permit ip 171.64.0.0 0.3.255.255 any
+access-list 178 permit ip 172.24.0.0 0.3.255.255 any
+access-list 178 remark CSDCF: Permits for all hosts on theory net
+access-list 178 permit tcp any any eq www
+access-list 178 permit tcp any any eq 443
+access-list 178 permit tcp any any eq 3389
+access-list 178 permit udp any any range 7000 7010
+access-list 178 remark CSDCF: Wide open hosts
+access-list 178 permit ip any host 171.64.78.10
+access-list 178 permit ip any host 171.64.78.25
+access-list 178 permit ip any host 171.64.78.177
+access-list 178 remark CSDCF: printing from Gates admin net
+access-list 178 remark CSD-CF:
+access-list 178 remark CSDCF: access to cronus (private net, campus only)
+access-list 178 permit tcp any host 172.24.78.10 eq 22
+access-list 178 remark CSD-CF: splatdesk, for Andrew Bortz
+access-list 178 permit ip any host 171.64.78.44
+access-list 178 remark CSD-CF: sshd for cipher
+access-list 178 permit tcp any host 171.64.78.146 eq 22
+access-list 178 permit tcp any host 171.64.78.25 eq 22
+access-list 178 remark CSD-CF: aes, rsa for mitchell & dabo
+access-list 178 permit tcp any host 171.64.78.14 eq 22
+access-list 178 permit tcp any host 171.64.78.48
+access-list 178 permit tcp any host 171.64.78.54
+access-list 178 permit tcp any host 171.64.78.62 eq 22
+access-list 178 remark CSD-CF: moa holes
+access-list 178 permit tcp any host 171.64.78.81 eq 22
+access-list 178 permit tcp any host 171.64.78.81 eq 5467
+access-list 178 remark 
+access-list 178 remark CSDCF: Holes for dabo
+access-list 178 remark CSDCF: Holes for Pratt
+access-list 178 permit tcp any host 171.64.78.149 range ftp-data ftp
+access-list 178 permit tcp any host 171.64.78.164 eq 22
+access-list 178 permit tcp any host 171.64.78.120 eq smtp
+access-list 178 permit tcp any host 171.64.78.120 eq 22
+access-list 178 permit tcp any host 171.64.78.65 eq smtp
+access-list 178 permit tcp any host 171.64.78.65 eq 22
+access-list 178 permit tcp any host 171.64.78.29 eq 22
+access-list 178 permit tcp any host 171.64.78.237 eq 22
+access-list 178 permit tcp any host 171.64.78.237 eq smtp
+access-list 178 remark CSDCF: Holes for Knuth
+access-list 178 permit tcp any host 171.64.78.222
+access-list 178 permit tcp any host 171.64.78.223
+access-list 178 remark CSDCF: Knuth DSL
+access-list 178 permit ip 171.66.180.176 0.0.0.3 any
+access-list 178 remark CSDCF: Aiken/Widom DSL
+access-list 178 permit ip 171.66.183.112 0.0.0.7 any
+access-list 178 permit ip any host 171.64.78.77
+access-list 178 permit ip any host 171.64.78.20
+access-list 178 permit tcp any host 171.64.78.21 eq 22
+access-list 178 remark CSDCF: Aiken, for moss
+access-list 178 permit tcp any host 171.64.78.49 eq 7690
+access-list 178 permit tcp any host 171.64.78.49 eq www
+access-list 178 permit tcp any host 171.64.78.49 eq 5319
+access-list 178 remark CSDCF: Aiken, for kahu
+access-list 178 permit tcp any host 171.64.78.39 eq 22
+access-list 178 remark CSDCF: Aiken, for tieke
+access-list 178 permit tcp any host 171.64.78.217 eq 22
+access-list 178 remark CSDCF: tusker for Sorav Bansal (aiken)
+access-list 178 permit tcp any host 171.64.78.63 eq www
+access-list 178 remark Holes for Syzygy
+access-list 178 permit tcp any host 171.24.78.109 eq 8765
+access-list 178 remark CSDCF: Plotkin
+access-list 178 permit tcp any host 171.64.78.42
+access-list 178 permit tcp any host 171.64.78.191 eq 22
+access-list 178 permit tcp any host 171.64.78.216 eq 22
+access-list 178 permit tcp any host 171.64.78.245 eq 22
+access-list 178 permit tcp any host 171.64.78.246 eq 22
+access-list 178 permit tcp any host 171.64.78.247 eq 22
+access-list 178 permit tcp any host 171.64.78.247 eq 902
+access-list 178 permit tcp any host 171.64.78.247 eq 8333
+access-list 178 permit tcp any host 171.64.78.248 eq 22
+access-list 178 permit tcp any host 171.64.78.248 eq 902
+access-list 178 permit tcp any host 171.64.78.248 eq 8333
+access-list 178 permit tcp any host 171.64.78.21 eq 9999
+access-list 178 remark ### Four lines for the Powernet project
+access-list 178 permit tcp host 171.64.65.21 host 172.24.78.203 eq 22
+access-list 178 permit tcp host 172.27.76.233 host 172.24.78.203 eq 22
+access-list 178 permit tcp host 171.64.65.21 host 172.24.78.204 eq 22
+access-list 178 permit tcp host 172.27.76.233 host 172.24.78.204 eq 22
+access-list 178 deny   tcp any any
+access-list 178 permit ip any any
+access-list 2001 remark # $Id: policy-route 1313 2010-09-30 17:38:26Z miles $
+access-list 2001 remark # What matches this ACL gets NATed. Default is NO NAT.
+access-list 2001 remark # don't NAT public gates nets
+access-list 2001 deny   ip 171.64.0.0 0.3.255.255 any
+access-list 2001 remark ######  Use a 'deny' to not NAT from certain private IP
+access-list 2001 remark # Don't nat from Nick McKeown's virtual router class
+access-list 2001 deny   ip 192.168.128.0 0.0.7.255 any
+access-list 2001 remark # Don't nat from host self-registration net(s)
+access-list 2001 deny   ip 172.17.0.0 0.0.255.255 any
+access-list 2001 remark ######  Use a 'permit' to NAT to dest on campus
+access-list 2001 remark # NAT to highwire
+access-list 2001 permit ip any 171.66.120.0 0.0.7.255
+access-list 2001 permit ip any 171.67.112.0 0.0.15.255
+access-list 2001 remark # NAT to Mazieres-net
+access-list 2001 permit ip any 171.66.3.0 0.0.0.255
+access-list 2001 remark ######  Use a 'deny' to not NAT to dest
+access-list 2001 remark # Don't NAT to campus (mostly) 171.64-171.67
+access-list 2001 deny   ip any 171.64.0.0 0.3.255.255
+access-list 2001 deny   ip any 128.12.0.0 0.0.255.255
+access-list 2001 remark # Don't NAT to private subnets
+access-list 2001 deny   ip any 10.0.0.0 0.255.255.255
+access-list 2001 deny   ip any 172.16.0.0 0.15.255.255
+access-list 2001 deny   ip any 192.168.0.0 0.0.255.255
+access-list 2001 remark ###### NAT from all private subnets, except what's denied above.
+access-list 2001 permit ip 10.0.0.0 0.255.255.255 any
+access-list 2001 permit ip 172.16.0.0 0.15.255.255 any
+access-list 2001 permit ip 192.168.0.0 0.0.255.255 any
+access-list 2001 remark ###### The end -- don't match anything else
+access-list 2001 deny   ip any any
+access-list 2301 remark CSD-CF: Don't match on highwire IPs, they need NAT
+access-list 2301 deny   ip 172.16.0.0 0.15.255.255 171.64.249.0 0.0.0.255
+access-list 2301 deny   ip 172.16.0.0 0.15.255.255 171.66.120.0 0.0.7.255
+access-list 2301 permit ip 172.16.0.0 0.15.255.255 171.64.0.0 0.3.255.255
+access-list 2301 permit ip 172.16.0.0 0.15.255.255 128.12.0.0 0.0.255.255
+access-list 2301 permit ip 172.16.0.0 0.15.255.255 172.16.0.0 0.15.255.255
+access-list 2301 permit ip 172.16.0.0 0.15.255.255 38.114.142.0 0.0.0.255
+access-list 2301 permit ip 172.16.0.0 0.15.255.255 38.114.143.0 0.0.0.127
+access-list 2301 remark CSD-CF: Allow 192.168.252.0/24 to gates nets
+access-list 2301 permit ip 192.168.252.0 0.0.0.255 171.64.64.0 0.0.31.255
+access-list 2301 permit ip 192.168.252.0 0.0.0.255 172.24.64.0 0.0.31.255
+access-list 2301 permit ip 192.168.252.0 0.0.0.255 171.67.64.0 0.0.31.255
+access-list 2301 permit ip 192.168.252.0 0.0.0.255 172.27.64.0 0.0.31.255
+access-list 2301 permit ip 172.24.64.0 0.0.31.255 192.168.252.0 0.0.0.255
+access-list 2301 permit ip 172.27.64.0 0.0.31.255 192.168.252.0 0.0.0.255
+!
+redundancy
+ main-cpu
+  auto-sync running-config
+ mode sso
+!
+vlan internal allocation policy ascending
+vlan access-log ratelimit 2000
+!
+vlan 4
+ name mcast
+!
+vlan 10
+ name YOZ-OSPF
+!
+vlan 64
+ name 171.64.64.0/24
+!
+vlan 65
+ name 171.64.65.0/24
+!
+vlan 66
+ name 171.64.66.0/24
+!
+vlan 67
+ name 171.64.67.X
+!
+vlan 68
+ name 171.64.68.X
+!
+vlan 69
+ name 171.64.69.X
+!
+vlan 70
+ name 171.64.70.X
+!
+vlan 71
+ name 171.64.71.X
+!
+vlan 72
+ name 171.64.72/73.X
+!
+vlan 73
+ name 171.64.73.X
+!
+vlan 74
+ name 171.64.74.X
+!
+vlan 75
+ name 171.64.75.X
+!
+vlan 76
+ name 171.64.76.X
+!
+vlan 77
+ name 171.64.77.0/23
+!
+vlan 78
+ name 171.64.78.0/24
+!
+vlan 79
+ name 171.64.79.0/24
+!
+vlan 80 
+!
+vlan 88
+ name ee-admin
+!
+vlan 89
+ name ee-classrooms
+!
+vlan 90
+ name ee-starlab
+!
+vlan 92
+ name ee-isl
+!
+vlan 94
+ name ee-misc
+!
+vlan 96
+ name cisext
+!
+vlan 98
+ name cisvideo
+!
+vlan 99
+ name cisext2
+!
+vlan 100
+ name cis
+!
+vlan 112
+ name McKeownfirewallnet-171.64.74.
+!
+vlan 113
+ name AFoxInternal
+!
+vlan 132
+ name YOZ-wireless
+!
+vlan 201
+ name of-public
+!
+vlan 202
+ name of-private
+!
+vlan 208
+ name yoz-diag-net
+!
+vlan 209
+ name DHCP-relay-net
+!
+vlan 272
+ name router-mgmt
+!
+vlan 291
+ name myth-net
+!
+vlan 292
+ name elaine-net
+!
+vlan 312
+ name Internet2
+!
+vlan 364
+ name 171.67.64
+!
+vlan 365
+ name 171.67.65
+!
+vlan 366
+ name 171.67.66
+!
+vlan 367
+ name 171.67.67
+!
+vlan 368
+ name 171.67.68
+!
+vlan 369
+ name 171.67.69
+!
+vlan 370
+ name 171.67.70
+!
+vlan 371
+ name 171.67.71
+!
+vlan 372
+ name 171.67.72-3
+!
+vlan 374
+ name 171.67.74-5
+!
+vlan 376
+ name 171.67.76-7
+!
+vlan 378
+ name 171.67.78-9
+!
+vlan 379
+ name 172.24.79
+!
+vlan 555
+ name Default-net
+!
+vlan 567
+ name su2PAIX-net
+!
+vlan 570
+ name VOIP
+!
+vlan 595
+ name ee-I2
+!
+vlan 632
+ name campus-wireless-net
+!
+vlan 820,870 
+!
+vlan 873
+ name YOZ-mazieres
+!
+vlan 888
+ name 192.168.252.0/24-SPAN-mgmt
+!
+vlan 891
+ name Cogent-VNS
+!
+vlan 892
+ name serv-linux
+!
+vlan 893
+ name seq-san
+!
+vlan 897
+ name anycast-gates
+!
+vlan 898
+ name hoxa-net
+!
+vlan 899
+ name temp-mkeown
+!
+vlan 900-909 
+!
+vlan 910
+ mtu 9216
+!
+vlan 911-931 
+!
+vlan 3700
+ name nlr-uwmadison
+!
+vlan 3701
+ name nlr-uwashington
+!
+vlan 3702
+ name nlr-indiana
+!
+vlan 3704
+ name nlr-bbn
+!
+vlan 3705
+ name nlr-bbn-mon
+!
+vlan 3707
+ name nlr-clemson
+!
+vlan 3709
+ name nlr-georgiatech
+!
+vlan 3715
+ name nlr-ofcore-s
+!
+vlan 3716
+ name nlr-ofcore-n
+!
+vlan 3722
+ name nlr-rutgers
+!
+vlan 3738
+ name nlr-kansasstate
+!
+! 
+!
+!
+!
+interface Loopback0
+ ip address 171.64.0.18 255.255.255.255
+!
+interface Loopback1
+ ip address 172.20.0.8 255.255.255.255
+!
+interface Loopback2
+ ip address 172.20.0.129 255.255.255.255
+!
+interface Loopback3
+ ip address 10.3.0.1 255.255.255.255
+!
+interface TenGigabitEthernet1/1
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 4-1005
+ switchport mode trunk
+ spanning-tree portfast disable
+!
+interface TenGigabitEthernet1/2
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 2,3,10
+ switchport mode trunk
+!
+interface TenGigabitEthernet1/3
+ mtu 9216
+ no ip address
+ no cdp enable
+ spanning-tree portfast disable
+!
+interface TenGigabitEthernet1/3.2
+ encapsulation dot1Q 2
+ ip address 172.20.4.129 255.255.254.0 secondary
+ ip address 171.64.255.144 255.255.255.192
+ no ip redirects
+ no ip unreachables
+ ipv6 address 2607:F6D0:0:BBA::AB40:FF90/64
+ no cdp enable
+!
+interface TenGigabitEthernet1/4
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 2,3,10
+ switchport mode trunk
+!
+interface GigabitEthernet2/1
+ switchport
+ switchport access vlan 70
+ switchport mode access
+ no cdp enable
+ spanning-tree portfast edge
+!
+interface GigabitEthernet2/2
+ switchport
+ switchport access vlan 66
+ switchport mode access
+ no cdp enable
+ spanning-tree portfast disable
+!
+interface GigabitEthernet2/3
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 64-1000
+ switchport mode trunk
+ no cdp enable
+!
+interface GigabitEthernet2/4
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 64-1000
+ switchport mode trunk
+ no cdp enable
+ spanning-tree portfast disable
+!
+interface GigabitEthernet2/5
+ switchport
+ switchport access vlan 291
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 64-1000
+ switchport mode access
+ no cdp enable
+ spanning-tree portfast disable
+!
+interface GigabitEthernet2/6
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 64,66-100,291,292,364,366-378,632,898
+ switchport mode trunk
+ no cdp enable
+ spanning-tree portfast disable
+!
+interface GigabitEthernet2/7
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ no cdp enable
+ spanning-tree portfast disable
+!
+interface GigabitEthernet2/8
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 3700-3702,3704,3705,3707,3709,3715,3716,3722
+ switchport trunk allowed vlan add 3738
+ switchport mode trunk
+ no cdp enable
+ spanning-tree portfast disable
+!
+interface GigabitEthernet2/9
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 202,3700-3702,3704,3705,3707,3709,3715,3716,3722
+ switchport trunk allowed vlan add 3738
+ switchport mode trunk
+ no cdp enable
+ spanning-tree portfast disable
+!
+interface GigabitEthernet2/10
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 3700-3702,3704,3705,3707,3709,3715,3716,3722
+ switchport trunk allowed vlan add 3738
+ switchport mode trunk
+ no cdp enable
+ spanning-tree portfast disable
+!
+interface GigabitEthernet2/11
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 5-255,291,300-554,556-566,568-889,892,893
+ switchport mode trunk
+ shutdown
+ no cdp enable
+ spanning-tree portfast disable
+!
+interface GigabitEthernet2/12
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 5-255,291,300-554,556-566,568-889,892,893
+ switchport mode trunk
+ shutdown
+ no cdp enable
+ spanning-tree portfast disable
+!
+interface GigabitEthernet2/13
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 1,64-1000
+ switchport mode trunk
+ no cdp enable
+ spanning-tree portfast disable
+ channel-protocol lacp
+!
+interface GigabitEthernet2/14
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 64-1000
+ switchport mode trunk
+ no cdp enable
+ spanning-tree portfast disable
+ channel-protocol lacp
+!
+interface GigabitEthernet2/15
+ switchport
+ switchport access vlan 873
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 64-1000
+ switchport mode access
+ no cdp enable
+ spanning-tree portfast edge
+ spanning-tree bpdufilter enable
+ channel-protocol lacp
+!
+interface GigabitEthernet2/16
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 1,64-1000
+ switchport mode trunk
+ no cdp enable
+ spanning-tree portfast disable
+ channel-protocol lacp
+!
+interface GigabitEthernet3/1
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 64-1000
+ switchport mode trunk
+ shutdown
+ no cdp enable
+ spanning-tree portfast disable
+!
+interface GigabitEthernet3/2
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 64-1000
+ switchport mode trunk
+ no cdp enable
+ spanning-tree portfast disable
+!
+interface GigabitEthernet3/3
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 64-1000
+ switchport mode trunk
+ no cdp enable
+ spanning-tree portfast disable
+!
+interface GigabitEthernet3/4
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 64-1000
+ switchport mode trunk
+ no cdp enable
+ spanning-tree portfast disable
+!
+interface GigabitEthernet3/5
+ switchport
+ switchport access vlan 365
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 5-255,291,300-554,556-566,568-889,892,893
+ switchport mode access
+ no cdp enable
+ spanning-tree portfast disable
+!
+interface GigabitEthernet3/6
+ switchport
+ switchport access vlan 75
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 5-255,291,292,300-554,556-566,568-889,892,893
+ switchport mode access
+ no cdp enable
+ spanning-tree portfast disable
+ spanning-tree guard none
+!
+interface GigabitEthernet3/7
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 64-1000
+ switchport mode trunk
+ no cdp enable
+ spanning-tree portfast disable
+!
+interface GigabitEthernet3/8
+ no ip address
+ shutdown
+ no cdp enable
+ spanning-tree portfast disable
+!
+interface GigabitEthernet3/9
+ no ip address
+ shutdown
+ no cdp enable
+ spanning-tree portfast disable
+!
+interface GigabitEthernet3/10
+ no ip address
+ shutdown
+ no cdp enable
+ spanning-tree portfast disable
+!
+interface GigabitEthernet3/11
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 96,99,100
+ switchport mode trunk
+ no cdp enable
+ spanning-tree portfast disable
+!
+interface GigabitEthernet3/12
+ switchport
+ switchport mode access
+ no cdp enable
+ spanning-tree portfast disable
+!
+interface GigabitEthernet3/13
+ no ip address
+ shutdown
+ no cdp enable
+ spanning-tree portfast disable
+!
+interface GigabitEthernet3/14
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 5-255,300-554,556-566,568-1005
+ switchport mode trunk
+ shutdown
+ no cdp enable
+ spanning-tree portfast disable
+!
+interface GigabitEthernet3/15
+ switchport
+ switchport access vlan 570
+ switchport mode access
+ no cdp enable
+ spanning-tree portfast disable
+!
+interface GigabitEthernet3/16
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ shutdown
+ no cdp enable
+ spanning-tree portfast disable
+ spanning-tree guard none
+!
+interface FastEthernet4/1
+ switchport
+ switchport access vlan 873
+ switchport mode access
+ speed 100
+ duplex full
+ spanning-tree portfast edge
+ spanning-tree bpdufilter enable
+!
+interface FastEthernet4/2
+ switchport
+ switchport access vlan 272
+ switchport mode access
+ speed 100
+ duplex full
+ spanning-tree portfast edge
+!
+interface FastEthernet4/3
+ switchport
+ switchport access vlan 892
+ switchport mode access
+ shutdown
+ speed 100
+ duplex full
+ spanning-tree portfast edge
+!
+interface FastEthernet4/4
+ switchport
+ switchport access vlan 74
+ switchport mode access
+ speed 100
+ duplex full
+ spanning-tree portfast edge
+!
+interface FastEthernet4/5
+ switchport
+ switchport access vlan 570
+ switchport mode access
+ spanning-tree portfast edge
+!
+interface FastEthernet4/6
+ switchport
+ switchport access vlan 292
+ switchport mode access
+ shutdown
+ speed 100
+ duplex full
+ spanning-tree portfast edge
+!
+interface FastEthernet4/7
+ switchport
+ switchport access vlan 897
+ switchport mode access
+ speed 100
+ duplex full
+ spanning-tree portfast edge
+!
+interface FastEthernet4/8
+ no ip address
+ shutdown
+ spanning-tree portfast edge
+!
+interface FastEthernet4/9
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 5-255,291,300-554,556-566,568-1005
+ switchport mode trunk
+ no cdp enable
+ spanning-tree portfast disable
+!
+interface FastEthernet4/10
+ no ip address
+ shutdown
+ spanning-tree portfast edge
+!
+interface FastEthernet4/11
+ no ip address
+ shutdown
+ spanning-tree portfast edge
+!
+interface FastEthernet4/12
+ no ip address
+ shutdown
+ spanning-tree portfast edge
+!
+interface FastEthernet4/13
+ no ip address
+ shutdown
+ spanning-tree portfast edge
+!
+interface FastEthernet4/14
+ no ip address
+ shutdown
+ spanning-tree portfast edge
+!
+interface FastEthernet4/15
+ no ip address
+ shutdown
+ spanning-tree portfast edge
+!
+interface FastEthernet4/16
+ no ip address
+ shutdown
+ spanning-tree portfast edge
+!
+interface FastEthernet4/17
+ no ip address
+ shutdown
+ spanning-tree portfast edge
+!
+interface FastEthernet4/18
+ no ip address
+ shutdown
+ spanning-tree portfast edge
+!
+interface FastEthernet4/19
+ no ip address
+ shutdown
+ spanning-tree portfast edge
+!
+interface FastEthernet4/20
+ no ip address
+ shutdown
+ spanning-tree portfast edge
+!
+interface FastEthernet4/21
+ no ip address
+ shutdown
+ spanning-tree portfast edge
+!
+interface FastEthernet4/22
+ no ip address
+ shutdown
+!
+interface FastEthernet4/23
+ no ip address
+ shutdown
+!
+interface FastEthernet4/24
+ switchport
+ switchport access vlan 901
+ switchport mode access
+!
+interface FastEthernet4/25
+ no ip address
+ shutdown
+!
+interface FastEthernet4/26
+ no ip address
+ shutdown
+!
+interface FastEthernet4/27
+ no ip address
+ shutdown
+!
+interface FastEthernet4/28
+ no ip address
+ shutdown
+ spanning-tree portfast edge
+!
+interface FastEthernet4/29
+ switchport
+ switchport access vlan 3707
+ switchport mode access
+ spanning-tree portfast edge
+!
+interface FastEthernet4/30
+ switchport
+ switchport access vlan 3700
+ switchport mode access
+ spanning-tree portfast edge
+!
+interface FastEthernet4/31
+ switchport
+ switchport access vlan 3715
+ switchport mode access
+ spanning-tree portfast edge
+!
+interface FastEthernet4/32
+ switchport
+ switchport access vlan 3702
+ switchport mode access
+ spanning-tree portfast edge
+!
+interface FastEthernet4/33
+ switchport
+ switchport access vlan 3716
+ switchport mode access
+ spanning-tree portfast edge
+!
+interface FastEthernet4/34
+ switchport
+ switchport access vlan 3704
+ switchport mode access
+ spanning-tree portfast edge
+!
+interface FastEthernet4/35
+ switchport
+ switchport access vlan 3709
+ switchport mode access
+ spanning-tree portfast edge
+!
+interface FastEthernet4/36
+ switchport
+ switchport access vlan 3704
+ switchport mode access
+ spanning-tree portfast edge
+!
+interface FastEthernet4/37
+ switchport
+ switchport access vlan 201
+ switchport mode access
+ no lldp transmit
+ spanning-tree portfast edge
+!
+interface FastEthernet4/38
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 3700-3702,3704,3705,3707,3709,3715,3716,3722
+ switchport trunk allowed vlan add 3738
+ switchport mode trunk
+!
+interface FastEthernet4/39
+ switchport
+ switchport access vlan 201
+ switchport mode access
+ no lldp transmit
+ spanning-tree portfast edge
+!
+interface FastEthernet4/40
+ switchport
+ switchport mode access
+ spanning-tree portfast edge
+!
+interface FastEthernet4/41
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 209
+ switchport mode trunk
+!
+interface FastEthernet4/42
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 64-208,210-898
+ switchport mode trunk
+!
+interface FastEthernet4/43
+ no ip address
+ shutdown
+ spanning-tree portfast edge
+!
+interface FastEthernet4/44
+ switchport
+ switchport access vlan 208
+ switchport mode access
+ spanning-tree portfast edge
+!
+interface FastEthernet4/45
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 3700-3702,3704,3705,3707,3709,3715,3716
+ switchport mode trunk
+ spanning-tree portfast edge
+!
+interface FastEthernet4/46
+ ip address 192.168.1.2 255.255.255.252
+ spanning-tree portfast edge
+!
+interface FastEthernet4/47
+ switchport
+ switchport access vlan 632
+ switchport mode access
+ spanning-tree portfast edge
+!
+interface FastEthernet4/48
+ no ip address
+ shutdown
+ spanning-tree portfast edge
+!
+interface GigabitEthernet5/1
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 74,873,892,897
+ switchport mode trunk
+!
+interface GigabitEthernet5/2
+ no ip address
+ shutdown
+ spanning-tree portfast disable
+!
+interface TenGigabitEthernet7/1
+ no ip address
+ no cdp enable
+!
+interface TenGigabitEthernet7/1.3
+ encapsulation dot1Q 3
+ ip address 172.20.6.129 255.255.254.0 secondary
+ ip address 171.66.255.144 255.255.255.192
+ no ip redirects
+ no ip unreachables
+ ipv6 address 2607:F6D0:0:BBB::AB42:FF90/64
+ no cdp enable
+!
+interface TenGigabitEthernet7/2
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 1,64-1000
+ switchport mode trunk
+ no cdp enable
+!
+interface TenGigabitEthernet7/3
+ no ip address
+ shutdown
+ no cdp enable
+!
+interface TenGigabitEthernet7/4
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 66,68,72,77,78,88,89,92,95,96,98,99,364,595
+ switchport mode trunk
+ no cdp enable
+!
+interface Vlan1
+ no ip address
+ no ip redirects
+ no ip unreachables
+ shutdown
+!
+interface Vlan4
+ ip address 192.168.224.53 255.255.255.0
+ no ip redirects
+ no ip unreachables
+ ip pim sparse-dense-mode
+ shutdown
+!
+interface Vlan6
+ no ip address
+ no ip redirects
+ no ip unreachables
+!
+interface Vlan10
+ ip address 172.20.10.129 255.255.255.224
+ no ip redirects
+ no ip unreachables
+ ip ospf cost 10
+ ip ospf mtu-ignore
+ ipv6 address 2607:F6D0:0:400A::AC14:A81/64
+ ipv6 ospf mtu-ignore
+ ipv6 ospf 64804 area 0
+!
+interface Vlan64
+ ip address 172.24.64.2 255.255.255.0 secondary
+ ip address 171.64.64.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip dvmrp accept-filter 3 neighbor-list 4
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 64 ip 171.64.64.1
+ standby 64 ip 172.24.64.1 secondary
+ standby 64 timers 2 7
+ standby 64 priority 120
+ standby 64 preempt
+ standby 64 authentication vlan64
+!
+interface Vlan65
+ ip address 172.24.65.3 255.255.255.0 secondary
+ ip address 171.64.65.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip dvmrp accept-filter 3 neighbor-list 4
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 65 ip 171.64.65.1
+ standby 65 ip 172.24.65.1 secondary
+ standby 65 timers 2 7
+ standby 65 priority 120
+ standby 65 preempt
+ standby 65 authentication vlan65
+!
+interface Vlan66
+ ip address 172.24.66.3 255.255.255.0 secondary
+ ip address 171.64.66.2 255.255.255.0
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip dvmrp accept-filter 3 neighbor-list 4
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 66 ip 171.64.66.1
+ standby 66 ip 172.24.66.1 secondary
+ standby 66 timers 2 7
+ standby 66 priority 120
+ standby 66 preempt
+ standby 66 authentication vlan66
+!
+interface Vlan67
+ ip address 172.24.67.2 255.255.255.0 secondary
+ ip address 171.64.67.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip dvmrp accept-filter 3 neighbor-list 4
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 67 ip 171.64.67.1
+ standby 67 ip 172.24.67.1 secondary
+ standby 67 timers 2 7
+ standby 67 priority 120
+ standby 67 preempt
+ standby 67 authentication vlan67
+!
+interface Vlan68
+ ip address 172.24.68.3 255.255.254.0 secondary
+ ip address 171.64.68.2 255.255.254.0
+ ip access-group 168 out
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip dvmrp accept-filter 3 neighbor-list 4
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 68 ip 171.64.68.1
+ standby 68 ip 171.64.69.1 secondary
+ standby 68 ip 172.24.68.1 secondary
+ standby 68 ip 172.24.69.1 secondary
+ standby 68 timers 2 7
+ standby 68 priority 120
+ standby 68 preempt
+ standby 68 authentication vlan68
+!
+interface Vlan70
+ ip address 172.24.70.2 255.255.255.0 secondary
+ ip address 171.64.70.2 255.255.255.0
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 70 ip 171.64.70.1
+ standby 70 ip 172.24.70.1 secondary
+ standby 70 timers 2 7
+ standby 70 priority 120
+ standby 70 preempt
+ standby 70 authentication vlan70
+!
+interface Vlan71
+ ip address 172.24.71.2 255.255.255.0 secondary
+ ip address 171.64.71.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 71 ip 171.64.71.1
+ standby 71 ip 172.24.71.1 secondary
+ standby 71 timers 2 7
+ standby 71 priority 120
+ standby 71 preempt
+ standby 71 authentication vlan71
+!
+interface Vlan72
+ ip address 172.24.72.2 255.255.254.0 secondary
+ ip address 171.64.73.2 255.255.255.0 secondary
+ ip address 171.64.72.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip dvmrp accept-filter 3 neighbor-list 4
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 72 ip 171.64.72.1
+ standby 72 ip 171.64.73.1 secondary
+ standby 72 ip 172.24.72.1 secondary
+ standby 72 timers 2 7
+ standby 72 priority 120
+ standby 72 preempt
+ standby 72 authentication vlan72
+!
+interface Vlan73
+ no ip address
+ no ip redirects
+ no ip unreachables
+!
+interface Vlan74
+ ip address 172.24.74.2 255.255.255.0 secondary
+ ip address 192.168.128.2 255.255.255.0 secondary
+ ip address 192.168.129.2 255.255.255.0 secondary
+ ip address 171.64.74.2 255.255.255.0
+ ip access-group 174 in
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip dvmrp accept-filter 3 neighbor-list 4
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby use-bia
+ standby 74 ip 171.64.74.1
+ standby 74 ip 172.24.74.1 secondary
+ standby 74 ip 192.168.128.1 secondary
+ standby 74 ip 192.168.129.1 secondary
+ standby 74 timers 2 7
+ standby 74 priority 120
+ standby 74 preempt
+ standby 74 authentication vlan74
+!
+interface Vlan75
+ ip address 172.24.75.2 255.255.255.0 secondary
+ ip address 171.64.75.2 255.255.255.0
+ ip access-group 175 in
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip dvmrp accept-filter 3 neighbor-list 4
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 75 ip 171.64.75.1
+ standby 75 ip 172.24.75.1 secondary
+ standby 75 timers 2 7
+ standby 75 priority 120
+ standby 75 preempt
+ standby 75 authentication vlan75
+!
+interface Vlan76
+ ip address 172.24.76.2 255.255.255.0 secondary
+ ip address 171.64.76.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 76 ip 171.64.76.1
+ standby 76 ip 172.24.76.1 secondary
+ standby 76 timers 2 7
+ standby 76 priority 120
+ standby 76 preempt
+ standby 76 authentication vlan76
+!
+interface Vlan77
+ ip address 172.24.77.2 255.255.255.0 secondary
+ ip address 171.64.77.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip dvmrp accept-filter 3 neighbor-list 4
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 77 ip 171.64.77.1
+ standby 77 ip 172.24.77.1 secondary
+ standby 77 timers 2 7
+ standby 77 priority 120
+ standby 77 preempt
+ standby 77 authentication vlan77
+!
+interface Vlan78
+ ip address 172.24.78.2 255.255.255.0 secondary
+ ip address 171.64.78.2 255.255.255.0
+ ip access-group 178 out
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip dvmrp accept-filter 3 neighbor-list 4
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 78 ip 171.64.78.1
+ standby 78 ip 172.24.78.1 secondary
+ standby 78 timers 2 7
+ standby 78 priority 120
+ standby 78 preempt
+ standby 78 authentication vlan78
+!
+interface Vlan79
+ ip address 171.64.79.132 255.255.255.240
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 79 ip 171.64.79.129
+ standby 79 timers 2 7
+ standby 79 priority 120
+ standby 79 preempt
+ standby 79 authentication vlan79
+!
+interface Vlan88
+ ip address 172.24.88.2 255.255.255.0 secondary
+ ip address 171.64.88.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ shutdown
+ standby 64 ip 171.64.88.1
+ standby 64 ip 172.24.88.1 secondary
+ standby 64 timers 2 7
+ standby 64 priority 120
+ standby 64 preempt
+ standby 64 authentication vlan64
+!
+interface Vlan89
+ ip address 172.24.89.2 255.255.255.0 secondary
+ ip address 171.64.89.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ shutdown
+ standby 64 ip 171.64.89.1
+ standby 64 ip 172.24.89.1 secondary
+ standby 64 timers 2 7
+ standby 64 priority 120
+ standby 64 preempt
+ standby 64 authentication vlan64
+!
+interface Vlan90
+ ip address 172.24.90.2 255.255.254.0 secondary
+ ip address 171.64.90.2 255.255.254.0
+ ip access-group 91 in
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 64 ip 171.64.90.1
+ standby 64 ip 172.24.90.1 secondary
+ standby 64 timers 2 7
+ standby 64 priority 120
+ standby 64 preempt
+ standby 64 authentication vlan64
+!
+interface Vlan91
+ no ip address
+ ip policy route-map gnat-1
+ shutdown
+!
+interface Vlan92
+ ip address 172.24.92.2 255.255.255.0 secondary
+ ip address 171.64.92.2 255.255.254.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 64 ip 171.64.92.1
+ standby 64 ip 172.24.92.1 secondary
+ standby 64 timers 2 7
+ standby 64 priority 120
+ standby 64 preempt
+ standby 64 authentication vlan64
+!
+interface Vlan93
+ no ip address
+ ip policy route-map gnat-1
+ shutdown
+!
+interface Vlan94
+ ip address 172.24.94.2 255.255.255.0 secondary
+ ip address 171.64.94.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 64 ip 171.64.94.1
+ standby 64 ip 172.24.94.1 secondary
+ standby 64 timers 2 7
+ standby 64 priority 120
+ standby 64 preempt
+ standby 64 authentication vlan64
+!
+interface Vlan96
+ ip address 172.24.96.2 255.255.255.0 secondary
+ ip address 171.64.96.2 255.255.254.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 64 ip 171.64.96.1
+ standby 64 ip 172.24.96.1 secondary
+ standby 64 timers 2 7
+ standby 64 priority 120
+ standby 64 preempt
+ standby 64 authentication vlan64
+!
+interface Vlan97
+ no ip address
+ no ip redirects
+ no ip unreachables
+ ip policy route-map gnat-1
+!
+interface Vlan98
+ ip address 172.24.98.2 255.255.255.0 secondary
+ ip address 171.64.98.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.111
+ ip helper-address 171.64.7.89
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ shutdown
+ standby 64 ip 171.64.98.1
+ standby 64 ip 172.24.98.1 secondary
+ standby 64 timers 2 7
+ standby 64 priority 120
+ standby 64 preempt
+ standby 64 authentication vlan64
+!
+interface Vlan99
+ ip address 172.24.99.2 255.255.255.0 secondary
+ ip address 171.64.99.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 64 ip 171.64.99.1
+ standby 64 ip 172.24.99.1 secondary
+ standby 64 timers 2 7
+ standby 64 priority 120
+ standby 64 preempt
+ standby 64 authentication vlan64
+!
+interface Vlan100
+ ip address 172.24.100.2 255.255.254.0 secondary
+ ip address 171.64.100.2 255.255.254.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 64 ip 171.64.100.1
+ standby 64 ip 172.24.100.1 secondary
+ standby 64 timers 2 7
+ standby 64 priority 120
+ standby 64 preempt
+ standby 64 authentication vlan64
+!
+interface Vlan167
+ no ip address
+ no ip redirects
+ no ip unreachables
+!
+interface Vlan201
+ ip address 171.66.4.130 255.255.255.248
+ standby 20 ip 171.66.4.129
+ standby 20 timers 2 7
+ standby 20 priority 120
+ standby 20 preempt
+ standby 20 authentication vlan201
+!
+interface Vlan202
+ ip address 172.26.4.130 255.255.255.248
+ standby 20 ip 172.26.4.129
+ standby 20 timers 2 7
+ standby 20 priority 120
+ standby 20 preempt
+ standby 20 authentication vlan202
+!
+interface Vlan203
+ ip address 171.66.4.138 255.255.255.248
+ shutdown
+ standby 20 ip 171.66.4.137
+ standby 20 timers 2 7
+ standby 20 priority 120
+ standby 20 preempt
+ standby 20 authentication vlan203
+!
+interface Vlan205
+ ip address 171.66.4.146 255.255.255.248
+ shutdown
+ standby 20 ip 171.66.4.145
+ standby 20 timers 2 7
+ standby 20 priority 120
+ standby 20 preempt
+ standby 20 authentication vlan205
+!
+interface Vlan207
+ ip address 171.66.4.154 255.255.255.248
+ shutdown
+ standby 20 ip 171.66.4.153
+ standby 20 timers 2 7
+ standby 20 priority 120
+ standby 20 preempt
+ standby 20 authentication vlan207
+!
+interface Vlan208
+ ip address 172.26.4.154 255.255.255.248
+ standby 208 ip 172.26.4.153
+ standby 208 timers 2 7
+ standby 208 priority 120
+ standby 208 preempt
+ standby 208 authentication vlan208
+!
+interface Vlan209
+ ip address 192.168.209.33 255.255.255.252
+ no ip redirects
+ no ip unreachables
+!
+interface Vlan265
+ no ip address
+ no ip redirects
+ no ip unreachables
+!
+interface Vlan272
+ no ip address
+ no ip redirects
+ no ip unreachables
+ shutdown
+!
+interface Vlan291
+ ip address 171.64.15.45 255.255.255.224 secondary
+ ip address 171.64.15.177 255.255.255.224 secondary
+ ip address 171.64.15.8 255.255.255.224
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip pim sparse-dense-mode
+ standby 64 ip 171.64.15.1
+ standby 64 ip 171.64.15.33 secondary
+ standby 64 ip 171.64.15.161 secondary
+ standby 64 timers 2 7
+ standby 64 priority 120
+ standby 64 preempt
+ standby 64 authentication vlan64
+!
+interface Vlan292
+ ip address 171.64.15.120 255.255.255.224 secondary
+ ip address 171.67.231.130 255.255.255.128 secondary
+ ip address 171.64.15.88 255.255.255.224
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip pim sparse-dense-mode
+ standby 64 ip 171.64.15.65
+ standby 64 ip 171.64.15.97 secondary
+ standby 64 ip 171.67.231.129 secondary
+ standby 64 timers 2 7
+ standby 64 priority 120
+ standby 64 preempt
+ standby 64 authentication vlan64
+!
+interface Vlan363
+ no ip address
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+!
+interface Vlan364
+ ip address 172.27.64.2 255.255.255.0 secondary
+ ip address 171.67.64.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 64 ip 171.67.64.1
+ standby 64 ip 172.27.64.1 secondary
+ standby 64 timers 2 7
+ standby 64 priority 120
+ standby 64 preempt
+ standby 64 authentication vlan64
+!
+interface Vlan365
+ ip address 172.27.65.2 255.255.255.0 secondary
+ ip address 171.67.65.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 65 ip 171.67.65.1
+ standby 65 ip 172.27.65.1 secondary
+ standby 65 timers 2 7
+ standby 65 priority 120
+ standby 65 preempt
+ standby 65 authentication vlan65
+!
+interface Vlan366
+ ip address 172.27.66.2 255.255.255.0 secondary
+ ip address 171.67.66.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 66 ip 171.67.66.1
+ standby 66 ip 172.27.66.1 secondary
+ standby 66 timers 2 7
+ standby 66 priority 120
+ standby 66 preempt
+ standby 66 authentication vlan66
+!
+interface Vlan367
+ ip address 172.27.67.2 255.255.255.0 secondary
+ ip address 171.67.67.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 67 ip 171.67.67.1
+ standby 67 ip 172.27.67.1 secondary
+ standby 67 timers 2 7
+ standby 67 priority 120
+ standby 67 preempt
+ standby 67 authentication vlan67
+!
+interface Vlan368
+ ip address 172.27.68.2 255.255.255.0 secondary
+ ip address 171.67.68.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 68 ip 171.67.68.1
+ standby 68 ip 172.27.68.1 secondary
+ standby 68 timers 2 7
+ standby 68 priority 120
+ standby 68 preempt
+ standby 68 authentication vlan68
+!
+interface Vlan369
+ ip address 172.27.69.2 255.255.255.0 secondary
+ ip address 171.67.69.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 69 ip 171.67.69.1
+ standby 69 ip 172.27.69.1 secondary
+ standby 69 timers 2 7
+ standby 69 priority 120
+ standby 69 preempt
+ standby 69 authentication vlan69
+!
+interface Vlan370
+ ip address 172.27.70.2 255.255.255.0 secondary
+ ip address 171.67.70.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 70 ip 171.67.70.1
+ standby 70 ip 172.27.70.1 secondary
+ standby 70 timers 2 7
+ standby 70 priority 120
+ standby 70 preempt
+ standby 70 authentication vlan70
+!
+interface Vlan371
+ ip address 172.27.71.2 255.255.255.0 secondary
+ ip address 171.67.71.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ shutdown
+ standby 71 ip 171.67.71.1
+ standby 71 ip 172.27.71.1 secondary
+ standby 71 timers 2 7
+ standby 71 priority 120
+ standby 71 preempt
+ standby 71 authentication vlan71
+!
+interface Vlan372
+ ip address 172.27.72.2 255.255.254.0 secondary
+ ip address 171.67.72.2 255.255.254.0
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 72 ip 171.67.72.1
+ standby 72 ip 172.27.72.1 secondary
+ standby 72 timers 2 7
+ standby 72 priority 120
+ standby 72 preempt
+ standby 72 authentication vlan72
+!
+interface Vlan373
+ no ip address
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip policy route-map gnat-1
+!
+interface Vlan374
+ ip address 171.67.234.2 255.255.255.128 secondary
+ ip address 171.67.74.2 255.255.254.0 secondary
+ ip address 171.67.234.130 255.255.255.192 secondary
+ ip address 172.27.74.2 255.255.254.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby use-bia
+ standby 74 ip 172.27.74.1
+ standby 74 ip 171.67.74.1 secondary
+ standby 74 ip 171.67.234.1 secondary
+ standby 74 ip 171.67.234.129 secondary
+ standby 74 timers 2 7
+ standby 74 priority 120
+ standby 74 preempt
+ standby 74 authentication vlan74
+!
+interface Vlan376
+ ip address 172.27.76.2 255.255.254.0 secondary
+ ip address 171.67.76.2 255.255.254.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 76 ip 171.67.76.1
+ standby 76 ip 172.27.76.1 secondary
+ standby 76 timers 2 7
+ standby 76 priority 120
+ standby 76 preempt
+ standby 76 authentication vlan76
+!
+interface Vlan378
+ ip address 172.27.78.2 255.255.254.0 secondary
+ ip address 171.67.78.2 255.255.254.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 78 ip 171.67.78.1
+ standby 78 ip 172.27.78.1 secondary
+ standby 78 timers 2 7
+ standby 78 priority 120
+ standby 78 preempt
+ standby 78 authentication vlan78
+!
+interface Vlan379
+ ip address 172.24.79.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ no ip redirects
+ no ip unreachables
+ ip policy route-map gnat-1
+ standby 79 ip 172.24.79.1
+ standby 79 timers 2 7
+ standby 79 priority 120
+ standby 79 preempt
+ standby 79 authentication vlan79
+!
+interface Vlan564
+ no ip address
+ no ip redirects
+ no ip unreachables
+!
+interface Vlan570
+ no ip address
+ no ip redirects
+ no ip unreachables
+!
+interface Vlan595
+ ip address 172.24.95.2 255.255.255.0 secondary
+ ip address 171.64.95.2 255.255.255.0
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip pim sparse-dense-mode
+ shutdown
+ standby 64 ip 171.64.95.1
+ standby 64 ip 172.24.95.1 secondary
+ standby 64 timers 2 7
+ standby 64 priority 120
+ standby 64 preempt
+ standby 64 authentication vlan64
+!
+interface Vlan632
+ no ip address
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ shutdown
+!
+interface Vlan888
+ ip address 192.168.252.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip pim sparse-dense-mode
+ ip dvmrp accept-filter 3 neighbor-list 4
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 64 ip 192.168.252.1
+ standby 64 timers 2 7
+ standby 64 priority 120
+ standby 64 preempt
+ standby 64 authentication vlan64
+!
+interface Vlan892
+ no ip address
+ no ip redirects
+ no ip unreachables
+ shutdown
+!
+interface Vlan897
+ no ip address
+ no ip redirects
+ no ip unreachables
+ shutdown
+!
+interface Vlan898
+ ip address 192.168.136.2 255.255.254.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip policy route-map gnat-1
+ standby 64 ip 192.168.136.1
+ standby 64 timers 2 7
+ standby 64 priority 120
+ standby 64 preempt
+ standby 64 authentication vlan64
+!
+interface Vlan899
+ ip address 192.168.139.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip policy route-map gnat-1
+ standby 64 ip 192.168.139.1
+ standby 64 timers 2 7
+ standby 64 priority 120
+ standby 64 preempt
+ standby 64 authentication vlan64
+!
+interface Vlan900
+ ip address 10.79.0.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 90 ip 10.79.0.1
+ standby 90 timers 2 7
+ standby 90 priority 120
+ standby 90 preempt
+ standby 90 authentication vlan900
+!
+interface Vlan901
+ ip address 10.79.1.2 255.255.255.0
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby use-bia
+ standby 90 ip 10.79.1.1
+ standby 90 timers 2 7
+ standby 90 priority 120
+ standby 90 preempt
+ standby 90 authentication vlan900
+!
+interface Vlan902
+ ip address 10.79.2.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 90 ip 10.79.2.1
+ standby 90 timers 2 7
+ standby 90 priority 120
+ standby 90 preempt
+ standby 90 authentication vlan900
+!
+interface Vlan903
+ ip address 10.79.3.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 90 ip 10.79.3.1
+ standby 90 timers 2 7
+ standby 90 priority 120
+ standby 90 preempt
+ standby 90 authentication vlan900
+!
+interface Vlan904
+ ip address 10.79.4.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 90 ip 10.79.4.1
+ standby 90 timers 2 7
+ standby 90 priority 120
+ standby 90 preempt
+ standby 90 authentication vlan900
+!
+interface Vlan905
+ ip address 10.79.5.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 90 ip 10.79.5.1
+ standby 90 timers 2 7
+ standby 90 priority 120
+ standby 90 preempt
+ standby 90 authentication vlan900
+!
+interface Vlan906
+ ip address 10.79.6.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 90 ip 10.79.6.1
+ standby 90 timers 2 7
+ standby 90 priority 120
+ standby 90 preempt
+ standby 90 authentication vlan900
+!
+interface Vlan907
+ ip address 10.79.7.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 90 ip 10.79.7.1
+ standby 90 timers 2 7
+ standby 90 priority 120
+ standby 90 preempt
+ standby 90 authentication vlan900
+!
+interface Vlan908
+ ip address 10.79.8.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 90 ip 10.79.8.1
+ standby 90 timers 2 7
+ standby 90 priority 120
+ standby 90 preempt
+ standby 90 authentication vlan900
+!
+interface Vlan909
+ ip address 10.79.9.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 90 ip 10.79.9.1
+ standby 90 timers 2 7
+ standby 90 priority 120
+ standby 90 preempt
+ standby 90 authentication vlan900
+!
+interface Vlan910
+ mtu 9216
+ ip address 10.79.10.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 90 ip 10.79.10.1
+ standby 90 timers 2 7
+ standby 90 priority 120
+ standby 90 preempt
+ standby 90 authentication vlan900
+!
+interface Vlan911
+ ip address 10.79.11.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 90 ip 10.79.11.1
+ standby 90 timers 2 7
+ standby 90 priority 120
+ standby 90 preempt
+ standby 90 authentication vlan900
+!
+interface Vlan912
+ ip address 10.79.12.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 90 ip 10.79.12.1
+ standby 90 timers 2 7
+ standby 90 priority 120
+ standby 90 preempt
+ standby 90 authentication vlan900
+!
+interface Vlan913
+ ip address 10.79.13.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 90 ip 10.79.13.1
+ standby 90 timers 2 7
+ standby 90 priority 120
+ standby 90 preempt
+ standby 90 authentication vlan900
+!
+interface Vlan914
+ ip address 10.79.14.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 90 ip 10.79.14.1
+ standby 90 timers 2 7
+ standby 90 priority 120
+ standby 90 preempt
+ standby 90 authentication vlan900
+!
+interface Vlan915
+ ip address 10.79.15.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 90 ip 10.79.15.1
+ standby 90 timers 2 7
+ standby 90 priority 120
+ standby 90 preempt
+ standby 90 authentication vlan900
+!
+interface Vlan916
+ ip address 10.79.16.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 90 ip 10.79.16.1
+ standby 90 timers 2 7
+ standby 90 priority 120
+ standby 90 preempt
+ standby 90 authentication vlan900
+!
+interface Vlan917
+ ip address 10.79.17.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 90 ip 10.79.17.1
+ standby 90 timers 2 7
+ standby 90 priority 120
+ standby 90 preempt
+ standby 90 authentication vlan900
+!
+interface Vlan918
+ ip address 10.79.18.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 90 ip 10.79.18.1
+ standby 90 timers 2 7
+ standby 90 priority 120
+ standby 90 preempt
+ standby 90 authentication vlan900
+!
+interface Vlan919
+ ip address 10.79.19.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 90 ip 10.79.19.1
+ standby 90 timers 2 7
+ standby 90 priority 120
+ standby 90 preempt
+ standby 90 authentication vlan900
+!
+interface Vlan920
+ ip address 10.79.20.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 90 ip 10.79.20.1
+ standby 90 timers 2 7
+ standby 90 priority 120
+ standby 90 preempt
+ standby 90 authentication vlan900
+!
+interface Vlan921
+ ip address 10.79.21.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 90 ip 10.79.28.1
+ standby 90 timers 2 7
+ standby 90 priority 120
+ standby 90 preempt
+ standby 90 authentication vlan900
+!
+interface Vlan922
+ no ip address
+!
+interface Vlan923
+ no ip address
+!
+interface Vlan924
+ no ip address
+!
+interface Vlan925
+ no ip address
+!
+interface Vlan926
+ no ip address
+!
+interface Vlan927
+ no ip address
+!
+interface Vlan928
+ no ip address
+!
+interface Vlan929
+ ip address 10.79.29.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-2
+ ip cgmp proxy
+ standby 90 ip 10.79.29.1
+ standby 90 timers 2 7
+ standby 90 priority 120
+ standby 90 preempt
+ standby 90 authentication vlan900
+!
+interface Vlan930
+ ip address 10.79.30.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-1
+ ip cgmp proxy
+ standby 90 ip 10.79.30.1
+ standby 90 timers 2 7
+ standby 90 priority 120
+ standby 90 preempt
+ standby 90 authentication vlan900
+!
+interface Vlan931
+ ip address 10.79.31.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.89
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ip pim sparse-dense-mode
+ ip policy route-map gnat-2
+ ip cgmp proxy
+ standby 90 ip 10.79.31.1
+ standby 90 timers 2 7
+ standby 90 priority 120
+ standby 90 preempt
+ standby 90 authentication vlan900
+!
+interface Vlan3704
+ ip address 10.37.4.1 255.255.255.0
+!
+end

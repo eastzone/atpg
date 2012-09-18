@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Demo</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <script type="text/javascript" src="js/d3.v2.min.js"></script>
+    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery.tipsy.js"></script>
+    <script type="text/javascript" src="fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+    <script type="text/javascript" src="js/demo.js"></script>
+    <link href="css/tipsy.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
+    <link href="css/demo.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="graphs">
+      <div id="paper1" class="paper">
+        <div class=label>Real</div>
+        <div id=topology></div>
+      </div>
+      <div id="paper2" class="paper">
+        <div class=label>Discovered</div>
+        <div id=topologyDiscovered></div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="button">
+        <button id=button1 class="metal linear" onclick="inject();">Inject</button>
+      </div>
+      <div class="button">
+        <button id=button2 class="metal linear" onclick="reset();">Reset</button>
+      </div>
+      <div class="button">
+        <button id=button4 class="metal linear" onclick="map();">Regular</button>
+      </div>
+      <div class="button">
+        <button id=button3 class="metal linear" onclick="detect();">Detect</button>
+      </div>
+    </div>
+    <div class="spinner">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+        <div class="bar4"></div>
+        <div class="bar5"></div>
+        <div class="bar6"></div>
+        <div class="bar7"></div>
+        <div class="bar8"></div>
+        <div class="bar9"></div>
+        <div class="bar10"></div>
+        <div class="bar11"></div>
+        <div class="bar12"></div>
+    </div>
+    <script type="text/javascript">
+    reset();
+    start_demo("data/dataDiscovered.json", "#topologyDiscovered"); 
+    start_demo("data/data.json", "#topology");
+    </script>
+  </body>
+</html>

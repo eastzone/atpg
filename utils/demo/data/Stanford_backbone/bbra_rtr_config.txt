@@ -1,0 +1,4196 @@
+!
+! Last configuration change at 13:16:20 PDT Wed Jul 6 2011 by rdcooper.sunet
+! NVRAM config last updated at 13:16:21 PDT Wed Jul 6 2011 by rdcooper.sunet
+!
+upgrade fpd auto
+version 12.2
+service timestamps debug datetime msec localtime show-timezone
+service timestamps log datetime msec localtime show-timezone
+service password-encryption
+service counters max age 5
+!
+hostname bbra-rtr
+!
+boot-start-marker
+boot system flash sup-bootdisk:s72033-advipservicesk9_wan-mz.122-33.SXI3.bin
+boot-end-marker
+!
+security passwords min-length 1
+logging buffered 65500
+no logging console
+enable secret 5 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+!
+aaa new-model
+!
+!
+aaa authentication login default group radius enable
+!
+!
+!
+aaa session-id common
+clock timezone PST -8
+clock summer-time PDT recurring
+no logging event link-status boot
+logging event link-status default
+ip subnet-zero
+no ip source-route
+no ip gratuitous-arps
+!
+!
+!
+ip ssh version 2
+no ip domain-lookup
+ip domain-name sunet
+ip name-server 171.64.7.55
+ip name-server 171.64.7.77
+ip name-server 171.64.7.99
+ipv6 unicast-routing
+ipv6 mfib hardware-switching replication-mode ingress
+vtp mode transparent
+no mls acl tcam share-global
+mls netflow interface
+mls cef error action freeze
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+spanning-tree vlan 2 priority 4096
+!
+power redundancy-mode combined
+diagnostic bootup level minimal
+port-channel per-module load-balance
+access-list 1 permit 171.67.1.0 0.0.0.255
+access-list 1 permit 172.20.0.0 0.0.7.255
+access-list 1 permit 172.20.10.0 0.0.1.255
+access-list 1 permit 171.64.2.0 0.0.0.63
+access-list 1 permit 171.64.2.128 0.0.0.31
+access-list 1 permit 171.64.7.0 0.0.0.127
+access-list 1 permit 172.16.64.0 0.0.63.255
+access-list 1 permit 172.16.128.0 0.0.63.255
+access-list 1 permit 171.64.20.0 0.0.1.255
+access-list 1 permit 172.24.20.0 0.0.0.255
+access-list 1 permit 171.66.66.64 0.0.0.63
+access-list 1 permit 172.26.66.64 0.0.0.63
+access-list 1 permit 171.64.255.128 0.0.0.63
+access-list 1 permit 171.66.255.128 0.0.0.63
+access-list 1 permit 171.66.1.0 0.0.0.255
+access-list 1 permit 68.65.168.0 0.0.0.255
+access-list 1 permit 192.168.222.64 0.0.0.63
+access-list 1 permit 172.28.7.0 0.0.0.255
+access-list 2 permit 192.168.220.135
+access-list 2 permit 192.168.220.140
+access-list 2 permit 192.168.220.136
+access-list 2 permit 172.16.1.40
+access-list 2 permit 172.16.1.39
+access-list 2 permit 172.16.24.87
+access-list 2 permit 171.64.7.16
+access-list 2 permit 171.64.2.0 0.0.0.63
+access-list 2 permit 171.64.2.128 0.0.0.31
+access-list 3 permit 171.64.0.0 0.3.255.255
+access-list 3 permit 172.27.16.32 0.0.0.31
+access-list 4 permit 171.64.0.0 0.3.255.255
+access-list 4 permit 128.12.0.0 0.0.255.255
+access-list 8 permit 171.64.2.192
+access-list 8 permit 192.168.8.0
+access-list 16 permit 66.250.3.76
+access-list 17 permit 171.64.17.224
+access-list 20 permit 10.252.0.0
+access-list 21 permit 172.20.0.208 0.0.0.7
+access-list 21 permit 172.20.0.216 0.0.0.3
+access-list 21 permit 172.20.0.160 0.0.0.31
+access-list 22 permit 171.67.249.0 0.0.0.127
+access-list 23 permit 171.67.248.0 0.0.3.255
+access-list 23 permit 172.27.248.0 0.0.3.255
+access-list 23 permit 172.20.1.224 0.0.0.7
+access-list 24 permit 172.24.0.0
+access-list 28 permit 128.12.0.0
+access-list 29 permit 128.12.0.0 0.0.255.255
+access-list 29 permit 172.19.0.0 0.0.255.255
+access-list 32 permit 128.12.0.0
+access-list 32 permit 171.64.0.0
+access-list 39 permit 204.152.100.0 0.0.3.255
+access-list 48 permit 10.248.0.0
+access-list 49 permit 209.11.184.0
+access-list 50 permit 10.250.0.0
+access-list 51 permit 10.50.0.0
+access-list 52 permit 10.50.0.0
+access-list 52 permit 10.248.0.0
+access-list 52 permit 10.252.0.0
+access-list 64 permit 171.64.0.0
+access-list 65 permit 171.65.0.0
+access-list 66 permit 171.66.96.0
+access-list 70 permit 171.67.248.0
+access-list 70 permit 171.67.250.0
+access-list 70 permit 172.27.250.0
+access-list 70 permit 172.27.248.0
+access-list 70 permit 171.64.0.87
+access-list 71 permit 171.64.0.0 0.3.255.255
+access-list 72 permit 137.164.28.0 0.0.0.255
+access-list 88 permit any
+access-list 89 permit 0.0.0.0
+access-list 90 permit 0.0.0.0
+access-list 91 permit any
+access-list 97 deny   172.16.0.0 0.0.255.255
+access-list 97 permit any
+access-list 99 deny   any
+access-list 1411 permit 171.67.9.0
+access-list 1412 permit 171.67.11.32
+access-list 1412 permit 171.67.11.0
+access-list 1413 permit 171.67.9.160
+access-list 1413 permit 171.67.9.128
+access-list 1413 permit 192.169.249.13
+access-list 1414 permit 171.67.32.0
+access-list 1415 permit 171.67.9.192
+access-list 1428 permit 192.168.249.28
+access-list 1428 permit 172.28.0.0
+access-list 110 permit ip host 172.20.4.195 host 172.20.4.1
+access-list 110 permit ip host 172.20.4.1 host 172.20.4.195
+access-list 135 deny   tcp any any eq 445
+access-list 135 permit tcp any any gt 139
+access-list 135 deny   tcp any any gt 134
+access-list 135 permit tcp any any
+access-list 135 permit udp any any gt netbios-ss
+access-list 135 deny   udp any any gt 134
+access-list 135 permit ip any any
+access-list 137 permit ip 128.12.184.0 0.0.7.255 any
+access-list 137 deny   tcp any any eq 445
+access-list 137 permit tcp any any gt 139
+access-list 137 deny   tcp any any gt 134
+access-list 137 permit tcp any any
+access-list 137 permit udp any any gt netbios-ss
+access-list 137 deny   udp any any gt 134
+access-list 137 permit ip any any
+access-list 139 deny   tcp any any eq 445
+access-list 139 permit tcp any any gt 139
+access-list 139 deny   tcp any any gt 134
+access-list 139 permit tcp any any
+access-list 139 permit udp any any gt netbios-ss
+access-list 139 deny   udp any any gt 134
+access-list 139 permit ip any any
+access-list 140 deny   tcp any any eq 445
+access-list 140 permit ip any any
+!
+redundancy
+ main-cpu
+  auto-sync running-config
+ mode sso
+!
+vlan internal allocation policy ascending
+vlan access-log ratelimit 2000
+!
+vlan 2
+ name coreBB-A
+!
+vlan 5
+ name voip-dmz-test
+!
+vlan 9
+ name I2-net
+!
+vlan 10
+ name forsythemr-net
+!
+vlan 11
+ name bbr-spine
+!
+vlan 12
+ name bbr2-ospf
+!
+vlan 19
+ name ACD-server-net
+!
+vlan 22
+ name resbb-a
+!
+vlan 42
+ name natbb-a
+!
+vlan 64
+ name BBR-BND-DMZA
+!
+vlan 81
+ name stures-bnda1
+!
+vlan 82
+ name stures-bnda2
+!
+vlan 91
+ name wrlsb-NATA
+!
+vlan 92
+ name wrlsb-noNATA
+!
+vlan 249
+ name fmr-guest-net
+!
+vlan 267
+ name 171.64.7.128/27
+!
+vlan 268
+ name 171.64.7.160/27
+!
+vlan 272
+ name mgmt
+!
+vlan 275
+ name 171.64.7.96/27
+!
+vlan 277
+ name 171.64.7.0/27
+!
+vlan 278
+ name 171.64.7.64/27
+!
+vlan 281
+ name backbone1-net
+!
+vlan 283
+ name services-backbone1
+!
+vlan 285
+ name fwlnk1-net
+!
+vlan 290
+ name vpn2few-net
+!
+vlan 292
+ name vpnfew-net
+!
+vlan 293
+ name pinfew-net
+!
+vlan 294
+ name forfew-net
+!
+vlan 295
+ name voipfew-net
+!
+vlan 296
+ name harpfew-net
+!
+vlan 297
+ name hatsfew-net
+!
+vlan 320
+ name east-ech-net
+!
+vlan 322
+ name west-ech-net
+!
+vlan 555
+ name wireless-oc-net
+!
+vlan 557
+ name tstbb1
+!
+vlan 564
+ name res-east-isp
+!
+vlan 566
+ name res-west-isp
+!
+vlan 580
+ name res-campus-I2
+!
+vlan 585
+ name med-center
+!
+vlan 590
+ name border-net
+!
+vlan 599
+ name bars
+!
+vlan 861
+ name security-span1-net
+!
+vlan 864
+ name perftest-net
+!
+vlan 866
+ name securityscan-net
+!
+vlan 881
+ name cnsfw-lnk1
+!
+vlan 882
+ name fw-bgp2-net
+!
+vlan 895
+ name off-campus-dmz
+!
+vlan 902
+ name voip-shc-test
+!
+! 
+!
+no crypto ipsec nat-transparency udp-encaps
+!
+!
+interface Loopback0
+ ip address 171.64.0.124 255.255.255.255
+ ipv6 address 2607:F6D0:0:B00::AB40:7C/128
+ ipv6 ospf 65064 area 0
+!
+interface Loopback1
+ ip address 171.64.1.1 255.255.255.255
+!
+interface Loopback2
+ ip address 171.66.1.1 255.255.255.255
+!
+interface Loopback3
+ ip address 171.67.1.1 255.255.255.255
+!
+interface Loopback7
+ ip address 171.67.255.124 255.255.255.255
+!
+interface TenGigabitEthernet1/1
+ description te6/1:boundarya-rtr:n::::trunk to boundarya-rtr (xxf01712)
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 2,64
+ switchport mode trunk
+ mtu 9216
+!
+interface TenGigabitEthernet1/2
+ description te0/1:toz-bba-sw:n::::TOZ trunk link
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 2,864
+ switchport mode trunk
+ mtu 9216
+!
+interface TenGigabitEthernet1/3
+ description seq-bba-sw 0/1
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 2
+ switchport mode trunk
+ mtu 9216
+!
+interface TenGigabitEthernet1/4
+ description wech-bba-sw 0/1 XXF01238 WECH1.9
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 2
+ switchport mode trunk
+ mtu 9216
+!
+interface GigabitEthernet3/1
+ description I2
+ switchport
+ switchport access vlan 9
+ switchport mode access
+!
+interface GigabitEthernet3/2
+ description rtf3750 2/0/6 livermore bkup
+ no ip address
+!
+interface GigabitEthernet3/3
+ no ip address
+!
+interface GigabitEthernet3/4
+ description press-bkup-rtr
+ switchport
+ switchport access vlan 281
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet3/5
+ description (Gi2)wireless-rtr
+ no ip address
+ no ip redirects
+ no ip unreachables
+ ip ospf cost 50
+!
+interface GigabitEthernet3/6
+ description yen/lira/dsl
+ switchport
+ switchport access vlan 283
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet3/7
+ description rtf-rtr
+ switchport
+ switchport access vlan 281
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet3/8
+ description psg-tapsw 2/0/26
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan none
+ switchport mode trunk
+!
+interface GigabitEthernet3/9
+ description perftest
+ switchport
+ switchport access vlan 864
+ switchport mode access
+!
+interface GigabitEthernet3/10
+ switchport
+ switchport mode access
+!
+interface GigabitEthernet3/11
+ description medc-rtr
+ switchport
+ switchport access vlan 585
+ switchport mode access
+!
+interface GigabitEthernet3/12
+ description security monitor
+ switchport
+ switchport mode access
+!
+interface GigabitEthernet3/13
+ description sweet-rtr
+ switchport
+ switchport access vlan 281
+ switchport mode access
+!
+interface GigabitEthernet3/14
+ description smra-rtr
+ switchport
+ switchport access vlan 281
+ switchport mode access
+!
+interface GigabitEthernet3/15
+ switchport
+!
+interface GigabitEthernet3/16
+ description (gi2/2)boundarya-rtr
+ mtu 9216
+ no ip address
+!
+interface GigabitEthernet3/16.13
+ encapsulation dot1Q 13
+ ip address 68.65.168.35 255.255.255.224
+ no ip redirects
+ no ip unreachables
+ no cdp enable
+!
+interface GigabitEthernet4/1
+ description rtf3750 2/0/6 livermore bkup
+ ip address 204.63.231.234 255.255.255.240
+!
+interface GigabitEthernet4/2
+ description west ech machines
+ switchport
+ switchport access vlan 322
+ switchport mode access
+!
+interface GigabitEthernet4/3
+ description SUNet srv trk wech
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 19,267,268,272,275,277,278,320
+ switchport mode trunk
+!
+interface GigabitEthernet4/4
+ description VL10 to FMR V67
+ switchport
+ switchport access vlan 10
+ switchport mode access
+!
+interface GigabitEthernet4/5
+ description (gi5/5)voip-wech-6513 for new ACD testing (temp May '07) /rgr
+ switchport
+ switchport access vlan 19
+ switchport mode access
+!
+interface GigabitEthernet4/6
+ description (Gi2)wireless-rtr
+ ip address 171.64.1.21 255.255.255.252
+ no ip redirects
+ no ip unreachables
+ ip ospf cost 50
+!
+interface GigabitEthernet4/6.17
+ encapsulation dot1Q 17
+ ip address 171.64.1.17 255.255.255.252
+ no ip redirects
+ no ip unreachables
+ no cdp enable
+!
+interface GigabitEthernet4/7
+ description (5/7)voip-wech-6513 for ACD mcast testing (temp Jun '07) /rgr
+ switchport
+ switchport access vlan 902
+ switchport mode access
+!
+interface GigabitEthernet4/8
+ description gi0/0 dsl-rtr | XXF02179
+ switchport
+ switchport access vlan 2
+ switchport mode access
+!
+interface GigabitEthernet4/9
+ description psg-tapsw 2/0/26
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 22,42,64,91,92,590
+ switchport mode trunk
+!
+interface GigabitEthernet4/10
+ description (gi2/2)boundarya-rtr
+ mtu 9216
+ no ip address
+!
+interface GigabitEthernet4/10.123
+ encapsulation dot1Q 123
+ ip address 68.65.168.97 255.255.255.240
+ no ip redirects
+ no ip unreachables
+ ipv6 address 2607:F6D0:0:BCA::4441:A861/64
+ no cdp enable
+!
+interface GigabitEthernet4/11
+ description (Gi2/6)dc1-rtr livermore
+ switchport
+ switchport access vlan 590
+ switchport mode access
+!
+interface GigabitEthernet4/12
+ description (Gi2/12)dc1-rtr
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 82
+ switchport mode trunk
+!
+interface GigabitEthernet4/13
+ description (gi0/2)hwpress-rtr
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 2,9
+ switchport mode trunk
+!
+interface GigabitEthernet4/14
+ description (1/44)jenkins6506
+ switchport
+ switchport access vlan 22
+ switchport mode access
+!
+interface GigabitEthernet4/15
+ description (2/14)east6503 - soz-mcast-rtr
+ switchport
+ switchport access vlan 22
+!
+interface GigabitEthernet4/16
+ description psg-tapsw 2/0/28
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 2,11,12,19,249,272,281,285,290-297,555-566,580
+ switchport trunk allowed vlan add 581,585,881,882
+ switchport mode trunk
+!
+interface GigabitEthernet5/1
+ description pine-miscsw 1/0/28
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 2,5,19,557,861,866,902
+ switchport mode trunk
+!
+interface GigabitEthernet5/2
+ no ip address
+ media-type rj45
+!
+interface TenGigabitEthernet6/1
+ description press-bba-sw 0/1
+ switchport
+ switchport access vlan 22
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 2,22,42,81,82,564,566
+ switchport mode trunk
+ mtu 9216
+!
+interface TenGigabitEthernet6/2
+ description mozb-rtr 6/1
+ switchport
+ switchport access vlan 2
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 2
+ switchport mode trunk
+ mtu 9216
+!
+interface TenGigabitEthernet6/3
+ description yoza-rtr 1/3
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 2
+ switchport mode trunk
+ mtu 9216
+ no cdp enable
+!
+interface TenGigabitEthernet6/4
+ description moza-rtr 1/1
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 2
+ switchport mode trunk
+ mtu 9216
+!
+interface TenGigabitEthernet7/1
+ description bbrb-rtr 7/1
+ switchport
+ switchport access vlan 11
+ switchport mode access
+ mtu 9216
+!
+interface TenGigabitEthernet7/2
+ description jenkins-bba-sw 0/1
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 2,22,42,81,82,564,566
+ switchport mode trunk
+ mtu 9216
+!
+interface TenGigabitEthernet7/3
+ description nech-bba-sw 0/1
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 2
+ switchport mode trunk
+ mtu 9216
+!
+interface TenGigabitEthernet7/4
+ description te4/3 bndb-rtr | xxf01589
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 2,64
+ switchport mode trunk
+ mtu 9216
+!
+interface FastEthernet9/1
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/2
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/3
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/4
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/5
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/6
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/7
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/8
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/9
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/10
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/11
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/12
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/13
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/14
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/15
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/16
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/17
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/18
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/19
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/20
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/21
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/22
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/23
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/24
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/25
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/26
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/27
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/28
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/29
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/30
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/31
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/32
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/33
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/34
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/35
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/36
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/37
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/38
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/39
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/40
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/41
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/42
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/43
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/44
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/45
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/46
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/47
+ switchport
+ switchport mode access
+ shutdown
+!
+interface FastEthernet9/48
+ switchport
+ switchport access vlan 322
+ switchport mode access
+ shutdown
+!
+interface Vlan1
+ no ip address
+ no ip redirects
+ no ip unreachables
+ shutdown
+!
+interface Vlan2
+ ip address 172.20.4.1 255.255.254.0 secondary
+ ip address 171.64.255.129 255.255.255.192
+ no ip redirects
+ no ip unreachables
+ ipv6 address 2607:F6D0:0:BBA::AB40:FF81/64
+!
+interface Vlan9
+ description to HPR/DC/Highwire/ISP-backup
+ ip address 172.24.1.134 255.255.255.240 secondary
+ ip address 171.64.1.198 255.255.255.224 secondary
+ ip address 171.64.1.134 255.255.255.240
+ no ip redirects
+ no ip unreachables
+ ip ospf cost 11
+ standby 7 ip 172.24.1.129
+ standby 7 timers 2 7
+ standby 7 priority 120
+ standby 7 preempt
+ standby 7 authentication Cenic
+!
+interface Vlan11
+ description bbr-spine
+ ip address 172.20.10.2 255.255.255.224
+ no ip redirects
+ no ip unreachables
+ ip ospf cost 4
+ ipv6 address 2607:F6D0:0:BB0::AC14:A02/64
+ ipv6 ospf 65064 area 0
+!
+interface Vlan12
+ description bbra<->bbr2 ospf
+ ip address 171.64.1.5 255.255.255.252
+ no ip redirects
+ no ip unreachables
+ ip ospf cost 9
+!
+interface Vlan22
+ ip address 172.20.2.1 255.255.255.0
+ no ip redirects
+ no ip unreachables
+!
+interface Vlan42
+ description natbb-a
+ ip address 172.20.8.1 255.255.255.0
+ no ip redirects
+ no ip unreachables
+!
+interface Vlan64
+ description BBR-BND-DMZA
+ ip address 171.64.1.33 255.255.255.240
+ no ip redirects
+ no ip unreachables
+!
+interface Vlan91
+ description wirelessb NAT
+ ip address 171.64.1.97 255.255.255.252
+ no ip redirects
+ no ip unreachables
+!
+interface Vlan92
+ description wirelessb no NAT
+ ip address 171.64.1.101 255.255.255.252
+ no ip redirects
+ no ip unreachables
+!
+interface Vlan249
+ description fmr-guest-net
+ ip address 172.24.249.5 255.255.255.0 secondary
+ ip address 171.64.249.5 255.255.255.0
+ no ip redirects
+ no ip unreachables
+ standby 249 ip 171.64.249.1
+ standby 249 ip 172.24.249.1 secondary
+ standby 249 timers 2 7
+ standby 249 priority 110
+ standby 249 preempt
+ standby 249 authentication fgsn
+!
+interface Vlan280
+ no ip address
+ shutdown
+!
+interface Vlan281
+ description from user routers
+ ip address 171.64.1.52 255.255.255.240
+ no ip redirects
+ no ip unreachables
+ ip ospf cost 7
+ ip ospf priority 5
+!
+interface Vlan283
+ description services-backbone1 (yen/lira/ap/dsl)
+ ip address 171.64.1.81 255.255.255.240
+ no ip redirects
+ no ip unreachables
+ ip ospf cost 7
+!
+interface Vlan285
+ description more firewalls
+ ip address 171.67.2.3 255.255.255.128
+ no ip redirects
+ no ip unreachables
+ standby 249 ip 171.67.2.1
+ standby 249 timers 2 7
+ standby 249 priority 90
+ standby 249 preempt
+ standby 249 authentication 285few
+!
+interface Vlan290
+ description vpn2few-net
+ ip address 171.64.250.149 255.255.255.248 secondary
+ ip address 192.168.249.149 255.255.255.248
+ no ip redirects
+ no ip unreachables
+ standby 249 ip 171.64.250.145
+ standby 249 timers 2 7
+ standby 249 priority 90
+ standby 249 authentication 290few
+!
+interface Vlan292
+ description vpnfew-net
+ ip address 171.64.250.181 255.255.255.248 secondary
+ ip address 192.168.249.181 255.255.255.248
+ no ip redirects
+ no ip unreachables
+ standby 249 ip 171.64.250.177
+ standby 249 timers 2 7
+ standby 249 priority 90
+ standby 249 authentication 292few
+!
+interface Vlan293
+ description pinfew-net
+ ip address 171.64.250.189 255.255.255.248 secondary
+ ip address 192.168.249.189 255.255.255.248
+ no ip redirects
+ no ip unreachables
+ standby 249 ip 171.64.250.185
+ standby 249 timers 2 7
+ standby 249 priority 90
+ standby 249 authentication 293few
+!
+interface Vlan294
+ description forfew-net
+ ip address 171.64.250.197 255.255.255.248 secondary
+ ip address 192.168.249.133 255.255.255.248
+ no ip redirects
+ no ip unreachables
+ standby 249 ip 171.64.250.193
+ standby 249 timers 2 7
+ standby 249 priority 90
+ standby 249 authentication 294few
+!
+interface Vlan295
+ description voipfew eth 1
+ ip address 192.168.249.157 255.255.255.248
+ no ip redirects
+ no ip unreachables
+!
+interface Vlan296
+ description harpfew-net
+ ip address 171.64.250.213 255.255.255.248 secondary
+ ip address 192.168.249.165 255.255.255.248
+ no ip redirects
+ no ip unreachables
+ standby 249 ip 171.64.250.209
+ standby 249 timers 2 7
+ standby 249 priority 90
+ standby 249 authentication 296few
+!
+interface Vlan297
+ description hatsfew-net
+ ip address 171.64.250.221 255.255.255.248 secondary
+ ip address 192.168.249.173 255.255.255.248
+ no ip redirects
+ no ip unreachables
+ standby 249 ip 171.64.250.217
+ standby 249 timers 2 7
+ standby 249 priority 90
+ standby 249 authentication 297few
+!
+interface Vlan555
+ description some pktshapers
+ ip address 172.24.1.241 255.255.255.240 secondary
+ ip address 171.64.1.241 255.255.255.240
+ no ip redirects
+ no ip unreachables
+ ip ospf cost 250
+!
+interface Vlan557
+ description tstbb1 - backbone for Pine Network Testbed (pntb)
+ ip address 172.20.251.1 255.255.255.0
+ no ip redirects
+ no ip unreachables
+!
+interface Vlan564
+ description res-east-rtr
+ ip address 128.12.1.81 255.255.255.248
+ no ip redirects
+ no ip unreachables
+!
+interface Vlan566
+ description res-west-rtr
+ ip address 128.12.1.91 255.255.255.248
+ no ip redirects
+ no ip unreachables
+!
+interface Vlan585
+ description med-center
+ ip address 172.27.1.129 255.255.255.248 secondary
+ ip address 171.67.1.129 255.255.255.248
+ no ip redirects
+ no ip unreachables
+ ip ospf cost 7
+ ip ospf priority 5
+!
+interface Vlan590
+ description to border-rtr
+ ip address 171.66.1.73 255.255.255.240 secondary
+ ip address 171.64.1.151 255.255.255.240
+ no ip redirects
+ no ip unreachables
+!
+interface Vlan861
+ description security-span1-net
+ ip address 171.66.1.129 255.255.255.248
+ no ip redirects
+ no ip unreachables
+!
+interface Vlan864
+ description netspeed
+ ip address 171.66.6.33 255.255.255.240
+ no ip redirects
+ no ip unreachables
+!
+interface Vlan866
+ description security-scan-net
+ ip address 171.66.6.97 255.255.255.224 secondary
+ ip address 172.26.6.97 255.255.255.224 secondary
+ ip address 172.26.6.65 255.255.255.240
+ no ip redirects
+ no ip unreachables
+!
+interface Vlan881
+ description fw-bgp1-net (trunk 4/16 to Forsythe)
+ ip address 192.168.249.65 255.255.255.192
+ no ip redirects
+ no ip unreachables
+!
+interface Vlan882
+ description fw-bgp2-net (trunk 4/16 to Forsythe)
+ ip address 192.168.249.254 255.255.255.192
+ no ip redirects
+ no ip unreachables
+!
+router ospf 32
+ log-adjacency-changes
+ redistribute static subnets route-map dist-static
+ passive-interface default
+ no passive-interface Vlan11
+ no passive-interface Vlan12
+ no passive-interface Vlan281
+ no passive-interface Vlan283
+ no passive-interface Vlan555
+ no passive-interface GigabitEthernet4/1
+ network 128.12.1.48 0.0.0.15 area 0
+ network 128.12.1.80 0.0.0.15 area 0
+ network 128.12.1.112 0.0.0.15 area 0
+ network 128.12.1.128 0.0.0.15 area 0
+ network 171.64.1.144 0.0.0.15 area 1
+ network 171.64.1.240 0.0.0.15 area 2
+ network 171.64.0.0 0.0.3.255 area 0
+ network 171.64.7.0 0.0.0.31 area 0
+ network 171.64.7.64 0.0.0.31 area 0
+ network 171.64.7.128 0.0.0.31 area 0
+ network 171.64.10.0 0.0.1.255 area 4008
+ network 171.64.249.0 0.0.0.255 area 0
+ network 171.64.250.128 0.0.0.127 area 0
+ network 171.64.255.128 0.0.0.63 area 0
+ network 171.66.1.1 0.0.0.0 area 0
+ network 171.66.1.128 0.0.0.31 area 861
+ network 171.66.1.224 0.0.0.15 area 0
+ network 171.66.6.32 0.0.0.15 area 866
+ network 171.66.6.96 0.0.0.31 area 866
+ network 171.67.1.0 0.0.0.255 area 0
+ network 171.67.22.0 0.0.0.255 area 322
+ network 171.67.254.240 0.0.0.15 area 0
+ network 171.67.255.120 0.0.0.7 area 0
+ network 172.20.2.0 0.0.0.255 area 0
+ network 172.20.4.0 0.0.1.255 area 0
+ network 172.20.10.0 0.0.0.31 area 0
+ network 172.20.251.0 0.0.0.255 area 64821
+ network 172.24.1.240 0.0.0.15 area 0
+ network 172.24.7.64 0.0.0.31 area 0
+ network 172.24.7.0 0.0.0.127 area 0
+ network 172.24.7.128 0.0.0.31 area 0
+ network 172.24.10.0 0.0.1.255 area 4008
+ network 172.26.6.64 0.0.0.15 area 866
+ network 172.26.6.96 0.0.0.31 area 866
+ network 172.27.22.0 0.0.0.255 area 322
+ network 192.168.2.0 0.0.0.3 area 0
+ network 192.168.249.0 0.0.0.255 area 0
+ default-information originate metric 30 metric-type 1
+!
+router bgp 65064
+ bgp log-neighbor-changes
+ neighbor I2-edge peer-group
+ neighbor I2-edge remote-as 32
+ neighbor I2-edge shutdown
+ neighbor I2-edge timers 10 30
+ neighbor ISP-edge peer-group
+ neighbor ISP-edge remote-as 32
+ neighbor ISP-edge timers 10 60
+ neighbor ispx peer-group
+ neighbor ispx remote-as 65090
+ neighbor ispx timers 10 30
+ neighbor Res peer-group
+ neighbor Res remote-as 65128
+ neighbor Res timers 10 40
+ neighbor Res30 peer-group
+ neighbor Res30 remote-as 65128
+ neighbor Res30 timers 10 40
+ neighbor UserRtr peer-group
+ neighbor UserRtr remote-as 65064
+ neighbor UserRtr update-source Loopback0
+ neighbor UserRtr timers 10 60
+ neighbor gsb peer-group
+ neighbor gsb remote-as 64805
+ neighbor gsb timers 10 40
+ neighbor TOZ peer-group
+ neighbor TOZ remote-as 64815
+ neighbor TOZ timers 13 39
+ neighbor GOZ peer-group
+ neighbor GOZ remote-as 64805
+ neighbor GOZ timers 13 39
+ neighbor BOZ peer-group
+ neighbor BOZ remote-as 64806
+ neighbor BOZ timers 13 39
+ neighbor POZ peer-group
+ neighbor POZ remote-as 64807
+ neighbor POZ timers 13 39
+ neighbor ROZ peer-group
+ neighbor ROZ remote-as 64802
+ neighbor ROZ timers 13 39
+ neighbor YOZ peer-group
+ neighbor YOZ remote-as 64804
+ neighbor YOZ timers 13 39
+ neighbor MOZ peer-group
+ neighbor MOZ remote-as 64803
+ neighbor MOZ timers 13 39
+ neighbor COZ peer-group
+ neighbor COZ remote-as 64801
+ neighbor COZ timers 13 39
+ neighbor SOZ peer-group
+ neighbor SOZ remote-as 64808
+ neighbor SOZ timers 13 39
+ neighbor HWP peer-group
+ neighbor HWP remote-as 64612
+ neighbor HWP timers 10 40
+ neighbor WOZ peer-group
+ neighbor WOZ remote-as 64809
+ neighbor WOZ timers 13 39
+ neighbor CTR peer-group
+ neighbor CTR remote-as 65172
+ neighbor CTR timers 13 39
+ neighbor WRLS peer-group
+ neighbor WRLS remote-as 65022
+ neighbor WRLS timers 13 39
+ neighbor IAL-edge peer-group
+ neighbor IAL-edge remote-as 46749
+ neighbor IAL-edge shutdown
+ neighbor IAL-edge timers 10 60
+ neighbor SHCISP peer-group
+ neighbor SHCISP remote-as 32
+ neighbor SHCISP timers 10 40
+ neighbor CMTS peer-group
+ neighbor CMTS remote-as 65160
+ neighbor CMTS timers 10 40
+ neighbor LADC peer-group
+ neighbor LADC remote-as 65163
+ neighbor LADC timers 10 40
+ neighbor LEXT peer-group
+ neighbor LEXT remote-as 46750
+ neighbor LEXT timers 10 40
+ neighbor CTRD peer-group
+ neighbor CTRD remote-as 65130
+ neighbor CTRD timers 13 39
+ neighbor ILAG peer-group
+ neighbor ILAG remote-as 65068
+ neighbor ILAG timers 10 60
+ neighbor BND peer-group
+ neighbor BND remote-as 32
+ neighbor BND timers 10 40
+ neighbor SNSR peer-group
+ neighbor SNSR remote-as 65038
+ neighbor SNSR timers 20 60
+ neighbor CTRDN peer-group
+ neighbor CTRDN remote-as 65130
+ neighbor CTRDN timers 13 39
+ neighbor DSLsec peer-group
+ neighbor DSLsec remote-as 64619
+ neighbor DSLsec password 7 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ neighbor DSLsec timers 10 30
+ neighbor BOZsec peer-group
+ neighbor BOZsec remote-as 64806
+ neighbor BOZsec password 7 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ neighbor BOZsec timers 13 39
+ neighbor COZsec peer-group
+ neighbor COZsec remote-as 64801
+ neighbor COZsec password 7 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ neighbor COZsec timers 13 39
+ neighbor GOZsec peer-group
+ neighbor GOZsec remote-as 64805
+ neighbor GOZsec password 7 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ neighbor GOZsec timers 13 39
+ neighbor MOZsec peer-group
+ neighbor MOZsec remote-as 64803
+ neighbor MOZsec password 7 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ neighbor MOZsec timers 13 39
+ neighbor POZsec peer-group
+ neighbor POZsec remote-as 64807
+ neighbor POZsec password 7 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ neighbor POZsec timers 13 39
+ neighbor ROZsec peer-group
+ neighbor ROZsec remote-as 64802
+ neighbor ROZsec password 7 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ neighbor ROZsec timers 13 39
+ neighbor SOZsec peer-group
+ neighbor SOZsec remote-as 64808
+ neighbor SOZsec password 7 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ neighbor SOZsec timers 13 39
+ neighbor TOZsec peer-group
+ neighbor TOZsec remote-as 64815
+ neighbor TOZsec password 7 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ neighbor TOZsec timers 13 39
+ neighbor WOZsec peer-group
+ neighbor WOZsec remote-as 64809
+ neighbor WOZsec password 7 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ neighbor WOZsec timers 13 39
+ neighbor YOZsec peer-group
+ neighbor YOZsec remote-as 64804
+ neighbor YOZsec password 7 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ neighbor YOZsec timers 13 39
+ neighbor BNDv6 peer-group
+ neighbor BNDv6 remote-as 32
+ neighbor BNDv6 timers 10 40
+ neighbor TOZv6 peer-group
+ neighbor TOZv6 remote-as 64815
+ neighbor TOZv6 timers 13 39
+ neighbor WOZv6 peer-group
+ neighbor WOZv6 remote-as 64809
+ neighbor BOZv6 peer-group
+ neighbor BOZv6 remote-as 64806
+ neighbor SRVv6 peer-group
+ neighbor SRVv6 remote-as 65402
+ neighbor SRVv6 timers 10 40
+ neighbor MOZv6 peer-group
+ neighbor MOZv6 remote-as 64803
+ neighbor POZv6 peer-group
+ neighbor POZv6 remote-as 64807
+ neighbor ROZv6 peer-group
+ neighbor ROZv6 remote-as 64802
+ neighbor GOZv6 peer-group
+ neighbor GOZv6 remote-as 64805
+ neighbor YOZv6 peer-group
+ neighbor YOZv6 remote-as 64804
+ neighbor AS65064v6 peer-group
+ neighbor AS65064v6 update-source Loopback0
+ neighbor 2607:F6D0:0:B00::AB40:125 remote-as 65064
+ neighbor 2607:F6D0:0:B00::AB40:125 peer-group AS65064v6
+ neighbor 2607:F6D0:0:BBA::AB40:FF82 remote-as 32
+ neighbor 2607:F6D0:0:BBA::AB40:FF82 peer-group BNDv6
+ neighbor 2607:F6D0:0:BBA::AB40:FF88 remote-as 64802
+ neighbor 2607:F6D0:0:BBA::AB40:FF88 peer-group ROZv6
+ neighbor 2607:F6D0:0:BBA::AB40:FF89 remote-as 64802
+ neighbor 2607:F6D0:0:BBA::AB40:FF89 peer-group ROZv6
+ neighbor 2607:F6D0:0:BBA::AB40:FF8C remote-as 64803
+ neighbor 2607:F6D0:0:BBA::AB40:FF8C peer-group MOZv6
+ neighbor 2607:F6D0:0:BBA::AB40:FF8D remote-as 64803
+ neighbor 2607:F6D0:0:BBA::AB40:FF8D peer-group MOZv6
+ neighbor 2607:F6D0:0:BBA::AB40:FF90 remote-as 64804
+ neighbor 2607:F6D0:0:BBA::AB40:FF90 peer-group YOZv6
+ neighbor 2607:F6D0:0:BBA::AB40:FF91 remote-as 64804
+ neighbor 2607:F6D0:0:BBA::AB40:FF91 peer-group YOZv6
+ neighbor 2607:F6D0:0:BBA::AB40:FF94 remote-as 64805
+ neighbor 2607:F6D0:0:BBA::AB40:FF94 peer-group GOZv6
+ neighbor 2607:F6D0:0:BBA::AB40:FF95 remote-as 64805
+ neighbor 2607:F6D0:0:BBA::AB40:FF95 peer-group GOZv6
+ neighbor 2607:F6D0:0:BBA::AB40:FF98 remote-as 64806
+ neighbor 2607:F6D0:0:BBA::AB40:FF98 peer-group BOZv6
+ neighbor 2607:F6D0:0:BBA::AB40:FF99 remote-as 64806
+ neighbor 2607:F6D0:0:BBA::AB40:FF99 peer-group BOZv6
+ neighbor 2607:F6D0:0:BBA::AB40:FF9C remote-as 64807
+ neighbor 2607:F6D0:0:BBA::AB40:FF9D remote-as 64807
+ neighbor 2607:F6D0:0:BBA::AB40:FFA4 remote-as 64809
+ neighbor 2607:F6D0:0:BBA::AB40:FFA4 peer-group WOZv6
+ neighbor 2607:F6D0:0:BBA::AB40:FFA5 remote-as 64809
+ neighbor 2607:F6D0:0:BBA::AB40:FFA5 peer-group WOZv6
+ neighbor 2607:F6D0:0:BBA::AB40:FFBC remote-as 64815
+ neighbor 2607:F6D0:0:BBA::AB40:FFBC peer-group TOZv6
+ neighbor 2607:F6D0:0:BBA::AB40:FFBD remote-as 64815
+ neighbor 2607:F6D0:0:BBA::AB40:FFBD peer-group TOZv6
+ neighbor 2607:F6D0:0:BCA::4441:A864 remote-as 65402
+ neighbor 2607:F6D0:0:BCA::4441:A864 peer-group SRVv6
+ neighbor 68.65.168.41 remote-as 32
+ neighbor 68.65.168.41 peer-group SHCISP
+ neighbor 68.65.168.101 remote-as 65038
+ neighbor 68.65.168.101 peer-group SNSR
+ neighbor 68.65.168.102 remote-as 64612
+ neighbor 68.65.168.102 peer-group HWP
+ neighbor 68.65.168.102 shutdown
+ neighbor 68.65.168.109 remote-as 65068
+ neighbor 68.65.168.109 peer-group ILAG
+ neighbor 68.65.168.109 shutdown
+ neighbor 128.12.1.56 remote-as 65128
+ neighbor 128.12.1.56 peer-group Res30
+ neighbor 128.12.1.56 shutdown
+ neighbor 128.12.1.58 remote-as 65128
+ neighbor 128.12.1.58 peer-group Res30
+ neighbor 128.12.1.58 shutdown
+ neighbor 128.12.1.82 remote-as 65128
+ neighbor 128.12.1.82 peer-group Res
+ neighbor 128.12.1.82 shutdown
+ neighbor 128.12.1.92 remote-as 65128
+ neighbor 128.12.1.92 peer-group Res
+ neighbor 128.12.1.92 shutdown
+ neighbor 171.64.0.125 remote-as 65064
+ neighbor 171.64.0.125 update-source Loopback0
+ neighbor 171.64.0.125 timers 10 40
+ neighbor 171.64.0.126 remote-as 65064
+ neighbor 171.64.0.126 update-source Loopback0
+ neighbor 171.64.0.126 timers 10 40
+ neighbor 171.64.1.18 remote-as 65022
+ neighbor 171.64.1.18 peer-group WRLS
+ neighbor 171.64.1.22 remote-as 65022
+ neighbor 171.64.1.22 peer-group WRLS
+ neighbor 171.64.1.39 remote-as 65172
+ neighbor 171.64.1.39 peer-group CTR
+ neighbor 171.64.1.55 remote-as 65402
+ neighbor 171.64.1.55 shutdown
+ neighbor 171.64.1.55 timers 10 40
+ neighbor 171.64.1.84 remote-as 64619
+ neighbor 171.64.1.84 shutdown
+ neighbor 171.64.1.84 timers 10 30
+ neighbor 171.64.1.98 remote-as 65022
+ neighbor 171.64.1.98 peer-group WRLS
+ neighbor 171.64.1.102 remote-as 65022
+ neighbor 171.64.1.102 peer-group WRLS
+ neighbor 171.64.1.129 remote-as 32
+ neighbor 171.64.1.129 peer-group I2-edge
+ neighbor 171.64.1.131 remote-as 32
+ neighbor 171.64.1.131 peer-group I2-edge
+ neighbor 171.64.1.132 remote-as 32
+ neighbor 171.64.1.132 peer-group I2-edge
+ neighbor 171.64.1.137 remote-as 32
+ neighbor 171.64.1.137 peer-group I2-edge
+ neighbor 171.64.1.138 remote-as 65130
+ neighbor 171.64.1.138 peer-group CTRD
+ neighbor 171.64.1.138 shutdown
+ neighbor 171.64.1.139 remote-as 64612
+ neighbor 171.64.1.139 shutdown
+ neighbor 171.64.1.139 timers 10 30
+ neighbor 171.64.1.141 remote-as 65172
+ neighbor 171.64.1.141 peer-group CTR
+ neighbor 171.64.1.141 shutdown
+ neighbor 171.64.1.142 remote-as 46749
+ neighbor 171.64.1.142 peer-group IAL-edge
+ neighbor 171.64.1.147 remote-as 46749
+ neighbor 171.64.1.147 peer-group IAL-edge
+ neighbor 171.64.1.148 remote-as 46749
+ neighbor 171.64.1.148 peer-group IAL-edge
+ neighbor 171.64.1.149 remote-as 46749
+ neighbor 171.64.1.149 peer-group IAL-edge
+ neighbor 171.64.1.150 remote-as 32
+ neighbor 171.64.1.150 peer-group BND
+ neighbor 171.64.1.150 shutdown
+ neighbor 171.64.1.154 remote-as 32
+ neighbor 171.64.1.154 peer-group BND
+ neighbor 171.64.1.154 shutdown
+ neighbor 171.64.1.194 remote-as 46749
+ neighbor 171.64.1.194 peer-group IAL-edge
+ neighbor 171.64.1.206 remote-as 46749
+ neighbor 171.64.1.206 peer-group IAL-edge
+ neighbor 171.64.1.207 remote-as 46749
+ neighbor 171.64.1.207 peer-group IAL-edge
+ neighbor 171.64.1.244 remote-as 65160
+ neighbor 171.64.1.244 peer-group CMTS
+ neighbor 171.64.1.244 shutdown
+ neighbor 171.64.1.252 remote-as 65170
+ neighbor 171.64.1.252 shutdown
+ neighbor 171.64.1.252 timers 10 40
+ neighbor 171.64.3.241 remote-as 64624
+ neighbor 171.64.3.241 shutdown
+ neighbor 171.64.3.241 timers 10 30
+ neighbor 171.66.1.65 remote-as 65163
+ neighbor 171.66.1.65 peer-group LADC
+ neighbor 171.67.1.13 remote-as 64599
+ neighbor 171.67.1.13 shutdown
+ neighbor 171.67.1.13 timers 10 30
+ neighbor 172.20.2.17 remote-as 64801
+ neighbor 172.20.2.17 peer-group COZsec
+ neighbor 172.20.2.18 remote-as 64801
+ neighbor 172.20.2.18 peer-group COZsec
+ neighbor 172.20.2.27 remote-as 64801
+ neighbor 172.20.2.27 peer-group COZ
+ neighbor 172.20.2.129 remote-as 64808
+ neighbor 172.20.2.129 peer-group SOZsec
+ neighbor 172.20.2.130 remote-as 64808
+ neighbor 172.20.2.130 peer-group SOZsec
+ neighbor 172.20.2.139 remote-as 64808
+ neighbor 172.20.2.139 peer-group SOZ
+ neighbor 172.20.4.2 remote-as 32
+ neighbor 172.20.4.2 peer-group BND
+ neighbor 172.20.4.11 remote-as 65404
+ neighbor 172.20.4.11 timers 10 60
+ neighbor 172.20.4.12 remote-as 65402
+ neighbor 172.20.4.12 timers 10 40
+ neighbor 172.20.4.24 remote-as 64612
+ neighbor 172.20.4.24 peer-group HWP
+ neighbor 172.20.4.26 remote-as 65130
+ neighbor 172.20.4.26 peer-group CTRD
+ neighbor 172.20.4.27 remote-as 65130
+ neighbor 172.20.4.27 peer-group CTRD
+ neighbor 172.20.4.28 remote-as 65130
+ neighbor 172.20.4.28 peer-group CTRD
+ neighbor 172.20.4.29 remote-as 65172
+ neighbor 172.20.4.29 peer-group CTR
+ neighbor 172.20.4.30 remote-as 64619
+ neighbor 172.20.4.30 peer-group DSLsec
+ neighbor 172.20.4.65 remote-as 64802
+ neighbor 172.20.4.65 peer-group ROZsec
+ neighbor 172.20.4.66 remote-as 64802
+ neighbor 172.20.4.66 peer-group ROZsec
+ neighbor 172.20.4.97 remote-as 64803
+ neighbor 172.20.4.97 peer-group MOZsec
+ neighbor 172.20.4.98 remote-as 64803
+ neighbor 172.20.4.98 peer-group MOZsec
+ neighbor 172.20.4.129 remote-as 64804
+ neighbor 172.20.4.129 peer-group YOZsec
+ neighbor 172.20.4.130 remote-as 64804
+ neighbor 172.20.4.130 peer-group YOZsec
+ neighbor 172.20.4.161 remote-as 64805
+ neighbor 172.20.4.161 peer-group GOZsec
+ neighbor 172.20.4.162 remote-as 64805
+ neighbor 172.20.4.162 peer-group GOZsec
+ neighbor 172.20.4.168 remote-as 64805
+ neighbor 172.20.4.168 peer-group gsb
+ neighbor 172.20.4.168 shutdown
+ neighbor 172.20.4.169 remote-as 64805
+ neighbor 172.20.4.169 peer-group gsb
+ neighbor 172.20.4.169 shutdown
+ neighbor 172.20.4.193 remote-as 64806
+ neighbor 172.20.4.193 peer-group BOZsec
+ neighbor 172.20.4.194 remote-as 64806
+ neighbor 172.20.4.194 peer-group BOZsec
+ neighbor 172.20.4.225 remote-as 64807
+ neighbor 172.20.4.225 peer-group POZsec
+ neighbor 172.20.4.226 remote-as 64807
+ neighbor 172.20.4.226 peer-group POZsec
+ neighbor 172.20.5.33 remote-as 64809
+ neighbor 172.20.5.33 peer-group WOZsec
+ neighbor 172.20.5.34 remote-as 64809
+ neighbor 172.20.5.34 peer-group WOZsec
+ neighbor 172.20.5.225 remote-as 64815
+ neighbor 172.20.5.225 peer-group TOZsec
+ neighbor 172.20.5.226 remote-as 64815
+ neighbor 172.20.5.226 peer-group TOZsec
+ neighbor 172.20.5.240 remote-as 65064
+ neighbor 172.20.5.240 shutdown
+ neighbor 172.20.8.12 remote-as 65130
+ neighbor 172.20.8.12 peer-group CTRDN
+ neighbor 172.20.8.13 remote-as 65130
+ neighbor 172.20.8.13 peer-group CTRDN
+ neighbor 172.20.8.14 remote-as 65130
+ neighbor 172.20.8.14 peer-group CTRDN
+ neighbor 172.20.251.11 remote-as 64821
+ neighbor 172.20.251.11 shutdown
+ neighbor 172.20.251.11 timers 10 40
+ neighbor 172.20.251.12 remote-as 64821
+ neighbor 172.20.251.12 shutdown
+ neighbor 172.20.251.12 timers 10 40
+ neighbor 172.20.251.13 remote-as 64821
+ neighbor 172.20.251.13 shutdown
+ neighbor 172.20.251.13 timers 10 40
+ neighbor 172.20.251.21 remote-as 64821
+ neighbor 172.20.251.21 shutdown
+ neighbor 172.20.251.21 timers 10 40
+ neighbor 172.20.251.22 remote-as 64821
+ neighbor 172.20.251.22 shutdown
+ neighbor 172.20.251.22 timers 10 40
+ neighbor 172.20.251.23 remote-as 64821
+ neighbor 172.20.251.23 shutdown
+ neighbor 172.20.251.23 timers 10 40
+ neighbor 192.168.249.92 remote-as 64928
+ neighbor 192.168.249.92 shutdown
+ neighbor 192.168.249.92 password 7 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ neighbor 192.168.249.203 remote-as 64911
+ neighbor 192.168.249.203 shutdown
+ neighbor 192.168.249.203 password 7 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ neighbor 192.168.249.204 remote-as 64912
+ neighbor 192.168.249.204 shutdown
+ neighbor 192.168.249.204 password 7 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ neighbor 192.168.249.205 remote-as 64913
+ neighbor 192.168.249.205 shutdown
+ neighbor 192.168.249.205 password 7 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ neighbor 192.168.249.206 remote-as 64914
+ neighbor 192.168.249.206 shutdown
+ neighbor 192.168.249.206 password 7 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ neighbor 192.168.249.207 remote-as 64915
+ neighbor 192.168.249.207 shutdown
+ neighbor 192.168.249.207 password 7 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ neighbor 204.63.231.225 remote-as 46750
+ neighbor 204.63.231.225 peer-group LEXT
+ !
+ address-family ipv4
+  neighbor I2-edge route-map sendI2 out
+  neighbor ISP-edge route-map sendOZcore out
+  neighbor Res send-community
+  neighbor Res route-map toRes out
+  neighbor Res30 send-community
+  neighbor Res30 route-map toRes30 out
+  neighbor UserRtr route-map Deny out
+  neighbor gsb route-map sendDef40 out
+  neighbor TOZ soft-reconfiguration inbound
+  neighbor TOZ route-map pfxTOZ in
+  neighbor TOZ route-map sendOZdef out
+  neighbor GOZ soft-reconfiguration inbound
+  neighbor GOZ route-map sendOZdef out
+  neighbor BOZ soft-reconfiguration inbound
+  neighbor BOZ route-map sendOZdefB out
+  neighbor POZ soft-reconfiguration inbound
+  neighbor POZ route-map sendOZdef out
+  neighbor ROZ soft-reconfiguration inbound
+  neighbor ROZ route-map sendOZdef out
+  neighbor YOZ soft-reconfiguration inbound
+  neighbor YOZ route-map sendOZdef out
+  neighbor MOZ soft-reconfiguration inbound
+  neighbor MOZ route-map sendOZdef out
+  neighbor COZ soft-reconfiguration inbound
+  neighbor COZ route-map toResOZ out
+  neighbor SOZ soft-reconfiguration inbound
+  neighbor SOZ route-map toResOZ out
+  neighbor HWP soft-reconfiguration inbound
+  neighbor HWP route-map sendOZdef out
+  neighbor WOZ soft-reconfiguration inbound
+  neighbor WOZ route-map sendOZdef out
+  neighbor CTR route-map Deny in
+  neighbor CTR route-map sendOZcore out
+  neighbor WRLS soft-reconfiguration inbound
+  neighbor WRLS route-map Deny in
+  neighbor WRLS route-map sendCoreDefHW out
+  neighbor IAL-edge send-community
+  neighbor IAL-edge soft-reconfiguration inbound
+  neighbor IAL-edge route-map sendIALagg out
+  neighbor SHCISP route-map Deny in
+  neighbor SHCISP route-map Deny out
+  neighbor CMTS route-map fromCMTS in
+  neighbor CMTS route-map sendCoreDef out
+  neighbor LADC soft-reconfiguration inbound
+  neighbor LADC route-map fromLADC in
+  neighbor LADC route-map sendDefault out
+  neighbor LEXT soft-reconfiguration inbound
+  neighbor LEXT route-map fromLEXT in
+  neighbor LEXT route-map toLEXT out
+  neighbor CTRD route-map fromCTRD in
+  neighbor CTRD route-map sendOZcore out
+  neighbor ILAG route-map fromILAG in
+  neighbor ILAG route-map sendCore20 out
+  neighbor BND send-community
+  neighbor BND soft-reconfiguration inbound
+  neighbor BND route-map fromBNDlocPref in
+  neighbor BND route-map sendBNDisp out
+  neighbor SNSR route-map Deny in
+  neighbor SNSR route-map Deny out
+  neighbor CTRDN route-map recvCTRDpub in
+  neighbor CTRDN route-map sendHWPpub out
+  neighbor DSLsec soft-reconfiguration inbound
+  neighbor DSLsec route-map recvDSL in
+  neighbor DSLsec route-map sendLocal out
+  neighbor BOZsec soft-reconfiguration inbound
+  neighbor BOZsec route-map fromBOZrtr in
+  neighbor BOZsec route-map sendOZdefB out
+  neighbor COZsec soft-reconfiguration inbound
+  neighbor COZsec route-map fromCOZ in
+  neighbor COZsec route-map toResOZ out
+  neighbor GOZsec soft-reconfiguration inbound
+  neighbor GOZsec route-map fromGOZrtr in
+  neighbor GOZsec route-map sendOZdef out
+  neighbor MOZsec soft-reconfiguration inbound
+  neighbor MOZsec route-map fromMOZ in
+  neighbor MOZsec route-map sendCoreDef out
+  neighbor POZsec soft-reconfiguration inbound
+  neighbor POZsec route-map fromPOZrtr in
+  neighbor POZsec route-map sendOZdef out
+  neighbor ROZsec soft-reconfiguration inbound
+  neighbor ROZsec route-map fromROZrtr in
+  neighbor ROZsec route-map sendOZdef out
+  neighbor SOZsec soft-reconfiguration inbound
+  neighbor SOZsec route-map fromSOZ in
+  neighbor SOZsec route-map toResOZ out
+  neighbor TOZsec soft-reconfiguration inbound
+  neighbor TOZsec route-map fromTOZrtr in
+  neighbor TOZsec route-map sendOZdef out
+  neighbor WOZsec soft-reconfiguration inbound
+  neighbor WOZsec route-map fromWOZrtr in
+  neighbor WOZsec route-map sendOZdef out
+  neighbor YOZsec soft-reconfiguration inbound
+  neighbor YOZsec route-map fromYOZrtr in
+  neighbor YOZsec route-map sendOZdef out
+  no neighbor 2607:F6D0:0:B00::AB40:125 activate
+  no neighbor 2607:F6D0:0:BBA::AB40:FF82 activate
+  no neighbor 2607:F6D0:0:BBA::AB40:FF88 activate
+  no neighbor 2607:F6D0:0:BBA::AB40:FF89 activate
+  no neighbor 2607:F6D0:0:BBA::AB40:FF8C activate
+  no neighbor 2607:F6D0:0:BBA::AB40:FF8D activate
+  no neighbor 2607:F6D0:0:BBA::AB40:FF90 activate
+  no neighbor 2607:F6D0:0:BBA::AB40:FF91 activate
+  no neighbor 2607:F6D0:0:BBA::AB40:FF94 activate
+  no neighbor 2607:F6D0:0:BBA::AB40:FF95 activate
+  no neighbor 2607:F6D0:0:BBA::AB40:FF98 activate
+  no neighbor 2607:F6D0:0:BBA::AB40:FF99 activate
+  no neighbor 2607:F6D0:0:BBA::AB40:FF9C activate
+  no neighbor 2607:F6D0:0:BBA::AB40:FF9D activate
+  no neighbor 2607:F6D0:0:BBA::AB40:FFA4 activate
+  no neighbor 2607:F6D0:0:BBA::AB40:FFA5 activate
+  no neighbor 2607:F6D0:0:BBA::AB40:FFBC activate
+  no neighbor 2607:F6D0:0:BBA::AB40:FFBD activate
+  no neighbor 2607:F6D0:0:BCA::4441:A864 activate
+  neighbor 68.65.168.41 activate
+  neighbor 68.65.168.41 route-map fromSHCW in
+  neighbor 68.65.168.101 activate
+  neighbor 68.65.168.102 activate
+  neighbor 68.65.168.109 activate
+  neighbor 128.12.1.56 activate
+  neighbor 128.12.1.58 activate
+  neighbor 128.12.1.82 activate
+  neighbor 128.12.1.92 activate
+  neighbor 171.64.0.125 activate
+  neighbor 171.64.0.125 route-map metPlus in
+  neighbor 171.64.0.126 activate
+  neighbor 171.64.0.126 route-map metPlus in
+  neighbor 171.64.1.18 activate
+  neighbor 171.64.1.18 route-map fromWirelessNAT in
+  neighbor 171.64.1.22 activate
+  neighbor 171.64.1.22 route-map fromWirelessLoc in
+  neighbor 171.64.1.39 activate
+  neighbor 171.64.1.39 route-map fromCTR in
+  neighbor 171.64.1.55 activate
+  neighbor 171.64.1.55 route-map sendCore out
+  neighbor 171.64.1.84 activate
+  neighbor 171.64.1.84 route-map sendLocal out
+  neighbor 171.64.1.98 activate
+  neighbor 171.64.1.98 route-map fromWirelessNAT in
+  neighbor 171.64.1.102 activate
+  neighbor 171.64.1.102 route-map fromWirelessLoc in
+  neighbor 171.64.1.129 activate
+  neighbor 171.64.1.129 soft-reconfiguration inbound
+  neighbor 171.64.1.129 route-map noHPR-DC in
+  neighbor 171.64.1.131 activate
+  neighbor 171.64.1.131 soft-reconfiguration inbound
+  neighbor 171.64.1.131 route-map fromHPR1 in
+  neighbor 171.64.1.132 activate
+  neighbor 171.64.1.132 soft-reconfiguration inbound
+  neighbor 171.64.1.132 route-map fromDC1 in
+  neighbor 171.64.1.137 activate
+  neighbor 171.64.1.137 soft-reconfiguration inbound
+  neighbor 171.64.1.137 route-map noHPR-DC in
+  neighbor 171.64.1.138 activate
+  neighbor 171.64.1.139 activate
+  neighbor 171.64.1.139 route-map setPref150 in
+  neighbor 171.64.1.139 route-map sendLocal out
+  neighbor 171.64.1.141 activate
+  neighbor 171.64.1.141 route-map fromCTR in
+  neighbor 171.64.1.142 activate
+  neighbor 171.64.1.147 activate
+  neighbor 171.64.1.148 activate
+  neighbor 171.64.1.149 activate
+  neighbor 171.64.1.150 activate
+  neighbor 171.64.1.154 activate
+  neighbor 171.64.1.194 activate
+  neighbor 171.64.1.194 route-map Deny in
+  neighbor 171.64.1.206 activate
+  neighbor 171.64.1.206 route-map Deny in
+  neighbor 171.64.1.207 activate
+  neighbor 171.64.1.207 route-map Deny in
+  neighbor 171.64.1.244 activate
+  neighbor 171.64.1.252 activate
+  neighbor 171.64.1.252 soft-reconfiguration inbound
+  neighbor 171.64.1.252 route-map fromPntb in
+  neighbor 171.64.1.252 route-map sendDefault out
+  neighbor 171.64.3.241 activate
+  neighbor 171.64.3.241 route-map sendLocal out
+  neighbor 171.66.1.65 activate
+  neighbor 171.67.1.13 activate
+  neighbor 171.67.1.13 route-map toBARS out
+  neighbor 172.20.2.17 activate
+  neighbor 172.20.2.18 activate
+  neighbor 172.20.2.18 route-map fromCOZ in
+  neighbor 172.20.2.27 activate
+  neighbor 172.20.2.27 route-map fromCOZmc in
+  neighbor 172.20.2.129 activate
+  neighbor 172.20.2.130 activate
+  neighbor 172.20.2.130 route-map fromSOZ in
+  neighbor 172.20.2.139 activate
+  neighbor 172.20.2.139 route-map fromSOZmc in
+  neighbor 172.20.4.2 activate
+  neighbor 172.20.4.2 route-map setDefPref888 in
+  neighbor 172.20.4.11 activate
+  neighbor 172.20.4.11 route-map sendCoreMed out
+  neighbor 172.20.4.12 activate
+  neighbor 172.20.4.12 route-map sendCore20 out
+  neighbor 172.20.4.24 activate
+  neighbor 172.20.4.24 route-map fromHWP in
+  neighbor 172.20.4.26 activate
+  neighbor 172.20.4.26 route-map fromCTRDloc in
+  neighbor 172.20.4.27 activate
+  neighbor 172.20.4.27 route-map fromCTRDloc in
+  neighbor 172.20.4.28 activate
+  neighbor 172.20.4.28 route-map fromCTRDloc in
+  neighbor 172.20.4.29 activate
+  neighbor 172.20.4.30 activate
+  neighbor 172.20.4.65 activate
+  neighbor 172.20.4.66 activate
+  neighbor 172.20.4.66 route-map fromROZrtr in
+  neighbor 172.20.4.97 activate
+  neighbor 172.20.4.98 activate
+  neighbor 172.20.4.98 route-map fromMOZ in
+  neighbor 172.20.4.129 activate
+  neighbor 172.20.4.130 activate
+  neighbor 172.20.4.130 route-map fromYOZrtr in
+  neighbor 172.20.4.161 activate
+  neighbor 172.20.4.162 activate
+  neighbor 172.20.4.162 route-map fromGOZrtr in
+  neighbor 172.20.4.168 activate
+  neighbor 172.20.4.169 activate
+  neighbor 172.20.4.193 activate
+  neighbor 172.20.4.194 activate
+  neighbor 172.20.4.194 route-map fromBOZrtr in
+  neighbor 172.20.4.225 activate
+  neighbor 172.20.4.226 activate
+  neighbor 172.20.4.226 route-map fromPOZrtr in
+  neighbor 172.20.5.33 activate
+  neighbor 172.20.5.34 activate
+  neighbor 172.20.5.34 route-map fromWOZrtr in
+  neighbor 172.20.5.225 activate
+  neighbor 172.20.5.226 activate
+  neighbor 172.20.5.240 activate
+  neighbor 172.20.5.240 route-map Deny in
+  neighbor 172.20.8.12 activate
+  neighbor 172.20.8.13 activate
+  neighbor 172.20.8.14 activate
+  neighbor 172.20.251.11 activate
+  neighbor 172.20.251.11 soft-reconfiguration inbound
+  neighbor 172.20.251.11 route-map fromTOZ in
+  neighbor 172.20.251.11 route-map sendLocal out
+  neighbor 172.20.251.12 activate
+  neighbor 172.20.251.12 route-map fromTOZ in
+  neighbor 172.20.251.12 route-map sendLocal out
+  neighbor 172.20.251.13 activate
+  neighbor 172.20.251.13 route-map fromTOZ in
+  neighbor 172.20.251.13 route-map sendLocal out
+  neighbor 172.20.251.21 activate
+  neighbor 172.20.251.21 soft-reconfiguration inbound
+  neighbor 172.20.251.21 route-map fromXgsb in
+  neighbor 172.20.251.21 route-map sendLocal out
+  neighbor 172.20.251.22 activate
+  neighbor 172.20.251.22 soft-reconfiguration inbound
+  neighbor 172.20.251.22 route-map fromXgsb in
+  neighbor 172.20.251.22 route-map sendLocal out
+  neighbor 172.20.251.23 activate
+  neighbor 172.20.251.23 soft-reconfiguration inbound
+  neighbor 172.20.251.23 route-map fromXgsb in
+  neighbor 172.20.251.23 route-map sendLocal out
+  neighbor 192.168.249.92 activate
+  neighbor 192.168.249.92 route-map voipfewIn in
+  neighbor 192.168.249.92 route-map sendFW out
+  neighbor 192.168.249.203 activate
+  neighbor 192.168.249.203 soft-reconfiguration inbound
+  neighbor 192.168.249.203 route-map perfewIn in
+  neighbor 192.168.249.203 route-map sendFW out
+  neighbor 192.168.249.204 activate
+  neighbor 192.168.249.204 soft-reconfiguration inbound
+  neighbor 192.168.249.204 route-map dbfewIn in
+  neighbor 192.168.249.204 route-map sendFW out
+  neighbor 192.168.249.205 activate
+  neighbor 192.168.249.205 soft-reconfiguration inbound
+  neighbor 192.168.249.205 route-map oddfewIn in
+  neighbor 192.168.249.205 route-map sendFW out
+  neighbor 192.168.249.206 activate
+  neighbor 192.168.249.206 soft-reconfiguration inbound
+  neighbor 192.168.249.206 route-map dogfewIn in
+  neighbor 192.168.249.206 route-map sendFW out
+  neighbor 192.168.249.207 activate
+  neighbor 192.168.249.207 soft-reconfiguration inbound
+  neighbor 192.168.249.207 route-map changefewIn in
+  neighbor 192.168.249.207 route-map sendFW out
+  neighbor 204.63.231.225 activate
+  no auto-summary
+  no synchronization
+  network 10.0.0.0
+  network 128.12.0.0
+  network 171.64.0.0 mask 255.252.0.0
+  network 171.66.6.32 mask 255.255.255.240
+  network 172.16.0.0 mask 255.240.0.0
+  network 172.24.0.0 mask 255.252.0.0
+  network 192.168.0.0 mask 255.255.0.0
+ exit-address-family
+ !
+ address-family ipv6
+  neighbor BNDv6 send-community
+  neighbor BNDv6 soft-reconfiguration inbound
+  neighbor TOZv6 soft-reconfiguration inbound
+  neighbor TOZv6 route-map fromTOZv6 in
+  neighbor TOZv6 route-map toTOZv6 out
+  neighbor WOZv6 soft-reconfiguration inbound
+  neighbor WOZv6 route-map fromWOZv6 in
+  neighbor WOZv6 route-map toWOZv6 out
+  neighbor BOZv6 soft-reconfiguration inbound
+  neighbor BOZv6 route-map fromBOZv6 in
+  neighbor BOZv6 route-map toBOZv6 out
+  neighbor MOZv6 soft-reconfiguration inbound
+  neighbor MOZv6 route-map fromMOZv6 in
+  neighbor MOZv6 route-map toMOZv6 out
+  neighbor POZv6 soft-reconfiguration inbound
+  neighbor POZv6 route-map fromPOZv6 in
+  neighbor POZv6 route-map toPOZv6 out
+  neighbor ROZv6 soft-reconfiguration inbound
+  neighbor ROZv6 route-map fromROZv6 in
+  neighbor ROZv6 route-map toROZv6 out
+  neighbor GOZv6 soft-reconfiguration inbound
+  neighbor GOZv6 route-map fromGOZv6 in
+  neighbor GOZv6 route-map toGOZv6 out
+  neighbor YOZv6 soft-reconfiguration inbound
+  neighbor YOZv6 route-map fromYOZv6 in
+  neighbor YOZv6 route-map toYOZv6 out
+  neighbor AS65064v6 soft-reconfiguration inbound
+  neighbor AS65064v6 route-map metPlusv6 in
+  neighbor 2607:F6D0:0:BBA::AB40:FF82 activate
+  neighbor 2607:F6D0:0:BBA::AB40:FF88 activate
+  neighbor 2607:F6D0:0:BBA::AB40:FF89 activate
+  neighbor 2607:F6D0:0:BBA::AB40:FF8C activate
+  neighbor 2607:F6D0:0:BBA::AB40:FF8D activate
+  neighbor 2607:F6D0:0:BBA::AB40:FF90 activate
+  neighbor 2607:F6D0:0:BBA::AB40:FF91 activate
+  neighbor 2607:F6D0:0:BBA::AB40:FF94 activate
+  neighbor 2607:F6D0:0:BBA::AB40:FF95 activate
+  neighbor 2607:F6D0:0:BBA::AB40:FF98 activate
+  neighbor 2607:F6D0:0:BBA::AB40:FF99 activate
+  neighbor 2607:F6D0:0:BBA::AB40:FF9C activate
+  neighbor 2607:F6D0:0:BBA::AB40:FF9D activate
+  neighbor 2607:F6D0:0:BBA::AB40:FFA4 activate
+  neighbor 2607:F6D0:0:BBA::AB40:FFA5 activate
+  neighbor 2607:F6D0:0:BBA::AB40:FFBC activate
+  neighbor 2607:F6D0:0:BBA::AB40:FFBD activate
+  neighbor 2607:F6D0:0:BCA::4441:A864 activate
+ exit-address-family
+!
+ip classless
+ip route 10.0.0.0 255.0.0.0 Null0
+ip route 10.62.96.0 255.255.240.0 172.20.4.193 250
+ip route 171.64.0.0 255.252.0.0 Null0
+ip route 171.66.20.0 255.255.252.0 171.64.250.146 250
+ip route 171.66.24.0 255.255.248.0 171.64.250.146 250
+ip route 171.66.66.32 255.255.255.240 172.24.1.246
+ip route 171.66.66.48 255.255.255.240 172.24.1.245
+ip route 171.67.5.248 255.255.255.248 171.64.250.194 250
+ip route 171.67.9.0 255.255.255.192 171.67.2.11 250
+ip route 171.67.9.128 255.255.255.240 171.67.2.13 250
+ip route 171.67.9.144 255.255.255.240 171.67.2.13 250
+ip route 171.67.9.160 255.255.255.240 171.67.2.13 250
+ip route 171.67.9.192 255.255.255.240 171.67.2.15 250
+ip route 171.67.9.240 255.255.255.240 171.67.2.15 250
+ip route 171.67.10.32 255.255.255.240 171.64.250.186 250
+ip route 171.67.10.48 255.255.255.240 171.64.250.218 250
+ip route 171.67.10.64 255.255.255.224 171.64.250.218 250
+ip route 171.67.10.128 255.255.255.192 171.64.250.210 250
+ip route 171.67.10.192 255.255.255.224 171.64.250.210 250
+ip route 171.67.10.224 255.255.255.224 171.64.250.210 250
+ip route 171.67.11.0 255.255.255.224 171.67.2.12 250
+ip route 171.67.11.32 255.255.255.248 171.67.2.12 250
+ip route 171.67.11.128 255.255.255.192 171.64.250.178 250
+ip route 171.67.11.224 255.255.255.240 171.64.1.9 250
+ip route 171.67.11.240 255.255.255.252 171.64.250.146 250
+ip route 171.67.32.0 255.255.255.240 171.67.2.14 250
+ip route 171.67.32.88 255.255.255.248 171.67.2.14 250
+ip route 171.67.32.96 255.255.255.224 171.67.2.14 250
+ip route 171.67.32.128 255.255.255.224 171.67.2.12 250
+ip route 171.67.32.160 255.255.255.240 171.64.250.194 250
+ip route 171.67.33.96 255.255.255.224 171.64.250.186 250
+ip route 172.16.0.0 255.240.0.0 Null0
+ip route 172.24.0.0 255.252.0.0 Null0 250
+ip route 172.27.4.0 255.255.255.192 171.64.250.194 250
+ip route 172.27.10.32 255.255.255.248 171.64.250.186 250
+ip route 172.27.32.128 255.255.255.224 171.67.2.12 250
+ip route 192.168.0.0 255.255.0.0 Null0
+ip route 192.168.240.0 255.255.248.0 171.64.250.146 250
+ip route 192.168.249.11 255.255.255.255 192.168.249.203 250
+!
+ip bgp-community new-format
+ip community-list 19 permit 65064:19
+ip community-list 76 permit 32:176
+ip community-list standard LADCintern permit 65064:65163
+ip community-list standard BNDpref150 permit 32:65015
+ip community-list standard BNDpref200 permit 32:65020
+ip community-list standard BNDpref400 permit 32:65040
+ip community-list standard BNDpref600 permit 32:65060
+ip community-list standard BNDpref90 permit 32:65009
+ip community-list standard fromHPR permit 2153:32
+ip community-list standard fromDC permit 2152:32
+ip community-list standard BNDpref80 permit 32:65080
+!
+no ip http server
+no ip http secure-server
+!
+!
+ip prefix-list 500 seq 5 permit 128.12.0.0/16 le 24
+!
+ip prefix-list BBRA-stat seq 5 permit 171.66.66.32/28
+ip prefix-list BBRA-stat seq 10 permit 171.66.66.48/28
+ip prefix-list BBRA-stat seq 15 permit 171.66.1.32/27
+ip prefix-list BBRA-stat seq 20 permit 171.66.1.0/29
+ip prefix-list BBRA-stat seq 25 permit 172.20.24.192/26
+ip prefix-list BBRA-stat seq 30 permit 204.63.224.0/21
+ip prefix-list BBRA-stat seq 35 permit 172.20.224.0/21
+ip prefix-list BBRA-stat seq 40 permit 171.64.0.0/14
+ip prefix-list BBRA-stat seq 50 permit 171.66.128.0/23
+ip prefix-list BBRA-stat seq 55 permit 172.26.128.0/24
+!
+ip prefix-list BOZ1 seq 2 permit 172.20.0.12/31 le 32
+ip prefix-list BOZ1 seq 5 permit 172.20.0.192/27 le 32
+ip prefix-list BOZ1 seq 8 permit 171.64.2.96/28
+ip prefix-list BOZ1 seq 10 permit 171.64.8.0/23
+ip prefix-list BOZ1 seq 15 permit 171.64.10.0/23
+ip prefix-list BOZ1 seq 20 permit 171.64.12.0/25
+ip prefix-list BOZ1 seq 25 permit 171.64.12.128/27
+ip prefix-list BOZ1 seq 30 permit 171.64.12.160/27
+ip prefix-list BOZ1 seq 35 permit 171.64.12.192/26
+ip prefix-list BOZ1 seq 40 permit 171.64.14.0/24
+ip prefix-list BOZ1 seq 45 permit 171.64.15.0/27
+ip prefix-list BOZ1 seq 50 permit 171.64.15.32/27
+ip prefix-list BOZ1 seq 55 permit 171.64.15.64/27
+ip prefix-list BOZ1 seq 60 permit 171.64.15.96/27
+ip prefix-list BOZ1 seq 65 permit 171.64.15.128/27
+ip prefix-list BOZ1 seq 70 permit 171.64.15.160/27
+ip prefix-list BOZ1 seq 75 permit 171.64.15.192/27
+ip prefix-list BOZ1 seq 80 permit 171.64.15.224/27
+ip prefix-list BOZ1 seq 85 permit 171.64.16.0/24 le 25
+ip prefix-list BOZ1 seq 90 permit 171.64.17.0/24 le 29
+ip prefix-list BOZ1 seq 92 permit 171.64.17.64/27
+ip prefix-list BOZ1 seq 93 permit 172.24.17.64/27
+ip prefix-list BOZ1 seq 95 permit 171.64.17.240/28
+ip prefix-list BOZ1 seq 100 permit 171.64.18.0/23
+ip prefix-list BOZ1 seq 105 permit 171.64.20.0/24
+ip prefix-list BOZ1 seq 110 permit 171.64.22.0/23
+ip prefix-list BOZ1 seq 115 permit 171.64.24.0/24 le 25
+ip prefix-list BOZ1 seq 120 permit 171.64.25.0/24
+ip prefix-list BOZ1 seq 125 permit 171.64.26.0/24
+ip prefix-list BOZ1 seq 130 permit 171.64.27.0/24
+ip prefix-list BOZ1 seq 135 permit 171.64.128.0/23
+ip prefix-list BOZ1 seq 140 permit 171.64.130.0/24
+ip prefix-list BOZ1 seq 145 permit 171.64.131.0/24
+ip prefix-list BOZ1 seq 150 permit 171.64.132.0/24
+ip prefix-list BOZ1 seq 155 permit 171.64.133.0/24
+ip prefix-list BOZ1 seq 160 permit 171.64.134.0/24
+ip prefix-list BOZ1 seq 165 permit 171.64.135.0/24
+ip prefix-list BOZ1 seq 170 permit 171.64.136.0/22
+ip prefix-list BOZ1 seq 175 permit 171.64.140.0/23
+ip prefix-list BOZ1 seq 180 permit 171.64.142.0/23
+ip prefix-list BOZ1 seq 185 permit 171.64.248.128/25
+ip prefix-list BOZ1 seq 190 permit 171.64.249.0/24
+ip prefix-list BOZ1 seq 195 permit 171.64.250.0/25
+ip prefix-list BOZ1 seq 200 permit 171.64.250.128/29
+ip prefix-list BOZ1 seq 205 permit 171.64.250.224/27
+ip prefix-list BOZ1 seq 210 permit 171.64.251.0/24
+ip prefix-list BOZ1 seq 220 permit 171.66.66.64/30
+ip prefix-list BOZ1 seq 225 permit 171.66.66.80/28
+ip prefix-list BOZ1 seq 230 permit 171.66.66.128/26
+ip prefix-list BOZ1 seq 235 permit 171.66.67.128/26
+ip prefix-list BOZ1 seq 240 permit 171.66.67.192/26
+ip prefix-list BOZ1 seq 245 permit 171.66.68.0/22
+ip prefix-list BOZ1 seq 250 permit 171.66.172.0/23
+ip prefix-list BOZ1 seq 255 permit 171.66.174.0/24
+ip prefix-list BOZ1 seq 260 permit 171.66.175.0/24
+ip prefix-list BOZ1 seq 265 permit 171.66.242.0/23 le 24
+ip prefix-list BOZ1 seq 270 permit 171.66.248.0/24
+ip prefix-list BOZ1 seq 275 permit 171.66.249.0/24
+ip prefix-list BOZ1 seq 280 permit 171.67.12.0/24
+ip prefix-list BOZ1 seq 285 permit 171.67.16.0/23
+ip prefix-list BOZ1 seq 290 permit 171.67.18.0/24
+ip prefix-list BOZ1 seq 295 permit 172.24.8.0/24
+ip prefix-list BOZ1 seq 300 permit 172.24.10.0/23
+ip prefix-list BOZ1 seq 305 permit 172.24.12.0/25
+ip prefix-list BOZ1 seq 310 permit 172.24.14.0/24
+ip prefix-list BOZ1 seq 315 permit 172.24.15.128/27
+ip prefix-list BOZ1 seq 320 permit 172.24.16.0/24 le 25
+ip prefix-list BOZ1 seq 325 permit 172.24.17.0/27
+ip prefix-list BOZ1 seq 330 permit 172.24.17.240/28
+ip prefix-list BOZ1 seq 335 permit 172.24.18.0/24
+ip prefix-list BOZ1 seq 340 permit 172.24.20.0/24
+ip prefix-list BOZ1 seq 345 permit 172.24.22.0/24
+ip prefix-list BOZ1 seq 350 permit 172.24.24.0/24 le 25
+ip prefix-list BOZ1 seq 355 permit 172.24.25.0/24
+ip prefix-list BOZ1 seq 360 permit 172.24.26.0/24
+ip prefix-list BOZ1 seq 365 permit 172.24.27.0/24
+ip prefix-list BOZ1 seq 370 permit 172.24.128.0/23
+ip prefix-list BOZ1 seq 375 permit 172.24.128.0/24
+ip prefix-list BOZ1 seq 380 permit 172.24.130.0/24
+ip prefix-list BOZ1 seq 385 permit 172.24.131.0/24
+ip prefix-list BOZ1 seq 390 permit 172.24.132.0/24
+ip prefix-list BOZ1 seq 395 permit 172.24.133.0/24
+ip prefix-list BOZ1 seq 400 permit 172.24.134.0/24
+ip prefix-list BOZ1 seq 405 permit 172.24.135.0/24
+ip prefix-list BOZ1 seq 410 permit 172.24.136.0/24
+ip prefix-list BOZ1 seq 415 permit 172.24.140.0/24
+ip prefix-list BOZ1 seq 420 permit 172.24.248.0/24
+ip prefix-list BOZ1 seq 425 permit 172.24.249.0/24
+ip prefix-list BOZ1 seq 430 permit 172.24.250.0/25
+ip prefix-list BOZ1 seq 435 permit 172.24.250.128/27
+ip prefix-list BOZ1 seq 440 permit 172.24.250.224/27
+ip prefix-list BOZ1 seq 445 permit 172.24.251.0/24
+ip prefix-list BOZ1 seq 455 permit 172.26.66.80/28
+ip prefix-list BOZ1 seq 460 permit 172.26.66.128/26
+ip prefix-list BOZ1 seq 465 permit 172.26.67.128/26
+ip prefix-list BOZ1 seq 470 permit 172.26.67.192/26
+ip prefix-list BOZ1 seq 475 permit 172.26.68.0/24
+ip prefix-list BOZ1 seq 480 permit 172.26.174.0/24
+ip prefix-list BOZ1 seq 485 permit 172.26.175.0/24
+ip prefix-list BOZ1 seq 490 permit 172.26.242.0/23
+ip prefix-list BOZ1 seq 495 permit 172.26.248.0/24
+ip prefix-list BOZ1 seq 500 permit 172.26.249.0/24
+ip prefix-list BOZ1 seq 505 permit 172.27.12.0/24
+ip prefix-list BOZ1 seq 510 permit 172.27.16.0/24
+ip prefix-list BOZ1 seq 515 permit 172.27.18.0/24
+ip prefix-list BOZ1 seq 520 permit 192.168.32.0/21
+ip prefix-list BOZ1 seq 525 permit 192.168.40.0/21
+ip prefix-list BOZ1 seq 530 permit 172.26.254.192/26
+ip prefix-list BOZ1 seq 535 permit 171.66.254.192/26
+ip prefix-list BOZ1 seq 540 permit 171.64.2.0/27
+ip prefix-list BOZ1 seq 545 permit 172.24.2.0/24
+ip prefix-list BOZ1 seq 550 permit 171.64.12.128/26
+ip prefix-list BOZ1 seq 555 permit 171.64.7.216/29
+ip prefix-list BOZ1 seq 560 permit 171.66.255.64/26
+ip prefix-list BOZ1 seq 565 permit 172.26.255.64/26
+ip prefix-list BOZ1 seq 570 permit 192.168.16.0/21
+ip prefix-list BOZ1 seq 575 permit 171.66.7.0/24
+ip prefix-list BOZ1 seq 580 permit 172.26.7.0/24
+ip prefix-list BOZ1 seq 585 permit 171.66.4.192/27
+ip prefix-list BOZ1 seq 590 permit 172.26.4.192/27
+ip prefix-list BOZ1 seq 595 permit 171.66.66.64/27 le 29
+ip prefix-list BOZ1 seq 600 permit 172.26.66.64/27 le 29
+ip prefix-list BOZ1 seq 605 permit 171.67.36.0/22
+ip prefix-list BOZ1 seq 610 permit 172.27.36.0/22
+ip prefix-list BOZ1 seq 615 permit 171.67.8.0/24
+ip prefix-list BOZ1 seq 620 permit 171.64.20.0/23 le 24
+ip prefix-list BOZ1 seq 625 permit 171.67.14.0/23
+ip prefix-list BOZ1 seq 630 permit 172.27.14.0/23
+ip prefix-list BOZ1 seq 635 permit 171.67.40.0/22
+ip prefix-list BOZ1 seq 640 permit 10.62.96.0/20
+ip prefix-list BOZ1 seq 645 permit 10.63.96.0/20
+ip prefix-list BOZ1 seq 650 permit 171.67.34.0/23
+ip prefix-list BOZ1 seq 660 permit 172.20.192.0/21
+ip prefix-list BOZ1 seq 670 permit 171.67.33.192/26
+ip prefix-list BOZ1 seq 680 permit 172.27.8.0/23
+ip prefix-list BOZ1 seq 685 permit 171.67.224.0/23 le 28
+ip prefix-list BOZ1 seq 690 permit 172.27.224.0/23 le 28
+ip prefix-list BOZ1 seq 695 permit 171.67.3.0/24
+ip prefix-list BOZ1 seq 700 permit 192.168.82.0/25
+ip prefix-list BOZ1 seq 705 permit 171.66.6.200/29
+ip prefix-list BOZ1 seq 710 permit 171.67.128.0/20 le 25
+ip prefix-list BOZ1 seq 715 permit 172.27.128.0/20 le 25
+ip prefix-list BOZ1 seq 720 permit 171.67.143.0/25
+ip prefix-list BOZ1 seq 725 permit 172.24.20.0/23 le 24
+ip prefix-list BOZ1 seq 730 permit 171.64.254.0/24
+ip prefix-list BOZ1 seq 735 permit 172.24.254.0/24
+ip prefix-list BOZ1 seq 740 permit 171.66.251.128/26
+ip prefix-list BOZ1 seq 745 permit 10.62.0.0/20
+ip prefix-list BOZ1 seq 750 permit 192.168.209.0/30
+ip prefix-list BOZ1 seq 755 permit 171.67.4.160/27
+ip prefix-list BOZ1 seq 760 permit 171.67.4.64/28
+ip prefix-list BOZ1 seq 765 permit 171.67.4.0/27
+ip prefix-list BOZ1 seq 770 permit 171.67.4.80/28
+ip prefix-list BOZ1 seq 775 permit 171.67.11.64/26
+ip prefix-list BOZ1 seq 780 permit 171.67.5.128/28
+ip prefix-list BOZ1 seq 785 permit 171.67.7.232/29
+ip prefix-list BOZ1 seq 790 permit 171.67.7.240/29
+ip prefix-list BOZ1 seq 795 permit 172.26.240.0/24
+ip prefix-list BOZ1 seq 800 permit 171.67.225.0/26
+ip prefix-list BOZ1 seq 805 permit 171.67.225.64/26
+ip prefix-list BOZ1 seq 810 permit 172.27.225.0/26
+ip prefix-list BOZ1 seq 815 permit 172.27.225.64/26
+ip prefix-list BOZ1 seq 820 permit 171.67.33.0/27
+ip prefix-list BOZ1 seq 825 permit 171.66.240.0/24
+ip prefix-list BOZ1 seq 830 permit 171.67.224.16/30
+ip prefix-list BOZ1 seq 835 permit 171.67.225.192/26
+ip prefix-list BOZ1 seq 840 permit 172.27.225.192/26
+ip prefix-list BOZ1 seq 845 permit 171.67.225.128/26
+ip prefix-list BOZ1 seq 850 permit 172.27.225.128/26
+ip prefix-list BOZ1 seq 855 permit 171.67.9.208/28 le 29
+ip prefix-list BOZ1 seq 860 permit 171.67.9.224/28 le 29
+ip prefix-list BOZ1 seq 865 permit 171.67.9.192/28 le 29
+ip prefix-list BOZ1 seq 870 permit 171.67.32.72/29
+ip prefix-list BOZ1 seq 875 permit 171.67.32.80/29
+ip prefix-list BOZ1 seq 880 permit 171.67.11.24/29
+ip prefix-list BOZ1 seq 885 permit 171.67.10.0/27 le 28
+ip prefix-list BOZ1 seq 890 permit 172.27.10.32/29
+ip prefix-list BOZ1 seq 895 permit 171.67.10.96/27
+ip prefix-list BOZ1 seq 900 permit 171.67.4.32/27
+ip prefix-list BOZ1 seq 905 permit 171.67.5.32/27
+ip prefix-list BOZ1 seq 910 permit 171.67.7.160/28
+ip prefix-list BOZ1 seq 915 permit 171.67.32.16/28
+ip prefix-list BOZ1 seq 920 permit 171.67.32.64/29
+ip prefix-list BOZ1 seq 925 permit 171.67.32.160/29
+ip prefix-list BOZ1 seq 930 permit 171.67.32.168/29
+ip prefix-list BOZ1 seq 945 permit 171.67.11.16/29
+ip prefix-list BOZ1 seq 950 permit 171.67.11.32/29
+ip prefix-list BOZ1 seq 955 permit 171.67.37.128/25
+ip prefix-list BOZ1 seq 960 permit 171.67.5.144/28
+ip prefix-list BOZ1 seq 965 permit 171.67.7.96/27
+ip prefix-list BOZ1 seq 970 permit 171.67.10.128/25 le 28
+ip prefix-list BOZ1 seq 975 permit 172.27.10.48/28
+ip prefix-list BOZ1 seq 980 permit 171.67.4.128/27
+ip prefix-list BOZ1 seq 985 permit 171.67.32.128/27 le 29
+ip prefix-list BOZ1 seq 990 permit 171.67.5.64/28
+ip prefix-list BOZ1 seq 995 permit 171.67.5.80/28
+ip prefix-list BOZ1 seq 1000 permit 171.67.5.96/28
+ip prefix-list BOZ1 seq 1005 permit 172.27.32.136/29
+ip prefix-list BOZ1 seq 1010 permit 172.27.5.64/28
+ip prefix-list BOZ1 seq 1015 permit 172.27.5.80/28
+ip prefix-list BOZ1 seq 1020 permit 172.27.5.96/28
+ip prefix-list BOZ1 seq 1025 permit 172.20.10.192/27
+ip prefix-list BOZ1 seq 1030 permit 172.27.10.96/27
+ip prefix-list BOZ1 seq 1035 permit 172.27.40.0/22 le 29
+ip prefix-list BOZ1 seq 1040 permit 172.27.11.96/28
+ip prefix-list BOZ1 seq 1045 permit 171.67.32.32/28
+ip prefix-list BOZ1 seq 1050 permit 171.66.246.0/23
+ip prefix-list BOZ1 seq 1055 permit 172.26.246.0/24
+ip prefix-list BOZ1 seq 1060 permit 172.27.34.0/23
+ip prefix-list BOZ1 seq 1065 permit 172.27.224.64/26
+ip prefix-list BOZ1 seq 1070 permit 172.27.3.0/24
+ip prefix-list BOZ1 seq 1075 permit 171.67.194.0/23 le 28
+ip prefix-list BOZ1 seq 1080 permit 172.27.194.0/23 le 28
+ip prefix-list BOZ1 seq 1085 permit 172.20.200.0/21
+ip prefix-list BOZ1 seq 1090 permit 171.67.44.0/22
+ip prefix-list BOZ1 seq 1095 permit 171.67.193.0/24
+ip prefix-list BOZ1 seq 1100 permit 172.27.193.0/24
+ip prefix-list BOZ1 seq 1105 permit 171.67.195.192/27
+ip prefix-list BOZ1 seq 1110 permit 171.67.33.32/27
+ip prefix-list BOZ1 seq 1115 permit 171.67.33.64/27
+ip prefix-list BOZ1 seq 1120 permit 172.27.43.64/28
+ip prefix-list BOZ1 seq 1125 permit 172.27.43.80/28
+ip prefix-list BOZ1 seq 1130 permit 171.67.32.192/27
+ip prefix-list BOZ1 seq 1135 permit 171.67.32.224/27
+ip prefix-list BOZ1 seq 1140 permit 172.27.40.160/28
+ip prefix-list BOZ1 seq 1145 permit 172.20.204.0/25
+ip prefix-list BOZ1 seq 1150 permit 172.20.204.128/25
+ip prefix-list BOZ1 seq 1155 permit 172.20.198.64/26
+ip prefix-list BOZ1 seq 1160 permit 171.67.5.112/28
+ip prefix-list BOZ1 seq 1165 permit 172.27.5.112/28
+ip prefix-list BOZ1 seq 1170 permit 172.27.4.80/28
+ip prefix-list BOZ1 seq 1175 permit 171.67.195.128/26
+ip prefix-list BOZ1 seq 1180 permit 171.67.5.216/29
+ip prefix-list BOZ1 seq 1185 permit 171.67.5.224/29
+ip prefix-list BOZ1 seq 1190 permit 171.67.5.160/28
+ip prefix-list BOZ1 seq 1195 permit 171.67.5.176/28
+ip prefix-list BOZ1 seq 1200 permit 171.67.5.192/28
+ip prefix-list BOZ1 seq 1205 permit 172.26.68.0/23
+ip prefix-list BOZ1 seq 1210 permit 171.67.6.0/24 le 26
+ip prefix-list BOZ1 seq 1215 permit 172.27.4.64/28
+ip prefix-list BOZ1 seq 1220 permit 171.67.7.192/27
+!
+ip prefix-list CMTS seq 5 permit 68.65.160.0/21
+ip prefix-list CMTS seq 10 permit 68.65.168.82/32
+!
+ip prefix-list COZ0 seq 5 permit 172.20.0.2/31 le 32
+ip prefix-list COZ0 seq 10 permit 172.20.0.32/27 le 32
+!
+ip prefix-list COZ1 seq 5 permit 172.20.0.2/31 le 32
+ip prefix-list COZ1 seq 10 permit 172.20.0.32/27 le 32
+ip prefix-list COZ1 seq 15 permit 128.12.0.2/31 le 32
+ip prefix-list COZ1 seq 20 permit 128.12.0.0/16
+ip prefix-list COZ1 seq 25 permit 128.12.1.16/28
+ip prefix-list COZ1 seq 30 permit 128.12.16.0/22
+ip prefix-list COZ1 seq 35 permit 128.12.20.0/23
+ip prefix-list COZ1 seq 40 permit 128.12.22.0/23
+ip prefix-list COZ1 seq 45 permit 128.12.130.0/23
+ip prefix-list COZ1 seq 50 permit 128.12.132.0/22
+ip prefix-list COZ1 seq 55 permit 128.12.136.0/22
+ip prefix-list COZ1 seq 60 permit 128.12.140.0/23
+ip prefix-list COZ1 seq 65 permit 128.12.142.0/23
+ip prefix-list COZ1 seq 70 permit 128.12.144.0/22
+ip prefix-list COZ1 seq 75 permit 128.12.148.0/22
+ip prefix-list COZ1 seq 80 permit 128.12.152.0/22
+ip prefix-list COZ1 seq 85 permit 128.12.156.0/22
+ip prefix-list COZ1 seq 90 permit 128.12.160.0/22
+ip prefix-list COZ1 seq 95 permit 128.12.164.0/23
+ip prefix-list COZ1 seq 100 permit 128.12.166.0/23
+ip prefix-list COZ1 seq 105 permit 128.12.168.0/22
+ip prefix-list COZ1 seq 130 permit 128.12.176.0/22
+ip prefix-list COZ1 seq 135 permit 128.12.180.0/22
+ip prefix-list COZ1 seq 150 permit 172.19.40.0/21
+ip prefix-list COZ1 seq 155 permit 172.19.64.0/19
+ip prefix-list COZ1 seq 160 permit 172.19.96.0/22
+ip prefix-list COZ1 seq 165 permit 172.19.254.0/24
+ip prefix-list COZ1 seq 170 permit 128.12.172.0/23
+ip prefix-list COZ1 seq 175 permit 128.12.174.0/23
+ip prefix-list COZ1 seq 180 permit 171.66.250.64/26
+ip prefix-list COZ1 seq 185 permit 10.62.16.0/20
+ip prefix-list COZ1 seq 190 permit 10.63.16.0/20
+ip prefix-list COZ1 seq 195 permit 192.168.209.8/30
+ip prefix-list COZ1 seq 200 permit 192.168.209.12/30
+ip prefix-list COZ1 seq 205 permit 172.20.10.32/27
+ip prefix-list COZ1 seq 210 permit 128.12.222.0/23
+ip prefix-list COZ1 seq 215 permit 128.12.224.0/23
+ip prefix-list COZ1 seq 220 permit 128.12.226.0/23
+ip prefix-list COZ1 seq 225 permit 128.12.228.0/23
+ip prefix-list COZ1 seq 230 permit 128.12.230.0/23
+ip prefix-list COZ1 seq 235 permit 128.12.232.0/23
+ip prefix-list COZ1 seq 240 permit 128.12.234.0/23
+ip prefix-list COZ1 seq 245 permit 128.12.236.0/23
+ip prefix-list COZ1 seq 250 permit 128.12.238.0/23
+ip prefix-list COZ1 seq 255 permit 171.66.4.32/27
+ip prefix-list COZ1 seq 260 permit 172.26.4.32/27
+ip prefix-list COZ1 seq 265 permit 172.19.248.128/25
+ip prefix-list COZ1 seq 270 permit 10.30.0.0/16 le 20
+ip prefix-list COZ1 seq 275 permit 128.12.198.0/24
+ip prefix-list COZ1 seq 280 permit 172.19.154.0/23
+ip prefix-list COZ1 seq 290 permit 128.12.199.0/24
+ip prefix-list COZ1 seq 295 permit 172.19.156.0/23
+ip prefix-list COZ1 seq 300 permit 128.12.200.0/24
+ip prefix-list COZ1 seq 305 permit 172.19.158.0/23
+ip prefix-list COZ1 seq 310 permit 128.12.201.0/24
+ip prefix-list COZ1 seq 315 permit 172.19.160.0/23
+ip prefix-list COZ1 seq 320 permit 128.12.202.0/24
+ip prefix-list COZ1 seq 325 permit 172.19.162.0/23
+ip prefix-list COZ1 seq 330 permit 128.12.0.0/16 le 24
+!
+ip prefix-list COZmc seq 5 permit 128.12.1.16/28
+ip prefix-list COZmc seq 10 permit 172.20.0.43/32
+ip prefix-list COZmc seq 15 permit 172.19.254.0/24
+ip prefix-list COZmc seq 25 permit 172.20.0.44/32
+!
+ip prefix-list CTR4 seq 5 permit 171.66.92.0/22
+!
+ip prefix-list CTRA seq 5 permit 171.67.160.0/19
+!
+ip prefix-list CTRD seq 5 permit 128.12.8.0/21
+ip prefix-list CTRD seq 10 permit 128.12.0.0/21 le 24
+ip prefix-list CTRD seq 15 permit 128.12.208.0/20 le 24
+ip prefix-list CTRD seq 20 permit 128.12.204.0/22
+ip prefix-list CTRD seq 25 permit 128.12.2.0/23
+ip prefix-list CTRD seq 30 permit 128.12.4.0/22
+ip prefix-list CTRD seq 35 permit 128.12.32.0/21
+ip prefix-list CTRD seq 40 permit 128.12.112.0/21
+ip prefix-list CTRD seq 45 permit 128.12.120.0/22
+ip prefix-list CTRD seq 50 permit 128.12.24.0/21 le 25
+ip prefix-list CTRD seq 55 permit 128.12.124.0/22 le 25
+ip prefix-list CTRD seq 60 permit 128.12.192.0/22 le 24
+ip prefix-list CTRD seq 65 permit 128.12.198.0/23 le 25
+ip prefix-list CTRD seq 70 permit 128.12.200.0/22 le 25
+ip prefix-list CTRD seq 75 permit 128.12.252.0/22
+ip prefix-list CTRD seq 80 permit 128.12.96.0/20
+ip prefix-list CTRD seq 85 permit 128.12.88.0/21
+!
+ip prefix-list CTRDloc seq 5 permit 172.20.0.26/32
+ip prefix-list CTRDloc seq 10 permit 10.30.0.0/15 le 20
+ip prefix-list CTRDloc seq 15 permit 172.20.0.28/32
+ip prefix-list CTRDloc seq 20 permit 172.20.0.27/32
+!
+ip prefix-list CTRloc seq 5 permit 172.20.0.29/32
+ip prefix-list CTRloc seq 10 permit 172.20.0.30/32
+!
+ip prefix-list DSL seq 5 permit 172.20.0.30/32
+ip prefix-list DSL seq 10 permit 171.66.96.0/21
+ip prefix-list DSL seq 15 permit 171.66.176.0/20
+ip prefix-list DSL seq 20 permit 171.66.192.0/19
+ip prefix-list DSL seq 25 permit 172.22.0.0/16
+!
+ip prefix-list GOZ1 seq 2 permit 172.20.0.10/31 le 32
+ip prefix-list GOZ1 seq 5 permit 172.20.0.160/27 le 32
+ip prefix-list GOZ1 seq 10 permit 171.64.28.0/24
+ip prefix-list GOZ1 seq 15 permit 171.64.29.0/24
+ip prefix-list GOZ1 seq 20 permit 171.64.30.0/24
+ip prefix-list GOZ1 seq 25 permit 171.64.31.0/25
+ip prefix-list GOZ1 seq 35 permit 171.64.100.0/23
+ip prefix-list GOZ1 seq 40 permit 171.64.144.0/24
+ip prefix-list GOZ1 seq 45 permit 171.64.145.0/24
+ip prefix-list GOZ1 seq 50 permit 171.64.146.0/24
+ip prefix-list GOZ1 seq 60 permit 171.64.148.0/22
+ip prefix-list GOZ1 seq 65 permit 171.64.152.0/23
+ip prefix-list GOZ1 seq 70 permit 171.64.154.0/23
+ip prefix-list GOZ1 seq 75 permit 171.64.156.0/24
+ip prefix-list GOZ1 seq 80 permit 171.64.157.0/25
+ip prefix-list GOZ1 seq 85 permit 171.64.158.0/24
+ip prefix-list GOZ1 seq 90 permit 171.64.159.0/24
+ip prefix-list GOZ1 seq 95 permit 171.64.216.0/24
+ip prefix-list GOZ1 seq 100 permit 171.64.217.0/24
+ip prefix-list GOZ1 seq 105 permit 171.64.218.0/24
+ip prefix-list GOZ1 seq 110 permit 171.64.219.0/24 le 25
+ip prefix-list GOZ1 seq 115 permit 171.64.220.0/22
+ip prefix-list GOZ1 seq 120 permit 171.64.226.0/23
+ip prefix-list GOZ1 seq 125 permit 171.64.228.0/24
+ip prefix-list GOZ1 seq 130 permit 171.64.230.0/24
+ip prefix-list GOZ1 seq 135 permit 171.64.232.0/23
+ip prefix-list GOZ1 seq 140 permit 171.64.234.0/24
+ip prefix-list GOZ1 seq 145 permit 171.64.235.0/24
+ip prefix-list GOZ1 seq 150 permit 171.64.236.0/24
+ip prefix-list GOZ1 seq 155 permit 171.64.237.0/24
+ip prefix-list GOZ1 seq 160 permit 171.64.238.0/23
+ip prefix-list GOZ1 seq 165 permit 171.64.240.0/22
+ip prefix-list GOZ1 seq 170 permit 171.66.112.0/22
+ip prefix-list GOZ1 seq 175 permit 171.66.116.0/24
+ip prefix-list GOZ1 seq 180 permit 171.66.118.0/25
+ip prefix-list GOZ1 seq 185 permit 171.66.144.0/21
+ip prefix-list GOZ1 seq 190 permit 171.66.228.0/22
+ip prefix-list GOZ1 seq 195 permit 171.66.232.0/23
+ip prefix-list GOZ1 seq 200 permit 171.66.236.0/24
+ip prefix-list GOZ1 seq 205 permit 171.66.237.0/24
+ip prefix-list GOZ1 seq 215 permit 171.66.252.0/23
+ip prefix-list GOZ1 seq 220 permit 172.24.28.0/24
+ip prefix-list GOZ1 seq 225 permit 172.24.29.0/24
+ip prefix-list GOZ1 seq 230 permit 172.24.30.0/24
+ip prefix-list GOZ1 seq 235 permit 172.24.31.0/25
+ip prefix-list GOZ1 seq 245 permit 172.24.100.0/24
+ip prefix-list GOZ1 seq 250 permit 172.24.144.0/24
+ip prefix-list GOZ1 seq 255 permit 172.24.145.0/24
+ip prefix-list GOZ1 seq 260 permit 172.24.146.0/24
+ip prefix-list GOZ1 seq 270 permit 172.24.150.0/23 le 24
+ip prefix-list GOZ1 seq 275 permit 172.24.152.0/24
+ip prefix-list GOZ1 seq 280 permit 172.24.154.0/23
+ip prefix-list GOZ1 seq 285 permit 172.24.156.0/24
+ip prefix-list GOZ1 seq 290 permit 172.24.157.0/25
+ip prefix-list GOZ1 seq 295 permit 172.24.158.0/24
+ip prefix-list GOZ1 seq 300 permit 172.24.217.0/24
+ip prefix-list GOZ1 seq 305 permit 172.24.218.0/24
+ip prefix-list GOZ1 seq 310 permit 172.24.219.0/24 le 25
+ip prefix-list GOZ1 seq 315 permit 172.24.220.0/24
+ip prefix-list GOZ1 seq 320 permit 172.24.226.0/24
+ip prefix-list GOZ1 seq 325 permit 172.24.228.0/24
+ip prefix-list GOZ1 seq 330 permit 172.24.230.0/24
+ip prefix-list GOZ1 seq 335 permit 172.24.232.0/24
+ip prefix-list GOZ1 seq 340 permit 172.24.234.0/24
+ip prefix-list GOZ1 seq 345 permit 172.24.235.0/24
+ip prefix-list GOZ1 seq 350 permit 172.24.236.0/24
+ip prefix-list GOZ1 seq 355 permit 172.24.238.0/24
+ip prefix-list GOZ1 seq 360 permit 172.24.240.0/24
+ip prefix-list GOZ1 seq 365 permit 172.26.112.0/24
+ip prefix-list GOZ1 seq 370 permit 172.26.116.0/24
+ip prefix-list GOZ1 seq 375 permit 172.26.118.0/25
+ip prefix-list GOZ1 seq 380 permit 172.26.144.0/24
+ip prefix-list GOZ1 seq 385 permit 172.26.228.0/24
+ip prefix-list GOZ1 seq 390 permit 172.26.232.0/24
+ip prefix-list GOZ1 seq 395 permit 172.26.236.0/24
+ip prefix-list GOZ1 seq 400 permit 172.26.237.0/24
+ip prefix-list GOZ1 seq 405 permit 172.26.238.0/24
+ip prefix-list GOZ1 seq 410 permit 172.26.252.0/24
+ip prefix-list GOZ1 seq 415 permit 192.168.48.0/21
+ip prefix-list GOZ1 seq 420 permit 172.24.3.96/29
+ip prefix-list GOZ1 seq 425 permit 171.64.6.96/29
+ip prefix-list GOZ1 seq 435 permit 171.66.78.0/23 le 26
+ip prefix-list GOZ1 seq 440 permit 171.66.224.0/22
+ip prefix-list GOZ1 seq 445 permit 171.67.232.0/25
+ip prefix-list GOZ1 seq 450 permit 171.67.232.192/26
+ip prefix-list GOZ1 seq 455 permit 172.26.78.0/23 le 24
+ip prefix-list GOZ1 seq 460 permit 172.26.224.0/24
+ip prefix-list GOZ1 seq 465 permit 171.64.244.0/24
+ip prefix-list GOZ1 seq 470 permit 172.24.244.0/24
+ip prefix-list GOZ1 seq 475 permit 171.64.2.200/29
+ip prefix-list GOZ1 seq 480 permit 171.66.4.160/27 le 29
+ip prefix-list GOZ1 seq 485 permit 172.26.4.160/27 le 29
+ip prefix-list GOZ1 seq 490 permit 171.64.229.0/24
+ip prefix-list GOZ1 seq 500 permit 171.66.6.216/29
+ip prefix-list GOZ1 seq 505 permit 172.24.221.0/24
+ip prefix-list GOZ1 seq 510 permit 172.24.223.0/24
+ip prefix-list GOZ1 seq 515 permit 192.168.221.0/24
+ip prefix-list GOZ1 seq 520 permit 172.24.216.0/24
+ip prefix-list GOZ1 seq 525 permit 171.64.246.0/23
+ip prefix-list GOZ1 seq 530 permit 172.24.246.0/23
+ip prefix-list GOZ1 seq 535 permit 10.62.80.0/20
+ip prefix-list GOZ1 seq 540 permit 10.63.80.0/20
+ip prefix-list GOZ1 seq 545 permit 171.64.31.128/27
+ip prefix-list GOZ1 seq 565 permit 171.67.226.0/23 le 28
+ip prefix-list GOZ1 seq 570 permit 172.27.226.0/23 le 28
+ip prefix-list GOZ1 seq 575 permit 172.24.150.0/24
+ip prefix-list GOZ1 seq 580 permit 172.24.151.0/24
+ip prefix-list GOZ1 seq 585 permit 171.66.238.0/24
+ip prefix-list GOZ1 seq 590 permit 171.66.239.0/24
+ip prefix-list GOZ1 seq 595 permit 10.200.0.0/16
+ip prefix-list GOZ1 seq 600 permit 171.64.245.0/24
+ip prefix-list GOZ1 seq 605 permit 172.24.245.0/24
+ip prefix-list GOZ1 seq 610 permit 171.66.251.64/26
+ip prefix-list GOZ1 seq 615 permit 10.48.0.0/18 le 24
+ip prefix-list GOZ1 seq 620 permit 171.67.220.0/23 le 28
+ip prefix-list GOZ1 seq 625 permit 172.27.220.0/23 le 28
+ip prefix-list GOZ1 seq 665 permit 192.168.236.0/24
+ip prefix-list GOZ1 seq 670 permit 171.66.250.64/26
+ip prefix-list GOZ1 seq 675 permit 171.66.4.160/29
+ip prefix-list GOZ1 seq 680 permit 171.66.118.224/27
+ip prefix-list GOZ1 seq 685 permit 171.66.118.216/29
+ip prefix-list GOZ1 seq 690 permit 172.26.4.160/29
+ip prefix-list GOZ1 seq 695 permit 171.64.147.0/24 le 26
+ip prefix-list GOZ1 seq 700 permit 172.24.147.0/24 le 26
+ip prefix-list GOZ1 seq 705 permit 172.20.156.0/22
+ip prefix-list GOZ1 seq 710 permit 171.67.144.0/23
+ip prefix-list GOZ1 seq 715 permit 172.27.144.0/24
+ip prefix-list GOZ1 seq 720 permit 171.67.148.0/22
+ip prefix-list GOZ1 seq 725 permit 172.27.148.0/24
+ip prefix-list GOZ1 seq 730 permit 171.64.157.128/25
+ip prefix-list GOZ1 seq 735 permit 172.24.157.128/25
+ip prefix-list GOZ1 seq 740 permit 172.24.31.192/26
+ip prefix-list GOZ1 seq 750 permit 172.20.10.160/27
+ip prefix-list GOZ1 seq 755 permit 171.67.196.0/23 le 29
+ip prefix-list GOZ1 seq 760 permit 172.20.186.0/23 le 28
+ip prefix-list GOZ1 seq 765 permit 171.67.220.128/26
+ip prefix-list GOZ1 seq 770 permit 10.200.0.0/18
+ip prefix-list GOZ1 seq 775 permit 171.67.196.0/22 le 24
+ip prefix-list GOZ1 seq 780 permit 172.27.196.0/22 le 24
+ip prefix-list GOZ1 seq 785 permit 172.27.196.0/23 le 28
+ip prefix-list GOZ1 seq 790 permit 171.64.253.0/24
+ip prefix-list GOZ1 seq 795 permit 172.24.253.0/24
+ip prefix-list GOZ1 seq 800 permit 10.75.0.0/16 le 25
+!
+ip prefix-list HWP seq 5 permit 172.20.0.24/32
+!
+ip prefix-list HWP1 seq 5 permit 172.20.0.24/32
+ip prefix-list HWP1 seq 10 permit 171.64.0.120/31 le 32
+ip prefix-list HWP1 seq 15 permit 171.66.120.0/21
+ip prefix-list HWP1 seq 20 permit 172.26.120.0/24
+ip prefix-list HWP1 seq 25 permit 171.67.112.0/20
+ip prefix-list HWP1 seq 30 permit 172.27.112.0/24
+!
+ip prefix-list HWPnoNAT seq 5 permit 171.66.120.0/21
+ip prefix-list HWPnoNAT seq 10 permit 171.67.112.0/20
+!
+ip prefix-list HWPpub seq 5 permit 171.67.112.0/20
+ip prefix-list HWPpub seq 10 permit 171.66.120.0/21
+!
+ip prefix-list ILAG seq 5 permit 68.65.168.90/31 le 32
+!
+ip prefix-list LADC seq 5 permit 204.63.224.0/21
+ip prefix-list LADC seq 10 permit 171.66.128.0/23
+ip prefix-list LADC seq 15 permit 172.26.128.0/24
+!
+ip prefix-list LADC-prv seq 5 permit 172.20.24.192/26
+ip prefix-list LADC-prv seq 10 permit 172.20.224.0/21
+!
+ip prefix-list LEXT seq 5 permit 204.63.224.0/21
+ip prefix-list LEXT seq 10 permit 171.66.128.0/23
+ip prefix-list LEXT seq 15 permit 172.26.128.0/24
+!
+ip prefix-list MOZ0 seq 5 permit 172.20.0.6/31 le 32
+ip prefix-list MOZ0 seq 10 permit 172.20.0.96/27 le 32
+ip prefix-list MOZ0 seq 15 permit 10.62.48.0/20
+ip prefix-list MOZ0 seq 20 permit 10.63.48.0/20
+!
+ip prefix-list MOZ1 seq 2 permit 172.20.0.6/31 le 32
+ip prefix-list MOZ1 seq 5 permit 172.20.0.96/27 le 32
+ip prefix-list MOZ1 seq 10 permit 171.65.0.0/16
+ip prefix-list MOZ1 seq 15 permit 172.25.0.0/16
+ip prefix-list MOZ1 seq 20 permit 10.50.0.0/16
+ip prefix-list MOZ1 seq 25 permit 10.240.0.0/12 le 24
+ip prefix-list MOZ1 seq 30 permit 204.161.120.0/24
+ip prefix-list MOZ1 seq 35 permit 209.11.184.0/22
+ip prefix-list MOZ1 seq 40 permit 209.11.188.0/22
+ip prefix-list MOZ1 seq 45 permit 10.62.48.0/20
+ip prefix-list MOZ1 seq 50 permit 10.63.48.0/20
+ip prefix-list MOZ1 seq 55 permit 171.65.56.0/23
+ip prefix-list MOZ1 seq 60 permit 172.25.56.0/24
+ip prefix-list MOZ1 seq 65 permit 171.66.4.96/27
+ip prefix-list MOZ1 seq 70 permit 172.26.4.96/27
+ip prefix-list MOZ1 seq 75 permit 171.65.2.128/27
+ip prefix-list MOZ1 seq 80 permit 171.65.1.128/26
+ip prefix-list MOZ1 seq 85 permit 171.65.1.192/26
+ip prefix-list MOZ1 seq 90 permit 171.65.2.0/27
+ip prefix-list MOZ1 seq 95 permit 171.65.3.64/26
+ip prefix-list MOZ1 seq 100 permit 171.65.3.32/27
+ip prefix-list MOZ1 seq 105 permit 171.65.42.0/24
+ip prefix-list MOZ1 seq 110 permit 171.65.66.0/23
+ip prefix-list MOZ1 seq 115 permit 171.65.72.0/24
+ip prefix-list MOZ1 seq 120 permit 172.25.66.0/23
+ip prefix-list MOZ1 seq 125 permit 171.65.2.196/30
+ip prefix-list MOZ1 seq 130 permit 172.25.31.0/24
+ip prefix-list MOZ1 seq 135 permit 171.65.2.32/29
+ip prefix-list MOZ1 seq 140 permit 171.65.2.236/30
+ip prefix-list MOZ1 seq 145 permit 171.65.2.40/29
+ip prefix-list MOZ1 seq 150 permit 171.65.2.64/27
+ip prefix-list MOZ1 seq 155 permit 171.65.1.96/29
+ip prefix-list MOZ1 seq 160 permit 171.65.1.16/29
+ip prefix-list MOZ1 seq 165 permit 171.65.0.240/29
+ip prefix-list MOZ1 seq 170 permit 171.65.2.192/29
+ip prefix-list MOZ1 seq 175 permit 172.25.10.0/23
+ip prefix-list MOZ1 seq 180 permit 172.25.92.0/24
+ip prefix-list MOZ1 seq 185 permit 171.65.92.0/22
+ip prefix-list MOZ1 seq 190 permit 172.25.102.0/24
+ip prefix-list MOZ1 seq 195 permit 171.65.102.0/23
+ip prefix-list MOZ1 seq 200 permit 171.65.2.176/29
+ip prefix-list MOZ1 seq 205 permit 171.65.41.0/24
+ip prefix-list MOZ1 seq 210 permit 172.25.79.0/24
+ip prefix-list MOZ1 seq 215 permit 171.65.79.0/24
+ip prefix-list MOZ1 seq 220 permit 172.25.99.0/25
+ip prefix-list MOZ1 seq 225 permit 171.65.99.0/24
+ip prefix-list MOZ1 seq 230 permit 172.25.3.0/27
+ip prefix-list MOZ1 seq 235 permit 171.65.3.0/27
+ip prefix-list MOZ1 seq 240 permit 172.25.6.0/24
+ip prefix-list MOZ1 seq 245 permit 172.25.4.0/24
+ip prefix-list MOZ1 seq 250 permit 171.65.4.0/22
+ip prefix-list MOZ1 seq 255 permit 172.25.106.0/24
+ip prefix-list MOZ1 seq 260 permit 171.65.106.0/23
+ip prefix-list MOZ1 seq 265 permit 172.25.8.0/24
+ip prefix-list MOZ1 seq 270 permit 171.65.8.0/22
+ip prefix-list MOZ1 seq 275 permit 172.25.14.0/24
+ip prefix-list MOZ1 seq 280 permit 172.25.12.0/24
+ip prefix-list MOZ1 seq 285 permit 171.65.12.0/22
+ip prefix-list MOZ1 seq 290 permit 172.25.18.0/24
+ip prefix-list MOZ1 seq 295 permit 172.25.16.0/24
+ip prefix-list MOZ1 seq 300 permit 171.65.16.0/22
+ip prefix-list MOZ1 seq 305 permit 172.25.21.0/24
+ip prefix-list MOZ1 seq 310 permit 172.25.22.0/24
+ip prefix-list MOZ1 seq 315 permit 172.25.24.0/24
+ip prefix-list MOZ1 seq 320 permit 172.25.26.0/24
+ip prefix-list MOZ1 seq 325 permit 172.25.20.0/24
+ip prefix-list MOZ1 seq 330 permit 171.65.24.0/22
+ip prefix-list MOZ1 seq 335 permit 171.65.20.0/22
+ip prefix-list MOZ1 seq 340 permit 172.25.28.0/24
+ip prefix-list MOZ1 seq 345 permit 171.65.28.0/22
+ip prefix-list MOZ1 seq 350 permit 171.65.32.0/23
+ip prefix-list MOZ1 seq 355 permit 172.25.32.0/24
+ip prefix-list MOZ1 seq 360 permit 171.65.40.0/26
+ip prefix-list MOZ1 seq 365 permit 172.25.38.0/24
+ip prefix-list MOZ1 seq 370 permit 172.25.36.0/24
+ip prefix-list MOZ1 seq 375 permit 172.25.34.0/24
+ip prefix-list MOZ1 seq 380 permit 171.65.34.0/23
+ip prefix-list MOZ1 seq 385 permit 171.65.36.0/22
+ip prefix-list MOZ1 seq 390 permit 172.25.40.96/27
+ip prefix-list MOZ1 seq 395 permit 171.65.40.96/27
+ip prefix-list MOZ1 seq 400 permit 171.65.43.0/24 le 25
+ip prefix-list MOZ1 seq 405 permit 172.25.48.0/24
+ip prefix-list MOZ1 seq 410 permit 171.65.48.0/22
+ip prefix-list MOZ1 seq 415 permit 172.25.52.0/24
+ip prefix-list MOZ1 seq 420 permit 171.65.52.0/23
+ip prefix-list MOZ1 seq 425 permit 172.25.54.0/24
+ip prefix-list MOZ1 seq 430 permit 171.65.54.0/23
+ip prefix-list MOZ1 seq 435 permit 172.25.60.0/24
+ip prefix-list MOZ1 seq 440 permit 171.65.60.0/22
+ip prefix-list MOZ1 seq 445 permit 171.65.2.48/28
+ip prefix-list MOZ1 seq 450 permit 172.25.68.0/24
+ip prefix-list MOZ1 seq 455 permit 171.65.68.0/23
+ip prefix-list MOZ1 seq 460 permit 172.25.71.0/25
+ip prefix-list MOZ1 seq 465 permit 171.65.71.0/25
+ip prefix-list MOZ1 seq 470 permit 172.25.76.0/24
+ip prefix-list MOZ1 seq 475 permit 171.65.76.0/23
+ip prefix-list MOZ1 seq 480 permit 172.25.80.0/24
+ip prefix-list MOZ1 seq 485 permit 171.65.80.0/23
+ip prefix-list MOZ1 seq 490 permit 172.25.82.0/24
+ip prefix-list MOZ1 seq 495 permit 171.65.82.0/23
+ip prefix-list MOZ1 seq 500 permit 172.25.84.0/24
+ip prefix-list MOZ1 seq 505 permit 172.25.86.0/24
+ip prefix-list MOZ1 seq 510 permit 171.65.84.0/22
+ip prefix-list MOZ1 seq 515 permit 172.25.88.0/24
+ip prefix-list MOZ1 seq 520 permit 171.65.40.64/28
+ip prefix-list MOZ1 seq 525 permit 171.65.88.0/22
+ip prefix-list MOZ1 seq 530 permit 172.25.96.0/24
+ip prefix-list MOZ1 seq 535 permit 171.65.96.0/23
+ip prefix-list MOZ1 seq 540 permit 172.25.98.0/24
+ip prefix-list MOZ1 seq 545 permit 171.65.98.0/24
+ip prefix-list MOZ1 seq 550 permit 172.25.100.0/24
+ip prefix-list MOZ1 seq 555 permit 171.65.100.0/24
+ip prefix-list MOZ1 seq 560 permit 172.25.101.0/24
+ip prefix-list MOZ1 seq 565 permit 171.65.101.0/24
+ip prefix-list MOZ1 seq 570 permit 172.25.3.128/25
+ip prefix-list MOZ1 seq 575 permit 171.65.3.128/25
+ip prefix-list MOZ1 seq 580 permit 172.25.108.0/24
+ip prefix-list MOZ1 seq 585 permit 171.65.108.0/23
+ip prefix-list MOZ1 seq 590 permit 172.25.110.0/24
+ip prefix-list MOZ1 seq 595 permit 171.65.110.0/23
+ip prefix-list MOZ1 seq 600 permit 172.25.120.0/24
+ip prefix-list MOZ1 seq 605 permit 171.65.120.0/22
+ip prefix-list MOZ1 seq 610 permit 171.65.2.96/27
+ip prefix-list MOZ1 seq 615 permit 171.65.126.0/24 le 28
+ip prefix-list MOZ1 seq 620 permit 171.65.127.0/24
+ip prefix-list MOZ1 seq 625 permit 171.65.2.160/28
+ip prefix-list MOZ1 seq 630 permit 171.65.2.208/28
+ip prefix-list MOZ1 seq 635 permit 172.25.40.128/26
+ip prefix-list MOZ1 seq 640 permit 171.65.40.128/26
+ip prefix-list MOZ1 seq 645 permit 172.25.40.80/28
+ip prefix-list MOZ1 seq 650 permit 171.65.40.80/28
+ip prefix-list MOZ1 seq 655 permit 171.65.70.192/26
+ip prefix-list MOZ1 seq 660 permit 172.25.70.192/26
+ip prefix-list MOZ1 seq 665 permit 171.66.250.192/26
+ip prefix-list MOZ1 seq 670 permit 10.247.0.0/16
+ip prefix-list MOZ1 seq 675 permit 171.65.115.0/24
+ip prefix-list MOZ1 seq 680 permit 172.25.115.0/24
+ip prefix-list MOZ1 seq 685 permit 171.65.114.0/24 le 25
+ip prefix-list MOZ1 seq 690 permit 172.25.114.0/24 le 25
+ip prefix-list MOZ1 seq 695 permit 171.65.58.0/23
+ip prefix-list MOZ1 seq 700 permit 172.25.58.0/24
+ip prefix-list MOZ1 seq 705 permit 171.65.40.192/26
+ip prefix-list MOZ1 seq 710 permit 171.65.71.128/27
+ip prefix-list MOZ1 seq 715 permit 172.25.71.128/27
+ip prefix-list MOZ1 seq 720 permit 10.232.0.0/13
+ip prefix-list MOZ1 seq 725 permit 10.39.0.0/16 le 26
+ip prefix-list MOZ1 seq 730 permit 171.65.71.176/28
+ip prefix-list MOZ1 seq 735 permit 171.65.71.192/26
+ip prefix-list MOZ1 seq 740 permit 171.65.2.232/30
+ip prefix-list MOZ1 seq 745 permit 171.65.71.160/28
+ip prefix-list MOZ1 seq 750 permit 172.20.10.96/27
+ip prefix-list MOZ1 seq 755 permit 171.65.44.0/23 le 24
+ip prefix-list MOZ1 seq 760 permit 172.25.44.0/24
+ip prefix-list MOZ1 seq 765 permit 172.25.43.0/24 le 25
+ip prefix-list MOZ1 seq 770 permit 171.65.74.0/23
+ip prefix-list MOZ1 seq 775 permit 172.25.74.0/23
+ip prefix-list MOZ1 seq 780 permit 172.25.72.0/23
+ip prefix-list MOZ1 seq 785 permit 172.25.45.0/24
+ip prefix-list MOZ1 seq 790 permit 172.25.71.192/26
+ip prefix-list MOZ1 seq 795 permit 171.65.164.0/22
+ip prefix-list MOZ1 seq 805 permit 171.65.160.0/22
+ip prefix-list MOZ1 seq 820 permit 172.25.57.0/24
+ip prefix-list MOZ1 seq 825 permit 172.25.160.0/21 ge 24 le 27
+ip prefix-list MOZ1 seq 830 permit 172.25.40.0/26
+ip prefix-list MOZ1 seq 835 permit 172.25.77.0/24
+ip prefix-list MOZ1 seq 840 permit 172.25.107.0/24
+ip prefix-list MOZ1 seq 845 permit 171.65.176.0/23 ge 24 le 30
+!
+ip prefix-list MedCtr seq 10 permit 171.65.0.0/16 le 32
+ip prefix-list MedCtr seq 20 permit 172.25.0.0/16 le 32
+ip prefix-list MedCtr seq 30 permit 10.248.0.0/13 le 16
+ip prefix-list MedCtr seq 40 permit 209.11.184.0/21 le 22
+ip prefix-list MedCtr seq 50 permit 204.161.120.0/24
+ip prefix-list MedCtr seq 60 permit 10.50.0.0/16
+!
+ip prefix-list POZ1 seq 2 permit 172.20.0.14/31 le 32
+ip prefix-list POZ1 seq 5 permit 172.20.0.224/27 le 32
+ip prefix-list POZ1 seq 10 permit 171.64.32.0/24
+ip prefix-list POZ1 seq 15 permit 171.64.33.0/24
+ip prefix-list POZ1 seq 20 permit 171.64.34.0/24
+ip prefix-list POZ1 seq 25 permit 171.64.35.0/24
+ip prefix-list POZ1 seq 30 permit 171.64.36.0/23
+ip prefix-list POZ1 seq 35 permit 171.64.38.0/24
+ip prefix-list POZ1 seq 40 permit 171.64.39.0/24
+ip prefix-list POZ1 seq 45 permit 171.64.40.0/23
+ip prefix-list POZ1 seq 50 permit 171.64.42.0/24
+ip prefix-list POZ1 seq 55 permit 171.64.43.0/24
+ip prefix-list POZ1 seq 60 permit 171.64.44.0/24
+ip prefix-list POZ1 seq 65 permit 171.64.46.0/24
+ip prefix-list POZ1 seq 70 permit 171.64.47.0/25
+ip prefix-list POZ1 seq 75 permit 171.64.157.128/25
+ip prefix-list POZ1 seq 80 permit 171.64.168.0/21
+ip prefix-list POZ1 seq 85 permit 171.64.176.0/22
+ip prefix-list POZ1 seq 90 permit 171.64.182.0/24
+ip prefix-list POZ1 seq 92 permit 171.64.183.0/24
+ip prefix-list POZ1 seq 95 permit 171.64.184.0/21
+ip prefix-list POZ1 seq 100 permit 171.64.192.0/24
+ip prefix-list POZ1 seq 105 permit 171.64.194.0/23
+ip prefix-list POZ1 seq 110 permit 171.64.196.0/24
+ip prefix-list POZ1 seq 115 permit 171.64.197.0/24
+ip prefix-list POZ1 seq 120 permit 171.64.198.0/23
+ip prefix-list POZ1 seq 125 permit 171.64.200.0/23
+ip prefix-list POZ1 seq 130 permit 171.64.202.0/23
+ip prefix-list POZ1 seq 135 permit 171.64.204.0/24
+ip prefix-list POZ1 seq 140 permit 171.64.205.0/24
+ip prefix-list POZ1 seq 145 permit 171.64.207.0/25
+ip prefix-list POZ1 seq 150 permit 171.64.207.128/26
+ip prefix-list POZ1 seq 155 permit 171.64.208.0/21
+ip prefix-list POZ1 seq 160 permit 171.64.244.0/24
+ip prefix-list POZ1 seq 170 permit 171.66.136.0/22
+ip prefix-list POZ1 seq 175 permit 171.66.254.192/26
+ip prefix-list POZ1 seq 180 permit 172.24.32.0/24
+ip prefix-list POZ1 seq 185 permit 172.24.33.0/24
+ip prefix-list POZ1 seq 190 permit 172.24.34.0/24
+ip prefix-list POZ1 seq 195 permit 172.24.35.0/24
+ip prefix-list POZ1 seq 200 permit 172.24.36.0/24
+ip prefix-list POZ1 seq 205 permit 172.24.38.0/24
+ip prefix-list POZ1 seq 210 permit 172.24.39.0/24
+ip prefix-list POZ1 seq 215 permit 172.24.40.0/24
+ip prefix-list POZ1 seq 220 permit 172.24.42.0/24
+ip prefix-list POZ1 seq 225 permit 172.24.43.0/24
+ip prefix-list POZ1 seq 230 permit 172.24.44.0/24
+ip prefix-list POZ1 seq 235 permit 172.24.46.0/24
+ip prefix-list POZ1 seq 240 permit 172.24.47.0/25
+ip prefix-list POZ1 seq 245 permit 172.24.157.128/25
+ip prefix-list POZ1 seq 250 permit 172.24.168.0/24
+ip prefix-list POZ1 seq 255 permit 172.24.176.0/24
+ip prefix-list POZ1 seq 260 permit 172.24.182.0/24
+ip prefix-list POZ1 seq 265 permit 172.24.183.0/24
+ip prefix-list POZ1 seq 270 permit 172.24.184.0/24
+ip prefix-list POZ1 seq 275 permit 172.24.192.0/24
+ip prefix-list POZ1 seq 280 permit 172.24.194.0/24
+ip prefix-list POZ1 seq 285 permit 172.24.196.0/24
+ip prefix-list POZ1 seq 290 permit 172.24.197.0/24
+ip prefix-list POZ1 seq 295 permit 172.24.198.0/24
+ip prefix-list POZ1 seq 300 permit 172.24.200.0/24
+ip prefix-list POZ1 seq 305 permit 172.24.202.0/24
+ip prefix-list POZ1 seq 310 permit 172.24.204.0/24
+ip prefix-list POZ1 seq 315 permit 172.24.205.0/24
+ip prefix-list POZ1 seq 320 permit 172.24.207.0/25
+ip prefix-list POZ1 seq 325 permit 172.24.207.128/26
+ip prefix-list POZ1 seq 330 permit 172.24.208.0/23
+ip prefix-list POZ1 seq 335 permit 172.24.215.0/24
+ip prefix-list POZ1 seq 340 permit 172.24.216.0/24
+ip prefix-list POZ1 seq 345 permit 172.24.244.0/24
+ip prefix-list POZ1 seq 355 permit 172.26.136.0/24
+ip prefix-list POZ1 seq 360 permit 172.26.254.192/26
+ip prefix-list POZ1 seq 365 permit 171.66.4.224/27
+ip prefix-list POZ1 seq 370 permit 172.26.4.224/27
+ip prefix-list POZ1 seq 375 permit 10.62.112.0/20
+ip prefix-list POZ1 seq 380 permit 10.63.112.0/20
+ip prefix-list POZ1 seq 385 permit 171.64.45.0/24
+ip prefix-list POZ1 seq 390 permit 172.24.45.0/24
+ip prefix-list POZ1 seq 395 permit 171.64.180.0/24
+ip prefix-list POZ1 seq 400 permit 172.24.180.0/24
+ip prefix-list POZ1 seq 405 permit 171.64.181.0/25
+ip prefix-list POZ1 seq 410 permit 172.24.181.0/25
+ip prefix-list POZ1 seq 415 permit 171.64.181.128/25
+ip prefix-list POZ1 seq 420 permit 172.24.181.128/25
+ip prefix-list POZ1 seq 425 permit 171.67.228.0/23 le 28
+ip prefix-list POZ1 seq 430 permit 172.27.228.0/23 le 28
+ip prefix-list POZ1 seq 435 permit 171.64.206.0/24
+ip prefix-list POZ1 seq 440 permit 172.24.206.0/24
+ip prefix-list POZ1 seq 445 permit 171.67.200.0/22 le 26
+ip prefix-list POZ1 seq 450 permit 172.27.200.0/22 le 24
+ip prefix-list POZ1 seq 455 permit 171.66.251.192/26
+ip prefix-list POZ1 seq 460 permit 171.67.223.192/26
+ip prefix-list POZ1 seq 465 permit 172.27.223.192/26
+ip prefix-list POZ1 seq 470 permit 171.67.146.0/23
+ip prefix-list POZ1 seq 475 permit 172.27.146.0/24
+ip prefix-list POZ1 seq 480 permit 171.67.223.128/26
+ip prefix-list POZ1 seq 485 permit 172.27.223.128/26
+ip prefix-list POZ1 seq 490 permit 171.67.222.128/27
+ip prefix-list POZ1 seq 495 permit 172.27.222.128/27
+ip prefix-list POZ1 seq 500 permit 171.67.222.224/27
+ip prefix-list POZ1 seq 505 permit 172.27.222.224/27
+ip prefix-list POZ1 seq 510 permit 171.67.222.192/27
+ip prefix-list POZ1 seq 515 permit 172.27.222.192/27
+ip prefix-list POZ1 seq 520 permit 171.67.222.64/27
+ip prefix-list POZ1 seq 525 permit 172.27.222.64/27
+ip prefix-list POZ1 seq 530 permit 171.67.222.0/26
+ip prefix-list POZ1 seq 535 permit 172.27.222.0/26
+ip prefix-list POZ1 seq 540 permit 172.20.10.224/27
+ip prefix-list POZ1 seq 545 permit 171.67.223.64/26
+ip prefix-list POZ1 seq 550 permit 172.27.223.64/26
+ip prefix-list POZ1 seq 555 permit 171.67.223.0/27
+ip prefix-list POZ1 seq 557 permit 171.67.223.32/27
+ip prefix-list POZ1 seq 560 permit 172.27.223.0/27
+ip prefix-list POZ1 seq 562 permit 172.27.223.32/27
+ip prefix-list POZ1 seq 565 permit 171.67.200.0/23 le 28
+ip prefix-list POZ1 seq 570 permit 172.27.200.0/23 le 28
+ip prefix-list POZ1 seq 575 permit 172.20.87.0/24 le 28
+!
+ip prefix-list RES128 seq 5 permit 128.12.0.0/16
+!
+ip prefix-list RES_LW_BKUP seq 5 permit 172.21.252.0/24
+!
+ip prefix-list RFC1918 seq 5 permit 10.0.0.0/8
+ip prefix-list RFC1918 seq 10 permit 172.16.0.0/12
+ip prefix-list RFC1918 seq 15 permit 192.168.0.0/16
+!
+ip prefix-list ROZ1 seq 2 permit 172.20.0.4/31 le 32
+ip prefix-list ROZ1 seq 5 permit 172.20.0.64/27 le 32
+ip prefix-list ROZ1 seq 10 permit 171.64.7.0/27
+ip prefix-list ROZ1 seq 15 permit 171.64.48.0/24
+ip prefix-list ROZ1 seq 20 permit 171.64.49.0/24
+ip prefix-list ROZ1 seq 25 permit 171.64.50.0/24
+ip prefix-list ROZ1 seq 30 permit 171.64.51.0/24
+ip prefix-list ROZ1 seq 35 permit 171.64.52.0/22
+ip prefix-list ROZ1 seq 40 permit 171.64.56.0/22
+ip prefix-list ROZ1 seq 45 permit 171.64.60.0/22
+ip prefix-list ROZ1 seq 50 permit 171.64.84.0/22
+ip prefix-list ROZ1 seq 55 permit 171.64.102.0/24
+ip prefix-list ROZ1 seq 60 permit 171.64.103.0/24
+ip prefix-list ROZ1 seq 65 permit 171.64.104.0/24
+ip prefix-list ROZ1 seq 70 permit 171.64.108.0/23
+ip prefix-list ROZ1 seq 75 permit 171.64.110.0/23
+ip prefix-list ROZ1 seq 80 permit 171.64.112.0/23
+ip prefix-list ROZ1 seq 85 permit 171.64.115.0/24
+ip prefix-list ROZ1 seq 90 permit 171.64.116.0/23
+ip prefix-list ROZ1 seq 95 permit 171.64.118.0/24
+ip prefix-list ROZ1 seq 100 permit 171.64.119.0/24
+ip prefix-list ROZ1 seq 105 permit 171.64.120.0/23
+ip prefix-list ROZ1 seq 110 permit 171.64.122.0/23
+ip prefix-list ROZ1 seq 115 permit 171.64.124.0/23
+ip prefix-list ROZ1 seq 120 permit 171.64.126.0/23
+ip prefix-list ROZ1 seq 125 permit 171.64.160.0/22
+ip prefix-list ROZ1 seq 130 permit 171.64.164.0/23
+ip prefix-list ROZ1 seq 135 permit 171.64.166.0/24
+ip prefix-list ROZ1 seq 140 permit 171.64.167.0/24
+ip prefix-list ROZ1 seq 145 permit 171.67.88.0/23
+ip prefix-list ROZ1 seq 150 permit 171.67.92.0/22
+ip prefix-list ROZ1 seq 155 permit 171.67.100.0/22
+ip prefix-list ROZ1 seq 160 permit 171.67.104.0/23
+ip prefix-list ROZ1 seq 165 permit 172.24.7.0/26
+ip prefix-list ROZ1 seq 170 permit 172.24.48.0/24
+ip prefix-list ROZ1 seq 175 permit 172.24.49.0/24
+ip prefix-list ROZ1 seq 180 permit 172.24.50.0/24
+ip prefix-list ROZ1 seq 185 permit 172.24.51.0/24
+ip prefix-list ROZ1 seq 190 permit 172.24.52.0/24
+ip prefix-list ROZ1 seq 195 permit 172.24.56.0/24
+ip prefix-list ROZ1 seq 200 permit 172.24.60.0/24
+ip prefix-list ROZ1 seq 205 permit 172.24.84.0/24
+ip prefix-list ROZ1 seq 210 permit 172.24.102.0/24
+ip prefix-list ROZ1 seq 215 permit 172.24.103.0/24
+ip prefix-list ROZ1 seq 220 permit 172.24.104.0/24
+ip prefix-list ROZ1 seq 225 permit 172.24.108.0/24
+ip prefix-list ROZ1 seq 230 permit 172.24.110.0/24
+ip prefix-list ROZ1 seq 235 permit 172.24.112.0/24
+ip prefix-list ROZ1 seq 240 permit 172.24.115.0/24
+ip prefix-list ROZ1 seq 245 permit 172.24.116.0/24
+ip prefix-list ROZ1 seq 250 permit 172.24.118.0/24
+ip prefix-list ROZ1 seq 255 permit 172.24.119.0/24
+ip prefix-list ROZ1 seq 260 permit 172.24.120.0/24
+ip prefix-list ROZ1 seq 265 permit 172.24.122.0/24
+ip prefix-list ROZ1 seq 270 permit 172.24.124.0/24
+ip prefix-list ROZ1 seq 275 permit 172.24.126.0/24
+ip prefix-list ROZ1 seq 280 permit 172.24.160.0/24
+ip prefix-list ROZ1 seq 285 permit 172.24.162.0/24
+ip prefix-list ROZ1 seq 290 permit 172.24.164.0/24
+ip prefix-list ROZ1 seq 295 permit 172.24.166.0/24
+ip prefix-list ROZ1 seq 300 permit 172.24.167.0/24
+ip prefix-list ROZ1 seq 305 permit 172.27.88.0/24
+ip prefix-list ROZ1 seq 310 permit 172.27.92.0/24
+ip prefix-list ROZ1 seq 315 permit 172.27.100.0/24
+ip prefix-list ROZ1 seq 320 permit 172.27.104.0/24
+ip prefix-list ROZ1 seq 325 permit 171.66.118.0/25
+ip prefix-list ROZ1 seq 330 permit 172.26.118.0/25
+ip prefix-list ROZ1 seq 335 permit 171.66.118.224/27
+ip prefix-list ROZ1 seq 340 permit 171.66.4.64/27
+ip prefix-list ROZ1 seq 345 permit 172.26.4.64/27
+ip prefix-list ROZ1 seq 350 permit 171.64.7.240/29
+ip prefix-list ROZ1 seq 355 permit 10.62.32.0/20
+ip prefix-list ROZ1 seq 360 permit 10.63.32.0/20
+ip prefix-list ROZ1 seq 365 permit 171.67.230.0/23 le 28
+ip prefix-list ROZ1 seq 370 permit 172.27.230.0/23 le 28
+ip prefix-list ROZ1 seq 375 permit 171.67.80.0/22 le 23
+ip prefix-list ROZ1 seq 380 permit 172.27.80.0/24
+ip prefix-list ROZ1 seq 385 permit 171.67.88.0/24
+ip prefix-list ROZ1 seq 390 permit 171.67.204.0/22 le 24
+ip prefix-list ROZ1 seq 395 permit 172.27.204.0/22 le 24
+ip prefix-list ROZ1 seq 400 permit 171.66.118.216/29
+ip prefix-list ROZ1 seq 405 permit 171.64.2.0/27
+ip prefix-list ROZ1 seq 410 permit 172.24.2.0/24
+ip prefix-list ROZ1 seq 420 permit 172.24.24.128/25
+ip prefix-list ROZ1 seq 425 permit 171.67.231.0/26
+ip prefix-list ROZ1 seq 430 permit 172.27.231.0/26
+ip prefix-list ROZ1 seq 435 permit 171.66.250.128/26
+ip prefix-list ROZ1 seq 440 permit 172.16.64.0/18
+ip prefix-list ROZ1 seq 445 permit 171.67.108.0/22 le 24
+ip prefix-list ROZ1 seq 450 permit 172.27.108.0/22 le 24
+ip prefix-list ROZ1 seq 455 permit 172.20.10.64/27
+ip prefix-list ROZ1 seq 460 permit 172.27.36.64/26
+ip prefix-list ROZ1 seq 465 permit 172.16.128.0/18
+ip prefix-list ROZ1 seq 470 permit 171.66.66.64/26 le 28
+ip prefix-list ROZ1 seq 475 permit 172.26.66.64/26 le 28
+ip prefix-list ROZ1 seq 480 permit 171.67.230.0/26
+ip prefix-list ROZ1 seq 485 permit 172.27.230.0/26
+ip prefix-list ROZ1 seq 490 permit 171.67.230.64/26
+ip prefix-list ROZ1 seq 495 permit 172.27.230.64/26
+ip prefix-list ROZ1 seq 500 permit 171.64.52.0/22 le 24
+ip prefix-list ROZ1 seq 505 permit 172.24.54.0/24
+ip prefix-list ROZ1 seq 510 permit 172.24.55.0/24
+ip prefix-list ROZ1 seq 515 permit 171.67.84.0/22 ge 23
+ip prefix-list ROZ1 seq 520 permit 172.27.84.0/22 ge 23
+ip prefix-list ROZ1 seq 525 permit 171.67.106.0/23 le 29
+ip prefix-list ROZ1 seq 530 permit 171.64.2.0/24 ge 25
+ip prefix-list ROZ1 seq 535 permit 172.24.2.0/24 ge 25
+!
+ip prefix-list SHCISP seq 5 permit 171.65.255.0/25 le 26
+!
+ip prefix-list SHCloc seq 5 permit 171.65.255.0/29 le 30
+ip prefix-list SHCloc seq 10 permit 171.65.255.64/29 le 30
+ip prefix-list SHCloc seq 15 permit 171.67.255.73/32
+ip prefix-list SHCloc seq 20 permit 171.67.255.74/32
+!
+ip prefix-list SOZ0 seq 5 permit 172.20.0.16/31 le 32
+ip prefix-list SOZ0 seq 10 permit 172.20.1.0/27 le 32
+!
+ip prefix-list SOZ1 seq 5 permit 172.20.0.16/31 le 32
+ip prefix-list SOZ1 seq 10 permit 172.20.1.0/27 le 32
+ip prefix-list SOZ1 seq 15 permit 128.12.0.16/31 le 32
+ip prefix-list SOZ1 seq 20 permit 128.12.0.0/16
+ip prefix-list SOZ1 seq 25 permit 128.12.1.16/28
+ip prefix-list SOZ1 seq 30 permit 128.12.7.0/26 le 28
+ip prefix-list SOZ1 seq 35 permit 128.12.32.0/19
+ip prefix-list SOZ1 seq 40 permit 128.12.64.0/22
+ip prefix-list SOZ1 seq 45 permit 128.12.68.0/22
+ip prefix-list SOZ1 seq 50 permit 128.12.72.0/22
+ip prefix-list SOZ1 seq 55 permit 128.12.76.0/23
+ip prefix-list SOZ1 seq 60 permit 128.12.78.0/23
+ip prefix-list SOZ1 seq 65 permit 128.12.80.0/22
+ip prefix-list SOZ1 seq 70 permit 128.12.84.0/22
+ip prefix-list SOZ1 seq 80 permit 128.12.92.0/22
+ip prefix-list SOZ1 seq 110 permit 128.12.122.0/23
+ip prefix-list SOZ1 seq 115 permit 128.12.124.0/22
+ip prefix-list SOZ1 seq 120 permit 128.12.126.0/23
+ip prefix-list SOZ1 seq 125 permit 128.12.192.0/22
+ip prefix-list SOZ1 seq 130 permit 128.12.196.0/23
+ip prefix-list SOZ1 seq 135 permit 172.19.0.0/19
+ip prefix-list SOZ1 seq 140 permit 172.19.32.0/21
+ip prefix-list SOZ1 seq 145 permit 172.19.60.0/22
+ip prefix-list SOZ1 seq 150 permit 172.19.118.0/24
+ip prefix-list SOZ1 seq 155 permit 172.19.124.0/23 le 24
+ip prefix-list SOZ1 seq 160 permit 172.19.126.0/24
+ip prefix-list SOZ1 seq 165 permit 172.19.128.0/20
+ip prefix-list SOZ1 seq 170 permit 172.19.254.0/24
+ip prefix-list SOZ1 seq 175 permit 171.66.250.0/26
+ip prefix-list SOZ1 seq 180 permit 10.62.128.0/20
+ip prefix-list SOZ1 seq 185 permit 10.63.128.0/20
+ip prefix-list SOZ1 seq 190 permit 192.168.209.64/30
+ip prefix-list SOZ1 seq 195 permit 192.168.209.68/30
+ip prefix-list SOZ1 seq 200 permit 128.12.2.0/28 le 30
+ip prefix-list SOZ1 seq 210 permit 172.19.78.0/23
+ip prefix-list SOZ1 seq 215 permit 128.12.240.0/21 le 22
+ip prefix-list SOZ1 seq 220 permit 128.12.248.0/22
+ip prefix-list SOZ1 seq 225 permit 172.20.11.0/27
+ip prefix-list SOZ1 seq 230 permit 128.12.1.248/29
+ip prefix-list SOZ1 seq 235 permit 172.19.44.0/23 le 24
+ip prefix-list SOZ1 seq 240 permit 171.66.5.0/27
+ip prefix-list SOZ1 seq 245 permit 172.26.5.0/27
+ip prefix-list SOZ1 seq 250 permit 10.31.0.0/16 le 20
+ip prefix-list SOZ1 seq 255 permit 128.12.30.0/23
+ip prefix-list SOZ1 seq 260 permit 128.12.184.0/21
+ip prefix-list SOZ1 seq 265 permit 128.12.20.0/23
+ip prefix-list SOZ1 seq 270 permit 128.12.22.0/23
+ip prefix-list SOZ1 seq 275 permit 172.19.40.0/23
+ip prefix-list SOZ1 seq 280 permit 172.19.248.0/25
+ip prefix-list SOZ1 seq 285 permit 172.19.150.0/23
+ip prefix-list SOZ1 seq 290 permit 128.12.25.0/24
+ip prefix-list SOZ1 seq 295 permit 10.31.232.0/21
+ip prefix-list SOZ1 seq 300 permit 128.12.26.0/24
+ip prefix-list SOZ1 seq 305 permit 10.31.224.0/20
+ip prefix-list SOZ1 seq 310 permit 10.31.240.0/20
+ip prefix-list SOZ1 seq 315 permit 10.31.128.0/20
+ip prefix-list SOZ1 seq 320 permit 128.12.28.0/24
+ip prefix-list SOZ1 seq 325 permit 10.31.144.0/20
+ip prefix-list SOZ1 seq 330 permit 10.31.160.0/20
+ip prefix-list SOZ1 seq 335 permit 128.12.24.0/24
+ip prefix-list SOZ1 seq 340 permit 10.31.176.0/20
+ip prefix-list SOZ1 seq 345 permit 10.31.96.0/20
+ip prefix-list SOZ1 seq 350 permit 128.12.27.0/24
+ip prefix-list SOZ1 seq 355 permit 10.31.112.0/20
+ip prefix-list SOZ1 seq 360 permit 172.19.140.0/23
+ip prefix-list SOZ1 seq 365 permit 172.19.142.0/23
+ip prefix-list SOZ1 seq 370 permit 172.19.144.0/23
+ip prefix-list SOZ1 seq 375 permit 172.19.146.0/23
+ip prefix-list SOZ1 seq 380 permit 172.19.152.0/23
+ip prefix-list SOZ1 seq 385 permit 128.12.124.0/24
+ip prefix-list SOZ1 seq 390 permit 10.31.64.0/20
+ip prefix-list SOZ1 seq 395 permit 128.12.126.0/24
+ip prefix-list SOZ1 seq 400 permit 10.31.80.0/20
+ip prefix-list SOZ1 seq 405 permit 10.31.32.0/20
+ip prefix-list SOZ1 seq 410 permit 128.12.125.0/24
+ip prefix-list SOZ1 seq 415 permit 10.31.48.0/20
+ip prefix-list SOZ1 seq 420 permit 128.12.0.0/16 le 24
+ip prefix-list SOZ1 seq 425 permit 128.12.2.0/27
+!
+ip prefix-list SOZmc seq 5 permit 128.12.1.16/28
+ip prefix-list SOZmc seq 10 permit 172.20.1.11/32
+ip prefix-list SOZmc seq 15 permit 172.19.254.0/24
+!
+ip prefix-list SWLRE seq 5 permit 68.65.169.0/25
+ip prefix-list SWLRE seq 10 permit 192.168.14.160/28
+!
+ip prefix-list Serv-SU seq 5 permit 171.64.0.102/32
+ip prefix-list Serv-SU seq 10 permit 171.66.2.0/23 le 29
+ip prefix-list Serv-SU seq 15 permit 171.64.2.192/29
+!
+ip prefix-list TOZ1 seq 5 permit 172.20.1.224/27 le 32
+ip prefix-list TOZ1 seq 10 permit 172.20.11.224/27
+ip prefix-list TOZ1 seq 15 permit 171.64.20.0/23 le 24
+ip prefix-list TOZ1 seq 20 permit 172.24.20.0/23 le 24
+ip prefix-list TOZ1 seq 25 permit 171.67.248.0/22 ge 24 le 29
+ip prefix-list TOZ1 seq 30 permit 172.27.248.0/22 ge 24 le 29
+ip prefix-list TOZ1 seq 35 permit 171.66.5.224/27
+ip prefix-list TOZ1 seq 40 permit 172.26.5.224/27
+!
+ip prefix-list WOZ1 seq 5 permit 172.20.0.18/31 le 32
+ip prefix-list WOZ1 seq 10 permit 172.20.1.32/27 le 32
+ip prefix-list WOZ1 seq 12 permit 172.20.11.32/27 le 32
+ip prefix-list WOZ1 seq 15 permit 192.168.16.0/21
+ip prefix-list WOZ1 seq 20 permit 192.168.32.0/21
+ip prefix-list WOZ1 seq 25 permit 192.168.40.0/21
+ip prefix-list WOZ1 seq 30 permit 192.168.48.0/21
+ip prefix-list WOZ1 seq 35 permit 171.67.22.0/24
+ip prefix-list WOZ1 seq 40 permit 172.27.22.0/24
+ip prefix-list WOZ1 seq 45 permit 171.64.7.0/27
+ip prefix-list WOZ1 seq 50 permit 172.24.7.0/25 le 27
+ip prefix-list WOZ1 seq 55 permit 171.64.7.64/27
+ip prefix-list WOZ1 seq 60 permit 171.64.7.96/27
+ip prefix-list WOZ1 seq 65 permit 171.64.7.128/27
+ip prefix-list WOZ1 seq 70 permit 172.24.7.128/27
+ip prefix-list WOZ1 seq 75 permit 171.64.7.160/27
+ip prefix-list WOZ1 seq 80 permit 172.24.7.160/27
+ip prefix-list WOZ1 seq 85 permit 171.64.7.216/29
+ip prefix-list WOZ1 seq 90 permit 171.64.10.0/23
+ip prefix-list WOZ1 seq 95 permit 172.24.10.0/23
+ip prefix-list WOZ1 seq 100 permit 171.64.14.0/24
+ip prefix-list WOZ1 seq 105 permit 172.24.14.0/24
+ip prefix-list WOZ1 seq 110 permit 171.64.17.0/27
+ip prefix-list WOZ1 seq 115 permit 172.24.17.0/27
+ip prefix-list WOZ1 seq 120 permit 171.66.255.64/26 le 27
+ip prefix-list WOZ1 seq 125 permit 172.26.255.64/26 le 27
+ip prefix-list WOZ1 seq 130 permit 171.67.12.0/24
+ip prefix-list WOZ1 seq 135 permit 172.27.12.0/24
+ip prefix-list WOZ1 seq 140 permit 171.67.16.0/23
+ip prefix-list WOZ1 seq 145 permit 172.27.16.0/24
+ip prefix-list WOZ1 seq 150 permit 171.67.18.0/24
+ip prefix-list WOZ1 seq 155 permit 172.27.18.0/24
+ip prefix-list WOZ1 seq 160 permit 171.67.20.0/24
+ip prefix-list WOZ1 seq 165 permit 172.27.20.0/24
+ip prefix-list WOZ1 seq 170 permit 171.67.216.0/22 le 28
+ip prefix-list WOZ1 seq 175 permit 172.27.216.0/22 le 28
+ip prefix-list WOZ1 seq 180 permit 192.168.15.0/24
+ip prefix-list WOZ1 seq 185 permit 10.62.144.0/20
+ip prefix-list WOZ1 seq 187 permit 192.168.237.224/27
+ip prefix-list WOZ1 seq 190 permit 10.63.144.0/20
+ip prefix-list WOZ1 seq 195 permit 171.67.219.0/27 le 28
+ip prefix-list WOZ1 seq 200 permit 171.67.208.0/22 le 24
+ip prefix-list WOZ1 seq 205 permit 172.27.208.0/22 le 24
+ip prefix-list WOZ1 seq 210 permit 172.20.208.0/21 le 28
+ip prefix-list WOZ1 seq 215 permit 10.20.0.0/16
+ip prefix-list WOZ1 seq 220 permit 171.64.13.0/24
+ip prefix-list WOZ1 seq 225 permit 171.67.218.48/29
+ip prefix-list WOZ1 seq 230 permit 172.27.218.48/29
+ip prefix-list WOZ1 seq 235 permit 171.67.0.240/28
+ip prefix-list WOZ1 seq 240 permit 192.168.8.0/22
+ip prefix-list WOZ1 seq 245 permit 171.64.17.208/29
+ip prefix-list WOZ1 seq 250 permit 172.20.11.32/27
+ip prefix-list WOZ1 seq 255 permit 171.66.5.32/27 le 29
+ip prefix-list WOZ1 seq 260 permit 172.26.5.32/27 le 29
+ip prefix-list WOZ1 seq 265 permit 171.67.218.56/29
+ip prefix-list WOZ1 seq 270 permit 172.27.218.56/29
+ip prefix-list WOZ1 seq 275 permit 172.28.0.0/14
+ip prefix-list WOZ1 seq 280 permit 192.168.208.0/20 le 24
+ip prefix-list WOZ1 seq 285 permit 171.64.7.232/29
+ip prefix-list WOZ1 seq 290 permit 171.64.7.240/29
+ip prefix-list WOZ1 seq 295 permit 171.67.24.0/23
+ip prefix-list WOZ1 seq 300 permit 172.27.24.0/23
+ip prefix-list WOZ1 seq 305 permit 171.67.218.224/27
+ip prefix-list WOZ1 seq 310 permit 171.67.216.48/28 le 29
+ip prefix-list WOZ1 seq 315 permit 171.67.216.144/28 le 29
+ip prefix-list WOZ1 seq 320 permit 171.67.216.224/29
+ip prefix-list WOZ1 seq 325 permit 172.27.216.224/29
+ip prefix-list WOZ1 seq 330 permit 172.27.216.48/28 le 29
+ip prefix-list WOZ1 seq 335 permit 172.27.216.144/28 le 29
+ip prefix-list WOZ1 seq 340 permit 171.67.216.232/29
+ip prefix-list WOZ1 seq 345 permit 172.27.216.232/29
+ip prefix-list WOZ1 seq 350 permit 171.67.216.240/28
+ip prefix-list WOZ1 seq 355 permit 172.27.216.240/28
+ip prefix-list WOZ1 seq 360 permit 171.67.212.0/23 le 28
+ip prefix-list WOZ1 seq 365 permit 172.27.212.0/23 le 28
+ip prefix-list WOZ1 seq 370 permit 171.67.217.96/29
+ip prefix-list WOZ1 seq 375 permit 171.67.214.0/23 ge 25
+ip prefix-list WOZ1 seq 380 permit 172.27.214.0/23 ge 28
+ip prefix-list WOZ1 seq 385 permit 171.66.120.0/21
+ip prefix-list WOZ1 seq 390 permit 171.67.112.0/20
+ip prefix-list WOZ1 seq 395 permit 172.26.120.0/24
+ip prefix-list WOZ1 seq 400 permit 172.27.112.0/24
+ip prefix-list WOZ1 seq 405 permit 171.67.215.0/27
+ip prefix-list WOZ1 seq 410 permit 171.64.7.128/26
+ip prefix-list WOZ1 seq 415 permit 172.24.7.128/26
+ip prefix-list WOZ1 seq 420 permit 171.66.1.192/27
+ip prefix-list WOZ1 seq 425 permit 172.26.1.192/28
+!
+ip prefix-list YOZ1 seq 2 permit 172.20.0.8/31 le 32
+ip prefix-list YOZ1 seq 3 permit 171.64.0.18/32
+ip prefix-list YOZ1 seq 4 permit 172.20.0.128/27 le 32
+ip prefix-list YOZ1 seq 5 permit 171.64.64.0/24 le 25
+ip prefix-list YOZ1 seq 10 permit 172.24.64.0/24
+ip prefix-list YOZ1 seq 25 permit 172.24.65.0/24
+ip prefix-list YOZ1 seq 35 permit 171.64.66.0/24
+ip prefix-list YOZ1 seq 45 permit 172.24.67.0/24
+ip prefix-list YOZ1 seq 50 permit 171.64.67.0/24
+ip prefix-list YOZ1 seq 60 permit 172.17.68.0/26
+ip prefix-list YOZ1 seq 65 permit 172.24.68.0/23 le 24
+ip prefix-list YOZ1 seq 70 permit 171.64.69.0/24
+ip prefix-list YOZ1 seq 75 permit 172.24.69.0/24
+ip prefix-list YOZ1 seq 80 permit 171.64.68.0/23 le 24
+ip prefix-list YOZ1 seq 85 permit 172.24.70.0/24
+ip prefix-list YOZ1 seq 90 permit 171.64.70.0/24
+ip prefix-list YOZ1 seq 95 permit 171.64.71.0/24
+ip prefix-list YOZ1 seq 100 permit 172.24.71.0/24
+ip prefix-list YOZ1 seq 105 permit 171.64.73.0/24
+ip prefix-list YOZ1 seq 125 permit 172.24.72.0/23
+ip prefix-list YOZ1 seq 130 permit 171.64.72.0/24
+ip prefix-list YOZ1 seq 135 permit 171.64.74.0/24
+ip prefix-list YOZ1 seq 150 permit 172.24.74.0/24
+ip prefix-list YOZ1 seq 155 permit 192.168.128.0/24
+ip prefix-list YOZ1 seq 160 permit 192.168.129.0/24
+ip prefix-list YOZ1 seq 170 permit 172.24.75.0/24
+ip prefix-list YOZ1 seq 175 permit 171.64.75.0/24
+ip prefix-list YOZ1 seq 185 permit 171.64.76.0/24
+ip prefix-list YOZ1 seq 190 permit 172.24.76.0/24
+ip prefix-list YOZ1 seq 195 permit 172.24.77.0/24
+ip prefix-list YOZ1 seq 200 permit 171.64.77.0/24
+ip prefix-list YOZ1 seq 205 permit 172.24.78.0/24
+ip prefix-list YOZ1 seq 210 permit 171.64.78.0/24
+ip prefix-list YOZ1 seq 215 permit 171.64.79.0/24 le 28
+ip prefix-list YOZ1 seq 220 permit 172.24.88.0/24
+ip prefix-list YOZ1 seq 225 permit 171.64.88.0/24
+ip prefix-list YOZ1 seq 230 permit 172.24.89.0/24
+ip prefix-list YOZ1 seq 235 permit 171.64.89.0/24
+ip prefix-list YOZ1 seq 240 permit 172.24.90.0/23
+ip prefix-list YOZ1 seq 245 permit 171.64.90.0/23
+ip prefix-list YOZ1 seq 250 permit 172.24.92.0/24
+ip prefix-list YOZ1 seq 255 permit 171.64.92.0/23
+ip prefix-list YOZ1 seq 260 permit 172.24.94.0/24
+ip prefix-list YOZ1 seq 265 permit 171.64.94.0/24
+ip prefix-list YOZ1 seq 270 permit 172.24.96.0/24
+ip prefix-list YOZ1 seq 275 permit 171.64.96.0/23
+ip prefix-list YOZ1 seq 280 permit 172.24.98.0/24
+ip prefix-list YOZ1 seq 285 permit 171.64.98.0/24
+ip prefix-list YOZ1 seq 290 permit 172.24.99.0/24
+ip prefix-list YOZ1 seq 295 permit 171.64.99.0/24
+ip prefix-list YOZ1 seq 300 permit 172.24.100.0/23
+ip prefix-list YOZ1 seq 305 permit 171.64.100.0/23
+ip prefix-list YOZ1 seq 310 permit 171.64.15.32/27
+ip prefix-list YOZ1 seq 315 permit 171.64.15.160/27
+ip prefix-list YOZ1 seq 320 permit 171.64.15.0/27
+ip prefix-list YOZ1 seq 325 permit 171.64.15.96/27
+ip prefix-list YOZ1 seq 330 permit 171.64.15.64/27
+ip prefix-list YOZ1 seq 335 permit 172.27.64.0/24
+ip prefix-list YOZ1 seq 340 permit 171.67.64.0/24
+ip prefix-list YOZ1 seq 345 permit 172.27.65.0/24
+ip prefix-list YOZ1 seq 350 permit 171.67.65.0/24
+ip prefix-list YOZ1 seq 355 permit 172.27.66.0/24
+ip prefix-list YOZ1 seq 360 permit 171.67.66.0/24
+ip prefix-list YOZ1 seq 365 permit 172.27.67.0/24
+ip prefix-list YOZ1 seq 370 permit 171.67.67.0/24
+ip prefix-list YOZ1 seq 375 permit 172.27.68.0/24
+ip prefix-list YOZ1 seq 380 permit 171.67.68.0/24
+ip prefix-list YOZ1 seq 385 permit 172.27.69.0/24
+ip prefix-list YOZ1 seq 390 permit 171.67.69.0/24
+ip prefix-list YOZ1 seq 395 permit 172.27.70.0/24
+ip prefix-list YOZ1 seq 400 permit 171.67.70.0/24
+ip prefix-list YOZ1 seq 405 permit 172.27.71.0/24
+ip prefix-list YOZ1 seq 410 permit 171.67.71.0/24
+ip prefix-list YOZ1 seq 415 permit 172.27.72.0/23
+ip prefix-list YOZ1 seq 420 permit 171.67.72.0/23
+ip prefix-list YOZ1 seq 425 permit 172.27.74.0/23
+ip prefix-list YOZ1 seq 430 permit 171.67.74.0/23
+ip prefix-list YOZ1 seq 435 permit 172.27.76.0/23
+ip prefix-list YOZ1 seq 440 permit 171.67.76.0/23
+ip prefix-list YOZ1 seq 445 permit 172.27.78.0/23
+ip prefix-list YOZ1 seq 450 permit 171.67.78.0/23
+ip prefix-list YOZ1 seq 455 permit 172.24.79.0/24
+ip prefix-list YOZ1 seq 460 permit 172.24.95.0/24
+ip prefix-list YOZ1 seq 465 permit 171.64.95.0/24
+ip prefix-list YOZ1 seq 470 permit 192.168.252.0/24
+ip prefix-list YOZ1 seq 475 permit 192.168.136.0/23
+ip prefix-list YOZ1 seq 480 permit 172.24.66.0/24
+ip prefix-list YOZ1 seq 490 permit 10.62.64.0/20
+ip prefix-list YOZ1 seq 495 permit 10.63.64.0/20
+ip prefix-list YOZ1 seq 500 permit 171.67.231.128/25
+ip prefix-list YOZ1 seq 505 permit 171.66.6.208/29
+ip prefix-list YOZ1 seq 510 permit 171.64.65.0/24
+ip prefix-list YOZ1 seq 515 permit 171.66.251.0/26
+ip prefix-list YOZ1 seq 520 permit 172.26.4.152/29
+ip prefix-list YOZ1 seq 525 permit 171.67.234.0/23 le 27
+ip prefix-list YOZ1 seq 530 permit 172.20.10.128/27
+ip prefix-list YOZ1 seq 535 permit 171.66.4.128/27 le 29
+ip prefix-list YOZ1 seq 540 permit 172.26.4.128/27 le 29
+ip prefix-list YOZ1 seq 545 permit 10.3.0.0/16
+!
+ip prefix-list bigfixMain seq 5 permit 171.67.0.240/28
+!
+ip prefix-list bigfixNet10 seq 5 permit 171.64.10.0/23
+!
+ip prefix-list campusOut seq 5 permit 171.64.0.0/14
+ip prefix-list campusOut seq 10 permit 172.24.0.0/14
+!
+ip prefix-list coreCampus seq 5 permit 171.64.0.0/14
+ip prefix-list coreCampus seq 10 permit 172.24.0.0/14
+!
+ip prefix-list coreOut seq 10 permit 171.64.0.0/14
+ip prefix-list coreOut seq 12 permit 172.24.0.0/14
+ip prefix-list coreOut seq 14 permit 128.12.0.0/16
+!
+ip prefix-list deft72 seq 5 permit 172.20.0.29/32
+!
+ip prefix-list iperfNet seq 5 permit 171.66.6.32/28
+!
+ip prefix-list mainSU seq 5 permit 171.64.0.0/14
+!
+ip prefix-list resSU seq 5 permit 128.12.0.0/16
+!
+ip prefix-list wirelessLoc seq 5 permit 171.64.0.96/31 le 32
+ip prefix-list wirelessLoc seq 10 permit 171.66.32.0/19
+ip prefix-list wirelessLoc seq 15 permit 172.26.32.0/19 le 24
+ip prefix-list wirelessLoc seq 20 permit 172.21.0.0/16
+!
+ip prefix-list wirelessNAT seq 5 permit 171.66.64.0/23 le 24
+ip prefix-list wirelessNAT seq 10 permit 171.66.80.0/20 le 24
+ip prefix-list wirelessNAT seq 15 permit 171.66.104.0/21
+ip prefix-list wirelessNAT seq 20 permit 171.66.32.0/19 le 20
+ip prefix-list wirelessNAT seq 25 permit 171.66.72.0/21 le 23
+ip prefix-list wirelessNAT seq 30 permit 171.66.128.0/21 le 23
+ip prefix-list wirelessNAT seq 35 permit 171.66.160.0/20
+!
+ip prefix-list wirelessPriv seq 5 permit 10.32.0.0/15 le 21
+ip radius source-interface Loopback0 
+logging facility local6
+logging 171.64.2.24
+no cdp run
+ipv6 router ospf 65064
+ router-id 171.64.0.124
+ log-adjacency-changes
+ default-information originate metric 10
+!
+!
+!
+ipv6 prefix-list BOZv6 seq 10 permit 2607:F6D0:0:6000::/52
+!
+ipv6 prefix-list COZv6 seq 10 permit 2607:F6D0:0:1000::/52
+!
+ipv6 prefix-list GOZv6 seq 10 permit 2607:F6D0:0:5000::/52
+!
+ipv6 prefix-list MOZv6 seq 10 permit 2607:F6D0:0:3000::/52
+!
+ipv6 prefix-list POZv6 seq 10 permit 2607:F6D0:0:7000::/52
+!
+ipv6 prefix-list ROZv6 seq 10 permit 2607:F6D0:0:2000::/52
+!
+ipv6 prefix-list SOZv6 seq 10 permit 2607:F6D0:0:8000::/52
+!
+ipv6 prefix-list TOZv6 seq 10 permit 2607:F6D0:0:F000::/53
+!
+ipv6 prefix-list WOZv6 seq 10 permit 2607:F6D0:0:9000::/52
+!
+ipv6 prefix-list YOZv6 seq 10 permit 2607:F6D0:0:4000::/52
+route-map Deny6 deny 10
+ match ipv6 address v6any
+!
+route-map fromBOZv6 permit 10
+ match ipv6 address prefix-list BOZv6
+!
+route-map sendI2-iperfPref permit 10
+ match ip address prefix-list iperfNet
+!
+route-map sendI2-iperfPref permit 20
+ match ip address prefix-list mainSU
+!
+route-map sendI2-iperfPref permit 30
+ match ip address prefix-list RES128
+!
+route-map sendI2-iperfPref permit 40
+ match ip address prefix-list RFC1918
+!
+route-map sendI2-iperfPref permit 50
+ match ip address prefix-list LADC
+!
+route-map sendI2-iperfPref permit 60
+ match ip address prefix-list CMTS
+!
+route-map toMOZv6 permit 10
+ match ipv6 address prefix-list SUallv6
+!
+route-map toMOZv6 permit 20
+ match ipv6 address prefix-list Defv6
+!
+route-map fromGOZv6 permit 10
+ match ipv6 address prefix-list GOZv6
+!
+route-map noHPR-DC-iperfPref permit 10
+ match ip address 71
+!
+route-map noHPR-DC-iperfPref permit 15
+ match ip address 72
+!
+route-map noHPR-DC-iperfPref permit 30
+ match community fromHPR
+!
+route-map noHPR-DC-iperfPref permit 40
+ match community fromDC
+!
+route-map metPlusv6 permit 10
+ set metric +2
+!
+route-map toGOZv6 permit 10
+ match ipv6 address prefix-list SUallv6
+!
+route-map toGOZv6 permit 20
+ match ipv6 address prefix-list Defv6
+!
+route-map toBOZv6 permit 10
+ match ipv6 address prefix-list SUallv6
+!
+route-map toBOZv6 permit 20
+ match ipv6 address prefix-list Defv6
+!
+route-map sendFW permit 40
+ match ip address 89
+!
+route-map fromMOZv6 permit 10
+ match ipv6 address prefix-list MOZv6
+!
+route-map metPlus1pre permit 10
+ set metric +2
+ set as-path prepend 65064
+!
+route-map fromDC deny 5
+ match ip address 88
+!
+route-map fromROZv6 permit 10
+ match ipv6 address prefix-list ROZv6
+!
+route-map sendOZcore permit 10
+ match ip address prefix-list coreOut
+ set metric 20
+!
+route-map sendOZcore permit 20
+ match ip address prefix-list RFC1918
+!
+route-map sendOZcore permit 30
+ match ip address prefix-list LADC
+!
+route-map sendOZcore permit 40
+ match ip address prefix-list BOZ1 GOZ1 POZ1 ROZ1 MOZ1 YOZ1 WOZ1
+!
+route-map fromLEXT permit 10
+ match ip address prefix-list LADC
+ set local-preference 200
+ set as-path prepend 65064 65064
+!
+route-map fromLEXT permit 20
+ match ip address prefix-list LADC-prv
+ set local-preference 200
+ set as-path prepend 65064 65064
+!
+route-map fromPOZv6 permit 10
+ match ipv6 address prefix-list POZv6
+!
+route-map fromWOZv6 permit 10
+ match ipv6 address prefix-list WOZv6
+!
+route-map fromILAG permit 10
+ match ip address prefix-list ILAG
+!
+route-map fromILAG permit 20
+ match ip address prefix-list SWLRE
+!
+route-map fromCTRD permit 10
+ match ip address prefix-list CTRDloc
+ set metric 30
+!
+route-map fromCTRD permit 20
+ match ip address prefix-list CTRD
+!
+route-map fromTOZv6 permit 10
+ match ipv6 address prefix-list TOZv6
+!
+route-map toYOZv6 permit 10
+ match ipv6 address prefix-list SUallv6
+!
+route-map toYOZv6 permit 20
+ match ipv6 address prefix-list Defv6
+!
+route-map toBARS permit 10
+ match ip address 28 64 90
+ set metric 20
+!
+route-map toBARS deny 86
+ match ip address 88
+!
+route-map fromMedC permit 10
+ match ip address 65
+!
+route-map fromMedC permit 20
+ match ip address 52 50
+!
+route-map fromMedC permit 30
+ match ip address 51
+!
+route-map fromMedC permit 40
+ match ip address 49
+!
+route-map fromMedC permit 50
+ match ip address 48
+!
+route-map fromMedC deny 86
+ match ip address 88
+!
+route-map fromSHCW permit 10
+ match ip address prefix-list SHCISP
+ set local-preference 150
+!
+route-map fromSHCW permit 20
+ match ip address prefix-list SHCloc
+!
+route-map toWOZv6 permit 10
+ match ipv6 address prefix-list SUallv6
+!
+route-map toWOZv6 permit 20
+ match ipv6 address prefix-list Defv6
+!
+route-map toTOZv6 permit 10
+ match ipv6 address prefix-list SUallv6
+!
+route-map toTOZv6 permit 20
+ match ipv6 address prefix-list Defv6
+!
+route-map fromYOZv6 permit 10
+ match ipv6 address prefix-list YOZv6
+!
+route-map fromLADC permit 10
+ match ip address prefix-list LADC
+ set local-preference 300
+ set community 65064:65163
+!
+route-map fromLADC permit 20
+ match ip address prefix-list LADC-prv
+ set local-preference 300
+!
+route-map toROZv6 permit 10
+ match ipv6 address prefix-list SUallv6
+!
+route-map toROZv6 permit 20
+ match ipv6 address prefix-list Defv6
+!
+route-map toLEXT permit 10
+ match ip address prefix-list RFC1918
+!
+route-map toLEXT permit 20
+ match ip address prefix-list coreCampus
+!
+route-map toPOZv6 permit 10
+ match ipv6 address prefix-list SUallv6
+!
+route-map toPOZv6 permit 20
+ match ipv6 address prefix-list Defv6
+!
+route-map fromCMTS permit 10
+ match ip address prefix-list CMTS
+ set community 65064:65160
+!
+route-map fromBNDlocPref permit 15
+ match community BNDpref150
+ set local-preference 150
+!
+route-map fromBNDlocPref permit 20
+ match community BNDpref200
+ set local-preference 232
+!
+route-map fromBNDlocPref permit 40
+ match community BNDpref400
+ set local-preference 432
+!
+route-map fromBNDlocPref permit 60
+ match community BNDpref600
+ set local-preference 632
+!
+route-map fromBNDlocPref permit 80
+ match community BNDpref800
+ set local-preference 832
+!
+route-map fromBNDlocPref permit 90
+ match community BNDpref90
+ set local-preference 90
+!
+route-map fromDC1 deny 8
+ match ip address 29
+!
+route-map fromDC1 permit 50
+ match ip address 88
+!
+route-map fromWOZrtr permit 10
+ match ip address prefix-list WOZ1
+ set local-preference 150
+!
+route-map fromTOZrtr permit 10
+ match ip address prefix-list TOZ1
+!
+route-map sendCore20 permit 10
+ match ip address prefix-list coreOut
+ set metric 20
+!
+route-map sendCore20 permit 40
+ match ip address prefix-list RFC1918
+ set metric 20
+!
+route-map fromROZrtr permit 10
+ match ip address prefix-list ROZ1
+ set local-preference 150
+!
+route-map sendCore permit 10
+ match ip address 32
+!
+route-map sendCore permit 20
+ match ip address 52
+!
+route-map sendCore deny 86
+ match ip address 88
+!
+route-map fromPOZrtr permit 10
+ match ip address prefix-list POZ1
+ set local-preference 150
+!
+route-map sendOZdefB deny 7
+ match ip address prefix-list bigfixMain
+!
+route-map sendOZdefB permit 10
+ match ip address prefix-list campusOut
+ set metric 20
+!
+route-map sendOZdefB permit 15
+ match ip address prefix-list RFC1918
+ set metric 20
+!
+route-map sendOZdefB permit 19
+ match community 19
+ set metric 19
+!
+route-map sendOZdefB permit 28
+ match ip address prefix-list RES128
+ set metric 20
+!
+route-map sendOZdefB permit 40
+ match ip address prefix-list BOZ1 GOZ1 POZ1 ROZ1
+ set metric 20
+!
+route-map sendOZdefB permit 50
+ match ip address prefix-list YOZ1 WOZ1 MOZ1
+ set metric 20
+!
+route-map sendOZdefB permit 60
+ match ip address prefix-list LADC
+ set metric 20
+!
+route-map sendOZdefB permit 80
+ match ip address 90
+ set metric 20
+!
+route-map fromYOZrtr permit 10
+ match ip address prefix-list YOZ1
+ set local-preference 150
+!
+route-map pfxTOZ permit 10
+ match ip address prefix-list TOZ1
+!
+route-map fromGOZrtr permit 10
+ match ip address prefix-list GOZ1
+ set local-preference 150
+!
+route-map toBorder30 permit 10
+ match ip address 32
+ set metric 30
+!
+route-map toBorder30 permit 65
+ match ip address 65
+ set metric 15
+!
+route-map perfewIn permit 10
+ match ip address 1411
+!
+route-map deftIn permit 10
+ match ip address prefix-list deft72
+!
+route-map sendHWPpub permit 10
+ match ip address prefix-list HWPpub
+ set metric 20
+!
+route-map toBorder20 permit 10
+ match ip address 32
+ set metric 20
+!
+route-map toBorder20 permit 20
+ match ip address 65
+ set metric 20
+!
+route-map fromBOZrtr permit 10
+ match ip address prefix-list BOZ1
+ set local-preference 150
+!
+route-map Deny deny 10
+ match ip address 88
+!
+route-map toBorder permit 10
+ match ip address 32
+!
+route-map toBorder deny 86
+ match ip address 91
+!
+route-map fromXgsb permit 20
+ match ip address 21
+!
+route-map fromXgsb permit 40
+ match ip address 22
+!
+route-map sendIALagg permit 10
+ match ip address prefix-list mainSU
+ set metric 20
+ set community 65064:3200
+!
+route-map sendIALagg permit 20
+ match ip address prefix-list resSU
+ set metric 20
+ set as-path prepend 65064 65064 65064
+ set community 65064:3200
+!
+route-map sendIALagg permit 30
+ match ip address prefix-list RFC1918
+!
+route-map sendIALagg permit 40
+ match ip address prefix-list LADC CMTS
+!
+route-map fromBorder permit 10
+ match ip address 90
+!
+route-map fromBorder deny 86
+ match ip address 91
+!
+route-map oddfewIn permit 10
+ match ip address 1413
+!
+route-map setDefPref888 permit 5
+ match ip address 90
+ match community BNDpref150 BNDpref200 BNDpref90
+ set local-preference 248
+!
+route-map setDefPref888 permit 10
+ match ip address 90
+ set local-preference 888
+!
+route-map setDefPref888 permit 15
+ match community BNDpref150
+ set local-preference 154
+!
+route-map setDefPref888 permit 20
+ match community BNDpref200
+ set local-preference 234
+!
+route-map setDefPref888 permit 40
+ match community BNDpref400
+ set local-preference 434
+!
+route-map setDefPref888 permit 60
+ match community BNDpref600
+ set local-preference 634
+!
+route-map setDefPref888 permit 80
+ match community BNDpref800
+ set local-preference 834
+!
+route-map setDefPref888 permit 90
+ match community BNDpref90
+ set local-preference 90
+!
+route-map fromPntb permit 10
+ match ip address 70
+!
+route-map sendBNDisp permit 10
+ match ip address mainSU
+ set community 32:32 65064:32
+!
+route-map sendBNDisp permit 30
+ match ip address prefix-list RES128
+ set community 32:32 65064:32 additive
+!
+route-map sendBNDisp permit 40
+ match ip address prefix-list RFC1918
+ set community 32:32 65064:32 additive
+!
+route-map sendBNDisp permit 50
+ match ip address prefix-list LADC
+ set community 32:32 65064:32 additive
+!
+route-map dogfewIn permit 10
+ match ip address 1414
+!
+route-map dist-static permit 10
+ match ip address prefix-list BBRA-stat
+!
+route-map fromCOZ permit 10
+ match ip address prefix-list COZ1
+ set local-preference 150
+!
+route-map fromGOZsrtr permit 10
+ match ip address prefix-list GOZ1
+ set metric 10
+ set local-preference 200
+ set community 65064:19 additive
+!
+route-map fromBOZsrtr permit 10
+ match ip address prefix-list BOZ1
+ set metric 10
+ set local-preference 200
+ set community 65064:19 additive
+!
+route-map metPlus permit 10
+ set metric +2
+!
+route-map fromMOZsrtr permit 10
+ match ip address prefix-list MOZ1
+ set metric 10
+ set local-preference 200
+ set community 65064:19 additive
+!
+route-map toResOZ permit 10
+ match ip address prefix-list coreCampus
+!
+route-map toResOZ permit 15
+ match ip address prefix-list RFC1918
+!
+route-map toResOZ permit 20
+ match ip address prefix-list COZ1 SOZ1
+!
+route-map toResOZ permit 40
+ match ip address prefix-list RES_LW_BKUP
+!
+route-map toI2-30 permit 10
+ match ip address 32
+ set metric 30
+!
+route-map toI2-30 permit 20
+ match ip address 17
+ set metric 30
+!
+route-map fromMOZ permit 10
+ match ip address prefix-list MOZ1
+!
+route-map fromCOZmc permit 10
+ match ip address prefix-list COZmc
+!
+route-map fromRLG permit 10
+ match ip address 39
+!
+route-map toI2-20 permit 10
+ match ip address 32
+ set metric 20
+!
+route-map toI2-20 permit 20
+ match ip address 17
+ set metric 20
+!
+route-map fromSOZ permit 10
+ match ip address prefix-list SOZ1
+ set local-preference 150
+!
+route-map sendLocal permit 10
+ match ip address 32
+!
+route-map sendLocal permit 20
+ match ip address 90
+!
+route-map voipfewIn permit 10
+ match ip address 1428
+!
+route-map fromWOZsrtr permit 10
+ match ip address prefix-list WOZ1
+ set metric 10
+ set local-preference 200
+ set community 65064:19 additive
+!
+route-map fromCTR permit 10
+ match ip address prefix-list CTRloc
+!
+route-map fromCTR permit 40
+ match ip address prefix-list CTR4 CTRA
+!
+route-map toCNSfw permit 20
+ match ip address 90
+ set metric 20
+!
+route-map fromPOZsrtr permit 10
+ match ip address prefix-list POZ1
+ set metric 10
+ set local-preference 200
+ set community 65064:19 additive
+!
+route-map dbfewIn permit 10
+ match ip address 1412
+!
+route-map changefewIn permit 10
+ match ip address 1415
+!
+route-map fromROZsrtr permit 10
+ match ip address prefix-list ROZ1
+ set metric 10
+ set local-preference 200
+ set community 65064:19 additive
+!
+route-map sendIALcoreOZ permit 10
+ match ip address prefix-list coreOut
+ set metric 20
+ set community 65064:3200
+!
+route-map sendIALcoreOZ permit 30
+ match ip address prefix-list CMTS LADC
+ set metric 20
+!
+route-map sendIALcoreOZ permit 40
+ match ip address prefix-list BOZ1 GOZ1 POZ1 ROZ1 MOZ1 YOZ1 WOZ1
+!
+route-map sendDefault permit 10
+ match ip address 90
+!
+route-map fromTOZ permit 20
+ match ip address 21
+!
+route-map fromTOZ permit 40
+ match ip address 23
+!
+route-map sendDef20 permit 20
+ match ip address 90
+ set metric 20
+!
+route-map localCogent permit 10
+ match ip address 16
+!
+route-map fromCNSfw permit 20
+ match ip address 8
+!
+route-map fromHWP permit 10
+ match ip address prefix-list HWP1
+ set local-preference 150
+!
+route-map recvDSL permit 10
+ match ip address prefix-list DSL
+!
+route-map toRes30 permit 10
+ match ip address 64
+ set metric 30
+!
+route-map toRes30 permit 20
+ match ip address 24
+ set metric 30
+!
+route-map toRes30 permit 30
+ match ip address prefix-list RES_LW_BKUP
+ set metric 30
+!
+route-map blockCogent deny 10
+ match ip address 16
+!
+route-map blockCogent permit 30
+ match ip address 88
+!
+route-map fromYOZsrtr permit 10
+ match ip address prefix-list YOZ1
+ set local-preference 200
+ set community 65064:19 additive
+!
+route-map fromSOZmc permit 10
+ match ip address prefix-list SOZmc
+!
+route-map fromBND permit 10
+ match ip address 90
+!
+route-map toRes permit 10
+ match ip address 64
+ set metric 40
+!
+route-map toRes permit 20
+ match ip address 24
+ set metric 40
+!
+route-map toRes permit 30
+ match ip address prefix-list RES_LW_BKUP
+ set metric 40
+!
+route-map sendDef40 permit 20
+ match ip address 90
+ set metric 40
+!
+route-map sendCoreDef permit 10
+ match ip address prefix-list campusOut
+ set metric 20
+!
+route-map sendCoreDef permit 15
+ match ip address prefix-list RFC1918
+ set metric 20
+!
+route-map sendCoreDef permit 28
+ match ip address prefix-list RES128
+ set metric 20
+!
+route-map sendCoreDef permit 80
+ match ip address 90
+ set metric 20
+!
+route-map noHPR-DC permit 10
+ match ip address 71
+ set community 32:171
+!
+route-map noHPR-DC deny 30
+ match community fromHPR
+!
+route-map noHPR-DC deny 40
+ match community fromDC
+!
+route-map recvCTRDpub permit 10
+ match ip address prefix-list CTRD
+ set local-preference 120
+!
+route-map sendOZdef19 permit 10
+ match ip address prefix-list coreOut
+ set metric 19
+!
+route-map sendOZdef19 permit 40
+ match ip address prefix-list BOZ1 GOZ1 POZ1 ROZ1
+ set metric 19
+!
+route-map sendOZdef19 permit 50
+ match ip address prefix-list YOZ1
+ set metric 19
+!
+route-map sendOZdef19 permit 80
+ match ip address 90
+ set metric 19
+!
+route-map sendI2 permit 20
+ match ip address prefix-list mainSU
+!
+route-map sendI2 permit 30
+ match ip address prefix-list RES128
+!
+route-map sendI2 permit 40
+ match ip address prefix-list RFC1918
+!
+route-map sendI2 permit 50
+ match ip address prefix-list LADC
+!
+route-map sendI2 permit 60
+ match ip address prefix-list CMTS
+!
+route-map sendCoreMed permit 10
+ match ip address prefix-list coreOut
+!
+route-map sendCoreMed permit 20
+ match ip address prefix-list MedCtr
+!
+route-map fromHPR1 deny 8
+ match ip address 29
+!
+route-map fromHPR1 permit 50
+ match ip address 88
+!
+route-map fromI2 deny 8
+ match ip address 29
+!
+route-map fromI2 permit 50
+ match ip address 88
+!
+route-map fromWirelessNAT permit 10
+ match ip address prefix-list wirelessNAT
+ set metric +1
+ set local-preference 150
+!
+route-map sendOZdef deny 7
+ match ip address prefix-list bigfixMain
+!
+route-map sendOZdef deny 8
+ match ip address prefix-list bigfixNet10
+!
+route-map sendOZdef permit 10
+ match ip address prefix-list campusOut
+ set metric 20
+!
+route-map sendOZdef permit 15
+ match ip address prefix-list RFC1918
+ set metric 20
+!
+route-map sendOZdef permit 19
+ match community 19
+ set metric 19
+!
+route-map sendOZdef permit 28
+ match ip address prefix-list RES128
+ set metric 20
+!
+route-map sendOZdef permit 40
+ match ip address prefix-list BOZ1 GOZ1 POZ1 ROZ1
+ set metric 20
+!
+route-map sendOZdef permit 50
+ match ip address prefix-list YOZ1 WOZ1
+ set metric 20
+!
+route-map sendOZdef permit 55
+ match ip address prefix-list MOZ1
+ set metric 20
+!
+route-map sendOZdef permit 60
+ match ip address prefix-list LADC
+ match community LADCintern
+ set metric 20
+!
+route-map sendOZdef permit 70
+ match ip address prefix-list CMTS
+!
+route-map sendOZdef permit 80
+ match ip address 90
+ set metric 20
+!
+route-map fromWirelessLoc permit 10
+ match ip address prefix-list wirelessPriv
+ set metric +1
+ set local-preference 150
+!
+route-map fromWirelessLoc permit 20
+ match ip address prefix-list wirelessLoc
+ set metric +1
+ set local-preference 150
+!
+route-map setPref150 permit 10
+ set local-preference 150
+!
+route-map fromCTRDloc permit 10
+ match ip address prefix-list CTRDloc
+ set metric 10
+!
+route-map fromMOZ0 permit 10
+ match ip address prefix-list MOZ0
+!
+route-map sendCoreDefHW permit 10
+ match ip address prefix-list campusOut
+ set metric 20
+!
+route-map sendCoreDefHW permit 15
+ match ip address prefix-list RFC1918
+ set metric 20
+!
+route-map sendCoreDefHW permit 28
+ match ip address prefix-list RES128
+ set metric 20
+!
+route-map sendCoreDefHW permit 40
+ match ip address prefix-list HWPnoNAT
+ set metric 20
+!
+route-map sendCoreDefHW permit 80
+ match ip address 90
+ set metric 20
+!
+snmp-server engineID local 800000090300001121B3CB00
+snmp-server view pubview system included
+snmp-server view pubview interfaces included
+snmp-server view pubview ip.20 included
+snmp-server view pubview lip.1 included
+snmp-server community public view pubview RO 1
+snmp-server community snmpw4oOu RO 2
+!
+radius-server host 171.64.7.140 auth-port 1645 acct-port 1646
+radius-server host 171.64.7.170 auth-port 1645 acct-port 1646
+radius-server retransmit 1
+radius-server timeout 2
+radius-server key 7 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+!
+ipv6 access-list v6any
+ permit ipv6 any any
+!
+control-plane
+!
+!
+dial-peer cor custom
+!
+!
+!
+!
+line con 0
+ password 7 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+line vty 0 4
+ access-class 1 in
+ exec-timeout 120 0
+ password 7 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ transport input ssh
+ transport output ssh
+line vty 5 15
+ password 7 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ transport input none
+ transport output none
+!
+!
+monitor session 1 source vlan 9 , 281 , 283 , 555 - 590
+monitor session 1 destination interface Gi3/12
+ntp clock-period 17180034
+ntp server 171.64.7.67
+ntp server 171.64.7.105
+!
+end

@@ -1,0 +1,1152 @@
+!
+access-list 88 permit any
+access-list 100 permit ip 172.17.0.0 0.0.255.255 172.27.16.32 0.0.0.31
+access-list 100 deny   ip 172.17.0.0 0.0.255.255 any
+access-list 100 permit ip any any
+access-list 103 deny   tcp any any eq 445
+access-list 103 permit ip any any
+access-list 108 permit ip 171.66.31.96 0.0.0.7 any
+access-list 108 permit ip host 171.64.7.55 host 171.64.8.185
+access-list 108 permit ip host 171.64.7.77 host 171.64.8.185
+access-list 108 permit ip host 171.64.7.99 host 171.64.8.185
+access-list 108 permit ip host 171.64.16.74 host 171.64.8.185
+access-list 108 permit ip host 171.64.18.75 host 171.64.8.185
+access-list 108 permit ip host 171.64.18.104 host 171.64.8.185
+access-list 108 permit ip host 171.64.26.132 host 171.64.8.185
+access-list 108 permit ip host 171.64.25.31 host 171.64.8.185
+access-list 108 permit ip host 171.64.25.15 host 171.64.8.185
+access-list 108 permit ip host 171.67.10.99 host 171.64.8.185
+access-list 108 permit ip host 66.149.129.62 host 171.64.8.185
+access-list 108 permit ip host 74.244.47.151 host 171.64.8.185
+access-list 108 permit ip 171.66.24.0 0.0.7.255 host 171.64.8.185
+access-list 108 deny   ip any host 171.64.8.185
+access-list 108 deny   ip any host 171.64.9.113
+access-list 108 deny   ip any host 171.64.8.139
+access-list 108 deny   ip any host 171.64.8.75
+access-list 108 deny   ip any host 171.64.9.22
+access-list 108 deny   ip any host 171.64.9.94
+access-list 108 deny   ip any host 171.64.9.101
+access-list 108 deny   ip any host 171.64.9.109
+access-list 108 deny   ip any host 171.64.9.117
+access-list 108 deny   ip any host 171.64.9.118
+access-list 108 deny   ip any host 171.64.9.123
+access-list 108 deny   ip any host 171.64.9.125
+access-list 108 deny   ip any host 171.64.9.141
+access-list 108 permit ip any any
+access-list 109 permit ip 171.66.31.96 0.0.0.7 any
+access-list 109 permit ip host 171.64.7.55 host 171.64.8.185
+access-list 109 permit ip host 171.64.7.77 host 171.64.8.185
+access-list 109 permit ip host 171.64.7.99 host 171.64.8.185
+access-list 109 permit ip host 171.64.16.74 host 171.64.8.185
+access-list 109 permit ip host 171.64.18.75 host 171.64.8.185
+access-list 109 permit ip host 171.64.18.104 host 171.64.8.185
+access-list 109 permit ip host 171.64.26.132 host 171.64.8.185
+access-list 109 permit ip host 171.64.25.31 host 171.64.8.185
+access-list 109 permit ip host 171.64.25.15 host 171.64.8.185
+access-list 109 permit ip host 171.64.25.38 host 171.64.8.185
+access-list 109 permit ip host 171.64.25.41 host 171.64.8.185
+access-list 109 permit ip host 171.64.25.45 host 171.64.8.185
+access-list 109 permit ip host 171.64.25.49 host 171.64.8.185
+access-list 109 permit ip host 171.64.26.69 host 171.64.8.185
+access-list 109 permit ip host 171.67.10.99 host 171.64.8.185
+access-list 109 permit ip host 66.149.129.62 host 171.64.8.185
+access-list 109 permit ip host 74.244.47.151 host 171.64.8.185
+access-list 109 permit ip 171.66.24.0 0.0.7.255 host 171.64.8.185
+access-list 109 deny   ip any host 171.64.8.185
+access-list 109 deny   ip any host 171.64.9.113
+access-list 109 deny   ip any host 171.64.8.139
+access-list 109 deny   ip any host 171.64.8.75
+access-list 109 deny   ip any host 171.64.9.22
+access-list 109 deny   ip any host 171.64.9.94
+access-list 109 deny   ip any host 171.64.9.101
+access-list 109 deny   ip any host 171.64.9.109
+access-list 109 deny   ip any host 171.64.9.117
+access-list 109 deny   ip any host 171.64.9.118
+access-list 109 deny   ip any host 171.64.9.123
+access-list 109 deny   ip any host 171.64.9.125
+access-list 109 deny   ip any host 171.64.9.141
+access-list 109 permit ip any any
+access-list 110 permit ip 171.66.31.96 0.0.0.7 any
+access-list 110 permit ip host 171.64.7.55 host 171.64.8.185
+access-list 110 permit ip host 171.64.7.77 host 171.64.8.185
+access-list 110 permit ip host 171.64.7.99 host 171.64.8.185
+access-list 110 permit ip host 171.64.16.74 host 171.64.8.185
+access-list 110 permit ip host 171.64.18.75 host 171.64.8.185
+access-list 110 permit ip host 171.64.18.104 host 171.64.8.185
+access-list 110 permit ip host 171.64.26.132 host 171.64.8.185
+access-list 110 permit ip host 171.64.25.31 host 171.64.8.185
+access-list 110 permit ip host 171.64.25.15 host 171.64.8.185
+access-list 110 permit ip host 171.64.25.38 host 171.64.8.185
+access-list 110 permit ip host 171.64.25.41 host 171.64.8.185
+access-list 110 permit ip host 171.64.25.45 host 171.64.8.185
+access-list 110 permit ip host 171.64.25.49 host 171.64.8.185
+access-list 110 permit ip host 171.67.10.99 host 171.64.8.185
+access-list 110 permit ip host 66.149.129.62 host 171.64.8.185
+access-list 110 permit ip host 74.244.47.151 host 171.64.8.185
+access-list 110 permit ip 171.66.24.0 0.0.7.255 host 171.64.8.185
+access-list 110 deny   ip any host 171.64.8.185
+access-list 110 deny   ip any host 171.64.9.113
+access-list 110 deny   ip any host 171.64.8.139
+access-list 110 deny   ip any host 171.64.8.75
+access-list 110 deny   ip any host 171.64.9.22
+access-list 110 deny   ip any host 171.64.9.94
+access-list 110 deny   ip any host 171.64.9.101
+access-list 110 deny   ip any host 171.64.9.109
+access-list 110 deny   ip any host 171.64.9.117
+access-list 110 deny   ip any host 171.64.9.118
+access-list 110 deny   ip any host 171.64.9.123
+access-list 110 deny   ip any host 171.64.9.125
+access-list 110 deny   ip any host 171.64.9.141
+access-list 110 permit ip any any
+access-list 141 permit ip host 172.26.6.66 any
+access-list 141 permit ip 171.64.7.128 0.0.0.63 any
+access-list 141 deny   tcp any any eq 445
+access-list 141 permit tcp any any gt 139
+access-list 141 deny   tcp any any gt 134
+access-list 141 permit tcp any any
+access-list 141 deny   udp any any eq 445
+access-list 141 permit udp any any gt netbios-ss
+access-list 141 deny   udp any any gt 134
+access-list 141 permit ip any any
+access-list 151 permit ip 171.64.0.0 0.3.255.255 171.64.250.32 0.0.0.1
+access-list 151 permit ip 10.252.0.0 0.1.255.255 171.64.250.32 0.0.0.1
+access-list 151 permit ip 10.248.0.0 0.0.255.255 171.64.250.32 0.0.0.1
+access-list 151 permit ip 10.50.0.0 0.0.255.255 171.64.250.32 0.0.0.1
+access-list 151 permit ip host 209.132.177.100 171.64.250.32 0.0.0.1
+access-list 151 permit ip host 209.134.151.117 171.64.250.32 0.0.0.1
+access-list 151 permit ip host 209.134.151.146 171.64.250.32 0.0.0.1
+access-list 151 permit ip host 209.134.151.161 171.64.250.32 0.0.0.1
+access-list 151 permit ip host 209.134.151.249 171.64.250.32 0.0.0.1
+access-list 151 permit ip 172.24.250.64 0.0.0.31 171.64.250.32 0.0.0.1
+access-list 151 deny   ip any 171.64.250.32 0.0.0.1
+access-list 151 permit ip any 171.64.250.0 0.0.0.3
+access-list 151 permit ip host 171.64.7.55 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.64.7.61 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.64.7.77 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.64.7.88 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.64.7.89 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.64.7.99 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.64.7.111 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.64.7.115 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.64.7.121 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.67.10.99 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.67.10.100 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.64.11.144 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.64.11.180 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.67.3.16 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 172.27.11.158 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.64.8.221 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.64.8.196 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.64.8.111 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.64.8.147 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.64.8.150 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.64.8.152 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.64.8.233 171.64.250.0 0.0.0.31
+access-list 151 deny   ip host 10.25.130.200 any
+access-list 151 permit ip 10.250.130.200 0.0.0.7 171.64.250.0 0.0.0.31
+access-list 151 permit ip 10.250.130.208 0.0.0.1 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 10.250.130.210 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 10.251.14.120 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 10.251.14.125 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 10.251.20.121 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 10.251.20.122 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 10.252.58.25 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 10.252.58.26 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 10.252.58.117 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 10.252.58.139 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 10.252.58.140 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 10.252.60.100 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 10.252.60.201 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 10.252.60.203 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 10.252.60.205 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 10.252.60.207 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 10.252.62.28 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.64.11.116 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.64.9.51 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.64.9.218 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.64.11.11 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.64.11.16 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.65.220.137 171.64.250.0 0.0.0.31
+access-list 151 permit ip 171.66.180.96 0.0.0.7 171.64.250.0 0.0.0.31
+access-list 151 permit ip 171.66.182.240 0.0.0.7 171.64.250.0 0.0.0.31
+access-list 151 permit ip 171.66.198.144 0.0.0.7 171.64.250.0 0.0.0.31
+access-list 151 permit ip 171.66.216.248 0.0.0.7 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.67.16.123 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.67.16.125 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.67.16.138 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.67.16.29 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.67.16.30 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.67.16.33 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.67.16.34 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.67.16.35 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.67.16.36 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.67.16.120 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.67.16.116 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.67.16.117 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.67.16.115 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.67.16.112 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.67.16.113 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.67.16.114 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.67.16.88 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.67.16.89 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.65.212.16 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.64.20.225 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.64.8.194 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.64.8.15 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.64.8.104 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.64.16.150 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.65.159.85 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.65.200.49 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.65.200.51 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.65.200.81 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.65.200.68 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.65.212.85 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.65.220.129 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.65.250.74 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.64.13.68 171.64.250.0 0.0.0.31
+access-list 151 permit ip host 171.64.26.156 171.64.250.0 0.0.0.31
+access-list 151 permit ip 172.24.250.64 0.0.0.31 171.64.250.0 0.0.0.31
+access-list 151 permit tcp any 171.64.250.28 0.0.0.1 eq smtp
+access-list 151 permit tcp any 171.64.250.0 0.0.0.31 established
+access-list 151 deny   ip any 171.64.250.0 0.0.0.31
+access-list 151 permit tcp any any established
+access-list 151 permit tcp any any eq ident
+access-list 151 permit tcp 171.64.250.0 0.0.0.128 172.24.250.0 0.0.0.128
+access-list 151 permit tcp 172.24.250.0 0.0.0.128 171.64.250.0 0.0.0.128
+access-list 151 permit tcp 171.64.20.0 0.0.0.255 any
+access-list 151 permit tcp 171.64.24.128 0.0.0.127 any
+access-list 151 permit tcp host 171.64.7.16 any eq telnet
+access-list 151 deny   tcp any 171.64.250.0 0.0.0.128
+access-list 151 deny   tcp any 172.24.250.0 0.0.0.128
+access-list 151 permit ip any any
+access-list 161 deny   ip host 171.67.16.105 any
+access-list 161 permit ip any any
+!
+redundancy
+ main-cpu
+  auto-sync running-config
+ mode sso
+!
+vlan internal allocation policy ascending
+vlan access-log ratelimit 2000
+!
+vlan 10
+ name BOZ-spine
+!
+vlan 16
+ name Management-Net
+!
+vlan 17
+ name NED-Management
+!
+vlan 199
+ name fw-mgmt-local
+!
+vlan 204
+ name vsys-test-2
+!
+vlan 206
+ name vsys-test-1
+!
+vlan 207
+ name FOZ-DMZ-net
+!
+vlan 208
+ name BOZ-sniff-net
+!
+vlan 209
+ name DHCP-relay-net
+!
+vlan 250
+ name operator-net
+!
+vlan 256
+ name pcg-net
+!
+vlan 289
+ name was-vl122
+!
+vlan 290
+ name was-vl123
+!
+vlan 294
+ name saga-cluster
+!
+vlan 297
+ name Libraries-SMR
+!
+vlan 298
+ name 12.0/25+15.224/27
+!
+vlan 310
+ name afs-srvr-net
+!
+vlan 312
+ name fmr-net
+!
+vlan 314
+ name fmr-vs-net_moved_to_foz-its-serv
+!
+vlan 320
+ name pine-net
+!
+vlan 350
+ name SUL-Public
+!
+vlan 355
+ name SUL-Sandbox
+!
+vlan 360
+ name SUL-staff
+!
+vlan 361
+ name SUL-Admins
+!
+vlan 365
+ name SUL-DPG
+!
+vlan 366
+ name SUL-Reserved
+!
+vlan 368
+ name SUL-NF
+!
+vlan 369
+ name SUL-Green-Server-Net
+!
+vlan 470
+ name iso-pine-net
+!
+vlan 480
+ name CommSvcs-net
+!
+vlan 482
+ name sling-net
+!
+vlan 490
+ name DCO
+!
+vlan 500
+ name Polya
+!
+vlan 502
+ name polya-open-net
+!
+vlan 504
+ name its-classroom-net
+!
+vlan 510
+ name EPGY
+!
+vlan 520
+ name Museum
+!
+vlan 530
+ name Birch-Oak
+!
+vlan 540
+ name Redwood
+!
+vlan 550
+ name Cedar
+!
+vlan 560
+ name Kozmetsky-Group-Suppes
+!
+vlan 570
+ name CSLI
+!
+vlan 581
+ name sweet-console-net
+!
+vlan 582
+ name bigfix-relay-net
+!
+vlan 583
+ name auth-net1
+!
+vlan 586
+ name itlab-prv-net
+!
+vlan 587
+ name itlab-net
+!
+vlan 590
+ name suppes-brain-group
+!
+vlan 601
+ name boz-lb-ext-net
+!
+vlan 650
+ name Stan-W-office-net
+!
+vlan 701
+ name boz-lb-int-net
+!
+vlan 702 
+!
+vlan 780
+ name Cypress
+!
+vlan 789
+ name Cypress-Pediatrics
+!
+vlan 790
+ name BOZ-EH&S
+!
+vlan 800
+ name JasperRidge
+!
+vlan 820
+ name Pine-Test
+!
+vlan 824
+ name lea-test-net
+!
+vlan 830
+ name JapanCenter
+!
+vlan 840
+ name ITS_Streaming
+!
+vlan 850
+ name CalrenEquip
+!
+vlan 860
+ name SolarLab
+!
+vlan 870
+ name BioGreenhouse
+!
+vlan 890
+ name Hopkins
+!
+vlan 900
+ name ForsytheConsoleNet
+!
+vlan 910
+ name WECHConsoleNet
+!
+vlan 916
+ name SMR-Servers
+!
+vlan 918
+ name SMR-Public-Access-Servers
+!
+vlan 920
+ name Carnegie
+!
+vlan 940
+ name CASBS
+!
+vlan 950
+ name NBER
+!
+vlan 955
+ name LBRE-sandhill
+!
+vlan 960
+ name SMC-Sandhill
+!
+vlan 965
+ name VS-SMC:smc-dr-pub
+!
+vlan 966
+ name VS-SMC:smc-dr-prv
+!
+vlan 970
+ name OTL
+!
+vlan 980
+ name Site525
+!
+vlan 990
+ name ArtStudio
+!
+vlan 1601
+ name Meyer-BOZ-VoIP
+!
+vlan 1602
+ name Bldg14-040-BOZ-VoIP
+!
+vlan 1603
+ name Bldg14-050-BOZ-VoIP
+!
+vlan 1604
+ name Bldg14-590-BOZ-VoIP-net
+!
+vlan 1605
+ name Bldg90-312R-BOZ-VoIP-net
+!
+vlan 1606
+ name Bldg14-600-BOZ-VoIP-net
+!
+vlan 1607
+ name Bldg14-610-BOZ-VoIP-net
+!
+vlan 1608
+ name Bldg14-620-BOZ-VoIP-net
+!
+vlan 1609
+ name Bldg14-630-BOZ-VoIP-net
+!
+vlan 1610
+ name Bldg12-080-BOZ-VoIP-net
+!
+vlan 1611
+ name Bldg07-100-BOZ-VoIP-net
+!
+vlan 1612
+ name Bldg14-120-BOZ-VoIP-net
+!
+vlan 1617
+ name Bldg12-350-BOZ-VoIP
+!
+vlan 1625
+ name Puichon-BOZ-VoIP
+!
+vlan 1632
+ name Pine-BOZ-VoIP
+!
+vlan 1635
+ name GreenW-BOZ-VoIP
+!
+vlan 1636
+ name Green-BOZ-VoIP
+!
+vlan 1648
+ name Forsythe-BOZ-VoIP
+!
+vlan 1649
+ name Spruce-BOZ-VoIP
+!
+vlan 1650
+ name Polya-BOZ-VoIP
+!
+vlan 1653
+ name Trees-BOZ-VoIP
+!
+vlan 1654
+ name Redwood-BOZ-VoIP
+!
+vlan 1699
+ name Pine-test-BOZ-VoIP
+!
+vlan 1900
+ name Blib03-010-BOZ-VoIP-net
+!
+vlan 1901
+ name Blib04-080-BOZ-VoIP
+!
+vlan 1902
+ name Blib01-380-BOZ-VoIP
+!
+vlan 1903
+ name Blib04-560-BOZ-VoIP-net
+!
+vlan 1904
+ name Blib07-410-BOZ-VoIP
+!
+vlan 1905
+ name Blib02-210-BOZ-VoIP
+!
+vlan 1906
+ name Blib03-300-BOZ-VoIP
+!
+vlan 1907
+ name Blib09-400-BOZ-VoIP
+!
+vlan 1908
+ name Blib07-250-BOZ-VoIP
+!
+vlan 1909
+ name Blib02-300-BOZ-VoIP-net
+!
+! 
+!
+!
+!
+interface Loopback0
+ ip address 172.20.0.193 255.255.255.255
+!
+interface Loopback2
+ ip address 172.20.0.12 255.255.255.255
+!
+interface Port-channel10
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 1601-1612,1617,1625,1632,1635,1636,1648-1650
+ switchport trunk allowed vlan add 1653,1654,1699,1900-1909
+ switchport mode trunk
+!
+interface GigabitEthernet1/1
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 209
+ switchport mode trunk
+ shutdown
+!
+interface GigabitEthernet1/2
+ no ip address
+ no cdp enable
+!
+interface TenGigabitEthernet2/1
+ no ip address
+!
+interface TenGigabitEthernet2/1.2
+ encapsulation dot1Q 2
+ ip address 172.20.4.193 255.255.254.0 secondary
+ ip address 171.64.255.152 255.255.255.192
+ no ip redirects
+ no ip unreachables
+ ipv6 address 2607:F6D0:0:BBA::AB40:FF98/64
+ no cdp enable
+!
+interface TenGigabitEthernet2/2
+ switchport
+ switchport access vlan 207
+ switchport mode access
+!
+interface TenGigabitEthernet2/3
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 1,10,204,206-208,250,256,289,290,294,297,298,310
+ switchport trunk allowed vlan add 312,314,320,350,355,360,361,365,366,368,369
+ switchport trunk allowed vlan add 470,480,482,490,500,502,504,510,520,530,540
+ switchport trunk allowed vlan add 550,560,570,581-583,586,587,590,601,650,701
+ switchport trunk allowed vlan add 702,780,789,790,800,820,824,830,840,850,860
+ switchport trunk allowed vlan add 870,880,890,900,910,916,918,920,940,950,955
+ switchport trunk allowed vlan add 960,965,966,970,980,990
+ mtu 9216
+!
+interface TenGigabitEthernet2/4
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 2,3,10
+ switchport mode trunk
+ mtu 9216
+!
+interface TenGigabitEthernet3/1
+ no ip address
+!
+interface TenGigabitEthernet3/1.3
+ encapsulation dot1Q 3
+ ip address 172.20.6.193 255.255.254.0 secondary
+ ip address 171.66.255.152 255.255.255.192
+ no ip redirects
+ no ip unreachables
+ ipv6 address 2607:F6D0:0:BBB::AB42:FF98/64
+ no cdp enable
+!
+interface TenGigabitEthernet3/2
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface TenGigabitEthernet3/3
+ switchport
+ switchport access vlan 583
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 1,10,16,17,204,206-208,250,256,289,290,294,297
+ switchport trunk allowed vlan add 298,310,312,314,320,350,355,360,361,365,366
+ switchport trunk allowed vlan add 368,369,470,480,482,490,500,502,504,510,520
+ switchport trunk allowed vlan add 530,540,550,560,570,581-583,586,587,590,601
+ switchport trunk allowed vlan add 650,701,702,780,789,790,800,820,824,830,840
+ switchport trunk allowed vlan add 850,860,870,880,890,900,910,916,918,920,940
+ switchport trunk allowed vlan add 950,955,960,965,966,970,980,990,1601-1603
+ switchport trunk allowed vlan add 1605-1612,1617,1625,1632,1635,1636,1648-1650
+ switchport trunk allowed vlan add 1653,1654,1699,1900,1901
+ switchport mode trunk
+!
+interface TenGigabitEthernet3/4
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 250,256,320,350,355,360,361,365,366,369,480,482
+ switchport trunk allowed vlan add 490,500,504,510,520,530,540,550,560,570,586
+ switchport trunk allowed vlan add 587,590,601,650,701,702,780,789,810,870,890
+ switchport trunk allowed vlan add 920,940,950,955,960,965,966,970,990
+ switchport mode trunk
+ mtu 9216
+!
+interface GigabitEthernet4/1
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 1601-1612,1617,1625,1632,1635,1636,1648-1650
+ switchport trunk allowed vlan add 1653,1654,1699,1900-1909
+ switchport mode trunk
+ no cdp enable
+ channel-group 10 mode on
+!
+interface GigabitEthernet4/2
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 1601-1612,1617,1625,1632,1635,1636,1648-1650
+ switchport trunk allowed vlan add 1653,1654,1699,1900-1909
+ switchport mode trunk
+ no cdp enable
+ channel-group 10 mode on
+!
+interface GigabitEthernet4/3
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 17,980,1604
+ switchport mode trunk
+ no cdp enable
+!
+interface GigabitEthernet4/4
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 17,350-369,1601,1635,1636,1900-1909
+ switchport mode trunk
+ no cdp enable
+!
+interface GigabitEthernet4/5
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 17,955,960,966
+ switchport mode trunk
+ no cdp enable
+!
+interface GigabitEthernet4/6
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/7
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/8
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/9
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/10
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/11
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/12
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/13
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/14
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/15
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/16
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/17
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/18
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/19
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/20
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/21
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/22
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/23
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/24
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/25
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/26
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/27
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/28
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/29
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/30
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/31
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/32
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/33
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/34
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/35
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/36
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/37
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/38
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/39
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/40
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/41
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/42
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/43
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/44
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/45
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/46
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 10,210-999
+ switchport mode trunk
+ no cdp enable
+!
+interface GigabitEthernet4/47
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 199,209
+ switchport mode trunk
+ no cdp enable
+!
+interface GigabitEthernet4/48
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 16,17
+ switchport mode trunk
+ no cdp enable
+!
+interface Vlan1
+ no ip address
+ no ip redirects
+ no ip unreachables
+ shutdown
+!
+interface Vlan10
+ ip address 172.20.10.193 255.255.255.224
+ no ip redirects
+ no ip unreachables
+ ip ospf cost 10
+ ip ospf mtu-ignore
+ ipv6 address 2607:F6D0:0:600A::AC14:AC1/64
+ ipv6 ospf mtu-ignore
+ ipv6 ospf 64806 area 0
+ standby 20 ip 172.20.10.222
+ standby 20 timers 2 7
+ standby 20 priority 120
+ standby 20 preempt
+ standby 20 authentication vlan10
+!
+interface Vlan16
+ ip address 172.16.71.16 255.255.192.0
+!
+interface Vlan199
+ ip address 192.168.1.23 255.255.255.0
+ no ip redirects
+ no ip unreachables
+!
+interface Vlan207
+ ip address 171.66.4.218 255.255.255.248
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ standby 20 ip 171.66.4.217
+ standby 20 timers 2 7
+ standby 20 priority 120
+ standby 20 preempt
+ standby 20 authentication vlan207
+!
+interface Vlan208
+ ip address 172.26.4.218 255.255.255.248
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ standby 20 ip 172.26.4.217
+ standby 20 timers 2 7
+ standby 20 priority 120
+ standby 20 preempt
+ standby 20 authentication vlan208
+!
+interface Vlan209
+ ip address 192.168.209.49 255.255.255.252
+ no ip redirects
+ no ip unreachables
+!
+interface Vlan289
+ ip address 171.64.12.130 255.255.255.192
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ standby 28 ip 171.64.12.129
+ standby 28 ip 171.64.12.161 secondary
+ standby 28 timers 2 7
+ standby 28 priority 120
+ standby 28 preempt
+ standby 28 authentication vlan289
+!
+interface Vlan297
+ ip address 171.64.15.214 255.255.255.224
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ standby 29 ip 171.64.15.193
+ standby 29 timers 2 7
+ standby 29 priority 120
+ standby 29 preempt
+ standby 29 authentication vlan297
+!
+interface Vlan298
+ ip address 171.64.15.227 255.255.255.224 secondary
+ ip address 172.24.12.21 255.255.255.128 secondary
+ ip address 171.64.12.3 255.255.255.128
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ standby 12 ip 171.64.12.1
+ standby 12 ip 172.24.12.1 secondary
+ standby 12 timers 2 7
+ standby 12 priority 120
+ standby 12 preempt
+ standby 12 authentication DSG159
+ standby 159 ip 171.64.15.225
+ standby 159 timers 2 7
+ standby 159 priority 120
+ standby 159 preempt
+ standby 159 authentication DSG159
+!
+interface Vlan368
+ ip address 171.67.143.2 255.255.255.128
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ standby 35 ip 171.67.143.1
+ standby 35 timers 2 7
+ standby 35 priority 120
+ standby 35 preempt
+ standby 35 authentication vlan350
+!
+interface Vlan470
+ ip address 172.27.194.66 255.255.255.192 secondary
+ ip address 171.67.194.66 255.255.255.192
+ no ip redirects
+ standby 47 ip 171.67.194.65
+ standby 47 ip 172.27.194.65 secondary
+ standby 47 timers 2 7
+ standby 47 priority 120
+ standby 47 preempt
+ standby 47 authentication vlan470
+!
+interface Vlan502
+ ip address 172.27.225.130 255.255.255.192 secondary
+ ip address 171.67.225.130 255.255.255.192
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.111
+ ip helper-address 171.64.7.89
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ ipv6 address 2607:F6D0:0:61F6::AB43:E181/64
+ standby 51 ip 171.67.225.129
+ standby 51 ip 172.27.225.129 secondary
+ standby 51 timers 2 7
+ standby 51 priority 150
+ standby 51 preempt
+ standby 51 authentication vlan502
+!
+interface Vlan790
+ ip address 172.24.251.2 255.255.255.0 secondary
+ ip address 171.64.251.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ standby 79 ip 171.64.251.1
+ standby 79 ip 172.24.251.1 secondary
+ standby 79 timers 2 7
+ standby 79 priority 120
+ standby 79 preempt
+ standby 79 authentication vlan790
+!
+interface Vlan820
+ ip address 172.26.254.251 255.255.255.192 secondary
+ ip address 171.66.254.253 255.255.255.192
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.111
+ ip helper-address 171.64.7.53
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ ip flow ingress
+ standby 82 ip 171.66.254.193
+ standby 82 ip 172.26.254.193 secondary
+ standby 82 timers 2 7
+ standby 82 priority 120
+ standby 82 preempt
+ standby 82 authentication vlan820
+!
+interface Vlan824
+ ip address 172.26.66.74 255.255.255.240 secondary
+ ip address 171.66.66.74 255.255.255.240
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ standby 82 ip 171.66.66.73
+ standby 82 ip 172.26.66.73 secondary
+ standby 82 timers 2 7
+ standby 82 priority 120
+ standby 82 preempt
+ standby 82 authentication vlan824
+!
+interface Vlan830
+ ip address 171.64.17.157 255.255.255.224
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ standby 83 ip 171.64.17.129
+ standby 83 timers 2 7
+ standby 83 priority 120
+ standby 83 preempt
+ standby 83 authentication vlan830
+!
+interface Vlan840
+ ip address 172.24.17.91 255.255.255.224 secondary
+ ip address 171.64.17.91 255.255.255.224
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ standby 84 ip 171.64.17.65
+ standby 84 ip 172.24.17.65 secondary
+ standby 84 timers 2 7
+ standby 84 priority 120
+ standby 84 preempt
+ standby 84 authentication vlan840
+!
+interface Vlan850
+ ip address 171.64.17.226 255.255.255.240 secondary
+ ip address 171.64.17.218 255.255.255.248
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ standby 85 ip 171.64.17.217
+ standby 85 ip 171.64.17.225 secondary
+ standby 85 timers 2 7
+ standby 85 priority 120
+ standby 85 preempt
+ standby 85 authentication vlan850
+!
+interface Vlan860
+ ip address 172.24.17.253 255.255.255.240 secondary
+ ip address 171.64.17.253 255.255.255.240
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ standby 86 ip 171.64.17.241
+ standby 86 ip 172.24.17.241 secondary
+ standby 86 timers 2 7
+ standby 86 priority 120
+ standby 86 preempt
+ standby 86 authentication vlan860
+!
+interface Vlan980
+ ip address 172.26.67.194 255.255.255.192 secondary
+ ip address 171.66.67.194 255.255.255.192
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ standby 98 ip 171.66.67.193
+ standby 98 ip 172.26.67.193 secondary
+ standby 98 timers 2 7
+ standby 98 priority 120
+ standby 98 preempt
+ standby 98 authentication vlan980
+!
+!
+end

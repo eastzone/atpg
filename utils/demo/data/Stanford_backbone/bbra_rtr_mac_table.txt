@@ -1,0 +1,839 @@
+
+  vlan   mac address     type    learn     age              ports
+------+----------------+--------+-----+----------+--------------------------
+*  590  3333.0000.0001    static  Yes          -   Switch
+*  585  3333.0000.0001    static  Yes          -   Switch
+*  285  0011.21b3.cb00    static  No           -   Router
+*  580  3333.0000.0001    static  Yes          -   Switch
+*  281  0011.21b3.cb00    static  No           -   Router
+*  322  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*  295  0011.21b3.cb00    static  No           -   Router
+*  294  0011.21b3.cb00    static  No           -   Router
+*  320  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*  293  0011.21b3.cb00    static  No           -   Router
+*  292  0011.21b3.cb00    static  No           -   Router
+*  290  0011.21b3.cb00    static  No           -   Router
+*  297  0011.21b3.cb00    static  No           -   Router
+*  296  0011.21b3.cb00    static  No           -   Router
+*   10  0024.36f3.5121   dynamic  Yes        255   Gi4/4
+*   10  0013.72fa.e52f   dynamic  Yes         85   Gi4/4
+*   10  0021.9ba1.ebb9   dynamic  Yes          0   Gi4/4
+*  322  001d.a2df.fc00   dynamic  Yes          0   Gi4/2
+*   10  0022.0059.1800   dynamic  Yes        185   Gi4/4
+*   10  0013.7256.3272   dynamic  Yes         10   Gi4/4
+*  267  0021.9ba2.07bf   dynamic  Yes         80   Gi4/3
+*   10  0024.36f3.5120   dynamic  Yes         30   Gi4/4
+*   12  000a.4271.2d7c   dynamic  Yes          5   Gi4/16
+*   11  000a.4271.2d7c   dynamic  Yes          0   Gi4/16
+*  590  0024.14bd.461b   dynamic  Yes          0   Gi4/11
+*  866  0002.552f.ef52   dynamic  Yes          0   Gi5/1
+*  267  0021.9ba2.48a5   dynamic  Yes        205   Gi4/3
+*   10  0021.9ba1.ea63   dynamic  Yes          5   Gi4/4
+*  322  0013.725f.6ce3   dynamic  Yes        120   Gi4/2
+*    2  001c.f9e1.b019   dynamic  Yes          0   Gi4/13
+*  290  3333.0000.0016    static  Yes          -   Switch
+*  295  3333.0000.0016    static  Yes          -   Switch
+*  294  3333.0000.0016    static  Yes          -   Switch
+*  293  3333.0000.0016    static  Yes          -   Switch
+*  292  3333.0000.0016    static  Yes          -   Switch
+*  297  3333.0000.0016    static  Yes          -   Switch
+*  866  001a.6494.6128   dynamic  Yes          0   Gi5/1
+*  296  3333.0000.0016    static  Yes          -   Switch
+*  555  0060.fb54.588c   dynamic  Yes          0   Gi4/16
+*   10  0014.4f3a.3fcb   dynamic  Yes         10   Gi4/4
+*  272  0011.9349.aa40   dynamic  Yes         15   Gi4/16
+*  267  0022.1951.d4e2   dynamic  Yes        250   Gi4/3
+*  267  3333.0000.0016    static  Yes          -   Switch
+*  268  3333.0000.0016    static  Yes          -   Switch
+*  272  3333.0000.0016    static  Yes          -   Switch
+*  275  3333.0000.0016    static  Yes          -   Switch
+*  277  3333.0000.0016    static  Yes          -   Switch
+*  278  3333.0000.0016    static  Yes          -   Switch
+*  281  3333.0000.0016    static  Yes          -   Switch
+*  285  3333.0000.0016    static  Yes          -   Switch
+*   10  0016.3691.d88e   dynamic  Yes        180   Gi4/4
+*  272  0015.c5f1.aa52   dynamic  Yes         60   Gi4/16
+*   10  0011.43dd.ace0   dynamic  Yes         45   Gi4/4
+*  ---  0000.0000.0000    static  No           -   Router
+*  272  0080.2467.5a51   dynamic  Yes         75   Gi4/16
+*  249  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*  322  0013.725f.6e41   dynamic  Yes        165   Gi4/2
+*    2  0015.c727.b240   dynamic  Yes          0   Te1/4
+*  249  0000.0c07.acf9   dynamic  Yes          0   Gi4/16
+*   10  0015.5d0b.ee01   dynamic  Yes        130   Gi4/4
+*  557  3333.0000.0016    static  Yes          -   Switch
+*  555  3333.0000.0016    static  Yes          -   Switch
+*  566  3333.0000.0016    static  Yes          -   Switch
+*  564  3333.0000.0016    static  Yes          -   Switch
+*  580  0006.d6f2.f019   dynamic  Yes         50   Gi4/16
+*  580  000b.6059.e83c   dynamic  Yes         75   Gi4/16
+*  267  001e.c9fc.b178   dynamic  Yes         30   Gi4/3
+*   10  0014.4f79.2363   dynamic  Yes          0   Gi4/4
+*  564  000f.f864.f800   dynamic  Yes          0   Gi4/16
+*  566  000f.f864.f800   dynamic  Yes          0   Gi4/16
+*    2  0006.5282.d81b   dynamic  Yes          0   Gi4/16
+*  249  3333.0000.0001    static  Yes          -   Switch
+*  267  001d.0970.e17f   dynamic  Yes          5   Gi4/3
+*   82  0018.741c.a180   dynamic  Yes          0   Te6/1
+*   10  001d.0967.e3b8   dynamic  Yes         65   Gi4/4
+*  564  0060.fb54.397f   dynamic  Yes          5   Gi4/16
+*  580  0026.cb21.161a   dynamic  Yes         10   Gi4/16
+*  590  0006.d6f2.f01a   dynamic  Yes         30   Gi4/9
+*   10  0009.b77c.cd80   dynamic  Yes         35   Gi4/4
+*  267  0021.9ba2.48ad   dynamic  Yes         25   Gi4/3
+*  322  3333.0000.0001    static  Yes          -   Switch
+*  320  3333.0000.0001    static  Yes          -   Switch
+*  249  0024.36f4.43a4   dynamic  Yes         20   Gi4/16
+*  580  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*  590  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*  555  0011.21b3.cb00    static  No           -   Router
+*  557  0011.21b3.cb00    static  No           -   Router
+*  585  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*  566  0011.21b3.cb00    static  No           -   Router
+*  564  0011.21b3.cb00    static  No           -   Router
+*  566  0018.742f.a740   dynamic  Yes          0   Gi4/16
+*  267  0021.9ba2.4973   dynamic  Yes         25   Gi4/3
+*  564  0018.742f.a740   dynamic  Yes          0   Te7/2
+*  267  001e.c9af.ed32   dynamic  Yes         50   Gi4/3
+*  566  0026.cb9d.901b   dynamic  Yes          0   Te7/2
+*  564  0026.cb9d.901b   dynamic  Yes          0   Gi4/16
+*  267  001e.c9fc.b17c   dynamic  Yes         50   Gi4/3
+*   10  0013.7259.881a   dynamic  Yes         10   Gi4/4
+*  322  14fe.b5dc.5751   dynamic  Yes         10   Gi4/2
+*  322  14fe.b5dc.53c4   dynamic  Yes         15   Gi4/2
+*   64  000d.664d.fc00   dynamic  Yes          0   Te7/4
+*   82  000d.664d.fc00   dynamic  Yes          0   Gi4/12
+*  902  3333.0000.0016    static  Yes          -   Switch
+*    2  000b.45b0.e880   dynamic  Yes          5   Gi4/16
+*  566  0017.0fad.5a00   dynamic  Yes          0   Gi4/16
+*  564  0017.0fad.5a00   dynamic  Yes          0   Te6/1
+*   10  0014.4f9a.4274   dynamic  Yes        200   Gi4/4
+*   10  0014.4fa6.6e82   dynamic  Yes        250   Gi4/4
+*  267  001d.0970.e1f1   dynamic  Yes         40   Gi4/3
+*    2  0015.c727.a4c0   dynamic  Yes          0   Te6/1
+*   10  0011.43e3.a419   dynamic  Yes          0   Gi4/4
+*  882  000a.4271.2d7c   dynamic  Yes          0   Gi4/16
+*   10  001e.4f10.4ef8   dynamic  Yes         10   Gi4/4
+*  267  001e.c9af.ed2e   dynamic  Yes          0   Gi4/3
+*    2  000d.664d.fc00   dynamic  Yes          0   Te7/4
+*  272  000b.fdd9.5d80   dynamic  Yes         50   Gi4/16
+*   10  0022.0057.ee00   dynamic  Yes        185   Gi4/4
+*   10  0003.ff52.96a3   dynamic  Yes        160   Gi4/4
+*  267  001e.c9af.ede1   dynamic  Yes         50   Gi4/3
+*   10  0003.ff55.9702   dynamic  Yes         45   Gi4/4
+*   10  0021.9ba1.79bf   dynamic  Yes         15   Gi4/4
+*  294  3333.0000.0001    static  Yes          -   Switch
+*  295  3333.0000.0001    static  Yes          -   Switch
+*  292  3333.0000.0001    static  Yes          -   Switch
+*  293  3333.0000.0001    static  Yes          -   Switch
+*  290  3333.0000.0001    static  Yes          -   Switch
+*  296  3333.0000.0001    static  Yes          -   Switch
+*  297  3333.0000.0001    static  Yes          -   Switch
+*  267  001e.c9ac.f936   dynamic  Yes         70   Gi4/3
+*  267  001d.0970.e1ed   dynamic  Yes         20   Gi4/3
+*  268  3333.0000.0001    static  Yes          -   Switch
+*  566  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*  564  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*  267  3333.0000.0001    static  Yes          -   Switch
+*  277  3333.0000.0001    static  Yes          -   Switch
+*  555  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*  590  0011.21b3.cb00    static  No           -   Router
+*  278  3333.0000.0001    static  Yes          -   Switch
+*  272  3333.0000.0001    static  Yes          -   Switch
+*  557  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*  275  3333.0000.0001    static  Yes          -   Switch
+*  585  0011.21b3.cb00    static  No           -   Router
+*  285  3333.0000.0001    static  Yes          -   Switch
+*  281  3333.0000.0001    static  Yes          -   Switch
+*  249  a4ba.db27.cbaf   dynamic  Yes         10   Gi4/16
+*   10  0015.5d0b.ee14   dynamic  Yes        195   Gi4/4
+*  ---  0011.21b3.cb00    static  No           -   Router
+*  566  0026.cb21.161b   dynamic  Yes          0   Gi4/16
+*  564  0026.cb21.161b   dynamic  Yes          0   Te6/1
+*  ---  0011.21b3.cb00    static  No           -   Router
+*  ---  0011.21b3.cb00    static  No           -   Router
+*   22  0018.741c.a180   dynamic  Yes          0   Te6/1
+*   11  0015.c726.8680   dynamic  Yes          0   Te7/1
+*  275  0022.1960.3aa4   dynamic  Yes         45   Gi4/3
+*    2  0018.741c.a180   dynamic  Yes          0   Te6/1
+*  902  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*  249  0017.f293.ba10   dynamic  Yes         45   Gi4/16
+*  267  001e.c9ac.f77f   dynamic  Yes         25   Gi4/3
+*  267  0021.9ba2.496b   dynamic  Yes         35   Gi4/3
+*    2  001d.a2e0.0000   dynamic  Yes          0   Te1/4
+*   10  001d.a2e0.0000   dynamic  Yes          0   Gi4/4
+*  249  0017.f293.ba11   dynamic  Yes         45   Gi4/16
+*  322  14fe.b5dc.52c8   dynamic  Yes         10   Gi4/2
+*  267  001e.c9ac.f932   dynamic  Yes        155   Gi4/3
+*  566  0006.d6f2.f019   dynamic  Yes          0   Gi4/16
+*  564  0006.d6f2.f019   dynamic  Yes          5   Gi4/16
+*  585  3333.0000.0016    static  Yes          -   Switch
+*  590  3333.0000.0016    static  Yes          -   Switch
+*  580  3333.0000.0016    static  Yes          -   Switch
+*  249  0017.f293.ba12   dynamic  Yes         95   Gi4/16
+*    9  0000.0c07.ac07    static  No           -   Router
+*  580  000f.f864.f800   dynamic  Yes          0   Gi4/16
+*  249  0017.f293.ba13   dynamic  Yes         95   Gi4/16
+*  267  001e.c9ac.f8eb   dynamic  Yes         45   Gi4/3
+*   10  000d.5d01.a274   dynamic  Yes         15   Gi4/4
+*  590  000f.f864.f800   dynamic  Yes         10   Gi4/11
+*  249  0011.21b3.cb00    static  No           -   Router
+*  322  14fe.b5dc.5358   dynamic  Yes          5   Gi4/2
+*   10  0015.5d0a.d102   dynamic  Yes        215   Gi4/4
+*  902  3333.0000.0001    static  Yes          -   Switch
+*  322  0013.725f.7ee7   dynamic  Yes        295   Gi4/2
+*  580  0060.fb51.4b9d   dynamic  Yes          0   Gi4/16
+*   10  0025.64fe.a2d2   dynamic  Yes         10   Gi4/4
+*    2  0015.c723.1a00   dynamic  Yes          0   Te1/4
+*   22  000b.45b0.eafc   dynamic  Yes          5   Gi4/15
+*  322  3333.0000.0016    static  Yes          -   Switch
+*  249  000d.939c.5b1d   dynamic  Yes        255   Gi4/16
+*  320  3333.0000.0016    static  Yes          -   Switch
+*    2  0015.c723.7d00   dynamic  Yes          0   Te1/3
+*   10  0000.0c07.ac0a   dynamic  Yes          0   Gi4/4
+*  566  0018.742f.a3c0   dynamic  Yes          0   Te7/2
+*  564  0018.742f.a3c0   dynamic  Yes         15   Gi4/16
+*    2  0018.741c.9e80   dynamic  Yes          0   Te1/2
+*   10  0018.8b3c.f578   dynamic  Yes          5   Gi4/4
+*  275  0013.9502.c339   dynamic  Yes         45   Gi4/3
+*   10  0015.5d0a.d101   dynamic  Yes          5   Gi4/4
+*  249  000d.939c.5b1c   dynamic  Yes        255   Gi4/16
+*  267  001e.c9ac.f8e7   dynamic  Yes         10   Gi4/3
+*  267  001e.c9fc.d73b   dynamic  Yes         25   Gi4/3
+*   10  0025.64fd.7e76   dynamic  Yes          0   Gi4/4
+*  ---  0000.0000.aaaa    static  No           -   Switch
+*   10  0014.5ed2.83b0   dynamic  Yes         75   Gi4/4
+*    2  001a.3001.fc00   dynamic  Yes          0   Te1/3
+*  272  00a0.d2d8.4524   dynamic  Yes         75   Gi4/16
+*   10  001e.4f10.4fe2   dynamic  Yes         30   Gi4/4
+*  249  3333.0000.0016    static  Yes          -   Switch
+*  555  0060.fb54.2eb2   dynamic  Yes         15   Gi4/16
+*   10  0013.725b.9702   dynamic  Yes        150   Gi4/4
+*   10  0021.9ba1.e433   dynamic  Yes         10   Gi4/4
+*  285  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*  281  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*  580  0006.52f3.f419   dynamic  Yes         95   Gi4/16
+*  277  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*  555  3333.0000.0001    static  Yes          -   Switch
+*  278  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*   10  0001.d73f.e685   dynamic  Yes        225   Gi4/4
+*  272  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*    2  0018.74eb.3c00   dynamic  Yes          0   Te6/4
+*  557  3333.0000.0001    static  Yes          -   Switch
+*  275  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*  268  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*   42  c47d.4f82.891b   dynamic  Yes          0   Gi4/9
+*  566  3333.0000.0001    static  Yes          -   Switch
+*  267  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*  564  3333.0000.0001    static  Yes          -   Switch
+*  564  001f.ca39.721a   dynamic  Yes          0   Gi4/16
+*  566  001f.ca39.721a   dynamic  Yes          0   Gi4/16
+*   10  001c.23db.8400   dynamic  Yes        200   Gi4/4
+*   22  c47d.4f82.891b   dynamic  Yes          0   Gi4/9
+*  297  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*  296  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*  295  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*  294  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*  293  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*  292  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*  290  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*    2  c47d.4f82.891b   dynamic  Yes         10   Gi4/16
+*  864  0002.b3bb.3baa   dynamic  Yes        165   Te1/2
+*  297  0000.0c07.acf9   dynamic  Yes          0   Gi4/16
+*  296  0000.0c07.acf9   dynamic  Yes          0   Gi4/16
+*   10  0022.0058.d300   dynamic  Yes        185   Gi4/4
+*  290  0000.0c07.acf9   dynamic  Yes          0   Gi4/16
+*  293  0000.0c07.acf9   dynamic  Yes          0   Gi4/16
+*  267  001e.c9fc.d73f   dynamic  Yes         45   Gi4/3
+*  292  0000.0c07.acf9   dynamic  Yes          0   Gi4/16
+*  294  0000.0c07.acf9   dynamic  Yes          0   Gi4/16
+*  277  001d.a2df.fc00   dynamic  Yes          0   Gi4/3
+*  ---  0013.c320.5758    static  No           -   Gi5/1
+*  278  001d.a2df.fc00   dynamic  Yes          0   Gi4/3
+*  285  0000.0c07.acf9   dynamic  Yes          0   Gi4/16
+*  320  0013.725f.6dad   dynamic  Yes        170   Gi4/3
+*  320  0000.0c07.ac14   dynamic  Yes          0   Gi4/3
+*  320  0013.72fa.5680   dynamic  Yes        190   Gi4/3
+*  320  0004.02fc.1548   dynamic  Yes         50   Gi4/3
+*   82  000f.f864.f800   dynamic  Yes          0   Gi4/12
+*   64  000f.f864.f800   dynamic  Yes          0   Te1/1
+*  322  0013.725f.70d6   dynamic  Yes        175   Gi4/2
+*    2  0015.c723.1900   dynamic  Yes          0   Te6/1
+*  272  0019.b9b4.c038   dynamic  Yes         70   Gi4/3
+*  267  001d.0970.e45d   dynamic  Yes         50   Gi4/3
+*  564  50c5.8d87.cb3a   dynamic  Yes        120   Gi4/16
+*  566  50c5.8d87.cb3a   dynamic  Yes        195   Gi4/16
+*   10  0011.43de.5d34   dynamic  Yes         65   Gi4/4
+*   64  3333.0000.0016    static  Yes          -   Switch
+*   82  3333.0000.0016    static  Yes          -   Switch
+*   81  3333.0000.0016    static  Yes          -   Switch
+*  322  0013.725f.7b18   dynamic  Yes        195   Gi4/2
+*   10  0013.72fa.4be1   dynamic  Yes         10   Gi4/4
+*   91  3333.0000.0016    static  Yes          -   Switch
+*   92  3333.0000.0016    static  Yes          -   Switch
+*  322  0000.0c07.ac16   dynamic  Yes          0   Gi4/2
+*  866  e41f.131e.302c   dynamic  Yes         10   Gi5/1
+*  267  0010.dbff.2080   dynamic  Yes        270   Gi4/3
+*   10  0021.9ba1.eb56   dynamic  Yes          5   Gi4/4
+*   10  0013.725b.96a2   dynamic  Yes         85   Gi4/4
+*  267  001e.c9fc.d744   dynamic  Yes         35   Gi4/3
+*    2  0018.741c.a240   dynamic  Yes          0   Te1/2
+*    2  0026.cb21.161b   dynamic  Yes          5   Te6/1
+*  564  0018.741c.a180   dynamic  Yes          0   Gi4/16
+*  566  0018.741c.a180   dynamic  Yes          0   Te6/1
+*   10  0022.1953.b6d1   dynamic  Yes         75   Gi4/4
+*   42  0026.cb21.161b   dynamic  Yes          5   Te6/1
+*   10  0019.b9de.d72e   dynamic  Yes         30   Gi4/4
+*   10  0014.4f9e.fd17   dynamic  Yes         40   Gi4/4
+*  267  001e.c9ac.f850   dynamic  Yes         55   Gi4/3
+*    2  001d.a2df.fc00   dynamic  Yes          0   Te7/3
+*   10  001d.a2df.fc00   dynamic  Yes          0   Gi4/4
+*  272  0011.9349.17c2   dynamic  Yes         70   Gi4/16
+*   82  0018.742f.a740   dynamic  Yes         15   Te7/2
+*    2  001a.3001.f400   dynamic  Yes          0   Te6/2
+*   82  0026.cb9d.901b   dynamic  Yes         15   Te7/2
+*  322  000d.5d00.a6e7   dynamic  Yes         30   Gi4/2
+*   64  0011.21b3.cb00    static  No           -   Router
+*   42  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*    2  00d0.055d.2400   dynamic  Yes          0   Te6/3
+*  555  0014.6b00.0cd6   dynamic  Yes          0   Gi4/16
+*   52  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*   58  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*   92  0011.21b3.cb00    static  No           -   Router
+*   91  0011.21b3.cb00    static  No           -   Router
+*  267  001d.0970.e459   dynamic  Yes         10   Gi4/3
+*   10  0021.5a4b.da3f   dynamic  Yes        180   Gi4/4
+*    2  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*    5  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*    9  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*   11  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*   10  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*   12  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*  322  0022.195a.fb4c   dynamic  Yes          0   Gi4/2
+*   19  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*   22  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*  ---  0011.21b3.cb00    static  No           -   Router
+*  267  001e.c9ac.f783   dynamic  Yes         45   Gi4/3
+*   10  0014.4ff2.d732   dynamic  Yes        105   Gi4/4
+*    2  0014.1c42.ee00   dynamic  Yes          0   Gi4/16
+*   10  0014.4f3a.0f37   dynamic  Yes         80   Gi4/4
+*   82  0017.0fad.5a00   dynamic  Yes          5   Te6/1
+*  267  001e.c9fc.d740   dynamic  Yes         25   Gi4/3
+*   10  0012.3f68.3724   dynamic  Yes        300   Gi4/4
+*   10  000d.5d01.9aa0   dynamic  Yes          0   Gi4/4
+*  866  0011.43cd.0160   dynamic  Yes         25   Gi5/1
+*  267  001e.c9fc.b8b7   dynamic  Yes          5   Gi4/3
+*  580  000b.45b0.e880   dynamic  Yes          5   Gi4/16
+*  272  0014.f244.ea41   dynamic  Yes         40   Gi4/16
+*  566  000d.664d.fc00   dynamic  Yes          0   Gi4/16
+*  564  000d.664d.fc00   dynamic  Yes          5   Gi4/16
+*  322  0013.72fa.2bae   dynamic  Yes        105   Gi4/2
+*   10  0012.3f68.35c8   dynamic  Yes        270   Gi4/4
+*   10  000d.5d01.a248   dynamic  Yes         15   Gi4/4
+*  320  001e.c9ad.5fd4   dynamic  Yes         45   Gi4/3
+*   10  0011.4333.e501   dynamic  Yes        100   Gi4/4
+*   19  3333.0000.0001    static  Yes          -   Switch
+*  249  000a.9536.111b   dynamic  Yes        145   Gi4/16
+*   22  3333.0000.0001    static  Yes          -   Switch
+*    9  3333.0000.0001    static  Yes          -   Switch
+*   10  3333.0000.0001    static  Yes          -   Switch
+*   11  3333.0000.0001    static  Yes          -   Switch
+*   12  3333.0000.0001    static  Yes          -   Switch
+*    2  3333.0000.0001    static  Yes          -   Switch
+*    5  3333.0000.0001    static  Yes          -   Switch
+*  861  0011.21b3.cb00    static  No           -   Router
+*  864  0011.21b3.cb00    static  No           -   Router
+*   58  3333.0000.0001    static  Yes          -   Switch
+*  866  0011.21b3.cb00    static  No           -   Router
+*  902  001b.90f5.e41b   dynamic  Yes          5   Gi4/7
+*   52  3333.0000.0001    static  Yes          -   Switch
+*   42  3333.0000.0001    static  Yes          -   Switch
+*  881  0011.21b3.cb00    static  No           -   Router
+*  566  c47d.4f82.891b   dynamic  Yes         20   Gi4/16
+*  882  0011.21b3.cb00    static  No           -   Router
+*  564  c47d.4f82.891b   dynamic  Yes         20   Gi4/16
+*   10  0014.4ff2.d62b   dynamic  Yes         15   Gi4/4
+*   10  001e.c9af.4387   dynamic  Yes        280   Gi4/4
+*   64  0006.52f3.f41a   dynamic  Yes          0   Gi4/9
+*  267  0022.1951.d401   dynamic  Yes        250   Gi4/3
+*  272  0011.bb20.c941   dynamic  Yes         75   Gi4/16
+*   10  0012.3f68.367a   dynamic  Yes        110   Gi4/4
+*  267  001e.c9fc.b8bb   dynamic  Yes         60   Gi4/3
+*  320  000d.5d00.a6e9   dynamic  Yes          5   Gi4/3
+*   10  0800.20ec.a110   dynamic  Yes         40   Gi4/4
+*   10  0016.3691.d36a   dynamic  Yes        185   Gi4/4
+*  278  0000.0c07.ac07   dynamic  Yes          0   Gi4/3
+*  277  0000.0c07.ac07   dynamic  Yes          0   Gi4/3
+*  275  0000.0c07.ac07   dynamic  Yes          0   Gi4/3
+*  249  0017.f294.02f8   dynamic  Yes         15   Gi4/16
+*  864  3333.0000.0016    static  Yes          -   Switch
+*  866  3333.0000.0016    static  Yes          -   Switch
+*   10  0013.72f9.fad5   dynamic  Yes         70   Gi4/4
+*  881  3333.0000.0016    static  Yes          -   Switch
+*   10  0014.1cb3.6200   dynamic  Yes         40   Gi4/4
+*  882  3333.0000.0016    static  Yes          -   Switch
+*   10  0015.5d0b.ec05   dynamic  Yes        300   Gi4/4
+*   22  0018.742f.a3c0   dynamic  Yes          0   Te7/2
+*  272  0011.bb1a.cdc1   dynamic  Yes         25   Gi4/16
+*  861  3333.0000.0016    static  Yes          -   Switch
+*    2  0018.742f.a3c0   dynamic  Yes          0   Te7/2
+*   10  0013.7250.d0f8   dynamic  Yes          0   Gi4/4
+*  267  001e.c9af.eddd   dynamic  Yes          0   Gi4/3
+*   10  0012.3f68.363a   dynamic  Yes        145   Gi4/4
+*   10  0011.43dd.ad11   dynamic  Yes        215   Gi4/4
+*   10  0014.4f79.229e   dynamic  Yes        245   Gi4/4
+*    2  0015.c723.19c0   dynamic  Yes          0   Te7/3
+*  275  001d.a2e0.0000   dynamic  Yes          0   Gi4/3
+*  278  001d.a2e0.0000   dynamic  Yes          0   Gi4/3
+*  277  001d.a2e0.0000   dynamic  Yes          5   Gi4/3
+*  580  000b.be58.834a   dynamic  Yes          0   Gi4/16
+*  277  0019.b9b4.c036   dynamic  Yes        275   Gi4/3
+*  272  0016.c89d.bc02   dynamic  Yes        235   Gi4/16
+*  320  001d.a2e0.0000   dynamic  Yes          0   Gi4/3
+*  267  001d.0970.e4c6   dynamic  Yes         40   Gi4/3
+*  322  001d.a2e0.0000   dynamic  Yes         10   Gi4/2
+*   10  0022.0058.ab00   dynamic  Yes        190   Gi4/4
+*  564  0060.fb51.a504   dynamic  Yes         15   Gi4/16
+*   10  000d.5d01.a250   dynamic  Yes         15   Gi4/4
+*   10  0022.0058.ab01   dynamic  Yes         50   Gi4/4
+*  249  000a.9536.0d53   dynamic  Yes         90   Gi4/16
+*  866  000a.9535.779b   dynamic  Yes        175   Gi5/1
+*  267  0021.9ba2.48d2   dynamic  Yes         20   Gi4/3
+*   82  0018.742f.a3c0   dynamic  Yes          0   Te7/2
+*  555  0060.fb51.a6b6   dynamic  Yes          5   Gi4/16
+*   10  0025.64fe.6fc6   dynamic  Yes         30   Gi4/4
+*  267  001d.0970.e4c2   dynamic  Yes          0   Gi4/3
+*  249  0017.f293.ba32   dynamic  Yes         90   Gi4/16
+*   10  0011.43e3.a0ec   dynamic  Yes         40   Gi4/4
+*  272  00d0.7938.a820   dynamic  Yes         50   Gi4/16
+*    2  0006.52f3.f41b   dynamic  Yes          0   Gi4/16
+*  555  000a.4271.2d7c   dynamic  Yes          5   Gi4/16
+*  272  0014.1c42.f3a3   dynamic  Yes         30   Gi4/16
+*  249  0017.f293.ba33   dynamic  Yes         90   Gi4/16
+*  902  0009.b6df.1c3c   dynamic  Yes          5   Gi4/7
+*   10  001f.2802.db40   dynamic  Yes         60   Gi4/4
+*  902  001b.90f5.e01b   dynamic  Yes          0   Gi4/7
+*   10  0014.4f3a.0bf5   dynamic  Yes        145   Gi4/4
+*  249  0017.f293.ba30   dynamic  Yes         55   Gi4/16
+*  249  0007.e924.6eea   dynamic  Yes         30   Gi4/16
+*  861  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*   10  0011.43da.9b52   dynamic  Yes         95   Gi4/4
+*  249  0017.f293.ba31   dynamic  Yes         55   Gi4/16
+*   64  3333.0000.0001    static  Yes          -   Switch
+*  881  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*  882  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*  566  0060.fb51.a503   dynamic  Yes         15   Gi4/16
+*  249  0019.b9e3.ee84   dynamic  Yes        190   Gi4/16
+*   82  3333.0000.0001    static  Yes          -   Switch
+*   81  3333.0000.0001    static  Yes          -   Switch
+*  864  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*  866  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*   92  3333.0000.0001    static  Yes          -   Switch
+*   91  3333.0000.0001    static  Yes          -   Switch
+*   10  0021.9ba1.d8ab   dynamic  Yes         20   Gi4/4
+*   10  0014.4f79.1b3d   dynamic  Yes          5   Gi4/4
+*    2  0017.0fad.5a00   dynamic  Yes          0   Te6/1
+*   22  0017.0fad.5a00   dynamic  Yes          0   Te6/1
+*  555  0060.fb60.2a69   dynamic  Yes          0   Gi4/16
+*   10  0011.43e3.a39f   dynamic  Yes         55   Gi4/4
+*  249  0019.b9e4.a3c7   dynamic  Yes        155   Gi4/16
+*  861  000d.5670.3d64   dynamic  Yes        175   Gi5/1
+*   10  0013.7256.d6b7   dynamic  Yes        160   Gi4/4
+*  566  0060.fb54.3980   dynamic  Yes          5   Gi4/16
+*  267  001d.0970.e1c4   dynamic  Yes         45   Gi4/3
+*  267  001e.c9ac.f84c   dynamic  Yes          0   Gi4/3
+*  272  0014.221f.605f   dynamic  Yes         65   Gi4/16
+*  580  000d.664d.fc00   dynamic  Yes          5   Gi4/16
+*  590  000d.664d.fc00   dynamic  Yes         25   Gi4/9
+*    2  0026.cb9d.901b   dynamic  Yes          0   Te7/2
+*   91  0014.1c42.f300   dynamic  Yes          0   Gi4/9
+*   92  0014.1c42.f300   dynamic  Yes          0   Gi4/9
+*   22  0018.742f.a740   dynamic  Yes          0   Te7/2
+*  267  0021.9ba2.48da   dynamic  Yes         20   Gi4/3
+*   22  0023.33ff.1c3c   dynamic  Yes          5   Gi4/14
+*    2  0012.da1c.741b   dynamic  Yes          0   Gi4/8
+*   10  001e.c9aa.8dcf   dynamic  Yes         85   Gi4/4
+*   42  0026.cb9d.901b   dynamic  Yes          5   Te7/2
+*  864  3333.0000.0001    static  Yes          -   Switch
+*  866  3333.0000.0001    static  Yes          -   Switch
+*   92  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*   91  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*   82  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*   81  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*  881  3333.0000.0001    static  Yes          -   Switch
+*   42  0011.21b3.cb00    static  No           -   Router
+*  882  3333.0000.0001    static  Yes          -   Switch
+*   64  3333.0000.000d    static  Yes          -   Te1/1,Te1/2,Te1/3,Te1/4
+                                                   Gi4/1,Gi4/2,Gi4/3,Gi4/4
+                                                   Gi4/5,Gi4/6,Gi4/7,Gi4/8
+                                                   Gi4/9,Gi4/10,Gi4/11,Gi4/12
+                                                   Gi4/13,Gi4/14,Gi4/15,Gi4/16
+                                                   Gi5/1,Te6/1,Te6/2,Te6/3
+                                                   Te6/4,Te7/1,Te7/2,Te7/3
+                                                   Te7/4,Router,Switch
+*  864  001b.216a.c291   dynamic  Yes          0   Te1/2
+*  267  001d.0970.e183   dynamic  Yes         60   Gi4/3
+*  ---  0011.21b3.cb00    static  No           -   Router
+*   22  0011.21b3.cb00    static  No           -   Router
+*   10  000d.5d01.a25a   dynamic  Yes         10   Gi4/4
+*    9  0011.21b3.cb00    static  No           -   Router
+*   11  0011.21b3.cb00    static  No           -   Router
+*  267  0022.1951.d4de   dynamic  Yes         25   Gi4/3
+*   12  0011.21b3.cb00    static  No           -   Router
+*    2  0011.21b3.cb00    static  No           -   Router
+*   10  0013.7259.8acd   dynamic  Yes          0   Gi4/4
+*  861  3333.0000.0001    static  Yes          -   Switch
+*  590  0060.fb51.a4cf   dynamic  Yes          5   Gi4/9
+*    2  0015.c727.dd40   dynamic  Yes          0   Te1/3
+*   10  0012.3f68.366c   dynamic  Yes        165   Gi4/4
+*  322  0013.72fa.2bba   dynamic  Yes         20   Gi4/2
+*  555  0060.fb51.a6b8   dynamic  Yes          0   Gi4/16
+*   10  0001.d73f.5585   dynamic  Yes         45   Gi4/4
+*  267  001d.0970.e1c0   dynamic  Yes          0   Gi4/3
+*    2  0015.c727.e980   dynamic  Yes          0   Te7/3
+*   82  0026.cb21.161b   dynamic  Yes          5   Te6/1
+*   10  000d.5d01.a25c   dynamic  Yes         20   Gi4/4
+*    2  000f.f864.f800   dynamic  Yes          0   Te1/1
+*   10  0011.43df.3945   dynamic  Yes        190   Gi4/4
+*  249  0013.7253.7a4b   dynamic  Yes          5   Gi4/16
+*   10  0022.1953.b6cd   dynamic  Yes          0   Gi4/4
+*  267  0021.9ba2.07c7   dynamic  Yes          5   Gi4/3
+*   22  3333.0000.0016    static  Yes          -   Switch
+*   19  3333.0000.0016    static  Yes          -   Switch
+*   12  3333.0000.0016    static  Yes          -   Switch
+*    9  3333.0000.0016    static  Yes          -   Switch
+*   11  3333.0000.0016    static  Yes          -   Switch
+*   10  3333.0000.0016    static  Yes          -   Switch
+*    5  3333.0000.0016    static  Yes          -   Switch
+*  267  0022.1951.d3fd   dynamic  Yes         20   Gi4/3
+*    2  3333.0000.0016    static  Yes          -   Switch
+*   58  3333.0000.0016    static  Yes          -   Switch
+*   52  3333.0000.0016    static  Yes          -   Switch
+*  272  0013.72fa.9a21   dynamic  Yes        150   Gi4/16
+*  590  0030.199d.9070   dynamic  Yes        110   Gi4/9
+*   42  3333.0000.0016    static  Yes          -   Switch
+*  864  001b.216a.c295   dynamic  Yes          0   Te1/2
+*   10  000d.5d01.a25e   dynamic  Yes         15   Gi4/4
+*   10  0021.5a5d.4b06   dynamic  Yes         15   Gi4/4

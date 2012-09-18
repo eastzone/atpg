@@ -1,0 +1,727 @@
+!
+access-list 88 permit any
+access-list 101 deny   ip host 171.64.113.171 any
+access-list 101 permit ip any any
+access-list 102 permit tcp host 172.28.148.27 host 171.64.2.24 eq cmd log-input
+access-list 102 permit udp host 172.28.148.27 host 171.64.2.24 eq syslog log-input
+access-list 102 permit ip any any
+access-list 120 deny   tcp any any eq 445
+access-list 120 permit ip any any
+access-list 135 deny   tcp any any eq 445
+access-list 135 permit tcp any any gt 139
+access-list 135 deny   tcp any any gt 134
+access-list 135 permit tcp any any
+access-list 135 permit udp any any gt netbios-ss
+access-list 135 deny   udp any any gt 134
+access-list 135 permit ip any any
+access-list 139 permit tcp 172.26.6.64 0.0.0.15 any
+access-list 139 deny   tcp any any eq 445
+access-list 139 permit tcp any any gt 139
+access-list 139 deny   tcp any any gt 134
+access-list 139 permit tcp any any
+access-list 139 permit udp any any gt netbios-ss
+access-list 139 deny   udp any any gt 134
+access-list 139 permit ip any any
+access-list 140 permit ip any host 172.26.6.66
+access-list 140 permit ip any 171.64.7.128 0.0.0.63
+access-list 140 deny   tcp any any eq 445
+access-list 140 permit tcp any any gt 139
+access-list 140 deny   tcp any any gt 134
+access-list 140 permit tcp any any
+access-list 140 deny   udp any any eq 445
+access-list 140 permit udp any any gt netbios-ss
+access-list 140 deny   udp any any gt 134
+access-list 140 permit ip any any
+access-list 141 permit ip host 172.26.6.66 any
+access-list 141 permit ip 171.64.7.128 0.0.0.63 any
+access-list 141 deny   tcp any any eq 445
+access-list 141 permit tcp any any gt 139
+access-list 141 deny   tcp any any gt 134
+access-list 141 permit tcp any any
+access-list 141 deny   udp any any eq 445
+access-list 141 permit udp any any gt netbios-ss
+access-list 141 deny   udp any any gt 134
+access-list 141 permit ip any any
+!
+redundancy
+ main-cpu
+  auto-sync running-config
+ mode sso
+!
+vlan internal allocation policy ascending
+vlan access-log ratelimit 2000
+!
+vlan 10
+ name ROZ-spine
+!
+vlan 16
+ name Management-Net
+!
+vlan 17
+ name NED-Management-Net
+!
+vlan 199
+ name srtr-mgmt
+!
+vlan 206
+ name mgmt-fw-DMZ-net
+!
+vlan 208
+ name ROZ-sniff-net
+!
+vlan 209
+ name DHCP-relay-net
+!
+vlan 279
+ name auth3-net
+!
+vlan 322
+ name ROZ-M+M
+!
+vlan 330
+ name rgr-test-net
+!
+vlan 339
+ name lea-net
+!
+vlan 390
+ name cdr
+!
+vlan 400
+ name mecheng
+!
+vlan 410
+ name terman
+!
+vlan 420
+ name me-shop
+!
+vlan 430
+ name civileng
+!
+vlan 440
+ name termaneng
+!
+vlan 450
+ name sitn
+!
+vlan 460
+ name ctr
+!
+vlan 468
+ name HPC
+!
+vlan 470
+ name matsci
+!
+vlan 480
+ name thermo
+!
+vlan 580
+ name durand/aeroastro
+!
+vlan 590
+ name me-labs
+!
+vlan 600
+ name bme
+!
+vlan 610
+ name engadmin
+!
+vlan 660
+ name physics
+!
+vlan 670
+ name biology
+!
+vlan 671
+ name ROZ-Biology-Store
+!
+vlan 680
+ name ginzton
+!
+vlan 690
+ name statistics
+!
+vlan 700
+ name Solar-Physics_171.64.103.0/24
+!
+vlan 710
+ name ROZ-Reg-Classrooms
+!
+vlan 715
+ name ROZ-Reg-Server
+!
+vlan 720
+ name hepl
+!
+vlan 722
+ name hepl-nonfw-net
+!
+vlan 730
+ name gpb
+!
+vlan 740
+ name chem0
+!
+vlan 750
+ name chem2
+!
+vlan 755
+ name folding-server
+!
+vlan 760
+ name chem4
+!
+vlan 770
+ name chemeng
+!
+vlan 780
+ name scpd-hec-ctrl_171.67.230.0/26
+!
+vlan 781
+ name scpd-hec-class_171.67.230.64/26
+!
+vlan 790
+ name ICME_171.67.87.0/24
+!
+vlan 800
+ name Huang_Public_171.67.86.0/24
+!
+vlan 801
+ name Huang_Server_171.67.84.0/23
+!
+vlan 810
+ name y2e2-net
+!
+vlan 815
+ name y2e2-server-net
+!
+vlan 890
+ name mccullough
+!
+vlan 940
+ name ChemBio-Lokey
+!
+vlan 950
+ name KZSU
+!
+vlan 952
+ name w6yx-link-net
+!
+vlan 980
+ name design-net
+!
+vlan 992
+ name SLAC-in-Durand
+!
+vlan 1201
+ name Bldg02-550-ROZ-VoIP
+!
+vlan 1202
+ name 04-040-Nano-VoIP
+!
+vlan 1203
+ name 04-080-ROZ-VoIP
+!
+vlan 1204
+ name Bldg04-480-ROZ-VoIP-net
+!
+vlan 1205
+ name Bldg04-490-ROZ-VoIP-net
+!
+vlan 1206
+ name Bldg04-530-ROZ-VoIP-net
+!
+vlan 1207
+ name Bldg07-210-ROZ-VoIP-net
+!
+vlan 1208
+ name Bldg07-220-ROZ-VoIP-net
+!
+vlan 1209
+ name Bldg07-230-ROZ-VoIP-net
+!
+vlan 1210
+ name Bldg07-250-ROZ-VoIP-net
+!
+vlan 1211
+ name Bldg07-260-ROZ-VoIP-net
+!
+vlan 1212
+ name Bldg07-270-ROZ-VoIP-net
+!
+vlan 1213
+ name Bldg07-400-ROZ-VoIP-net
+!
+vlan 1214
+ name Bldg07-410-ROZ-VoIP-net
+!
+vlan 1215
+ name Bldg07-420-ROZ-VoIP-net
+!
+vlan 1230
+ name Bldg04-520-ROZ-VoIP
+!
+vlan 1235
+ name Bldg07-290-ROZ-VoIP-net
+!
+vlan 1281
+ name y2e2-ROZ-VoIP
+!
+vlan 2604
+ name roz-lb-ext-net
+!
+vlan 2704
+ name roz-lb-int-net
+!
+! 
+!
+!
+!
+interface Loopback0
+ ip address 172.20.0.65 255.255.255.255
+!
+interface Loopback2
+ ip address 172.20.0.4 255.255.255.255
+!
+interface Port-channel20
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 1201-1215,1230,1235,1281
+ switchport mode trunk
+!
+interface GigabitEthernet1/1
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 209
+ switchport mode trunk
+ shutdown
+!
+interface GigabitEthernet1/2
+ ip address 192.168.1.23 255.255.255.0
+ media-type rj45
+!
+interface TenGigabitEthernet2/1
+ description (te0/2) seq-bba-sw
+ no ip address
+!
+interface TenGigabitEthernet2/1.2
+ encapsulation dot1Q 2
+ ip address 172.20.4.65 255.255.254.0 secondary
+ ip address 171.64.255.136 255.255.255.192
+ no ip redirects
+ no ip unreachables
+ ipv6 address 2607:F6D0:0:BBA::AB40:FF88/64
+ no cdp enable
+!
+interface TenGigabitEthernet2/2
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 700
+ switchport mode trunk
+ shutdown
+!
+interface TenGigabitEthernet2/3
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 1,10,66,202,208,300,310,320,330,339,340,350,360
+ switchport trunk allowed vlan add 370,380,400,410,420,428,429,450,480,620,630
+ switchport trunk allowed vlan add 640,645,650,660,670,680,690,700,710,715,720
+ switchport trunk allowed vlan add 722,730,740,750,755,760,770,780,781,810,815
+ switchport trunk allowed vlan add 890,940,950,952,980,992,2604,2704
+ mtu 9216
+!
+interface TenGigabitEthernet2/4
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 2,3,10
+ switchport mode trunk
+ mtu 9216
+!
+interface TenGigabitEthernet3/1
+ no ip address
+!
+interface TenGigabitEthernet3/1.3
+ encapsulation dot1Q 3
+ ip address 172.20.6.65 255.255.254.0 secondary
+ ip address 171.66.255.136 255.255.255.192
+ no ip redirects
+ no ip unreachables
+ ipv6 address 2607:F6D0:0:BBB::AB42:FF88/64
+ no cdp enable
+!
+interface TenGigabitEthernet3/2
+ no ip address
+!
+interface TenGigabitEthernet3/3
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 10,206,208,279,322,330,339,390,400,410,420,430
+ switchport trunk allowed vlan add 440,450,460,468,470,480,580,590,600,610,660
+ switchport trunk allowed vlan add 670,671,680,690,700,710,715,720,722,730,740
+ switchport trunk allowed vlan add 750,755,760,770,780,781,790,800,801,810,815
+ switchport trunk allowed vlan add 890,940,950,952,980,992,1201-1215,1230,1235
+ switchport trunk allowed vlan add 1281
+ switchport mode trunk
+!
+interface TenGigabitEthernet3/4
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 322,390,400,410,420,430,440,460,468,470,480,580
+ switchport trunk allowed vlan add 590,600,610,660,670,671,680,690,710,715,720
+ switchport trunk allowed vlan add 730,740,750,760,770,780,781,790,800,801,810
+ switchport trunk allowed vlan add 815,890,940,980,992,2604,2704
+ switchport mode trunk
+ mtu 9216
+!
+interface GigabitEthernet4/1
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 1201-1215,1230,1235,1281
+ switchport mode trunk
+ no cdp enable
+ channel-group 20 mode on
+!
+interface GigabitEthernet4/2
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 1201-1215,1230,1235,1281
+ switchport mode trunk
+ no cdp enable
+ channel-group 20 mode on
+!
+interface GigabitEthernet4/3
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 2604,2704
+ switchport mode trunk
+ no cdp enable
+!
+interface GigabitEthernet4/4
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/5
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/6
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/7
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/8
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/9
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/10
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/11
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/12
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/13
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/14
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/15
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/16
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/17
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/18
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/19
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/20
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/21
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/22
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/23
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/24
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/25
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/26
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/27
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/28
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/29
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/30
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/31
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/32
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/33
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/34
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/35
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/36
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/37
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/38
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/39
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/40
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/41
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/42
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/43
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/44
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/45
+ no ip address
+ no cdp enable
+!
+interface GigabitEthernet4/46
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 10,210-999
+ switchport mode trunk
+ no cdp enable
+!
+interface GigabitEthernet4/47
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 209
+ switchport mode trunk
+ no cdp enable
+!
+interface GigabitEthernet4/48
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 16,17
+ switchport mode trunk
+ no cdp enable
+!
+interface Vlan1
+ no ip address
+ no ip redirects
+ no ip unreachables
+ shutdown
+!
+interface Vlan10
+ ip address 172.20.10.65 255.255.255.224
+ no ip redirects
+ no ip unreachables
+ ip ospf cost 10
+ ip ospf mtu-ignore
+ ipv6 address 2607:F6D0:0:200A::AC14:A41/64
+ ipv6 ospf mtu-ignore
+ ipv6 ospf 64802 area 0
+ standby 20 ip 172.20.10.94
+ standby 20 timers 2 7
+ standby 20 priority 120
+ standby 20 preempt
+ standby 20 authentication vlan10
+!
+interface Vlan206
+ ip address 172.26.4.82 255.255.255.248
+ ip access-group 102 out
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ standby 20 ip 172.26.4.81
+ standby 20 timers 2 7
+ standby 20 priority 120
+ standby 20 preempt
+ standby 20 authentication vlan206
+!
+interface Vlan208
+ ip address 172.26.4.90 255.255.255.248
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ standby 20 ip 172.26.4.89
+ standby 20 timers 2 7
+ standby 20 priority 120
+ standby 20 preempt
+ standby 20 authentication vlan208
+!
+interface Vlan209
+ ip address 192.168.209.17 255.255.255.252
+ no ip redirects
+ no ip unreachables
+!
+interface Vlan330
+ ip address 172.26.66.98 255.255.255.240 secondary
+ ip address 171.66.66.98 255.255.255.240
+ ip verify unicast source reachable-via rx allow-default
+ no ip redirects
+ no ip unreachables
+ standby 33 ip 171.66.66.97
+ standby 33 ip 172.26.66.97 secondary
+ standby 33 timers 2 7
+ standby 33 priority 150
+ standby 33 preempt
+!
+interface Vlan339
+ ip address 171.66.66.82 255.255.255.240
+ no ip redirects
+ no ip unreachables
+ standby 33 ip 171.66.66.81
+ standby 33 timers 2 7
+ standby 33 priority 130
+ standby 33 preempt
+ standby 33 authentication vlan339
+!
+interface Vlan450
+ ip address 172.24.115.2 255.255.255.0 secondary
+ ip address 171.64.115.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ standby 45 ip 171.64.115.1
+ standby 45 ip 172.24.115.1 secondary
+ standby 45 timers 2 7
+ standby 45 priority 120
+ standby 45 preempt
+ standby 45 authentication vlan450
+!
+interface Vlan700
+ ip address 172.24.103.2 255.255.255.0 secondary
+ ip address 171.64.103.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ standby 70 ip 171.64.103.1
+ standby 70 ip 172.24.103.1 secondary
+ standby 70 timers 2 7
+ standby 70 priority 120
+ standby 70 preempt
+ standby 70 authentication vlan700
+!
+interface Vlan722
+ ip address 171.67.230.130 255.255.255.192
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ ip flow ingress
+ standby 72 ip 171.67.230.129
+ standby 72 timers 2 7
+ standby 72 priority 120
+ standby 72 preempt
+ standby 72 authentication vlan722
+!
+interface Vlan755
+ ip address 172.27.108.2 255.255.255.0 secondary
+ ip address 171.67.108.2 255.255.255.0
+ ip verify unicast source reachable-via rx allow-default
+ ip helper-address 171.64.7.111
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ ip flow ingress
+ standby 75 ip 171.67.108.1
+ standby 75 ip 172.27.108.1 secondary
+ standby 75 timers 2 7
+ standby 75 priority 120
+ standby 75 preempt
+ standby 75 authentication vlan755
+!
+interface Vlan3222
+ no ip address
+ no ip redirects
+ shutdown
+!
+!
+end
