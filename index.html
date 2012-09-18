@@ -31,13 +31,36 @@
         <hr>
 
         <section id="main_content">
-          <p>Automatic Test Packet Generation </p>
+<p>Networks are getting larger and more complex; yet administrators
+rely on rudimentary tools such as ping and tracer-
+oute to debug problems. We propose an automated and systematic
+approach for testing and debugging networks called
+“Automatic Test Packet Generation” (ATPG). ATPG reads
+router configurations and generates a device-independent model.
+The model is used to generate a minimum set of test packets
+to (minimally) exercise every link in the network or (maximally)
+exercise every rule in the network. Test packets are
+sent periodically and detected failures trigger a separate mechanism
+to localize the fault. ATPG can detect both functional
+(e.g., incorrect firewall rule) and performance problems
+(e.g., congested queue). ATPG complements but goes
+beyond earlier work in static checking (which cannot detect
+liveness or performance faults) or fault localization (which
+only localize faults given liveness results).</p>
 
-<p>Author: James Hongyi Zeng (hyzeng_at_stanford.edu) and Peyman Kazemian (kazemian_at_stanford.edu)</p>
+<p>We describe our prototype ATPG implementation and results
+on two real-world data sets: Stanford University’s backbone
+network and Internet2. We find that a small number of
+test packets suffices to test all rules in these networks: For
+example 4000 packets can cover all rules in Stanford backbone
+network while 54 is enough to cover all links. Sending
+4000 test packets 10 times per second consumes lesss than
+1% of link capacity. ATPG code and the data sets are publicly
+available.</p>
 
-<p>Automatic Test Packet Generation (ATPG) is a tool that formally generates test packets with to achieve maximum rule coverage. </p>
+<p>Our paper is published on CoNEXT 2012. Download the <a href="https://github.com/eastzone/atpg">code</a> and try to <a href="https://github.com/eastzone/atpg/wiki">reproduce</a> our results on your own laptop!</p>
 
-<p>ATPG is uses Hassel (<a href="https://bitbucket.org/peymank/hassel-public">https://bitbucket.org/peymank/hassel-public</a>) for packet header analysis.</p>
+<p>ATPG uses <a href="https://bitbucket.org/peymank/hassel-public">Hassel</a> for packet header analysis.</p>
         </section>
 
         <footer>
