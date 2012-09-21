@@ -1,0 +1,8 @@
+8.8.8.8
+www.google.com
+www.youtube.com
+www.yahoo.com
+www.gmail.com
+www.twitter.com
+www.facebook.com
+
